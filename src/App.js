@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import HomePage from "./page/HomePage";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import HomePage from "./page/HomePage";
 
-function App() {
+import { Routes, Route } from "react-router";
+import Header from "./components/layout/Header/Header";
+import Footer from "./components/layout/Footer/Footer";
+import Gallery from "./page/Gallery";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
+
+import FloatingMenu2 from "./components/layout/FloatingBTN/FloatingMenu2";
+
+
+const App = (props) => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <MobileView>
+        <FloatingMenu2 />
+      </MobileView>
+      <Header />
+      <Routes>
+
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Gallery" element={<Gallery />} />
+
+      </Routes>
+
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

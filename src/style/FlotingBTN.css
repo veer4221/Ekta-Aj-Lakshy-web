@@ -1,0 +1,14 @@
+.floatIcons{
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible;
+}
+.MuiSpeedDialAction-staticTooltipLabel{
+    color:black !important;
+    background-color:lightgray !important;
+}
