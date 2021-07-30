@@ -18,7 +18,7 @@ const HomePage = () => {
     <>
       <div>
         {/* <Header /> */}
-        <Drowerview/>
+        {/* <Drowerview/> */}
         <Carouselslider/>
         <AboutUsSangathan />
         <Post />

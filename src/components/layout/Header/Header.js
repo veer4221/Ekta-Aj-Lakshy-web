@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <header className="continer-fluid ">
-       <TopHeader/>
+       {/* <TopHeader/> */}
         <BottomHeader/>
       </header>
     </>

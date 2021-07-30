@@ -47,21 +47,20 @@ export default function FloatingMenu2() {
     const navigate =useNavigate();
     const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [zIndexis, setZIndexis] = React.useState(0);
+  
 
   const handleClose = () => {
     setOpen(false);
   };
 
   const handleOpen = () => {
-    setZIndexis(1)
+    
     setOpen(true);
   };
 
   return (
       <div className="floatIcons">
-        {/* <Drowerview/> */}
-    {/* <SpeedDial
+    <SpeedDial
       ariaLabel="SpeedDial example"
       className={classes.button}
       icon={<AppsIcon />}
@@ -69,14 +68,14 @@ export default function FloatingMenu2() {
       onOpen={handleOpen}
       open={open}
       direction="up"
-    > */}
+    >
 
-      {/* {actions.map((action) => (
+      {actions.map((action) => (
         <SpeedDialAction
           key={action.name}
           className={classes.button}
 
-          style={{zIndex:zIndexis}}
+        
           icon={action.icon}
           tooltipOpen
           tooltipTitle={action.name}
@@ -86,8 +85,8 @@ export default function FloatingMenu2() {
               navigate(action.route)
           }}
         />
-      ))} */}
-    {/* </SpeedDial> */}
+      ))}
+    </SpeedDial>
     </div>
   );
 }

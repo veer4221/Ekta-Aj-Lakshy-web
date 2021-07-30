@@ -83,13 +83,16 @@ export default function Drowerview() {
   );
 
   return (
-    <div  className="floatIcons">
+    <div>
 
       {['bottom'].map((anchor) => (
         <React.Fragment key={anchor}>
+
+          <div>
           <Button onClick={toggleDrawer(anchor, true)}>
               <FabIcon/>
           </Button>
+          </div>
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}
