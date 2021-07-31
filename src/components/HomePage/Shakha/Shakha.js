@@ -24,7 +24,7 @@ const shakhaCardInfo = [
 const Shakha = () => {
   return (
     <>
-      <section className="events">
+      <section className="events page">
         <div className="container">
           <div className="session-title row">
             <h2>Our Branch</h2>

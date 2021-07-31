@@ -1,5 +1,7 @@
 import React from "react";
 import PostCard from "./PostCard";
+import "../../../style/aboutUsMtextView.css";
+
 const postInfo = [
   {
     creater: `admin xyz`,
@@ -33,11 +35,11 @@ const postInfo = [
 const Post = () => {
   return (
     <>
-      <section className="our-blog">
-        <div className="container">
+      <section className="our-blog page">
+        <div className="container ">
           <div className="row session-title">
-            <h2> Post </h2>
-            <p>Events </p>
+            <h2 style={{fontFamily:"Samarkan",color:"rgb(172, 24, 24)"}}> Post </h2>
+
           </div>
           <div className="blog-row row">
             {postInfo && postInfo.map((data) => <PostCard data={data} />)}

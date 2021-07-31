@@ -12,11 +12,10 @@ import Footer from "../components/layout/Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Drowerview from "../components/layout/FloatingBTN/Drowerview";
 
-
 const HomePage = () => {
   return (
     <>
-      <div>
+      <div >
         {/* <Header /> */}
         {/* <Drowerview/> */}
         <Carouselslider/>

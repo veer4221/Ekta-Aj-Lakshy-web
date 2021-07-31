@@ -15,7 +15,7 @@ const VisionImg = [
 const MissionAndVision = () => {
   return (
     <>
-      <section className="container-fluid mission-vision">
+      <section className="container-fluid mission-vision page">
         <div className="container">
           <div className="row mission">
             <div className="col-md-6 mv-det">

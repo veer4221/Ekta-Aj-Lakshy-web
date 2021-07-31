@@ -1,14 +1,14 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import Typography from '@material-ui/core/Typography';
-import TabsComp from './Tabs/TabsComp';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import Typography from "@material-ui/core/Typography";
+import TabsComp from "./Tabs/TabsComp";
 
 const styles = (theme) => ({
   root: {
@@ -16,7 +16,7 @@ const styles = (theme) => ({
     padding: theme.spacing(2),
   },
   closeButton: {
-    position: 'absolute',
+    position: "absolute",
     right: theme.spacing(1),
     top: theme.spacing(1),
     color: theme.palette.grey[500],
@@ -29,7 +29,11 @@ const DialogTitle = withStyles(styles)((props) => {
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
-        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+        <IconButton
+          aria-label="close"
+          className={classes.closeButton}
+          onClick={onClose}
+        >
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -62,32 +66,38 @@ export default function ViewUs() {
 
   return (
     <div>
-        <Button
-              variant="outlined"
-              color="secondary"
-              width="100%"
-              onClick={handleClickOpen}
-              style={{
-                marginLeft: "10%",
-                marginRight: "40px",
-                marginBottom: "30px",
-                width: "80%",
-              }}
-            >
-                View More
-            </Button>
+      <Button
+
+        width="100%"
+        onClick={handleClickOpen}
+        style={{
+          marginLeft: "10%",
+          color:"white",
+          marginRight: "40px",
+          marginBottom: "30px",
+          width: "80%",
+          backgroundImage:
+            "radial-gradient(circle, #c26603, #ba5d06, #b15508, #a84d0a, #9f450b)",
+        }}
+      >
+        View More
+      </Button>
       {/* <Button variant="outlined" color="primary">
         Open dialog
       </Button> */}
-      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+      <Dialog
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+      >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          About Us
+           About Us
         </DialogTitle>
         <DialogContent dividers>
-         <TabsComp/>
+          <TabsComp />
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary" >
+          <Button autoFocus onClick={handleClose} color="primary">
             HomePage
           </Button>
         </DialogActions>

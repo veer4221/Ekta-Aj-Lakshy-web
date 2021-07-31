@@ -1,9 +1,11 @@
 import React from "react";
 import ReactPlayer from "react-player";
+import "../../../../../../../style/aboutUsMtextView.css"
+
 const AboutUsVideo = () => {
   return (
     <>
-      <div className="about-us container-fluid ">
+      <div className="about-us container-fluid page">
         <div className="container-fluid">
           {/* <div className="row natur-row no-margin w-100 maindiv"> */}
             {/* <div className="image-part col-md-12"> */}

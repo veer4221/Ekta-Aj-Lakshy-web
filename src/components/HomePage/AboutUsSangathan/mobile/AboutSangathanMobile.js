@@ -7,31 +7,27 @@ import ViewUs from "./ViewUsMobile/ViewUs";
 const AboutSangathanMobile = () => {
   return (
     <>
-      <Card height="100%" width="100%" style={{margin:"-7%"}}>
+      {/* <Card height="40%" width="100%" style={{margin:"-7%"}}> */}
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <h1 style={{ textAlign: "center" }}>About Us</h1>
+            <h1 style={{ textAlign: "center",color:"rgb(133, 6, 6)" }}> || About Us ||</h1>
             <hr></hr>
           </Grid>
-          <Grid item xs={8}>
-            <p style={{ textAlign: "center" }}>
-              🚩18Varan Ek Sathe🚩<br></br>🚩 Hindutv mate🚩
-            </p>
-            <ViewUs/>
-          </Grid>
-
-          <Grid item xs={4}  style={{ borderLeft: `1px sloid black` }}>
-            <div>
-              <img src={ramji} />
+          <Grid item xs={12}>
+            <div style={{display:"flex" ,justifyContent:"center"}}>
+              <img src={ramji}  width="60%"/>
             </div>
           </Grid>
-
-          {/* <Grid item xs={12}>
+          <Grid item xs={12}>
+            <p style={{ textAlign: "center" }}>
+            18 Varan Ek sathe | <br></br> Hindutv mate ||
+            </p>
+            <Divider/>
             <hr></hr>
-
-          </Grid> */}
+            <ViewUs/>
+          </Grid>
         </Grid>
-      </Card>
+      {/* </  Card> */}
     </>
   );
 };

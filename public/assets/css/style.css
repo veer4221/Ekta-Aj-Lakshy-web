@@ -9,6 +9,7 @@ Description: This Template is created for Youtubers
 /* ===================================== Import Variables ================================== */
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700);
 @import url(https://fonts.googleapis.com/css?family=Arimo:300,400,400italic,700,700italic);
+@import url(http://fonts.cdnfonts.com/css/samarkan);
 /* ===================================== Basic CSS ==================================== */
 * {
   margin: 0px;
@@ -322,10 +323,10 @@ header {
           padding: 10px; } }
       header .nav-col .navbad li a {
         color: #686968 !important;
-        border: 1px solid #CCC;
+        border: 1px solid rgb(172, 24, 24);
         border-radius: 50px; }
         header .nav-col .navbad li a:hover {
-          background-color: #3cc88f;
+          background-color: #faa747;
           color: #fff !important; }
     header .nav-col .navbad .nav-btn {
       float: right; }

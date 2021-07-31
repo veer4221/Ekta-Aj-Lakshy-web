@@ -3,8 +3,8 @@ import React from 'react'
 const AboutUsContent = () => {
     return (
         <>
-            <div className="text-part col-md-12">
-                  <h2>About Our Charity</h2>
+            <div className="text-part col-md-12" style={{color:"rgb(133, 6, 6)"}}>
+                  <h2 style={{fontFamily:"Samarkan",textAlign:"center",color:"rgb(133, 6, 6)"}}>|| About Us ||</h2>
                   <p>
                   મુખ્ય પૃષ્ઠ ક્રમમાં આગળ વધવું જોઈએ.
                      ડ્યુઇસ વેરિયસ ફauસીબસ લિગુલા નોન કોન્ગ્યુ. સસ્પેન્ડિસ

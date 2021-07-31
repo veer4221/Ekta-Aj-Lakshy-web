@@ -9,6 +9,9 @@ import {
   isMobile,
 } from "react-device-detect";
 import { Card } from "@material-ui/core";
+import "../../../style/aboutUs.css"
+import "../../../style/aboutUsMtextView.css"
+
 const boxData = [
   {
     icon: `fas fa-user`,
@@ -31,19 +34,21 @@ const AboutUsSangathan = () => {
   return (
     <>
       <MobileView>
-        <Card>
+        <div className="oldPage page">
+        {/* <Card> */}
 
-        <div className="about-us container-fluid ">
-          <div className="bgimg">
+        <div className="about-us container-fluid page ">
+          <div className="bgimgM">
             <div className="container">
               <AboutSangathanMobile />
             </div>
           </div>
         </div>
-        </Card>
+        {/* </Card> */}
+        </div>
       </MobileView>
       <BrowserView>
-        <div className="about-us container-fluid ">
+        <div className="about-us container-fluid page">
           <div className="bgimg">
             <div className="container">
               <div className="row natur-row no-margin w-100 maindiv">
