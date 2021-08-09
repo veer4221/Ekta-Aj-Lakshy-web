@@ -31,31 +31,32 @@ const BottomHeader = () => {
                   >
                     <span
                       style={{
-
                         color: "rgb(172, 24, 24)",
                         fontSize: "20px",
                       }}
                     >
                       Home
-                      </span>
-                  </a>
-
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="about_us.html">
-                    <span
-                      style={{
-
-                        color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
-                      }}
-                    >
-
-                    About Us
                     </span>
                   </a>
                 </li>
                 <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
+                      navigate("/aboutus");
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "rgb(172, 24, 24)",
+                        fontSize: "20px",
+                      }}
+                    >
+                      About Us
+                    </span>
+                  </a>
+                </li>
+                {/* <li className="nav-item">
                   <a className="nav-link" href="services.html">
                     <span
                       style={{
@@ -68,9 +69,9 @@ const BottomHeader = () => {
                     Services
                     </span>
                   </a>
-                </li>
+                </li> */}
 
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a
                     className="nav-link"
                     onClick={() => {
@@ -79,42 +80,46 @@ const BottomHeader = () => {
                   >
                     <span
                       style={{
-
                         color: "rgb(172, 24, 24)",
                         fontSize: "20px",
                       }}
                     >
+                      Gallery
+                    </span>
+                  </a>
+                </li> */}
 
-                    Gallery
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
+                      navigate("/news");
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "rgb(172, 24, 24)",
+                        fontSize: "20px",
+                      }}
+                    >
+                      News
                     </span>
                   </a>
                 </li>
-
                 <li className="nav-item">
-                  <a className="nav-link" href="blog.html">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
+                      navigate("/DonateUs");
+                    }}
+                  >
                     <span
                       style={{
-
                         color: "rgb(172, 24, 24)",
                         fontSize: "20px",
                       }}
                     >
-
-                    Blog
-                    </span>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="contact_us.html">
-                    <span
-                      style={{
-
-                        color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
-                      }}
-                    >
-
-                    Contact US
+                      Donate Us
                     </span>
                   </a>
                 </li>

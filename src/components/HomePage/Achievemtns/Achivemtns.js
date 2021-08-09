@@ -12,7 +12,7 @@ const AxhivemtnsCaseData=[
     },
     {
         number:123,
-        lebel:`Land-Jihad`
+        lebel:`Jihad`
     },
     {
         number:212,

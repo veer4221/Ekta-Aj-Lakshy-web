@@ -13,8 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { Grid } from "@material-ui/core";
-import "../../../style/aboutUsMtextView.css";
-import "../../../style/buttoncss.css";
+// import "../../../style/aboutUsMtextView.css";
+import "../../style/buttoncss.css";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

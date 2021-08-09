@@ -27,7 +27,7 @@ const KaryKarta = () => {
     <>
       <section className="our-team team-11 page">
         <div className="container">
-          <div className="session-title row">
+          <div className="session-title row ">
             <h2>Meet our Team</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce

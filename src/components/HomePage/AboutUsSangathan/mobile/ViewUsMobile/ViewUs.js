@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -54,7 +54,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function ViewUs() {
+export default function ViewUs({ info }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -66,22 +66,24 @@ export default function ViewUs() {
 
   return (
     <div>
-      <Button
+      <div className="ourBtn ">
+        <Button
+          width="100%"
+          onClick={handleClickOpen}
+          style={{
+            marginLeft: "10%",
+            color: "white",
+            marginRight: "40px",
+            marginBottom: "30px",
+            width: "80%",
 
-        width="100%"
-        onClick={handleClickOpen}
-        style={{
-          marginLeft: "10%",
-          color:"white",
-          marginRight: "40px",
-          marginBottom: "30px",
-          width: "80%",
-          backgroundImage:
-            "radial-gradient(circle, #c26603, #ba5d06, #b15508, #a84d0a, #9f450b)",
-        }}
-      >
-        View More
-      </Button>
+            backgroundImage:
+              "radial-gradient(circle, #c26603, #ba5d06, #b15508, #a84d0a, #9f450b)",
+          }}
+        >
+          || View More ||
+        </Button>
+      </div>
       {/* <Button variant="outlined" color="primary">
         Open dialog
       </Button> */}
@@ -91,7 +93,7 @@ export default function ViewUs() {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-           About Us
+          About Us
         </DialogTitle>
         <DialogContent dividers>
           <TabsComp />

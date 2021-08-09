@@ -11,7 +11,13 @@ import Post from "../components/HomePage/Post/Post";
 import Footer from "../components/layout/Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Drowerview from "../components/layout/FloatingBTN/Drowerview";
-
+import MainTab from "../components/MainTabs/MainTab"
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 const HomePage = () => {
   return (
     <>
@@ -19,6 +25,7 @@ const HomePage = () => {
         {/* <Header /> */}
         {/* <Drowerview/> */}
         <Carouselslider/>
+
         <AboutUsSangathan />
         <Post />
         <Achivemtns />

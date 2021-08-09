@@ -1,105 +1,80 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import CloseIcon from "@material-ui/icons/Close";
-import Slide from "@material-ui/core/Slide";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 import { Grid } from "@material-ui/core";
-import "../../../style/aboutUsMtextView.css";
-import "../../../style/buttoncss.css";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import ReactPlayer from "react-player";
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
   },
 }));
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
-export default function ViewMore({ Image }) {
+export default function TabsShakha({ imageUrl }) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState(0);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   return (
-    <div className="ourBtn">
-      <Button color="primary" onClick={handleClickOpen}>
-        || Read More ||
-      </Button>
-      <Dialog
-        fullScreen
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-      >
-        <AppBar className={classes.appBar} style={{ backgroundColor: "white" }}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose}
-              style={{
-                color: "rgb(172, 24, 24)",
-              }}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography
-              variant="h6"
-              className={classes.title}
-              style={{
-                color: "rgb(172, 24, 24)",
-                fontFamily: "Samarkan",
-                fontSize: "30px",
-              }}
-            >
-              Ekta Ej Laksh
-            </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              save
-            </Button>
-          </Toolbar>
-        </AppBar>
+    <div className={classes.root}>
+      <AppBar position="static" style={{ backgroundColor: "white" }}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="simple tabs example"
+        >
+          <Tab label="Text Info" {...a11yProps(0)} />
+          <Tab label="Video Info" {...a11yProps(1)} />
+          {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0} className="shakhamain">
         <Grid container spacing={3} className="page">
-          <Grid item xs={12}>
-            <h1
-              style={{
-                textAlign: "center",
-                color: "rgb(172, 24, 24)",
-                paddingTop: "5px",
-                fontFamily: "Samarkan",
-              }}
-            >
-              {" "}
-              || Post ||
-            </h1>
-          </Grid>
           <Grid item xs={12}>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <img
-                src={Image}
+                src={imageUrl}
                 Width="60%"
                 height="80%"
                 style={{ border: "5px solid rgb(172, 24, 24)" }}
@@ -172,7 +147,27 @@ export default function ViewMore({ Image }) {
             </p>
           </Grid>
         </Grid>
-      </Dialog>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <div className="about-us container-fluid page">
+          <div className="container-fluid">
+            {/* <div className="row natur-row no-margin w-100 maindiv"> */}
+            {/* <div className="image-part col-md-12"> */}
+            <div
+              className="about-quick-box row"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <ReactPlayer
+                url="https://www.youtube.com/watch?v=pmK-InrtwJg"
+                controls={true}
+                playing={true}
+              />
+            </div>
+            {/* </div> */}
+            {/* </div> */}
+          </div>
+        </div>
+      </TabPanel>
     </div>
   );
 }

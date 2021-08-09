@@ -11,7 +11,7 @@ const PostCard = ({data}) => {
           <figure>
             <img src={data.postImage} alt="" />
           </figure>
-          <div className="blog-detail ">
+          <div className="blog-detail " style={{fontSize:"larger"}}>
             <small>{data.creater}</small>
             <h4 style={{color: "rgb(172, 24, 24)"}}>|| {data.titel} ||</h4>
             <p style={{color: "rgb(172, 24, 24)"}}>

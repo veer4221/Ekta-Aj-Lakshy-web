@@ -1,0 +1,5 @@
+.MuiTabs-flexContainer > button{
+margin: 10px;
+background-color: none!important;
+border: 0px !important;
+}

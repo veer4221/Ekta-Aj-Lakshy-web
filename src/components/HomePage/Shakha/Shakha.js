@@ -1,6 +1,25 @@
 import React from "react";
 import ShakhaCard from "./ShakhaCard";
+import "./shakha.css";
 const shakhaCardInfo = [
+  {
+    name: "Rojgar",
+    information: ` Lorem Ipsum is simply dummy text of the printing and
+        typesetting industry. Lorem Ipsum has been the industry's`,
+    imgLink: "assets/images/events/image_06.jpg",
+  },
+  {
+    name: "Rojgar",
+    information: ` Lorem Ipsum is simply dummy text of the printing and
+        typesetting industry. Lorem Ipsum has been the industry's`,
+    imgLink: "assets/images/events/image_06.jpg",
+  },
+  {
+    name: "Rojgar",
+    information: ` Lorem Ipsum is simply dummy text of the printing and
+        typesetting industry. Lorem Ipsum has been the industry's`,
+    imgLink: "assets/images/events/image_06.jpg",
+  },
   {
     name: "Rojgar",
     information: ` Lorem Ipsum is simply dummy text of the printing and
@@ -25,7 +44,7 @@ const Shakha = () => {
   return (
     <>
       <section className="events page">
-        <div className="container">
+        <div className="container ">
           <div className="session-title row">
             <h2>Our Branch</h2>
             <p>

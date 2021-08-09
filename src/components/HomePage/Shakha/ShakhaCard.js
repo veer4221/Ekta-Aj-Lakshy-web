@@ -1,24 +1,30 @@
-import React from 'react'
+import React from "react";
+import "../../../style/buttoncss.css";
+import ViewMore from "./ViewMore";
+const ShakhaCard = ({ data }) => {
+  return (
+    <>
+      <div className="col-md-4 col-sm-6 ">
+        <div
+          className="event-box ourBtn"
+          style={{
+            boxShadow: "rgb(0 0 0 / 35%) 0px 8px 20px 7px",
+            borderRadius: "10px 10px ",
+            border: "1.9px solid gray",
+            backgroundColor: "white",
 
-const ShakhaCard = ({data}) => {
-    return (
-        <>
-            <div className="col-md-4 col-sm-6">
-              <div className="event-box">
-                <img src={data.imgLink} alt="" />
-                <h4>{data.name}</h4>
+            padding: "10px",
+          }}
+        >
+          <img src={data.imgLink} alt="" />
+          <h4>{data.name}</h4>
+          <p className="desic">{data.information}</p>
+          <ViewMore imageUrl={data.imgLink} />
+          {/* <button style={{ padding: "7px" }}>&nbsp; ||View More||&nbsp;</button> */}
+        </div>
+      </div>
+    </>
+  );
+};
 
-                <p className="raises">
-                  <span>Raised : $34,425</span> / $500,000{" "}
-                </p>
-                <p className="desic">
-                 {data.information}
-                </p>
-                <button className="btn btn-success btn-sm">Donate Now</button>
-              </div>
-            </div>
-        </>
-    )
-}
-
-export default ShakhaCard
+export default ShakhaCard;

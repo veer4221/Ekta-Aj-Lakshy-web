@@ -1,19 +1,39 @@
-import React from 'react'
+import React from "react";
 
-const KaryKartaCard = ({data}) => {
-    return (
-        <>
-            <div className="col-md-3 col-sm-6">
-              <div className="single-usr">
-                <img src={data.imageUrl} alt="" />
-                <div className="det-o">
-                  <h4>{data.name}</h4>
-                  <i>{data.position}</i>
-                </div>
-              </div>
-            </div>
-        </>
-    )
-}
+const KaryKartaCard = ({ data }) => {
+  return (
+    <>
+      <div className="col-md-3 col-sm-6">
+        <div
+          className="single-usr"
+          style={{
+            boxShadow: "rgb(0 0 0 / 35%) 0px 8px 20px 7px",
+            borderRadius: "10px 10px ",
+            border: "1.9px solid gray",
+            backgroundColor: "white",
 
-export default KaryKartaCard
+            padding: "10px",
+          }}
+        >
+          <img src={data.imageUrl} alt="" />
+          <hr
+            style={{
+              color: "rgb(172, 24, 24)",
+            }}
+          ></hr>
+          <div
+            className=""
+            style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}
+          >
+            <h4 style={{ color: "rgb(172, 24, 24)", fontWeight: "bolder" }}>
+              {data.name}
+            </h4>
+            <i>{data.position}</i>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default KaryKartaCard;
