@@ -3,40 +3,22 @@ import ShakhaCard from "./ShakhaCard";
 import "./shakha.css";
 const shakhaCardInfo = [
   {
-    name: "Rojgar",
+    name: "મુખ્ય શાખા",
     information: ` Lorem Ipsum is simply dummy text of the printing and
         typesetting industry. Lorem Ipsum has been the industry's`,
-    imgLink: "assets/images/events/image_06.jpg",
+    imgLink: "assets/images/events/image_03.jpg",
   },
   {
-    name: "Rojgar",
+    name: "આઇટી સેલ ",
     information: ` Lorem Ipsum is simply dummy text of the printing and
         typesetting industry. Lorem Ipsum has been the industry's`,
-    imgLink: "assets/images/events/image_06.jpg",
+    imgLink: "assets/images/events/image_02.jpg",
   },
   {
-    name: "Rojgar",
+    name: "રોજગાર શાખા",
     information: ` Lorem Ipsum is simply dummy text of the printing and
         typesetting industry. Lorem Ipsum has been the industry's`,
-    imgLink: "assets/images/events/image_06.jpg",
-  },
-  {
-    name: "Rojgar",
-    information: ` Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's`,
-    imgLink: "assets/images/events/image_06.jpg",
-  },
-  {
-    name: "Gaurakshak",
-    information: ` Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's`,
-    imgLink: "assets/images/events/image_08.jpg",
-  },
-  {
-    name: "Sahity",
-    information: ` Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's`,
-    imgLink: "assets/images/events/image_04.jpg",
+    imgLink: "assets/images/events/image_01.jpg",
   },
 ];
 

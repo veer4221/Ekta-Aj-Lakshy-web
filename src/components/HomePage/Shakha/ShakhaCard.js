@@ -17,7 +17,9 @@ const ShakhaCard = ({ data }) => {
           }}
         >
           <img src={data.imgLink} alt="" />
-          <h4>{data.name}</h4>
+          <h4 style={{ color: "rgb(172, 24, 24)" }}>
+            ||&nbsp;{data.name}&nbsp;||
+          </h4>
           <p className="desic">{data.information}</p>
           <ViewMore imageUrl={data.imgLink} />
           {/* <button style={{ padding: "7px" }}>&nbsp; ||View More||&nbsp;</button> */}

@@ -3,23 +3,23 @@ import KaryKartaCard from "./KaryKartaCard";
 const karykartaInformation = [
   {
     imageUrl: `assets/images/team/team-memb1.jpg`,
-    name: `Raj`,
-    position: `ceo`,
+    name: `ભગીરથ સિંહ રાઠોડ `,
+    position: `સંસ્થાપક `,
   },
   {
     imageUrl: `assets/images/team/team-memb2.jpg`,
-    name: `Rutvik`,
-    position: `xyz`,
+    name: `નીતિનભાઈ પટેલ `,
+    position: `ઉપ સંસ્થાપક`,
   },
   {
     imageUrl: `assets/images/team/team-memb3.jpg`,
-    name: `Kirtan`,
-    position: `test`,
+    name: `જ્વાલાસિંહ રાઠોડ `,
+    position: `આઇટી સેલ પ્રમુખ `,
   },
   {
     imageUrl: `assets/images/team/team-memb4.jpg`,
-    name: `krish`,
-    position: `demo`,
+    name: `અશોકસિંહ વાઘેલા`,
+    position: `મુખ્ય કાર્યકર્તા `,
   },
 ];
 const KaryKarta = () => {

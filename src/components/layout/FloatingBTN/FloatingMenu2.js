@@ -13,6 +13,7 @@ import GroupIcon from "@material-ui/icons/Group";
 import PhoneInTalkIcon from "@material-ui/icons/PhoneInTalk";
 import CollectionsIcon from "@material-ui/icons/Collections";
 import "../../../style/FlotingBTN.css";
+import "./flotingbtn.css";
 import { useNavigate } from "react-router";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import Drowerview from "./Drowerview";

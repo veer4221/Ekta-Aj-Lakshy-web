@@ -11,7 +11,7 @@ import Post from "../components/HomePage/Post/Post";
 import Footer from "../components/layout/Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Drowerview from "../components/layout/FloatingBTN/Drowerview";
-import MainTab from "../components/MainTabs/MainTab"
+import MainTab from "../components/MainTabs/MainTab";
 import {
   BrowserView,
   MobileView,
@@ -21,21 +21,21 @@ import {
 const HomePage = () => {
   return (
     <>
-      <div >
+      <div>
         {/* <Header /> */}
         {/* <Drowerview/> */}
-        <Carouselslider/>
+        <Carouselslider />
 
         <AboutUsSangathan />
-        <Post />
-        <Achivemtns />
         <MissionAndVision />
+        <Achivemtns />
+        <Post />
         <Shakha />
         <KaryKarta />
         {/* <Footer/> */}
       </div>
     </>
   );
-}
+};
 
 export default HomePage;

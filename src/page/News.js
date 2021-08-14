@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PostCard from "../components/News/PostCard";
 import "../style/aboutUsMtextView.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getPostListAction,
+  resetPostStateAction,
+} from "../Redux/Actions/index";
 import Pagination from "@material-ui/lab/Pagination";
 import "../style/News.css";
 const postInfo = [
@@ -61,6 +66,27 @@ const postInfo = [
 ];
 
 const News = () => {
+  const post = useSelector((state) => state.post);
+  const dispatch = useDispatch();
+  const [page, setPage] = React.useState(1);
+
+  const [rowsPerPage, setRowsPerPage] = React.useState(6);
+
+  const [open, setOpen] = React.useState(false);
+
+  const [count, setCount] = React.useState();
+  const [reloadAgain, setReloadAgain] = React.useState(new Date());
+  const [userRows, setUserRows] = React.useState();
+  const [keyword, setKeyword] = React.useState("");
+  const [postRows, setPostRows] = React.useState();
+  useEffect(() => {
+    console.log(post.getAllProduct);
+    setCount(Math.floor(post.getAllProduct.count / rowsPerPage + 1));
+    setPostRows(post.getAllProduct.rows);
+  }, [post.getAllProduct]);
+  useEffect(() => {
+    dispatch(getPostListAction(page, rowsPerPage, keyword));
+  }, [page, rowsPerPage, keyword, reloadAgain]);
   return (
     <>
       <section className="our-blog page ">
@@ -72,10 +98,14 @@ const News = () => {
             </h2>
           </div>
           <div className="blog-row row">
-            {postInfo && postInfo.map((data) => <PostCard data={data} />)}
+            {postRows && postRows.map((data) => <PostCard data={data} />)}
           </div>
           <div>
-            <Pagination count={10} shape="rounded" />
+            <Pagination
+              count={count}
+              onChange={(e, value) => setPage(value)}
+              shape="rounded"
+            />
           </div>
         </div>
       </section>

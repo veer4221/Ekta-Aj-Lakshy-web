@@ -34,10 +34,10 @@ const DoneteUs = () => {
             || Akhand Bharat ||
           </h1>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={8}>
           <img src={akhandBharat} height="90%" />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <h1
             style={{
               textAlign: "center",
