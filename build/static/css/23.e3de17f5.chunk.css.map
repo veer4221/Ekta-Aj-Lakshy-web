@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/HomePage/AboutUsSangathan/mobile/ViewUsMobile/Tabs/temp.css"],"names":[],"mappings":"AAAA,8BACA,WAAY,CACZ,+BAAgC,CAChC,kBACA","file":"23.e3de17f5.chunk.css","sourcesContent":[".MuiTabs-flexContainer > button{\r\nmargin: 10px;\r\nbackground-color: none!important;\r\nborder: 0px !important;\r\n}"]}

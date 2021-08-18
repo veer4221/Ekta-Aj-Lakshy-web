@@ -1,0 +1,2 @@
+(this["webpackJsonpekta-ej-laksh-web"]=this["webpackJsonpekta-ej-laksh-web"]||[]).push([[26],{144:function(t,e,s){"use strict";e.a=s.p+"static/media/logoBig.9556c622.gif"},170:function(t,e,s){"use strict";s.r(e);s(0);var c=s(144),i=s(2);e.default=function(){return Object(i.jsx)(i.Fragment,{children:Object(i.jsxs)("div",{className:"text-part col-md-6 bgimgB text-center",children:[Object(i.jsx)("br",{}),Object(i.jsx)("img",{src:c.a,width:"60%"})]})})}}}]);
+//# sourceMappingURL=26.a61408ec.chunk.js.map
