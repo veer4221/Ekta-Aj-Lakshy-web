@@ -3,22 +3,22 @@ import KaryKartaCard from "./KaryKartaCard";
 const karykartaInformation = [
   {
     imageUrl: `assets/images/team/team-memb1.jpg`,
-    name: `ભગીરથ સિંહ રાઠોડ `,
+    name: `શ્રી ભગીરથ સિંહ રાઠોડ `,
     position: `સંસ્થાપક `,
   },
   {
     imageUrl: `assets/images/team/team-memb2.jpg`,
-    name: `નીતિનભાઈ પટેલ `,
+    name: `શ્રી નીતિનભાઈ પટેલ `,
     position: `ઉપ સંસ્થાપક`,
   },
   {
     imageUrl: `assets/images/team/team-memb3.jpg`,
-    name: `જ્વાલાસિંહ રાઠોડ `,
+    name: `શ્રી જ્વાલાસિંહ રાઠોડ `,
     position: `આઇટી સેલ પ્રમુખ `,
   },
   {
     imageUrl: `assets/images/team/team-memb4.jpg`,
-    name: `અશોકસિંહ વાઘેલા`,
+    name: `શ્રી અશોકસિંહ વાઘેલા`,
     position: `મુખ્ય કાર્યકર્તા `,
   },
 ];

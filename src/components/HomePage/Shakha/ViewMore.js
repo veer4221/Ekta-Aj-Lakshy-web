@@ -31,7 +31,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ViewMore({ Image, imageUrl }) {
+export default function ViewMore({ Image, imageUrl, info, subBranch, title }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -83,7 +83,12 @@ export default function ViewMore({ Image, imageUrl }) {
           </Toolbar>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <TabsShakha imageUrl={imageUrl} />
+              <TabsShakha
+                title={title}
+                imageUrl={imageUrl}
+                info={info}
+                subBranch={subBranch}
+              />
             </Grid>
           </Grid>
         </AppBar>

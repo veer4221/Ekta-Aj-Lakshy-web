@@ -1,6 +1,9 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import "../../../style/buttoncss.css";
-import ViewMore from "./ViewMore";
+import TextTruncate from "react-text-truncate";
+// const ViewMore = React.lazy(() => import('"./ViewMore"'));
+const ViewMore = lazy(() => import(`./ViewMore`));
+
 const ShakhaCard = ({ data }) => {
   return (
     <>
@@ -20,8 +23,21 @@ const ShakhaCard = ({ data }) => {
           <h4 style={{ color: "rgb(172, 24, 24)" }}>
             ||&nbsp;{data.name}&nbsp;||
           </h4>
-          <p className="desic">{data.information}</p>
-          <ViewMore imageUrl={data.imgLink} />
+          {/* <p className="desic">{data.information}</p> */}
+          <TextTruncate
+            line={3}
+            element="p"
+            truncateText="..."
+            text={data.information}
+          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ViewMore
+              imageUrl={data.imgLink}
+              info={data.information}
+              subBranch={data.subBranch}
+              title={data.name}
+            />
+          </Suspense>
           {/* <button style={{ padding: "7px" }}>&nbsp; ||View More||&nbsp;</button> */}
         </div>
       </div>

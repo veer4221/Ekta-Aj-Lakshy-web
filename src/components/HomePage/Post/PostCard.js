@@ -1,7 +1,8 @@
-import React from "react";
-import ViewMore from "./ViewMore";
+import React, { lazy, Suspense } from "react";
 import "../../../style/aboutUsMtextView.css";
 import TextTruncate from "react-text-truncate";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+const ViewMore = lazy(() => import(`./ViewMore`));
 
 const PostCard = ({ data }) => {
   return (
@@ -15,7 +16,8 @@ const PostCard = ({ data }) => {
           }}
         >
           <figure>
-            <img
+            <LazyLoadImage
+              effect="blur"
               src={
                 data && data.image
                   ? `https://health-image-maruti.s3.us-east-2.amazonaws.com/${
@@ -39,11 +41,13 @@ const PostCard = ({ data }) => {
             />
             {/* <p style={{ color: "rgb(172, 24, 24)" }}>{data.content}</p> */}
             <div className="link">
-              <ViewMore
-                Image={data.image}
-                title={data.title}
-                content={data.content}
-              />{" "}
+              <Suspense fallback={<div>Loading...</div>}>
+                <ViewMore
+                  Image={data.image}
+                  title={data.title}
+                  content={data.content}
+                />
+              </Suspense>
               <i className="fas fa-long-arrow-alt-right"></i>
             </div>
           </div>

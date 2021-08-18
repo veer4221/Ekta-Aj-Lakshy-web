@@ -1,6 +1,4 @@
-import React from "react";
-import AboutUsBox from "./Web/AboutUsSangathanSubComponunt/AboutUsBox";
-import AboutUsContent from "./Web/AboutUsSangathanSubComponunt/AboutUsContent";
+import React, { lazy, Suspense } from "react";
 import {
   BrowserView,
   MobileView,
@@ -8,9 +6,17 @@ import {
   isMobile,
 } from "react-device-detect";
 import { Grid } from "@material-ui/core";
-import AboutSangathanMobile from "./mobile/AboutSangathanMobile";
 import "../../../style/aboutUs.css";
 import "../../../style/aboutUsMtextView.css";
+const AboutUsContent = lazy(() =>
+  import("./Web/AboutUsSangathanSubComponunt/AboutUsContent")
+);
+const AboutSangathanMobile = lazy(() =>
+  import("./mobile/AboutSangathanMobile")
+);
+const AboutUsBox = lazy(() =>
+  import("./Web/AboutUsSangathanSubComponunt/AboutUsBox")
+);
 const boxData = [
   {
     icon: `fas fa-user`,
@@ -39,7 +45,9 @@ const AboutUsSangathan = () => {
           <div className="about-us container-fluid page ">
             <div className="bgimgM">
               <div className="container">
-                <AboutSangathanMobile />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <AboutSangathanMobile />
+                </Suspense>
               </div>
             </div>
           </div>
@@ -51,11 +59,15 @@ const AboutUsSangathan = () => {
           <div className="bgimg bgimg ">
             <div className="container">
               <div className="row natur-row no-margin w-100 maindiv">
-                <AboutUsContent />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <AboutUsContent />
+                </Suspense>
                 {/* <AboutSangathanMobile /> */}
                 <div className="image-part col-md-6">
                   <div className="about-quick-box row">
-                    <AboutUsBox />
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <AboutUsBox />
+                    </Suspense>
                   </div>
                 </div>
               </div>

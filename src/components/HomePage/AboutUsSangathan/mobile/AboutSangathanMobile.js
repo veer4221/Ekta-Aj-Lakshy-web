@@ -1,7 +1,7 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Grid, Card, Box, Divider, Button } from "@material-ui/core";
 import ramji from "../../../../style/image/logoBig.gif";
-import ViewUs from "./ViewUsMobile/ViewUs";
+const ViewUs = lazy(() => import("./ViewUsMobile/ViewUs"));
 
 const AboutSangathanMobile = () => {
   return (
@@ -26,7 +26,9 @@ const AboutSangathanMobile = () => {
           </p>
           <Divider />
           <hr></hr>
-          <ViewUs info={`mobile`} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ViewUs info={`mobile`} />
+          </Suspense>
         </Grid>
       </Grid>
       {/* </  Card> */}

@@ -8,69 +8,13 @@ import {
 } from "../Redux/Actions/index";
 import Pagination from "@material-ui/lab/Pagination";
 import "../style/News.css";
-const postInfo = [
-  {
-    creater: `admin xyz`,
-    postImage: `assets/images/events/image_01.jpg`,
-    titel: `Methods of Recuirtments`,
-    Information: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nullam justo neque, aliquet sit amet elementum vel, vehicula
-        eget eros. Vivamus arcu metus, mattis sed sagittis at,
-        sagittis quis neque. Praesent.`,
-  },
-  {
-    creater: `admin xyz`,
-    postImage: `assets/images/events/image_02.jpg`,
-    titel: `Methods of Recuirtments`,
-    Information: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nullam justo neque, aliquet sit amet elementum vel, vehicula
-        eget eros. Vivamus arcu metus, mattis sed sagittis at,
-        sagittis quis neque. Praesent.`,
-  },
-  {
-    creater: `admin xyz`,
-    postImage: `assets/images/events/image_03.jpg`,
-    titel: `Methods of Recuirtments`,
-    Information: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nullam justo neque, aliquet sit amet elementum vel, vehicula
-        eget eros. Vivamus arcu metus, mattis sed sagittis at,
-        sagittis quis neque. Praesent.`,
-  },
-  {
-    creater: `admin xyz`,
-    postImage: `assets/images/events/image_01.jpg`,
-    titel: `Methods of Recuirtments`,
-    Information: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nullam justo neque, aliquet sit amet elementum vel, vehicula
-        eget eros. Vivamus arcu metus, mattis sed sagittis at,
-        sagittis quis neque. Praesent.`,
-  },
-  {
-    creater: `admin xyz`,
-    postImage: `assets/images/events/image_02.jpg`,
-    titel: `Methods of Recuirtments`,
-    Information: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nullam justo neque, aliquet sit amet elementum vel, vehicula
-        eget eros. Vivamus arcu metus, mattis sed sagittis at,
-        sagittis quis neque. Praesent.`,
-  },
-  {
-    creater: `admin xyz`,
-    postImage: `assets/images/events/image_03.jpg`,
-    titel: `Methods of Recuirtments`,
-    Information: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nullam justo neque, aliquet sit amet elementum vel, vehicula
-        eget eros. Vivamus arcu metus, mattis sed sagittis at,
-        sagittis quis neque. Praesent.`,
-  },
-];
 
 const News = () => {
   const post = useSelector((state) => state.post);
   const dispatch = useDispatch();
   const [page, setPage] = React.useState(1);
 
-  const [rowsPerPage, setRowsPerPage] = React.useState(6);
+  const [rowsPerPage, setRowsPerPage] = React.useState(3);
 
   const [open, setOpen] = React.useState(false);
 

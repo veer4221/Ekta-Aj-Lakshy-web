@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const KaryKartaCard = ({ data }) => {
   return (
@@ -15,7 +16,7 @@ const KaryKartaCard = ({ data }) => {
             padding: "10px",
           }}
         >
-          <img src={data.imageUrl} alt="" />
+          <LazyLoadImage effect="blur" src={data.imageUrl} alt="" />
           <hr
             style={{
               color: "rgb(172, 24, 24)",

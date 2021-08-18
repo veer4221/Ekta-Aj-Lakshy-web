@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -8,7 +8,7 @@ import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import TabsComp from "./Tabs/TabsComp";
+const TabsComp = lazy(() => import("./Tabs/TabsComp"));
 
 const styles = (theme) => ({
   root: {
@@ -96,7 +96,9 @@ export default function ViewUs({ info }) {
           About Us
         </DialogTitle>
         <DialogContent dividers>
-          <TabsComp />
+          <Suspense fallback={<div>Loading...</div>}>
+            <TabsComp />
+          </Suspense>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">

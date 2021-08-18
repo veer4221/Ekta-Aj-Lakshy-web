@@ -1,26 +1,46 @@
 // import './App.css';
-import HomePage from "./page/HomePage";
+import React, { Suspense, lazy } from "react";
+import { Routes, Route } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import HomePage from "./page/HomePage";
-import News from "./page/News";
-import { Routes, Route } from "react-router";
-import Header from "./components/layout/Header/Header";
-import Footer from "./components/layout/Footer/Footer";
-import Gallery from "./page/Gallery";
 import "./style/aboutUsMtextView.css";
 import "./style/buttoncss.css";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import {
   BrowserView,
   MobileView,
   isBrowser,
   isMobile,
 } from "react-device-detect";
-
-import FloatingMenu2 from "./components/layout/FloatingBTN/FloatingMenu2";
 import "./style/buttoncss.css";
-import AboutUsSangathan from "./components/HomePage/AboutUsSangathan/AboutUsSangathan";
-import DoneteUs from "./page/DoneteUs";
+const Loadable = (Component) => (props) =>
+  (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Component {...props} />
+    </Suspense>
+  );
+const AboutUsPage = Loadable(
+  React.lazy(() => import("./components/AboutUs/AboutUsPage"))
+);
+const DoneteUs = Loadable(React.lazy(() => import("./page/DoneteUs")));
+const HomePage = Loadable(React.lazy(() => import("./page/HomePage")));
+const News = Loadable(React.lazy(() => import("./page/News")));
+const Header = Loadable(
+  React.lazy(() => import("./components/layout/Header/Header"))
+);
+const Footer = Loadable(
+  React.lazy(() => import("./components/layout/Footer/Footer"))
+);
+const Gallery = Loadable(React.lazy(() => import("./page/Gallery")));
 
+const FloatingMenu2 = Loadable(
+  React.lazy(() => import("./components/layout/FloatingBTN/FloatingMenu2"))
+);
+const AboutUsSangathan = Loadable(
+  React.lazy(() =>
+    import("./components/HomePage/AboutUsSangathan/AboutUsSangathan")
+  )
+);
 const App = (props) => {
   return (
     <div className="App">
@@ -31,7 +51,7 @@ const App = (props) => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Gallery" element={<Gallery />} />
-        <Route path="/AboutUs" element={<AboutUsSangathan />} />
+        <Route path="/AboutUs" element={<AboutUsPage />} />
         <Route path="/News" element={<News />} />
         <Route path="/DonateUs" element={<DoneteUs />} />
       </Routes>

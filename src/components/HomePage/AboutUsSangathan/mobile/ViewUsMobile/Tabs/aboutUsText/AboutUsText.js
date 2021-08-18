@@ -1,8 +1,12 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Card } from "@material-ui/core";
-import AboutUsBox from "./AboutUsSangathanSubComponunt/AboutUsBox";
-import AboutUsContent from "./AboutUsSangathanSubComponunt/AboutUsContent";
-import "../../../../../../../style/aboutUsMtextView.css"
+import "../../../../../../../style/aboutUsMtextView.css";
+const AboutUsContent = lazy(() =>
+  import("./AboutUsSangathanSubComponunt/AboutUsContent")
+);
+const AboutUsBox = lazy(() =>
+  import("./AboutUsSangathanSubComponunt/AboutUsBox")
+);
 const boxData = [
   {
     icon: `fas fa-user`,
@@ -27,11 +31,15 @@ const AboutUsText = () => {
       <div className="about-us container-fluid page ">
         <div className="container-fluid">
           <div className="row natur-row no-margin w-100 maindiv ">
-            <AboutUsContent />
+            <Suspense fallback={<div>Loading...</div>}>
+              <AboutUsContent />
+            </Suspense>
             <div className="image-part col-md-12 ">
               <div className="about-quick-box row">
                 {boxData.map((data) => (
-                  <AboutUsBox icon={data.icon} titel={data.titel} />
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <AboutUsBox icon={data.icon} titel={data.titel} />
+                  </Suspense>
                 ))}
               </div>
             </div>

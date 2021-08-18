@@ -2,13 +2,13 @@ import React from "react";
 import MissionsAndVisionImg from "./MissionsAndVisionImg";
 const MissionImg = [
   {
-    imgLink: "assets/images/misin.jpg",
+    imgLink: "ektaej_laksh/Post/2021/8/25/ZGbhGezHobPx14b.png",
   },
 ];
 
 const VisionImg = [
   {
-    imgLink: "assets/images/vision.jpg",
+    imgLink: "ektaej_laksh/Post/2021/8/24/9pspojfNiJtbbPi.png",
   },
 ];
 
@@ -16,34 +16,57 @@ const MissionAndVision = () => {
   return (
     <>
       <section className="container-fluid mission-vision page">
-        <div className="container">
+        <div style={{ fontFamily: "" }} className="container">
           <div className="row mission">
             <div className="col-md-6 mv-det">
+              <h1 style={{ color: "rgb(172, 24, 24)" }}>|| श्री१। ||</h1>
               <h1>Our Mission</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                neque libero, pulvinar et elementum quis, facilisis eu ante.
-                Mauris non placerat sapien. Pellentesque tempor arcu non odio
-                scelerisque ullamcorper. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Nam varius eros consequat auctor gravida. Fusce
-                tristique lacus at urna sollicitudin pulvinar. Suspendisse
-                hendrerit ultrices mauris.
+              <p style={{ color: "rgb(172, 24, 24)", fontSize: "13px" }}>
+                એકતા એ જ લક્ષ્ય સંગઠનનું લક્ષ્ય અખંડ હિન્દુ રાષ્ટ્ર ભાવના ભારતની
+                હિંદુ રાષ્ટ્ર બનાવવા માટેના પ્રયાસો જાતિવાદ માં ફસાયેલા
+                હિન્દુઓને સાચી માહિતી તથા દિશા બતાવી એકતાના તાંતણે બાંધવા સનાતન
+                સંસ્કૃતિ પર થતા ષડયંત્ર ને અર્જુન નું તીર (એન્ટિક મિસાઈલ) બની
+                રોકવા સમાજની અંદર સમરસતા સ્થાપવા વિદેશી કાયદા માં ફેરફાર કરાવી
+                સ્વદેશી કાયદો અમલમાં લાવવા વિદેશી રેણી કેણી તથા ભાષાને બદલે
+                સ્વદેશી રહેણીકરણી અને ભાષાનો ઉપયોગ વ્યાપક કઈ રીતે વધારો એના
+                કાર્ય ભારતમાંથી લવજેહાદ ને સંપૂર્ણ રીતે નષ્ટ કરવું ભારતમાંથી
+                દરેક પ્રકારના જી હા થઈ રહ્યા છે તેને સંપૂર્ણ પ્રમાણમાં રોકી
+                સનાતની ગઠન કરવું ગૌમાતા ની હત્યા સંપૂર્ણ પણે બંધ કરવા માટે ના
+                કાર્ય દરેક સનાતનીઓને રોજગાર મળી રહે તેના માટેના કાર્ય યુવાધનને
+                સાચી માહિતી તથા રાષ્ટ્રવાદી વિચારધારા થી સફર કરવા સાચા ઇતિહાસો
+                થી અવગત કરાવવા તથા યુવાનોને સાચી દિશામાં દોરવા ભારતને આવનારા
+                સમયમાં મહાસત્તા બનાવવા માટે ના કાર્ય રણનીતિ અને કૂટનીતિથી સફળ
+                બનાવવા દરેક સામાન્ય માણસોને પૂરતું જ્ઞાન આપવું તથા માર્ગદર્શન
+                કરવું
               </p>
             </div>
-            <MissionsAndVisionImg imgLink={MissionImg[0].imgLink}/>
+            <MissionsAndVisionImg imgLink={MissionImg[0].imgLink} />
           </div>
           <div className="row vision">
-          <MissionsAndVisionImg imgLink={VisionImg[0].imgLink}/>
+            <MissionsAndVisionImg imgLink={VisionImg[0].imgLink} />
             <div className="col-md-6 mv-det">
               <h1>Our Vision</h1>
-              <p>
-                Ut ultricies lacus a rutrum mollis. Orci varius natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Sed porta dolor quis felis pulvinar dignissim. Etiam nisl
-                ligula, ullamcorper non metus vitae, maximus efficitur mi.
-                Vivamus ut ex ullamcorper, scelerisque lacus nec, commodo dui.
-                Proin massa urna, volutpat vel augue eget, iaculis tristique
-                dui.
+              <p style={{ color: "rgb(172, 24, 24)", fontSize: "13px" }}>
+                કૃષિ પ્રધાન દેશ છે ભારત પરંતુ વિદેશી દવાઓ તથા ખાતર ના કારણે
+                ભારતની કસવાળી જમીન નષ્ટ થઇ રહી છે તો તેને તથા ગો આધારિત ખેતી તરફ
+                કઈ રીતે વાળવા તેની સમજણ તથા ઓર્ગેનિક ખેતી નું મહત્વ જણાવી ભારતને
+                સંપૂર્ણ ઓર્ગેનિક બનાવવાના પ્રયત્નો આયુર્વેદ ભારતની સૌથી મોટી દેન
+                છે તો આયુર્વેદને ઘર-ઘર સુધી લઇ જવો અને લોકોને વગાડ સાઇડ ઇફેક્ટ
+                વગર ખર્ચ ના ઈલાજ ઘર બેઠા થાય એ રીતે લોકોને આયુર્વેદ વિશે ની
+                માહિતી આપવી અને એના ઉપચાર કેન્દ્ર ખોલવા ભારત ને નષ્ટ કરવામાં
+                સૌથી મોટો હાથ વિદેશી શિક્ષા પ્રણાલી છે એના દેશ આજે શિક્ષિત હોવા
+                છતાં પણ દિશાહીન થઈ ગયો છે કેમકે બાહ્ય શિક્ષણ પ્રણાલી ભારત માટે
+                ક્યારેય યોગ્ય છે જ નહિ આ એ જ ભારત છે કે જ્યાં એ શિક્ષા પ્રણાલી
+                માં એ સમજણ એ જ્ઞાન હતું કે વિદેશી લોકો પણ ભારતની અંદર શિક્ષા
+                પ્રાપ્ત કરવા આવતા હતા પણ જેમ જેમ વિદેશી લોકો આક્રમણ થયું ભારત પર
+                કેવી રીતે ભારતીય શિક્ષણ પ્રણાલી અને સંપૂર્ણપણે નષ્ટ કરવામાં આવી
+                એકતા એજ લક્ષ્ય સંગઠન સામાજિક લોકોના મદદથી આવા સનાતન સ્કૂલ
+                ગુરુકુળ ની સ્થાપના કરશે ભારતના જે સાચા ઇતિહાસો છે એને ફરીથી
+                ઉજાગર કરી લોકો સમક્ષ રાખશે આપણા ઈતિહાસો વેદો અને શાસ્ત્રોમાં જે
+                છેડછાડ કરવામાં આવી છે અને ગલત રીતે પ્રયોગ કરી લોકો સમક્ષ રજૂ
+                કરવામાં આવી રહ્યા છે જેને રોકી ખરાબ સપના સાચા ઇતિહાસ સાચા
+                શાસ્ત્ર જ્ઞાન તથા વેદ જ્ઞાન લોકો સુધી અવગત કરાવું વૈદિક
+                સંસ્કૃતિનો પ્રચાર કરો અને લોકોને યોગ અને વેદ તરફ લઈ જવા
               </p>
             </div>
           </div>
