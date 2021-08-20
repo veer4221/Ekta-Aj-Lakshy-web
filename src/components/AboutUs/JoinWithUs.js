@@ -9,6 +9,10 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useState } from "react";
+import PersonalForm from "./Form/PersonalForm";
+import EmailForm from "./Form/EmailForm";
+import OtherForm from "./Form/OtherForm";
+import PaymentForm from "./Form/PaymentForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,107 +41,35 @@ const useStyles = makeStyles((theme) => ({
 export default function JoinWithUs() {
   const [addForm, setAddForm] = useState(true);
   const [firstName, setFirstName] = useState();
+  const [fatherName, setFatherName] = useState();
+  const [motherName, setMotherName] = useState();
+  const [husName, setHusName] = useState();
+  const [mrgStatus, setMrgStatus] = useState(`1`);
+  const [totelMumber, setTotelMumber] = useState(`1`);
+  const [pinCode, setPincode] = useState(`3434323`);
+  const [bloodGroup, setBloodGroup] = useState(`1`);
+  const [business, setBusiness] = useState(`1`);
+  const [business_address, setBusiness_address] = useState(`1`);
+
+  // const [birthdate, setImage] = useState();
   const [image, setImage] = useState();
   const [lastName, setLastName] = useState();
   const [redirectTo, setRedirectTo] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [mobileNumber, setMobileNumber] = useState();
+  const [wmobileNumber, setWMobileNumber] = useState();
   const [address, setAddress] = useState();
   const classes = useStyles();
+  const [page, setPage] = useState(`1`);
 
   return (
     <>
       <form style={{ margin: "20px", padding: "20px" }} className="ourBtn">
-        <div className="form-row ">
-          <div className="form-group col-md-4">
-            <label style={{ color: "rgb(172, 24, 24)" }} for="inputEmail4">
-              Name
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="inputEmail4"
-              placeholder="Email"
-            />
-          </div>
-          <div className="form-group col-md-4">
-            <label style={{ color: "rgb(172, 24, 24)" }} for="inputEmail4">
-              Sarname
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="inputEmail4"
-              placeholder="Email"
-            />
-          </div>
-          <div className="form-group col-md-4">
-            <label style={{ color: "rgb(172, 24, 24)" }} for="inputPassword4">
-              Email
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="inputPassword4"
-              placeholder="Password"
-            />
-          </div>
-        </div>
-        <div className="form-row ">
-          <div className="form-group col-md-8">
-            <label style={{ color: "rgb(172, 24, 24)" }} for="inputEmail4">
-              Address
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="inputEmail4"
-              placeholder="Email"
-            />
-          </div>
-
-          <div className="form-group col-md-4">
-            <label style={{ color: "rgb(172, 24, 24)" }} for="inputPassword4">
-              Mobile
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="inputPassword4"
-              placeholder="Password"
-            />
-          </div>
-        </div>
-        <div className="form-row ">
-          <div className="form-group col-md-8">
-            <div class="custom-file">
-              <label
-                style={{ color: "rgb(172, 24, 24)" }}
-                class="form-label"
-                for="customFile"
-              >
-                Upload Document
-              </label>
-              <input type="file" class="form-control" id="customFile" />
-            </div>
-          </div>
-
-          <div
-            className="form-group col-md-4"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <img src="../" width="200px" height="150px" />
-          </div>
-        </div>
-
-        <button type="submit" className="btn">
-          || Join Now ||
-        </button>
+        {page == `1` ? <EmailForm setPage={setPage} /> : ``}
+        {page == `2` ? <PersonalForm setPage={setPage} /> : ``}
+        {page == `3` ? <OtherForm setPage={setPage} /> : ``}
+        {page == `4` ? <PaymentForm setPage={setPage} /> : ``}
       </form>
     </>
   );

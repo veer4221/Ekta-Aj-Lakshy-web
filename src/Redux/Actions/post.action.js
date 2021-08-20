@@ -44,7 +44,7 @@ export const viewPostAction = (id) => {
     const res = await getPostByIdAPI(id);
     console.log(res.data.post);
     const { success } = res.data;
-    if (res.status === 200 && success == true) {
+        if (res.status === 200 && success == true) {
       const { post } = res.data;
       dispatch({
         type: postContants.VIEW_POST_SUCCESS,

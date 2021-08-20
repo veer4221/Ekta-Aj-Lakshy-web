@@ -21,6 +21,16 @@ const karykartaInformation = [
     name: `શ્રી અશોકસિંહ વાઘેલા`,
     position: `મુખ્ય કાર્યકર્તા `,
   },
+  {
+    imageUrl: `assets/images/team/team-memb4.jpg`,
+    name: `શ્રી અશોકસિંહ વાઘેલા`,
+    position: `મુખ્ય કાર્યકર્તા `,
+  },
+  {
+    imageUrl: `assets/images/team/team-memb4.jpg`,
+    name: `શ્રી અશોકસિંહ વાઘેલા`,
+    position: `મુખ્ય કાર્યકર્તા `,
+  },
 ];
 const KaryKarta = () => {
   return (
@@ -35,7 +45,10 @@ const KaryKarta = () => {
               velit
             </p>
           </div>
-          <div className="row team-row">
+          <div
+            className="row team-row"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             {karykartaInformation.map((data) => (
               <KaryKartaCard data={data} />
             ))}
