@@ -54,6 +54,43 @@ export default (state = initState, action) => {
         message: action.payload.adminUser,
       };
       break;
+    case userContants.USER_IS_PRESENT_OR_NOT_SUCCESS:
+      console.log(action);
+      state = {
+        ...state,
+        loading: false,
+        message: action.payload.message,
+        getUserInfo: { ...state.getUserInfo, ...action.payload.email },
+      };
+      break;
+    case userContants.ADD_USER_SUCCESS:
+      console.log(action);
+      state = {
+        ...state,
+        loading: false,
+        message: action.payload.message,
+      };
+      break;
+    case userContants.ADD_USER_FAILURE:
+      console.log(action);
+      state = {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+      };
+      break;
+    case userContants.USER_IS_PRESENT_OR_NOT_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case userContants.ADD_USER_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
   }
 
   return state;

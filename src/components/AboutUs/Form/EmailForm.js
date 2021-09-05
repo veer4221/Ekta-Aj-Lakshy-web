@@ -1,35 +1,64 @@
 import React, { useState } from "react";
+import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import Portal from "@material-ui/core/Portal";
 
-import { emailCheckAction } from "../../../Redux/Actions/index";
+import {
+  emailCheckAction,
+  checkUserPreasentOrNotAction,
+} from "../../../Redux/Actions/index";
+
 const EmailForm = ({ setPage }) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [email, setEmail] = useState();
-  const emailcheckFunc = () => {
-    dispatch(emailCheckAction({ email }));
+  const [name, setName] = useState("");
+  const onSubmitFunc = async (e) => {
+    console.log("test onsubmit");
+    e.preventDefault();
+
+    alert("ok");
+
+    dispatch(checkUserPreasentOrNotAction({ email }));
+    if (user.message == "user is exist") {
+      alert("user is exist ");
+      return;
+    }
     setPage(`2`);
   };
+  const xyz = (e) => {
+    e.preventDefault();
+    alert("ok");
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    alert(`Submitting Name ${name}`);
+  };
   return (
-    <div className="form-row ourBtn">
-      <div className="form-group col-md-4 ourBtn">
-        <label style={{ color: "rgb(172, 24, 24)" }} for="inputEmail4">
-          Email
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="inputEmail4"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+    // <Portal container={portalRef.current}>
+
+    // </Portal>
+    <Form onSubmit={onSubmitFunc}>
+      <div className="form-row ourBtn">
+        <div className="form-group col-md-4 ourBtn">
+          <label style={{ color: "rgb(172, 24, 24)" }}>Email</label>
+          <input
+            type="email"
+            className="form-control"
+            id="inputEmail4"
+            placeholder="Email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
       </div>
-      <br></br>
-      <button type="submit" className="btn ourBtn" onClick={emailcheckFunc}>
-        || Next ||
-      </button>
-    </div>
+      <input type="submit" value="submit" />
+    </Form>
+    // <form onSubmit={xyz}>
+    //   <button type="submit">submit</button>
+    //    </form>
   );
 };
 

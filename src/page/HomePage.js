@@ -1,5 +1,7 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import "../style/HomePage.css";
+// import { useDispatch, useSelector } from "react-redux";
+
 import Header from "../components/layout/Header/Header";
 import Footer from "../components/layout/Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -11,6 +13,7 @@ import {
   isBrowser,
   isMobile,
 } from "react-device-detect";
+import Loader from "./loader/Loader";
 const Carouselslider = lazy(() =>
   import("../components/HomePage/Carouselslider/Carouselslider")
 );
@@ -34,6 +37,7 @@ const HomePage = () => {
       <div>
         {/* <Header /> */}
         {/* <Drowerview/> */}
+
         <Suspense fallback={<div>Loading...</div>}>
           <Carouselslider />
         </Suspense>

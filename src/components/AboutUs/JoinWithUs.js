@@ -65,12 +65,12 @@ export default function JoinWithUs() {
 
   return (
     <>
-      <form style={{ margin: "20px", padding: "20px" }} className="ourBtn">
+      <div style={{ margin: "20px", padding: "20px" }} className="ourBtn">
         {page == `1` ? <EmailForm setPage={setPage} /> : ``}
         {page == `2` ? <PersonalForm setPage={setPage} /> : ``}
         {page == `3` ? <OtherForm setPage={setPage} /> : ``}
         {page == `4` ? <PaymentForm setPage={setPage} /> : ``}
-      </form>
+      </div>
     </>
   );
 }

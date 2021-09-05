@@ -5,7 +5,7 @@ const AboutUsContent = () => {
     <>
       <div className="text-part col-md-6 bgimgB text-center">
         <br></br>
-        <img src={ramji} width="60%" />
+        <img src={`assets/images/logo512.png`} width="60%" />
         {/* <h2>About Our Charity</h2>
                   <p>
                   મુખ્ય પૃષ્ઠ ક્રમમાં આગળ વધવું જોઈએ.

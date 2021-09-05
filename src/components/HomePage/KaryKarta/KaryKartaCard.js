@@ -4,10 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const KaryKartaCard = ({ data }) => {
   return (
     <>
-      <div
-        className="col-md-3 col-sm-6"
-
-      >
+      <div className="col-md-3 col-sm-6">
         <div
           className="single-usr"
           style={{

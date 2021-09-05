@@ -8,6 +8,7 @@ import { Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import ReactPlayer from "react-player";
+import WorkTab from "./RojagarBranch/WorkTab";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -48,7 +49,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TabsShakha({ imageUrl, info, subBranch, title }) {
+export default function TabsShakha({
+  imageUrl,
+  info,
+  subBranch,
+  title,
+  CONST_SHAKHA,
+}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -66,6 +73,11 @@ export default function TabsShakha({ imageUrl, info, subBranch, title }) {
         >
           <Tab label="Text Info" {...a11yProps(0)} />
           <Tab label="Video Info" {...a11yProps(1)} />
+          {CONST_SHAKHA && CONST_SHAKHA == `ROJGAR` ? (
+            <Tab label="work" {...a11yProps(2)} />
+          ) : (
+            ``
+          )}
           {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
       </AppBar>
@@ -141,6 +153,15 @@ export default function TabsShakha({ imageUrl, info, subBranch, title }) {
           </div>
         </div>
       </TabPanel>
+      {CONST_SHAKHA && CONST_SHAKHA == `ROJGAR` ? (
+        <>
+          <TabPanel value={value} index={2} className="page">
+            <WorkTab />
+          </TabPanel>
+        </>
+      ) : (
+        ``
+      )}
     </div>
   );
 }

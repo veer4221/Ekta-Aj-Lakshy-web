@@ -17,7 +17,8 @@ const OtherForm = ({ setPage }) => {
   const [businessAddress, setBusinessAddress] = useState();
   const [pinCode, setPinCode] = useState();
 
-  const updateUserFunc = () => {
+  const updateUserFunc = (e) => {
+    e.preventDefault();
     const userObj = {
       fatherName,
       motherName,
@@ -31,7 +32,6 @@ const OtherForm = ({ setPage }) => {
     console.log(userObj);
     dispatch(stateUpdateAction(userObj));
 
-    dispatch(updateUserAction(user.getUserInfo));
     console.log(user.getUserInfo);
     setPage(`4`);
   };

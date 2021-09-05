@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  stateUpdateAction,
+  updateUserAction,
+  addUserAction,
+} from "../../../Redux/Actions/index";
 import axios from "axios";
 const PaymentForm = () => {
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user);
   const [payment, setPayment] = useState(false);
   const [orderId, setOrderId] = useState(``);
   const [paymentID, setPaymentId] = useState(``);
   const [sic, setSic] = useState(``);
-  const pay = async (id) => {
-    alert("pay");
-    const res = await axios.get(`http://localhost:5000/admin/api/v1/user/pay`);
+  const pay = async (e) => {
+    e.preventDefault();
+
+    const res = await axios.get(` http://localhost:5000/admin/api/v1/user/pay`);
     console.log(res);
     if (res.status != 200) {
       return;
@@ -22,13 +32,30 @@ const PaymentForm = () => {
       image: "https://example.com/your_logo",
       order_id: res.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       handler: function (response) {
+        console.log(response);
         setPayment(true);
-        setOrderId(response.razorpay_payment_id);
+        setOrderId(response.razorpay_order_id);
         setPaymentId(response.razorpay_payment_id);
         setSic(response.razorpay_signature);
+        if (
+          response.razorpay_payment_id &&
+          response.razorpay_order_id &&
+          response.razorpay_signature
+        ) {
+          const obj = {
+            ...user.getUserInfo,
+            payment: "1",
+            orderId: response.razorpay_order_id,
+            paymentID: response.razorpay_payment_id,
+            paymentSignature: response.razorpay_signature,
+          };
+
+          dispatch(addUserAction(obj));
+        }
       },
       prefill: {
-        contact: "9999999999",
+        contact: user.getUserInfo.mobileNumber,
+        email: user.getUserInfo.email,
       },
       notes: {
         address: "Razorpay Corporate Office",
@@ -57,12 +84,13 @@ const PaymentForm = () => {
       >
         {payment && (
           <>
-            <h2>{orderId}</h2>
+            <h1>Welcome to our Sangathan</h1>
+            {/* <h2>{orderId}</h2>
             <h2>{paymentID}</h2>
-            <h2>{sic}</h2>
+            <h2>{sic}</h2> */}
           </>
         )}
-        <button onClick={pay}>|| Pay now ||</button>
+        {!payment && <button onClick={pay}>|| Pay now ||</button>}
       </div>
     </>
   );

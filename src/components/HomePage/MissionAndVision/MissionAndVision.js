@@ -2,7 +2,7 @@ import React from "react";
 import MissionsAndVisionImg from "./MissionsAndVisionImg";
 const MissionImg = [
   {
-    imgLink: "ektaej_laksh/Post/2021/8/25/ZGbhGezHobPx14b.png",
+    imgLink: "ektaej_laksh/Post/2021/9/30/bgJhVebxM1ZESPr.png",
   },
 ];
 

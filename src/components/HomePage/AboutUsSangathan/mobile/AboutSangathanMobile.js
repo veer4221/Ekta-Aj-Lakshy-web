@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Grid, Card, Box, Divider, Button } from "@material-ui/core";
-import ramji from "../../../../style/image/logoBig.gif";
-const ViewUs = lazy(() => import("./ViewUsMobile/ViewUs"));
+// import ramji from "../../../../style/image/logoBig.gif";
+const ViewUs = lazy(() => import("../dilogbox/ViewMore"));
 
 const AboutSangathanMobile = () => {
   return (
@@ -17,7 +17,7 @@ const AboutSangathanMobile = () => {
         </Grid>
         <Grid item xs={12}>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <img src={ramji} width="60%" />
+            <img src={`assets/images/logo512.png`} width="60%" />
           </div>
         </Grid>
         <Grid item xs={12}>

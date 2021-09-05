@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Card, Box, Divider, Button } from "@material-ui/core";
-import ViewUs from "../../mobile/ViewUsMobile/ViewUs";
+import ViewUs from "../../dilogbox/ViewMore";
 
 const AboutUsBox = ({ icon, titel }) => {
   return (

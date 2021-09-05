@@ -1,14 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import "../../../style/aboutUsMtextView.css";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import "./style.css";
 
 const BottomHeader = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div id="menu-jk" className="header-bottom page">
+      <div id="menu-jk" className="header-bottom page ">
         <div className="container">
-          <div className="row nav-row">
+          <div className="row nav-row sticky-thc">
             <div className="col-lg-3 col-md-12 logo">
               <a href="index.html">
                 <img src="assets/images/logo.png" alt="" />
@@ -106,11 +108,12 @@ const BottomHeader = () => {
                     </span>
                   </a>
                 </li>
+
                 <li className="nav-item">
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/DonateUs");
+                      navigate("/ContectUs");
                     }}
                   >
                     <span
@@ -119,10 +122,16 @@ const BottomHeader = () => {
                         fontSize: "20px",
                       }}
                     >
-                      Donate Us
+                      Contect Us
                     </span>
                   </a>
                 </li>
+                <li
+                  className="nav-item"
+                  style={{
+                    color: "rgb(172, 24, 24)!important",
+                  }}
+                ></li>
               </ul>
             </div>
           </div>

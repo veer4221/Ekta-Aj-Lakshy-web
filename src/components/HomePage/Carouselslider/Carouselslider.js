@@ -9,9 +9,11 @@ import {
 } from "react-device-detect";
 
 const imgLink = [
-  { Link: "assets/images/slider/slider-1.jpg" },
-  { Link: "assets/images/slider/slider-2.jpg" },
-  { Link: "assets/images/slider/slider-3.jpg" },
+  { Link: "assets/images/slider/slider-1.png" },
+  { Link: "assets/images/slider/slider-2.png" },
+  { Link: "assets/images/slider/slider-3.png" },
+  { Link: "assets/images/slider/slider-4.png" },
+  { Link: "assets/images/slider/slider-5.png" },
 ];
 const Carouselslider = () => {
   console.log(imgLink);

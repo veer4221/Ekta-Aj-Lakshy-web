@@ -13,6 +13,7 @@ import GroupIcon from "@material-ui/icons/Group";
 import PhoneInTalkIcon from "@material-ui/icons/PhoneInTalk";
 import CollectionsIcon from "@material-ui/icons/Collections";
 import "../../../style/FlotingBTN.css";
+import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import "./flotingbtn.css";
 import { useNavigate } from "react-router";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
@@ -39,6 +40,7 @@ const actions = [
   { icon: <CollectionsIcon />, name: "News", route: "/News" },
   { icon: <GroupIcon />, name: "AboutUs", route: "/aboutUs" },
   { icon: <MonetizationOnIcon />, name: "DonateUs", route: "/DonateUs" },
+  { icon: <ContactPhoneIcon />, name: "ContectUs", route: "/ContectUs" },
   { icon: <HomeIcon />, name: "Home", route: "/" },
 ];
 

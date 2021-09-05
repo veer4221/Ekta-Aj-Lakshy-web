@@ -1,5 +1,6 @@
 import { Button } from "@material-ui/core";
 import React from "react";
+import ViewMore from "./ViewMore";
 
 const Footer = () => {
   return (
@@ -59,8 +60,11 @@ const Footer = () => {
           </div>
           <hr></hr>
           <div className="inner col-md-12 clearfix">
-            <h4 style={{ color: "white" }}>developed by :</h4> xyz developers
-            team
+            <h4 style={{ color: "white" }}>
+              developed by : AARY_CODERS Developers Team
+              <ViewMore />
+            </h4>
+            &nbsp;&nbsp;&nbsp;
           </div>
         </div>
       </footer>

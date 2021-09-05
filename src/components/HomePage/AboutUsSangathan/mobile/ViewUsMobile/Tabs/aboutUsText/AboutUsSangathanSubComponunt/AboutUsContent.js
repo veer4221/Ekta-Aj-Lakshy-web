@@ -1,40 +1,30 @@
-import React from 'react'
+import React from "react";
 
 const AboutUsContent = () => {
-    return (
-        <>
-            <div className="text-part col-md-12" style={{color:"rgb(133, 6, 6)"}}>
-                  <h2 style={{fontFamily:"Samarkan",textAlign:"center",color:"rgb(133, 6, 6)"}}>|| About Us ||</h2>
-                  <p>
-                  મુખ્ય પૃષ્ઠ ક્રમમાં આગળ વધવું જોઈએ.
-                     ડ્યુઇસ વેરિયસ ફauસીબસ લિગુલા નોન કોન્ગ્યુ. સસ્પેન્ડિસ
-                     પ્રીટિઅમ માસ, સિટ અલ્ટ વુમપટેટ નિબ. નામ પોસ્ટ કરો
-                     ડોલર. ડોનેક વેલ આર્કુ સગિટિસ, પ્રેસ્ટિયમ નિસલ
-                  </p>
-                  <p>
-                    {" "}
-                    Cras faucibus laoreet nibh, sit amet tincidunt leo mollis
-                    in. Etiam eu mauris metus. Nulla facilisi. Etiam vestibulum,
-                    nisi et convallis elementum, leo orci aliquam metus, id
-                    posuere massa neque vitae arcu.
-                  </p>
+  return (
+    <>
+      <div className="text-part col-md-12" style={{ color: "rgb(133, 6, 6)" }}>
+        <h2
+          style={{
+            fontFamily: "Samarkan",
+            textAlign: "center",
+            color: "rgb(133, 6, 6)",
+          }}
+        >
+          || About Us ||
+        </h2>
 
-                  <p>
-                    Integer vulputate vehicula dolor a eleifend. Duis aliquam
-                    condimentum sapien, eget tempor justo. Aenean porttitor nibh
-                    metus, sollicitudin egestas metus posuere et . Fusce egestas
-                    volutpat metus, in sodales sem bibendum porta. Nunc
-                    hendrerit nunc sit amet tellus posuere, at malesuada sem
-                    gravida. Integer maximus ultricies augue, at dapibus elit
-                    bibendum consequat. Cras faucibus tellus eleifend, fermentum
-                    purus in, dapibus sapien. Praesent nec ornare risus. Etiam
-                    iaculis, ligula vel gravida vestibulum, urna justo posuere
-                    ante, id pretium massa arcu sed mi. Nunc a sollicitudin sem.
-                    Duis tempus{" "}
-                  </p>
-                </div>
-        </>
-    )
-}
+        <p>
+          {`એકતાએજલક્ષ્યસંગઠનનીશરૂઆતગુજરાતથીથઈછેએકતાએજલક્ષ્યસંગઠનછપુખ્તશાખાતથાપાચપેટાશાખાઅનેએકઆદરેકનુંનિયંત્રણકરતીમુખ્યશાખાખાસાથેસનાતનસંસ્કૃતિનાતમામબાબતોનેઆવરીનેહિન્દુત્વનાતમામમુદ્દાપરકામકરેછે
+          આસંગઠનનોઉદ્દેશ્યઅલગઅલગથઈનેજાતિઓમાંવેહચાદરેકહિન્દુપરિવારોનેએકકરવાનોછે
+          800થીવધારેમોગલોનાઆક્રમણથયા૨૦૦વર્ષથીવધારેઅંગ્રેજોનાઅત્યાચારસહનકર્યાઆવિદેશીઆક્રમણકારોએજેભારતનીઅંદરફૂટપાડીછેહિન્દુઓનીઅંદરજ્ઞાતિવાદનાવાળાઉભાકર્યાછેઅનેકહેવાતારીતિરિવાજોકેમૂલ્યોજેમાંનાઘણાંખરામૂલ્યોકેરિવાજોભારતનાહતાજનહીંસંસ્કૃતિનીપરંપરાનોહિસ્સોછેજનહીંપણઆષડયંત્રકાર્યોએભાગલાપાડવાઅનેઆગળજઈસનાતનસંસ્કૃતિતૂટીજાયસંપૂર્ણનષ્ટથઈજાયવિનિપાતથઈજાયએનામાટેઅનેકોરીતિરિવાજોનુગઠનકર્યુંજેક્યારેભારતનાહતાજનહિએકતાએજલક્ષ્યસંગઠનઆવાપાયાવિહોણારિવાજોતથાસમાજનીઅંદરવ્યાપેલાદુષણોતથાજ્ઞાતિવાદનાવાડાદૂરકરીએકતાસ્થાપવાનાપ્રયાસકરતુસંગઠનજેસંપૂર્ણપણેભારતનેહિન્દુરાષ્ટ્રબનાવવાનાઉદ્દેશથીકાર્યકરેછેવસુદેવકુટુંબકમનીભાવનાએટલામાટેઆવેછેકેસમગ્રહવિશેસનાતનછેપરંતુજ્યાંસનાતનનુંઅપમાનથતુંહોયત્યાંવસુદેવકુટુંબકમનીભાવનાનાહોયત્યાંશ્રીકૃષ્ણનીતિતથાચાણક્યનીતિથીકામલેવુંજપડે
+          સંગઠનસમાજનેસાચીદિશાઆપીલોકસેવાસમાજસેવાસાથેસાથેસામાજિકમૂલ્યોનીતિઓનુંસનાતનીગઠનગૌસેવાપશુસેવારાજનૈતિકદબાવો
+          જેસનાતનસંસ્કૃતિનાહિતમાંકાયદાકાનુનફેરફારમાટે
+          રાજનીતિકકૂટનીતિકઅનેરણનીતિકઆમત્રણ્યબાબતપરનીપૂર્ણતાથીકાર્યકરેછે`}
+        </p>
+      </div>
+    </>
+  );
+};
 
-export default AboutUsContent
+export default AboutUsContent;

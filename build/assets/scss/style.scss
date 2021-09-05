@@ -132,7 +132,7 @@ header {
                     padding: 10px;
 
                     a {
-                       
+
                     }
                 }
 
@@ -140,6 +140,8 @@ header {
                     color: #686968 !important;
                     border: 1px solid #CCC;
                     border-radius: 50px;
+                    cursor: pointer;
+
 
                     &:hover {
                         background-color: $color-primary;

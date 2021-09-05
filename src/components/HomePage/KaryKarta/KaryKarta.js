@@ -7,6 +7,11 @@ const karykartaInformation = [
     position: `સંસ્થાપક `,
   },
   {
+    imageUrl: `assets/images/team/team-memb5.jpg`,
+    name: `શ્રી જયભાઈ  પટેલ `,
+    position: `ઉપ સંચાલક `,
+  },
+  {
     imageUrl: `assets/images/team/team-memb2.jpg`,
     name: `શ્રી નીતિનભાઈ પટેલ `,
     position: `ઉપ સંસ્થાપક`,
@@ -21,16 +26,6 @@ const karykartaInformation = [
     name: `શ્રી અશોકસિંહ વાઘેલા`,
     position: `મુખ્ય કાર્યકર્તા `,
   },
-  {
-    imageUrl: `assets/images/team/team-memb4.jpg`,
-    name: `શ્રી અશોકસિંહ વાઘેલા`,
-    position: `મુખ્ય કાર્યકર્તા `,
-  },
-  {
-    imageUrl: `assets/images/team/team-memb4.jpg`,
-    name: `શ્રી અશોકસિંહ વાઘેલા`,
-    position: `મુખ્ય કાર્યકર્તા `,
-  },
 ];
 const KaryKarta = () => {
   return (
@@ -39,11 +34,6 @@ const KaryKarta = () => {
         <div className="container">
           <div className="session-title row ">
             <h2>Meet our Team</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-              fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit
-              velit
-            </p>
           </div>
           <div
             className="row team-row"

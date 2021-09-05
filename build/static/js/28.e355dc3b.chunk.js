@@ -1,2 +1,0 @@
-(this["webpackJsonpekta-ej-laksh-web"]=this["webpackJsonpekta-ej-laksh-web"]||[]).push([[28],{294:function(e,s,c){"use strict";c.r(s);c(0);var t=c(2);s.default=function(e){var s=e.icon,c=e.titel;return Object(t.jsx)(t.Fragment,{children:Object(t.jsx)("div",{className:"col-sm-12",children:Object(t.jsxs)("div",{className:"about-qcard",children:[Object(t.jsx)("i",{className:s}),Object(t.jsx)("p",{children:c})]})})})}}}]);
-//# sourceMappingURL=28.e355dc3b.chunk.js.map

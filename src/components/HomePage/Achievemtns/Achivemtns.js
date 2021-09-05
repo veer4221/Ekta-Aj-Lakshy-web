@@ -1,54 +1,73 @@
-import React from 'react'
-import AchivemtnsData from './AchivemtnsData'
+import React, { useEffect } from "react";
+import AchivemtnsData from "./AchivemtnsData";
+import { useDispatch, useSelector } from "react-redux";
+import { getAchiveAction } from "../../../Redux/Actions/index";
 
-const AxhivemtnsCaseData=[
-    {
-        number:12,
-        lebel:`YEARS OF EXPEREANCE`
-    },
-    {
-        number:122,
-        lebel:`GauRaksh`
-    },
-    {
-        number:123,
-        lebel:`Jihad`
-    },
-    {
-        number:212,
-        lebel:`Protect Girl`
-    }
-]
+const AxhivemtnsCaseData = [
+  {
+    number: 12,
+    lebel: `વીઝીટર`,
+  },
+  {
+    number: 12,
+    lebel: `રજિસ્ટર મેમ્બર `,
+  },
+  {
+    number: 12,
+    lebel: `ટોટલ મેમ્બર`,
+  },
+  {
+    number: 12,
+    lebel: `ગૌ સેવા`,
+  },
+];
+var temp = 0;
 const Achivemtns = () => {
-    return (
-        <>
-    <div className="doctor-message">
-          <div className="inner-lay">
-            <div className="container">
-              <div className="row session-title">
-                <h2>Our Achievemtns in Numbers</h2>
-                <p>
-                  We can talk for a long time about advantages of our Dental
-                  clinic before other medical treatment facilities. But you can
-                  read the following facts in order to make sure of all pluses
-                  of our clinic:
-                </p>
-              </div>
-              <div className="row">
-                  {
-                      AxhivemtnsCaseData&&
-                    AxhivemtnsCaseData.map((data)=>(
-                        <AchivemtnsData data={data}/>
-                    ))
-                  }
+  const achieve = useSelector((state) => state.achive);
+  const dispatch = useDispatch();
+  // useEffect(() => {
 
+  // }, [achieve.achieve.rows[0]]);
+  useEffect(() => {
+    dispatch(getAchiveAction());
+  }, []);
+  if (achieve.achieve.rows[0] && temp == 0) {
+    temp = 1;
+    AxhivemtnsCaseData.push(
+      {
+        number: achieve.achieve.rows[0].gau_raksha,
+        lebel: `ગૌરક્ષા`,
+      },
+      {
+        number: achieve.achieve.rows[0].love_jihad,
+        lebel: `લવજેહાદ`,
+      },
+      {
+        number: achieve.achieve.rows[0].protect_girl,
+        lebel: `જમીન જેહાદ`,
+      }
+    );
+  }
 
-              </div>
+  return (
+    <>
+      <div className="doctor-message">
+        <div className="inner-lay">
+          <div className="container">
+            <div className="row session-title">
+              <h2>Our Achievemtns in Numbers</h2>
+            </div>
+            <div className="row">
+              {AxhivemtnsCaseData &&
+                AxhivemtnsCaseData.map((data) => (
+                  <AchivemtnsData data={data} />
+                ))}
             </div>
           </div>
         </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
-export default Achivemtns
+export default Achivemtns;

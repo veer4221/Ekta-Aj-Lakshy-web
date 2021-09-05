@@ -31,7 +31,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ViewMore({ Image, imageUrl, info, subBranch, title }) {
+export default function ViewMore({
+  Image,
+  imageUrl,
+  info,
+  subBranch,
+  title,
+  CONST_SHAKHA,
+}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -88,6 +95,7 @@ export default function ViewMore({ Image, imageUrl, info, subBranch, title }) {
                 imageUrl={imageUrl}
                 info={info}
                 subBranch={subBranch}
+                CONST_SHAKHA={CONST_SHAKHA}
               />
             </Grid>
           </Grid>

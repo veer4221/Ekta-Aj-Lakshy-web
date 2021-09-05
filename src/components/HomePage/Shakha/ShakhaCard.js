@@ -36,6 +36,7 @@ const ShakhaCard = ({ data }) => {
               info={data.information}
               subBranch={data.subBranch}
               title={data.name}
+              CONST_SHAKHA={data.CONST_SHAKHA}
             />
           </Suspense>
           {/* <button style={{ padding: "7px" }}>&nbsp; ||View More||&nbsp;</button> */}
