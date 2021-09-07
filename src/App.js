@@ -1,19 +1,24 @@
 // import './App.css';
-import React, { Suspense, lazy, useState, useEffect } from "react";
-import { Routes, Route } from "react-router";
+
 import "bootstrap/dist/css/bootstrap.min.css";
-// import HomePage from "./page/HomePage";
 import "./style/aboutUsMtextView.css";
 import "./style/buttoncss.css";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import "./style/buttoncss.css";
+
 import {
   BrowserView,
   MobileView,
   isBrowser,
   isMobile,
 } from "react-device-detect";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import React, { Suspense, lazy, useEffect, useState } from "react";
+import { Route, Routes } from "react-router";
+
 import Loader from "./page/loader/Loader";
-import "./style/buttoncss.css";
+
+// import HomePage from "./page/HomePage";
+
 const Loadable = (Component) => (props) =>
   (
     <Suspense fallback={<div>Loading...</div>}>
@@ -27,6 +32,7 @@ const DoneteUs = Loadable(React.lazy(() => import("./page/DoneteUs")));
 const HomePage = Loadable(React.lazy(() => import("./page/HomePage")));
 const ContectUs = Loadable(React.lazy(() => import("./page/ContectUs")));
 const RojgarResult = Loadable(React.lazy(() => import("./page/RojgarResult")));
+const Rojgar = Loadable(React.lazy(() => import("./page/Rojghar")));
 const News = Loadable(React.lazy(() => import("./page/News")));
 const Header = Loadable(
   React.lazy(() => import("./components/layout/Header/Header"))
@@ -38,6 +44,9 @@ const Gallery = Loadable(React.lazy(() => import("./page/Gallery")));
 
 const FloatingMenu2 = Loadable(
   React.lazy(() => import("./components/layout/FloatingBTN/FloatingMenu2"))
+);
+const BusinessPage = Loadable(
+  React.lazy(() => import("./components/RojgharTab/Business"))
 );
 const AboutUsSangathan = Loadable(
   React.lazy(() =>
@@ -69,6 +78,9 @@ const App = (props) => {
           <Route path="/DonateUs" element={<DoneteUs />} />
           <Route path="/ContectUs" element={<ContectUs />} />
           <Route path="/RojgharResult" element={<RojgarResult />} />
+          <Route path="/Rojghar" element={<Rojgar />} />
+          <Route path="/BusinessPage" element={<BusinessPage />} />
+          <Route path="/jobPage" element={<BusinessPage />} />
         </Routes>
 
         <Footer />

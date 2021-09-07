@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import Portal from "@material-ui/core/Portal";
-
 import {
-  emailCheckAction,
   checkUserPreasentOrNotAction,
+  emailCheckAction
 } from "../../../Redux/Actions/index";
+import { useDispatch, useSelector } from "react-redux";
+
+import { Form } from "react-bootstrap";
+import Portal from "@material-ui/core/Portal";
 
 const EmailForm = ({ setPage }) => {
   const user = useSelector((state) => state.user);

@@ -1,7 +1,11 @@
-import React from "react";
-import { useNavigate } from "react-router";
-import "../../../style/aboutUsMtextView.css";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+
+import React from "react";
+
+import { useNavigate } from "react-router";
+
+import "../../../style/aboutUsMtextView.css";
+
 import "./style.css";
 
 const BottomHeader = () => {
@@ -123,6 +127,24 @@ const BottomHeader = () => {
                       }}
                     >
                       Contect Us
+                    </span>
+                  </a>
+                </li>
+                
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    onClick={() => {
+                      navigate("/rojghar");
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "rgb(172, 24, 24)",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Rojgar
                     </span>
                   </a>
                 </li>

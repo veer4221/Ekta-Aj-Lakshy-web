@@ -1,30 +1,36 @@
-import React from "react";
 import KaryKartaCard from "./KaryKartaCard";
+import React from "react";
+
 const karykartaInformation = [
   {
     imageUrl: `assets/images/team/team-memb1.jpg`,
-    name: `શ્રી ભગીરથ સિંહ રાઠોડ `,
+    name: `હિન્દુ ભગીરથ સિંહ રાઠોડ `,
     position: `સંસ્થાપક `,
   },
   {
     imageUrl: `assets/images/team/team-memb5.jpg`,
-    name: `શ્રી જયભાઈ  પટેલ `,
-    position: `ઉપ સંચાલક `,
+    name: `હિન્દુ જયભાઈ  પટેલ `,
+    position: `ગુજરાત ઉપાધ્યક્ષ `,
   },
   {
     imageUrl: `assets/images/team/team-memb2.jpg`,
-    name: `શ્રી નીતિનભાઈ પટેલ `,
-    position: `ઉપ સંસ્થાપક`,
+    name: `હિન્દુ નીતિનભાઈ પટેલ `,
+    position: `ગુજરાત મહામંત્રી`,
   },
   {
     imageUrl: `assets/images/team/team-memb3.jpg`,
-    name: `શ્રી જ્વાલાસિંહ રાઠોડ `,
+    name: `હિન્દુ જ્વાલાસિંહ રાઠોડ `,
     position: `આઇટી સેલ પ્રમુખ `,
   },
   {
     imageUrl: `assets/images/team/team-memb4.jpg`,
-    name: `શ્રી અશોકસિંહ વાઘેલા`,
-    position: `મુખ્ય કાર્યકર્તા `,
+    name: `હિન્દુ અશોકસિંહ વાઘેલા`,
+    position: `એકલવ્ય સમિતિ `,
+  },
+  {
+    imageUrl: `assets/images/team/team-memb6.png`,
+    name: `હિન્દુ સંજયભાઈ ગજ્જર`,
+    position: `એકલવ્ય સમિતિ `,
   },
 ];
 const KaryKarta = () => {
