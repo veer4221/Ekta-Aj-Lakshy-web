@@ -130,12 +130,12 @@ const BottomHeader = () => {
                     </span>
                   </a>
                 </li>
-                
+
                 <li className="nav-item">
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/rojghar");
+                      navigate("/RojgharResult");
                     }}
                   >
                     <span

@@ -1,6 +1,7 @@
 // import './App.css';
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./main.css";
 import "./style/aboutUsMtextView.css";
 import "./style/buttoncss.css";
 import "./style/buttoncss.css";
@@ -30,13 +31,21 @@ const AboutUsPage = Loadable(
 );
 const DoneteUs = Loadable(React.lazy(() => import("./page/DoneteUs")));
 const HomePage = Loadable(React.lazy(() => import("./page/HomePage")));
+const ProfilePage = Loadable(React.lazy(() => import("./page/ProfilePage")));
+const FindJob = Loadable(React.lazy(() => import("./page/FindJob")));
+const RojgharUserPanel = Loadable(
+  React.lazy(() => import("./page/RojgharUserPanel"))
+);
 const ContectUs = Loadable(React.lazy(() => import("./page/ContectUs")));
-const RojgarResult = Loadable(React.lazy(() => import("./page/RojgarResult")));
+const RojgharMainPage = Loadable(
+  React.lazy(() => import("./page/RojgharMainPage"))
+);
 const Rojgar = Loadable(React.lazy(() => import("./page/Rojghar")));
 const News = Loadable(React.lazy(() => import("./page/News")));
 const Header = Loadable(
   React.lazy(() => import("./components/layout/Header/Header"))
 );
+const LoginRojghar = Loadable(React.lazy(() => import("./page/LoginRojghar")));
 const Footer = Loadable(
   React.lazy(() => import("./components/layout/Footer/Footer"))
 );
@@ -77,10 +86,15 @@ const App = (props) => {
           <Route path="/News" element={<News />} />
           <Route path="/DonateUs" element={<DoneteUs />} />
           <Route path="/ContectUs" element={<ContectUs />} />
-          <Route path="/RojgharResult" element={<RojgarResult />} />
+          <Route path="/RojgharResult" element={<RojgharMainPage />} />
           <Route path="/Rojghar" element={<Rojgar />} />
           <Route path="/BusinessPage" element={<BusinessPage />} />
           <Route path="/jobPage" element={<BusinessPage />} />
+          <Route path="/LoginRojghar" element={<LoginRojghar />} />
+
+          <Route path="/rojghar/userpanel" element={<RojgharUserPanel />} />
+          <Route path="/rojghar/ProfilePage" element={<ProfilePage />} />
+          <Route path="/rojghar/FindJobPage" element={<FindJob />} />
         </Routes>
 
         <Footer />

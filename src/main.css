@@ -1,0 +1,81 @@
+.card-rojghar {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+        rgba(0, 0, 0, 0.22) 0px 15px 12px !important;
+    border-radius: 5% !important;
+}
+
+.rojghar-text {
+    color: rgb(172, 24, 24);
+}
+
+.card-rojghar>img {
+    border-radius: 5% !important;
+}
+
+.Login-card {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px !important;
+    border-radius: 5% !important;
+}
+
+.Header-ekta {
+    color: rgb(172, 24, 24);
+}
+
+
+
+
+
+
+
+
+
+
+.cardP {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+}
+
+.cardP {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+.card-bodyP {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-smP {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-smP>.colP,
+.gutters-smP>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.mb-3P,
+.my-3P {
+    margin-bottom: 1rem !important;
+}
+
+.bg-gray-300P {
+    background-color: #e2e8f0;
+}
+
+.h-100P {
+    height: 100% !important;
+}
+
+.shadow-noneP {
+    box-shadow: none !important;
+}
