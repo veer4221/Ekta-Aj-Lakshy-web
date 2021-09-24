@@ -1,0 +1,63 @@
+.allEle{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+
+}
+.linknav{
+ text-decoration: none;
+ font-size: 20px;
+ color: rgb(206, 53, 48);
+}
+.navbar{
+    padding:10px 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.navbar ul{
+    flex:1;
+    text-align: right;
+}
+.navbar ul li {
+    display: inline-block;
+    margin: 0 30px;
+}
+.Logo{
+    font-size:35px;
+    color:rgb(206, 53, 48);
+
+}
+.logoutDeskTop{
+    display: none;
+}
+.mobile-list{
+    display: none;
+}
+@media only screen and (max-width:800px){
+    .navbar .desktop-list{
+        display: none;
+    }
+    .logoutDeskTop{
+        display:block
+    }
+    .mobile-list{
+        z-index: 999;
+        display: block;
+        color:tomato;
+        position: fixed;
+        bottom:0; 
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        background-color: white;
+    }
+    .mobile-list svg{
+        font-size: 7vmin;
+        cursor: pointer;
+    }
+}

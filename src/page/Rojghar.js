@@ -25,10 +25,10 @@ export default function CenteredGrid() {
 
   return (
     <div className={(classes.root, `page`)}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={12} md={12}>
-          <h1 style={{ color: "red", textAlign: "center" }}>Rojghar Shakha</h1>
-        </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={12} md={12}>
+            <h1 style={{ color: "red", textAlign: "center" }}>Rojghar Shakha</h1>
+          </Grid>
         <Grid item xs={12} sm={6} md={6} className="ourBtn">
           <Card
             style={{

@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -42,4 +42,137 @@
   padding: 15px;
   height: 100px;
   width: 100px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.user_cardL {
+  height: 400px;
+  width: 400px;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* background: #fff; */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
+  /* border-radius: 5px; */
+  background-color: rgb(255 255 255 /20%);
+  backdrop-filter: blur(20px);
+}
+.login_name_wrapperL {
+    height: 20%!important;
+    min-height: 200px;
+    margin-bottom: auto;
+    margin-top: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #FFF;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.login_logo_containerL {
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  top: -75px;
+  border-radius: 50%;
+  background: #dfcfcf;
+  padding: 10px;
+  text-align: center;
+}
+.login_logoL {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.form_containerL {
+  margin-top: 100px;
+}
+.login_btnL {
+  width: 100%;
+
+  color: white !important;
+}
+.login_btnL:hover {
+  background: #2c44b0!important;
+}
+
+.login_containerL {
+  padding: 0 2rem;
+}
+.input-group-text {
+  background: #233588 !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_userL, .input_passL:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.custom-checkboxL .custom-control-inputL:checked ~ .custom-control-labelL::before {
+  background-color: #233588 !important;
+}
+.input-group-textL {
+  height: 38px;
+}
+.Rg-bg{
+  background-color: #2b4162;
+  background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%)
+}
+
+.card-glass{
+  border-radius: 5px;
+  box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
+  /* border-radius: 5px; */
+  background-color: rgb(255 255 255 /30%);
+  opacity: 1;
+  
+  backdrop-filter: blur(20px);
+
+}
+/* .find-job-card-text {
+  color:black !important;
+} */
+.find-job-card-textD {
+  color:white !important;
 }

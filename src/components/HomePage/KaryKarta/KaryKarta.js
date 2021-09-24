@@ -8,7 +8,7 @@ const karykartaInformation = [
     position: `સંસ્થાપક `,
   },
   {
-    imageUrl: `assets/images/team/team-memb5.jpg`,
+    imageUrl: `assets/images/team/team-memb6.jpg`,
     name: `હિન્દુ જયભાઈ  પટેલ `,
     position: `ગુજરાત ઉપાધ્યક્ષ `,
   },
@@ -28,10 +28,11 @@ const karykartaInformation = [
     position: `એકલવ્ય સમિતિ `,
   },
   {
-    imageUrl: `assets/images/team/team-memb6.png`,
+    imageUrl: `assets/images/team/team-memb5.jpg`,
     name: `હિન્દુ સંજયભાઈ ગજ્જર`,
     position: `એકલવ્ય સમિતિ `,
   },
+  
 ];
 const KaryKarta = () => {
   return (

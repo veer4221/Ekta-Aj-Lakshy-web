@@ -3,7 +3,7 @@ import React from "react";
 
 const ProfilePage = () => {
   return (
-    <div className="page">
+    <div className="Rg-bg">
       <div className="container">
         <h1 className="Header-ekta " style={{ textAlign: "center" }}>
           My Profile

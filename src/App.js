@@ -5,7 +5,7 @@ import "./main.css";
 import "./style/aboutUsMtextView.css";
 import "./style/buttoncss.css";
 import "./style/buttoncss.css";
-
+import "./App.css"
 import {
   BrowserView,
   MobileView,
@@ -15,17 +15,24 @@ import {
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 import { Route, Routes } from "react-router";
+import {
+  Outlet
+} from 'react-router-dom';
 
 import Loader from "./page/loader/Loader";
+import HomeRoutes from "./HomeRoutes";
+import LoginPage from "./page/LoginPage";
+import RojgharshakhaRoute from "./RojgharshakhaRoute";
+import LoginFileRoute from "./LoginFileRoute";
 
 // import HomePage from "./page/HomePage";
 
 const Loadable = (Component) => (props) =>
-  (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Component {...props} />
-    </Suspense>
-  );
+(
+  <Suspense fallback={<div>Loading...</div>}>
+    <Component {...props} />
+  </Suspense>
+);
 const AboutUsPage = Loadable(
   React.lazy(() => import("./components/AboutUs/AboutUsPage"))
 );
@@ -75,8 +82,39 @@ const App = (props) => {
     <>
       {isLoading ? <Loader /> : ``}
       <div className="App">
-        <MobileView>
-          <FloatingMenu2 />
+        <Routes>
+          <Route path="/" element={<HomeRoutes />} >
+            <Route path="/" element={<HomePage />} />
+            <Route path="/Gallery" element={<Gallery />} />
+            <Route path="/AboutUs" element={<AboutUsPage />} />
+            <Route path="/News" element={<News />} />
+            <Route path="/DonateUs" element={<DoneteUs />} />
+            <Route path="/ContectUs" element={<ContectUs />} />
+            <Route path="/RojgharResult" element={<RojgharMainPage />} />
+            <Route path="/Rojghar" element={<Rojgar />} />
+            <Route path="/BusinessPage" element={<BusinessPage />} />
+            <Route path="/jobPage" element={<BusinessPage />} />
+            <Route path="/LoginRojghar" element={<LoginRojghar />} />
+
+            <Route path="/rojghar/userpanel" element={<RojgharUserPanel />} />
+            <Route path="/rojghar/ProfilePage" element={<ProfilePage />} />
+            <Route path="/rojghar/FindJobPage" element={<FindJob />} />
+          </Route>
+
+
+          <Route path="/Rojgharmain" element={<RojgharshakhaRoute />} >
+            <Route path="/findJob" element={<FindJob />} />
+            <Route path="/ProfilePage" element={<ProfilePage />} />
+
+          </Route>
+          <Route path="/auth" element={<LoginFileRoute />} >
+
+            <Route path="/Login" element={<LoginPage />} />
+          </Route>
+        </Routes>
+        {/* <Footer/> */}
+        {/* <MobileView>
+          <FloatingMenu2  />
         </MobileView>
         <Header />
         <Routes>
@@ -97,7 +135,7 @@ const App = (props) => {
           <Route path="/rojghar/FindJobPage" element={<FindJob />} />
         </Routes>
 
-        <Footer />
+        <Footer /> */}
       </div>
     </>
   );
