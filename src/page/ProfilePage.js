@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+
 import React from "react";
 
 const ProfilePage = () => {
@@ -11,7 +12,7 @@ const ProfilePage = () => {
         <div className="main-bodyP" style={{ padding: "2c0px" }}>
           <div className="row gutters-smP">
             <div className="col-md-4 mb-3P">
-              <div className="cardP">
+              <div className="card-glass card-glass">
                 <div className="card-bodyP">
                   <div className="d-flex flex-column align-items-center text-center">
                     <img
@@ -32,8 +33,8 @@ const ProfilePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="cardP mt-3">
-                <ul className="list-group list-group-flush">
+              <div className="card-glass mt-3">
+                <ul className="list-group list-group-flush card-glass">
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">
                       <svg
@@ -149,7 +150,7 @@ const ProfilePage = () => {
               </div>
             </div>
             <div className="col-md-8">
-              <div className="cardP mb-3P">
+              <div className="card-glass mb-3P">
                 <div className="card-bodyP">
                   <div className="row">
                     <div className="col-sm-3">
@@ -205,7 +206,7 @@ const ProfilePage = () => {
 
               <div className="row gutters-smP">
                 <div className="col-sm-6 mb-3P">
-                  <div className="cardP h-100">
+                  <div className="card-glass h-100">
                     <div className="card-bodyP">
                       <h6 className="d-flex align-items-center mb-3P">
                         <i className="material-icons text-info mr-2">
@@ -272,7 +273,7 @@ const ProfilePage = () => {
                   </div>
                 </div>
                 <div className="col-sm-6 mb-3P">
-                  <div className="cardP h-100">
+                  <div className="card-glass h-100">
                     <div className="card-bodyP">
                       <h6 className="d-flex align-items-center mb-3P">
                         <i className="material-icons text-info mr-2">

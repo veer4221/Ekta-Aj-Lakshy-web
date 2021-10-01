@@ -1,38 +1,42 @@
 // import './App.css';
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./main.css";
-import "./style/aboutUsMtextView.css";
-import "./style/buttoncss.css";
-import "./style/buttoncss.css";
-import "./App.css"
+
 import {
   BrowserView,
   MobileView,
   isBrowser,
   isMobile,
 } from "react-device-detect";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import React, { Suspense, lazy, useEffect, useState } from "react";
-import { Route, Routes } from "react-router";
-import {
-  Outlet
-} from 'react-router-dom';
 
-import Loader from "./page/loader/Loader";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+
+import React, { Suspense, lazy, useEffect, useState } from "react";
+
+import { Route, Routes } from "react-router";
+
+import { Outlet } from "react-router-dom";
+
+import "./App.css";
 import HomeRoutes from "./HomeRoutes";
-import LoginPage from "./page/LoginPage";
-import RojgharshakhaRoute from "./RojgharshakhaRoute";
 import LoginFileRoute from "./LoginFileRoute";
+import RojgharshakhaRoute from "./RojgharshakhaRoute";
+import "./main.css";
+
+import LoginPage from "./page/LoginPage";
+import "./style/aboutUsMtextView.css";
+import "./style/buttoncss.css";
+import "./style/buttoncss.css";
+import Loader from "./page/loader/Loader";
 
 // import HomePage from "./page/HomePage";
 
 const Loadable = (Component) => (props) =>
-(
-  <Suspense fallback={<div>Loading...</div>}>
-    <Component {...props} />
-  </Suspense>
-);
+  (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Component {...props} />
+    </Suspense>
+  );
 const AboutUsPage = Loadable(
   React.lazy(() => import("./components/AboutUs/AboutUsPage"))
 );
@@ -40,13 +44,19 @@ const DoneteUs = Loadable(React.lazy(() => import("./page/DoneteUs")));
 const HomePage = Loadable(React.lazy(() => import("./page/HomePage")));
 const ProfilePage = Loadable(React.lazy(() => import("./page/ProfilePage")));
 const FindJob = Loadable(React.lazy(() => import("./page/FindJob")));
+const HireForm = Loadable(
+  React.lazy(() => import("./page/RojgarModule/HireForm"))
+);
+const HireMain = Loadable(
+  React.lazy(() => import("./page/RojgarModule/HireMain"))
+);
 const RojgharUserPanel = Loadable(
   React.lazy(() => import("./page/RojgharUserPanel"))
 );
 const ContectUs = Loadable(React.lazy(() => import("./page/ContectUs")));
-const RojgharMainPage = Loadable(
-  React.lazy(() => import("./page/RojgharMainPage"))
-);
+// const RojgharMainPage = Loadable(
+//   React.lazy(() => import("./page/RojgharMainPage"))
+// );
 const Rojgar = Loadable(React.lazy(() => import("./page/Rojghar")));
 const News = Loadable(React.lazy(() => import("./page/News")));
 const Header = Loadable(
@@ -83,14 +93,14 @@ const App = (props) => {
       {isLoading ? <Loader /> : ``}
       <div className="App">
         <Routes>
-          <Route path="/" element={<HomeRoutes />} >
+          <Route path="/" element={<HomeRoutes />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/Gallery" element={<Gallery />} />
             <Route path="/AboutUs" element={<AboutUsPage />} />
             <Route path="/News" element={<News />} />
             <Route path="/DonateUs" element={<DoneteUs />} />
             <Route path="/ContectUs" element={<ContectUs />} />
-            <Route path="/RojgharResult" element={<RojgharMainPage />} />
+            {/* <Route path="/RojgharResult" element={<RojgharMainPage />} /> */}
             <Route path="/Rojghar" element={<Rojgar />} />
             <Route path="/BusinessPage" element={<BusinessPage />} />
             <Route path="/jobPage" element={<BusinessPage />} />
@@ -101,14 +111,13 @@ const App = (props) => {
             <Route path="/rojghar/FindJobPage" element={<FindJob />} />
           </Route>
 
-
-          <Route path="/Rojgharmain" element={<RojgharshakhaRoute />} >
+          <Route path="/Rojgharmain" element={<RojgharshakhaRoute />}>
             <Route path="/findJob" element={<FindJob />} />
             <Route path="/ProfilePage" element={<ProfilePage />} />
-
+            <Route path="/Hire" element={<HireMain />} />
+            <Route path="/HireForm" element={<HireForm />} />
           </Route>
-          <Route path="/auth" element={<LoginFileRoute />} >
-
+          <Route path="/auth" element={<LoginFileRoute />}>
             <Route path="/Login" element={<LoginPage />} />
           </Route>
         </Routes>
