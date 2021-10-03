@@ -1,13 +1,22 @@
-import { userContants, authConstants, postContants } from "../constants";
-import axios from "../../helper/axios";
 import {
+  addUserAPI,
   emailCheckerAPI,
   updateUserAPI,
   userIsPresentOrNotAPI,
-  addUserAPI,
+  userProfileAPI,
 } from "../../api/index";
-import { DialerSipSharp } from "@material-ui/icons";
+import { authConstants, postContants, userContants } from "../constants";
 
+import { DialerSipSharp } from "@material-ui/icons";
+import axios from "../../helper/axios";
+
+export const getUserProfileAction = (id) => {
+  return async (dispatch) => {
+    dispatch({ type: userContants.GET_USER_PROFILE_REQUEST });
+    const res = await userProfileAPI(id);
+    console.log(res);
+  };
+};
 export const emailCheckAction = (email) => {
   return async (dispatch) => {
     dispatch({ type: userContants.EMAIL_CHECKER_REQUEST });

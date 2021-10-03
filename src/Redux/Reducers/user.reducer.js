@@ -1,3 +1,5 @@
+/* eslint-disable default-case */
+
 import { userContants } from "../constants";
 
 const initState = {
@@ -7,6 +9,7 @@ const initState = {
   loading: false,
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initState, action) => {
   switch (action.type) {
     case userContants.EMAIL_CHECKER_REQUEST:
@@ -85,6 +88,19 @@ export default (state = initState, action) => {
         loading: true,
       };
       break;
+    case userContants.GET_USER_PROFILE_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case userContants.GET_USER_PROFILE_SUCCESS:
+      state = {
+        ...state,
+        getUserInfo: action.payload.data,
+      };
+      break;
+
     case userContants.ADD_USER_REQUEST:
       state = {
         ...state,

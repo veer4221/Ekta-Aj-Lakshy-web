@@ -17,3 +17,6 @@ export const getAchiveAPI = () => axios.get(`/v1/Achievemnts/getAchive`);
 
 export const rojgharLoginAPI = (payload) =>
   axios.post(`/v1/auth/login`, payload);
+
+export const userProfileAPI = (id) =>
+  axios.apply(`/v1/user/userProfile?id=${id}`);

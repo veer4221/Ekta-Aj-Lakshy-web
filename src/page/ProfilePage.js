@@ -1,10 +1,21 @@
-import { Button } from "react-bootstrap";
-
-import React from "react";
-
 import "./RojgarModule/profile.css";
 
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { Button } from "react-bootstrap";
+import { getUserProfileAction } from "../Redux/Actions/index";
+import { userProfileAPI } from "../api/index";
+
 const ProfilePage = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const [userData, setUserData] = useState();
+
+  useEffect(() => {
+    setUserData(JSON.parse(localStorage.getItem("user")));
+  }, []);
   return (
     <div className="Rg-bg">
       <div className="container">
@@ -21,7 +32,10 @@ const ProfilePage = () => {
                 <div className="card-bodyP">
                   <div className="d-flex flex-column align-items-center text-center">
                     <img
-                      src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                      src={
+                        userData &&
+                        `https://health-image-maruti.s3.us-east-2.amazonaws.com/${userData.image}`
+                      }
                       alt="Admin"
                       className="rounded-circle"
                       width="150"
@@ -162,7 +176,8 @@ const ProfilePage = () => {
                       <h6 className="mb-0 headerProfile">Full Name</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile ">
-                      Kenneth Valdez
+                      {userData &&
+                        `${userData.firstName} ${userData.fatherName} ${userData.sarname}`}
                     </div>
                   </div>
                   <hr></hr>
@@ -171,7 +186,7 @@ const ProfilePage = () => {
                       <h6 className="mb-0 headerProfile">Email</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                      fip@jukmuh.al
+                      {userData && `${userData.email} `}
                     </div>
                   </div>
                   <hr />
@@ -180,7 +195,7 @@ const ProfilePage = () => {
                       <h6 className="mb-0 headerProfile">Phone</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                      (239) 816-9029
+                      {userData && `${userData.mobileNumber} `}
                     </div>
                   </div>
                   <hr />
@@ -190,11 +205,11 @@ const ProfilePage = () => {
                       <h6 className="mb-0 headerProfile">Study</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                      Bsc(CA&IT)
+                      {userData && `${userData.study} `}
                     </div>
                   </div>
                   <hr />
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0 headerProfile">Mobile</h6>
                     </div>
@@ -202,13 +217,13 @@ const ProfilePage = () => {
                       (320) 380-4539
                     </div>
                   </div>
-                  <hr />
+                  <hr /> */}
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0 headerProfile">Address</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                      Bay Area, San Francisco, CA
+                      {userData && `${userData.address} `}
                     </div>
                   </div>
                   <hr />
@@ -217,7 +232,7 @@ const ProfilePage = () => {
                       <h6 className="mb-0 headerProfile">Pin-Code</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                      383110
+                      {userData && `${userData.pinCode} `}
                     </div>
                   </div>
                   <hr />

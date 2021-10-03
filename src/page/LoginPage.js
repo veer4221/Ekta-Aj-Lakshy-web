@@ -1,13 +1,10 @@
 import { Button, Card } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-
 import React, { useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 
-import { useNavigate } from "react-router";
-
+import Grid from "@material-ui/core/Grid";
 import { login } from "../Redux/Actions/index";
+import { useNavigate } from "react-router";
 
 const LoginPage = () => {
   const auth = useSelector((state) => state.auth);
