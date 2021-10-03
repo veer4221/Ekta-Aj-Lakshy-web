@@ -169,7 +169,7 @@
 
 .Rg-bg {
   height: 100%;
-  background-image: url("./style/image/rojgharbg3.jpg");
+  background-image: url("./style/image/rojgharbg1.jpg");
   background-repeat: no-repeat !important;
   background-position: center;
   background-size: cover;
@@ -180,9 +180,9 @@
 
 .card-glass {
   border-radius: 5px;
-  box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 0 1rem 0 rgb(0 0 0 / 0%);
   /* border-radius: 5px; */
-  background-color: rgb(255 255 255 /30%);
+  background-color: rgb(0 0 0 / 65%);
   opacity: 1;
 
   backdrop-filter: blur(20px);

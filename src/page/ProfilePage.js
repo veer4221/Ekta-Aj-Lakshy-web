@@ -2,11 +2,16 @@ import { Button } from "react-bootstrap";
 
 import React from "react";
 
+import "./RojgarModule/profile.css";
+
 const ProfilePage = () => {
   return (
     <div className="Rg-bg">
       <div className="container">
-        <h1 className="Header-ekta " style={{ textAlign: "center" }}>
+        <h1
+          className="Header-ekta "
+          style={{ textAlign: "center", color: "white" }}
+        >
           My Profile
         </h1>
         <div className="main-bodyP" style={{ padding: "2c0px" }}>
@@ -22,18 +27,18 @@ const ProfilePage = () => {
                       width="150"
                     />
                     <div className="mt-3">
-                      <h4>John Doe</h4>
-                      <p className="text-secondary mb-1">
+                      <h4 className="headerProfile">John Doe</h4>
+                      {/* <p className="text-secondary mb-1">
                         Full Stack Developer
                       </p>
                       <p className="text-muted font-size-sm">
                         Bay Area, San Francisco, CA
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="card-glass mt-3">
+              {/* <div className="card-glass mt-3">
                 <ul className="list-group list-group-flush card-glass">
                   <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 className="mb-0">
@@ -147,51 +152,72 @@ const ProfilePage = () => {
                     <span className="text-secondary">bootdey</span>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
             <div className="col-md-8">
               <div className="card-glass mb-3P">
                 <div className="card-bodyP">
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Full Name</h6>
+                      <h6 className="mb-0 headerProfile">Full Name</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary dataProfile ">
                       Kenneth Valdez
                     </div>
                   </div>
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Email</h6>
+                      <h6 className="mb-0 headerProfile">Email</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">fip@jukmuh.al</div>
+                    <div className="col-sm-9 text-secondary dataProfile">
+                      fip@jukmuh.al
+                    </div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Phone</h6>
+                      <h6 className="mb-0 headerProfile">Phone</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary dataProfile">
                       (239) 816-9029
                     </div>
                   </div>
                   <hr />
+
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Mobile</h6>
+                      <h6 className="mb-0 headerProfile">Study</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary dataProfile">
+                      Bsc(CA&IT)
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0 headerProfile">Mobile</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary dataProfile">
                       (320) 380-4539
                     </div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0">Address</h6>
+                      <h6 className="mb-0 headerProfile">Address</h6>
                     </div>
-                    <div className="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary dataProfile">
                       Bay Area, San Francisco, CA
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0 headerProfile">Pin-Code</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary dataProfile">
+                      383110
                     </div>
                   </div>
                   <hr />
@@ -204,7 +230,7 @@ const ProfilePage = () => {
                 </div>
               </div>
 
-              <div className="row gutters-smP">
+              {/* <div className="row gutters-smP">
                 <div className="col-sm-6 mb-3P">
                   <div className="card-glass h-100">
                     <div className="card-bodyP">
@@ -339,7 +365,7 @@ const ProfilePage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>

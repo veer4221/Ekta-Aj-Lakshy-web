@@ -41,13 +41,7 @@ const HireMain = () => {
                 display: "flex",
                 justifyContent: "center",
               }}
-            >
-              <img
-                src="assets/images/AaryTeam/veer.png"
-                height="200px"
-                width="200px"
-              />
-            </div>
+            ></div>
             <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
             <div style={{ margin: "10px" }}>
               <table width="100%" className="find-job-card">
@@ -95,13 +89,7 @@ const HireMain = () => {
                 display: "flex",
                 justifyContent: "center",
               }}
-            >
-              <img
-                src="assets/images/AaryTeam/veer.png"
-                height="200px"
-                width="200px"
-              />
-            </div>
+            ></div>
             <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
             <div style={{ margin: "10px" }}>
               <table width="100%" className="find-job-card">
@@ -149,13 +137,7 @@ const HireMain = () => {
                 display: "flex",
                 justifyContent: "center",
               }}
-            >
-              <img
-                src="assets/images/AaryTeam/veer.png"
-                height="200px"
-                width="200px"
-              />
-            </div>
+            ></div>
             <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
             <div style={{ margin: "10px" }}>
               <table width="100%" className="find-job-card">
@@ -203,13 +185,7 @@ const HireMain = () => {
                 display: "flex",
                 justifyContent: "center",
               }}
-            >
-              <img
-                src="assets/images/AaryTeam/veer.png"
-                height="200px"
-                width="200px"
-              />
-            </div>
+            ></div>
             <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
             <div style={{ margin: "10px" }}>
               <table width="100%" className="find-job-card">

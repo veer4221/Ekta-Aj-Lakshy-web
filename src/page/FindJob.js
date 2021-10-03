@@ -1,10 +1,12 @@
 import { Button, Grid, IconButton, Paper } from "@material-ui/core";
-
 import Pagination from "@material-ui/lab/Pagination";
+
 import React, { useState } from "react";
 
+import "./RojgarModule/findJob.css";
+
 const FindJob = () => {
-  const [filter, setFilter] = useState(false)
+  const [filter, setFilter] = useState(false);
   return (
     <>
       <Grid
@@ -13,7 +15,7 @@ const FindJob = () => {
         className="Rg-bg"
         style={{ paddingBottom: "100px" }}
       >
-        {filter &&
+        {filter && (
           <>
             <Grid item xs={12} sm={12} md={12}>
               <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
@@ -30,7 +32,7 @@ const FindJob = () => {
             >
               <label style={{ color: "rgb(172, 24, 24)" }} for="cars">
                 catagory
-          </label>
+              </label>
               <select className="form-control" id="cars" name="cars">
                 <option value="audi">All</option>
                 <option value="volvo">Technical</option>
@@ -48,7 +50,7 @@ const FindJob = () => {
             >
               <label style={{ color: "rgb(172, 24, 24)" }} for="cars">
                 state
-          </label>
+              </label>
               <select className="form-control" id="cars" name="cars">
                 <option value="volvo">All</option>
                 <option value="saab">Gujrat</option>
@@ -66,7 +68,7 @@ const FindJob = () => {
             >
               <label style={{ color: "rgb(172, 24, 24)" }} for="cars">
                 District
-          </label>
+              </label>
               <select className="form-control" id="cars" name="cars">
                 <option value="volvo">all</option>
                 <option value="saab">Ananad</option>
@@ -84,7 +86,7 @@ const FindJob = () => {
             >
               <label style={{ color: "rgb(172, 24, 24)" }} for="cars">
                 City
-          </label>
+              </label>
               <select className="form-control" id="cars" name="cars">
                 <option value="audi">All</option>
                 <option value="volvo">Karnavati</option>
@@ -93,276 +95,472 @@ const FindJob = () => {
               </select>
             </Grid>
             <Grid
-              className="px-5 ourBtn"
+              className="px-5 "
               style={{ marginTop: "-10px" }}
               item
               xs={12}
               sm={3}
               md={3}
             >
-              <Button onClick={() => {
-                setFilter(false)
-              }}>Find</Button>
-
+              <Button
+                onClick={() => {
+                  setFilter(false);
+                }}
+              >
+                Find
+              </Button>
             </Grid>
           </>
-        }
-        {!filter && <><Grid
-          item
-          className="ourBtn m-4"
-          xs={12}
-          sm={12}
-          md={12}
+        )}
+        {!filter && (
+          <>
+            <Grid item className="ourBtn m-4" xs={12} sm={12} md={12}>
+              <h2 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>
+                Available Job
+              </h2>
+              <br></br>
 
-        >
-          <h2 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>Available Job</h2>
-          <br></br>
-          <Button onClick={() => {
-            setFilter(true)
-          }}>Filter</Button>
-        
-        </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={3}
-            md={3}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            <div
-            
-
-              style={{ width: "80%", marginTop: "50px" }}
-              className="card-rojghar card-glass"
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
+              <Button
+                className=""
+                onClick={() => {
+                  setFilter(true);
                 }}
               >
-                <img
-                  src="https://picsum.photos/200/300"
-                  height="200px"
-                  width="200px"
-                />
-              </div>
-              <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
-              <div style={{ margin: "10px" }}>
-                <table width="100%" className="find-job-card">
-                  <tr>
-                     <th className="find-job-card-text">Company</th>
-                    <td  className="find-job-card-textD">:TCS</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">salary</th>
-                    <td  className="find-job-card-textD">:25000/-</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">Job</th>
-                    <td  className="find-job-card-textD">:worker</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">Qualification</th>
-                    <td  className="find-job-card-textD">:Graduate </td>
-                  </tr>
-                </table>
-                <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
-
-                <div
-                  className="ourBtn"
-                  style={{ display: "flex", justifyContent: "center" }}
-                >
-                  <Button>view More</Button>
-                </div>
-              </div>
-            </div>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={3}
-            md={3}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            <div
-            
-
-              style={{ width: "80%", marginTop: "50px" }}
-              className="card-rojghar card-glass"
+                Filter
+              </Button>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
             >
               <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+                style={{ width: "80%", marginTop: "50px" }}
+                className="card-rojghar card-glass"
               >
-                <img
-                  src="https://picsum.photos/200/300"
-                  height="200px"
-                  width="200px"
-                />
-              </div>
-              <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
-              <div style={{ margin: "10px" }}>
-                <table width="100%" className="find-job-card">
-                  <tr>
-                     <th className="find-job-card-text">Company</th>
-                    <td  className="find-job-card-textD">:TCS</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">salary</th>
-                    <td  className="find-job-card-textD">:25000/-</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">Job</th>
-                    <td  className="find-job-card-textD">:worker</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">Qualification</th>
-                    <td  className="find-job-card-textD">:Graduate </td>
-                  </tr>
-                </table>
-                <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
-
                 <div
-                  className="ourBtn"
-                  style={{ display: "flex", justifyContent: "center" }}
-                >
-                  <Button>view More</Button>
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                ></div>
+                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                <div style={{ margin: "10px" }}>
+                  <table width="100%" className="find-job-card">
+                    <tr>
+                      <th className="find-job-card-text headFindJob ">
+                        Company
+                      </th>
+                      <td className="find-job-card-textD ">:TCS</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">salary</th>
+                      <td className="find-job-card-textD">:25000/-</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">Job</th>
+                      <td className="find-job-card-textD">:worker</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">
+                        Qualification
+                      </th>
+                      <td className="find-job-card-textD">:Graduate </td>
+                    </tr>
+                  </table>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="buttonOK">view More</Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Grid>
-          
-          <Grid
-            item
-            xs={12}
-            sm={3}
-            md={3}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            <div
-            
-
-              style={{ width: "80%", marginTop: "50px" }}
-              className="card-rojghar card-glass"
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
             >
               <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+                style={{ width: "80%", marginTop: "50px" }}
+                className="card-rojghar card-glass"
               >
-                <img
-                  src="https://picsum.photos/200/300"
-                  height="200px"
-                  width="200px"
-                />
-              </div>
-              <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
-              <div style={{ margin: "10px" }}>
-                <table width="100%" className="find-job-card">
-                  <tr>
-                     <th className="find-job-card-text">Company</th>
-                    <td  className="find-job-card-textD">:TCS</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">salary</th>
-                    <td  className="find-job-card-textD">:25000/-</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">Job</th>
-                    <td  className="find-job-card-textD">:worker</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">Qualification</th>
-                    <td  className="find-job-card-textD">:Graduate </td>
-                  </tr>
-                </table>
-                <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
-
                 <div
-                  className="ourBtn"
-                  style={{ display: "flex", justifyContent: "center" }}
-                >
-                  <Button>view More</Button>
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                ></div>
+                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                <div style={{ margin: "10px" }}>
+                  <table width="100%" className="find-job-card">
+                    <tr>
+                      <th className="find-job-card-text headFindJob ">
+                        Company
+                      </th>
+                      <td className="find-job-card-textD ">:TCS</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">salary</th>
+                      <td className="find-job-card-textD">:25000/-</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">Job</th>
+                      <td className="find-job-card-textD">:worker</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">
+                        Qualification
+                      </th>
+                      <td className="find-job-card-textD">:Graduate </td>
+                    </tr>
+                  </table>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="buttonOK">view More</Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Grid>
-          
-          <Grid
-            item
-            xs={12}
-            sm={3}
-            md={3}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            <div
-            
-
-              style={{ width: "80%", marginTop: "50px" }}
-              className="card-rojghar card-glass"
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
             >
               <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+                style={{ width: "80%", marginTop: "50px" }}
+                className="card-rojghar card-glass"
               >
-                <img
-                  src="https://picsum.photos/200/300"
-                  height="200px"
-                  width="200px"
-                />
-              </div>
-              <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
-              <div style={{ margin: "10px" }}>
-                <table width="100%" className="find-job-card">
-                  <tr>
-                     <th className="find-job-card-text">Company</th>
-                    <td  className="find-job-card-textD">:TCS</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">salary</th>
-                    <td  className="find-job-card-textD">:25000/-</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">Job</th>
-                    <td  className="find-job-card-textD">:worker</td>
-                  </tr>
-                  <tr>
-                     <th className="find-job-card-text">Qualification</th>
-                    <td  className="find-job-card-textD">:Graduate </td>
-                  </tr>
-                </table>
-                <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
-
                 <div
-                  className="ourBtn"
-                  style={{ display: "flex", justifyContent: "center" }}
-                >
-                  <Button>view More</Button>
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                ></div>
+                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                <div style={{ margin: "10px" }}>
+                  <table width="100%" className="find-job-card">
+                    <tr>
+                      <th className="find-job-card-text headFindJob ">
+                        Company
+                      </th>
+                      <td className="find-job-card-textD ">:TCS</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">salary</th>
+                      <td className="find-job-card-textD">:25000/-</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">Job</th>
+                      <td className="find-job-card-textD">:worker</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">
+                        Qualification
+                      </th>
+                      <td className="find-job-card-textD">:Graduate </td>
+                    </tr>
+                  </table>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="buttonOK">view More</Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Grid>
-          
-          
-          <Grid
-            item
-            xs={12}
-            sm={3}
-            md={3}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            <Pagination
-              count={5}
-              onChange={(e, value) => console.log(value)}
-              shape="rounded"
-            />
-          </Grid></>}
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div
+                style={{ width: "80%", marginTop: "50px" }}
+                className="card-rojghar card-glass"
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                ></div>
+                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                <div style={{ margin: "10px" }}>
+                  <table width="100%" className="find-job-card">
+                    <tr>
+                      <th className="find-job-card-text headFindJob ">
+                        Company
+                      </th>
+                      <td className="find-job-card-textD ">:TCS</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">salary</th>
+                      <td className="find-job-card-textD">:25000/-</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">Job</th>
+                      <td className="find-job-card-textD">:worker</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">
+                        Qualification
+                      </th>
+                      <td className="find-job-card-textD">:Graduate </td>
+                    </tr>
+                  </table>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="buttonOK">view More</Button>
+                  </div>
+                </div>
+              </div>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div
+                style={{ width: "80%", marginTop: "50px" }}
+                className="card-rojghar card-glass"
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                ></div>
+                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                <div style={{ margin: "10px" }}>
+                  <table width="100%" className="find-job-card">
+                    <tr>
+                      <th className="find-job-card-text headFindJob ">
+                        Company
+                      </th>
+                      <td className="find-job-card-textD ">:TCS</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">salary</th>
+                      <td className="find-job-card-textD">:25000/-</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">Job</th>
+                      <td className="find-job-card-textD">:worker</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">
+                        Qualification
+                      </th>
+                      <td className="find-job-card-textD">:Graduate </td>
+                    </tr>
+                  </table>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="buttonOK">view More</Button>
+                  </div>
+                </div>
+              </div>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div
+                style={{ width: "80%", marginTop: "50px" }}
+                className="card-rojghar card-glass"
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                ></div>
+                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                <div style={{ margin: "10px" }}>
+                  <table width="100%" className="find-job-card">
+                    <tr>
+                      <th className="find-job-card-text headFindJob ">
+                        Company
+                      </th>
+                      <td className="find-job-card-textD ">:TCS</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">salary</th>
+                      <td className="find-job-card-textD">:25000/-</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">Job</th>
+                      <td className="find-job-card-textD">:worker</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">
+                        Qualification
+                      </th>
+                      <td className="find-job-card-textD">:Graduate </td>
+                    </tr>
+                  </table>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="buttonOK">view More</Button>
+                  </div>
+                </div>
+              </div>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div
+                style={{ width: "80%", marginTop: "50px" }}
+                className="card-rojghar card-glass"
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                ></div>
+                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                <div style={{ margin: "10px" }}>
+                  <table width="100%" className="find-job-card">
+                    <tr>
+                      <th className="find-job-card-text headFindJob ">
+                        Company
+                      </th>
+                      <td className="find-job-card-textD ">:TCS</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">salary</th>
+                      <td className="find-job-card-textD">:25000/-</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">Job</th>
+                      <td className="find-job-card-textD">:worker</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">
+                        Qualification
+                      </th>
+                      <td className="find-job-card-textD">:Graduate </td>
+                    </tr>
+                  </table>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="buttonOK">view More</Button>
+                  </div>
+                </div>
+              </div>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <div
+                style={{ width: "80%", marginTop: "50px" }}
+                className="card-rojghar card-glass"
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                ></div>
+                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                <div style={{ margin: "10px" }}>
+                  <table width="100%" className="find-job-card">
+                    <tr>
+                      <th className="find-job-card-text headFindJob ">
+                        Company
+                      </th>
+                      <td className="find-job-card-textD ">:TCS</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">salary</th>
+                      <td className="find-job-card-textD">:25000/-</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">Job</th>
+                      <td className="find-job-card-textD">:worker</td>
+                    </tr>
+                    <tr>
+                      <th className="find-job-card-text headFindJob">
+                        Qualification
+                      </th>
+                      <td className="find-job-card-textD">:Graduate </td>
+                    </tr>
+                  </table>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="buttonOK">view More</Button>
+                  </div>
+                </div>
+              </div>
+            </Grid>
+
+            <Grid
+              item
+              xs={12}
+              sm={3}
+              md={3}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Pagination
+                count={5}
+                onChange={(e, value) => console.log(value)}
+                shape="rounded"
+              />
+            </Grid>
+          </>
+        )}
       </Grid>
     </>
   );

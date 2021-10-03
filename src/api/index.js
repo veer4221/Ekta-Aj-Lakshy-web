@@ -14,3 +14,6 @@ export const userIsPresentOrNotAPI = (email) =>
 export const addUserAPI = (user) => axios.post(`/v1/user/signup`, user);
 
 export const getAchiveAPI = () => axios.get(`/v1/Achievemnts/getAchive`);
+
+export const rojgharLoginAPI = (payload) =>
+  axios.post(`/v1/auth/login`, payload);

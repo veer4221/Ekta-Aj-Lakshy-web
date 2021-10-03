@@ -1,12 +1,14 @@
+import { Button, Grid, Paper } from "@material-ui/core";
+
 import {
   BrowserView,
   MobileView,
   isBrowser,
   isMobile,
 } from "react-device-detect";
-import { Button, Grid, Paper } from "@material-ui/core";
 
 import React from "react";
+
 import { useNavigate } from "react-router";
 
 const LoginRojghar = () => {
