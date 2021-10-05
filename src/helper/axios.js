@@ -1,11 +1,19 @@
 import axios from "axios";
+
 import { api } from "./urlConfig";
 
+const token = window.localStorage.getItem("token");
 const axiosIntance = axios.create({
   baseURL: api,
+  headers: {
+    Authorization: token ? `${token}` : "",
+  },
 });
 
 axiosIntance.interceptors.request.use((req) => {
+  if (token) {
+    req.headers.Authorization = `${token}`;
+  }
   return req;
 });
 

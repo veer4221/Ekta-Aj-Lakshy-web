@@ -20,3 +20,9 @@ export const rojgharLoginAPI = (payload) =>
 
 export const userProfileAPI = (id) =>
   axios.apply(`/v1/user/userProfile?id=${id}`);
+
+export const getStateAPI = () => axios.get(`/v1/job/getState`);
+export const getDistrictAPI = (state_id) =>
+  axios.get(`/v1/job/getDistrict?state_id=${state_id}`);
+export const getCityAPI = (districtid) =>
+  axios.get(`/v1/job/getCity?districtid=${districtid}`);
