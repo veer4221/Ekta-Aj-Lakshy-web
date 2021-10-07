@@ -26,3 +26,16 @@ export const getDistrictAPI = (state_id) =>
   axios.get(`/v1/job/getDistrict?state_id=${state_id}`);
 export const getCityAPI = (districtid) =>
   axios.get(`/v1/job/getCity?districtid=${districtid}`);
+
+export const addJobAPI = (record) => axios.post(`/v1/job/addjob`, record);
+
+export const getAllJobsAPI = (state, district, city, page, limit) =>
+  axios.get(
+    `/v1/job/getAllJobs?city=${city == 0 ? `` : city}&state=${
+      state == 0 ? `` : state
+    }&district=${district == 0 ? `` : district}&page=${page}&limit=${limit}`
+  );
+
+export const getJobAPI = (id) => axios.get(`/v1/job/getjob?id=${id}`);
+
+export const applyForJobAPI = (obj) => axios.post(`/v1/jobApply/apply`, obj);

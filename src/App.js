@@ -40,6 +40,9 @@ const Loadable = (Component) => (props) =>
 const AboutUsPage = Loadable(
   React.lazy(() => import("./components/AboutUs/AboutUsPage"))
 );
+const ViewJob = Loadable(
+  React.lazy(() => import("./page/RojgarModule/ViewJob.js"))
+);
 const DoneteUs = Loadable(React.lazy(() => import("./page/DoneteUs")));
 const HomePage = Loadable(React.lazy(() => import("./page/HomePage")));
 const ProfilePage = Loadable(React.lazy(() => import("./page/ProfilePage")));
@@ -116,6 +119,7 @@ const App = (props) => {
             <Route path="/ProfilePage" element={<ProfilePage />} />
             <Route path="/Hire" element={<HireMain />} />
             <Route path="/HireForm" element={<HireForm />} />
+            <Route path="/viewJob" element={<ViewJob />} />
           </Route>
           <Route path="/auth" element={<LoginFileRoute />}>
             <Route path="/Login" element={<LoginPage />} />

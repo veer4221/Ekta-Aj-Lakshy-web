@@ -1,6 +1,6 @@
 import { authConstants } from "../constants";
-import { rojgharLoginAPI } from "../../api/index";
 import axios from "../../helper/axios";
+import { rojgharLoginAPI } from "../../api/index";
 
 export const login = (user) => {
   console.log(user);

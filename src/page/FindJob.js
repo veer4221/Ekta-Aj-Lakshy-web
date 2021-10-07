@@ -1,12 +1,56 @@
 import { Button, Grid, IconButton, Paper } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { useNavigate } from "react-router";
+
+import {
+  cleanAllStateAction,
+  cleanCityAction,
+  cleanDistrictAction,
+  getAllJobsAction,
+  getCityAction,
+  getDistrictAction,
+  getStateAction,
+} from "../Redux/Actions";
 
 import "./RojgarModule/findJob.css";
 
 const FindJob = () => {
+  const place = useSelector((state) => state.place);
+  const job = useSelector((state) => state.job);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [filter, setFilter] = useState(false);
+  const [city, setCity] = useState(0);
+  const [state, setState] = useState(0);
+  const [district, setDistrict] = useState(0);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(8);
+  useEffect(() => {
+    dispatch(getAllJobsAction(state, district, city, page, limit));
+  }, [filter, page]);
+  useEffect(() => {
+    dispatch(cleanAllStateAction());
+  }, []);
+  useEffect(async () => {
+    await dispatch(getStateAction());
+  }, []);
+  useEffect(() => {
+    // alert(company_state);
+    if (state != -1) {
+      dispatch(getDistrictAction(state));
+    }
+  }, [state]);
+  useEffect(() => {
+    // alert(company_distict);
+    if (district != -1) {
+      dispatch(getCityAction(district));
+    }
+  }, [district]);
   return (
     <>
       <Grid
@@ -48,14 +92,32 @@ const FindJob = () => {
               sm={3}
               md={3}
             >
-              <label style={{ color: "rgb(172, 24, 24)" }} for="cars">
-                state
+              <label class="form-label" for="form6Example1">
+                State
               </label>
-              <select className="form-control" id="cars" name="cars">
-                <option value="volvo">All</option>
-                <option value="saab">Gujrat</option>
-                <option value="fiat">Maharastr</option>
-                <option value="audi">Rajasthan</option>
+              <select
+                name="cars"
+                id="cars"
+                value={state}
+                onChange={(e) => {
+                  setCity(-1);
+                  setDistrict(-1);
+                  dispatch(cleanCityAction());
+                  dispatch(cleanDistrictAction());
+                  setState(e.target.value);
+                }}
+                class="form-control"
+              >
+                <option value={-1}>please Select</option>
+
+                {place.state.rows &&
+                  place.state.rows.map((data) => (
+                    <>
+                      <option value={`${data.state_id}`}>
+                        {data.state_title}
+                      </option>
+                    </>
+                  ))}
               </select>
             </Grid>
             <Grid
@@ -66,14 +128,30 @@ const FindJob = () => {
               sm={3}
               md={3}
             >
-              <label style={{ color: "rgb(172, 24, 24)" }} for="cars">
+              <label class="form-label" for="form6Example1">
                 District
               </label>
-              <select className="form-control" id="cars" name="cars">
-                <option value="volvo">all</option>
-                <option value="saab">Ananad</option>
-                <option value="fiat">Sabarkantha</option>
-                <option value="audi">kheda</option>
+              <select
+                name="cars"
+                id="cars"
+                value={district}
+                onChange={(e) => {
+                  dispatch(cleanCityAction());
+                  setCity(-1);
+                  setDistrict(e.target.value);
+                }}
+                class="form-control"
+              >
+                <option value={-1}>please Select</option>
+
+                {place.district.rows &&
+                  place.district.rows.map((data) => (
+                    <>
+                      <option value={`${data.districtid}`}>
+                        {data.district_title}
+                      </option>
+                    </>
+                  ))}
               </select>
             </Grid>
             <Grid
@@ -84,14 +162,30 @@ const FindJob = () => {
               sm={3}
               md={3}
             >
-              <label style={{ color: "rgb(172, 24, 24)" }} for="cars">
-                City
+              <label class="form-label" for="form6Example1">
+                city
               </label>
-              <select className="form-control" id="cars" name="cars">
-                <option value="audi">All</option>
-                <option value="volvo">Karnavati</option>
-                <option value="saab">Idar</option>
-                <option value="fiat">Himmatnagar</option>
+              <select
+                name="city"
+                id="city"
+                value={city}
+                onChange={(e) => {
+                  setCity(e.target.value);
+                }}
+                class="form-control"
+              >
+                <option value={-1}>please Select</option>
+
+                {place.city.rows &&
+                  place.city.rows.map((data) => (
+                    <>
+                      <option value={`${data.id}`}>{data.name}</option>
+                    </>
+                  ))}
+                {/* <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option> */}
               </select>
             </Grid>
             <Grid
@@ -115,7 +209,7 @@ const FindJob = () => {
         {!filter && (
           <>
             <Grid item className="ourBtn m-4" xs={12} sm={12} md={12}>
-              <h2 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>
+              <h2 style={{ color: "white", textAlign: "center" }}>
                 Available Job
               </h2>
               <br></br>
@@ -129,7 +223,89 @@ const FindJob = () => {
                 Filter
               </Button>
             </Grid>
-            <Grid
+            {job.getAllJobs.rows.map((data) => (
+              <Grid
+                item
+                xs={12}
+                sm={3}
+                md={3}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <div
+                  style={{ width: "80%", marginTop: "50px" }}
+                  className="card-rojghar card-glass"
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  ></div>
+                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+                  <div style={{ margin: "10px" }}>
+                    <table width="100%" className="find-job-card">
+                      <tr>
+                        <th className="find-job-card-text headFindJob ">
+                          Company
+                        </th>
+                        <td className="find-job-card-textD ">
+                          :{data.company_name}
+                        </td>
+                      </tr>
+                      <tr>
+                        <th className="find-job-card-text headFindJob">
+                          min salary
+                        </th>
+                        <td className="find-job-card-textD">
+                          :{data.salary_min}/-
+                        </td>
+                      </tr>
+                      <tr>
+                        <th className="find-job-card-text headFindJob">
+                          max salary
+                        </th>
+                        <td className="find-job-card-textD">
+                          :{data.salary_max}/-
+                        </td>
+                      </tr>
+                      <tr>
+                        <th className="find-job-card-text headFindJob">
+                          Job Role
+                        </th>
+                        <td className="find-job-card-textD">
+                          :{data.job_role}
+                        </td>
+                      </tr>
+                      <tr>
+                        <th className="find-job-card-text headFindJob">
+                          Qualification
+                        </th>
+                        <td className="find-job-card-textD">
+                          :{data.Qualification}{" "}
+                        </td>
+                      </tr>
+                    </table>
+                    <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
+
+                    <div
+                      className=""
+                      style={{ display: "flex", justifyContent: "center" }}
+                    >
+                      <Button
+                        className="buttonOK"
+                        onClick={() => {
+                          localStorage.setItem("jobId", data.id);
+                          navigate(`/Rojgharmain/viewJob`);
+                        }}
+                      >
+                        view More
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </Grid>
+            ))}
+            {/* <Grid
               item
               xs={12}
               sm={3}
@@ -492,59 +668,7 @@ const FindJob = () => {
                   </div>
                 </div>
               </div>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={3}
-              md={3}
-              style={{ display: "flex", justifyContent: "center" }}
-            >
-              <div
-                style={{ width: "80%", marginTop: "50px" }}
-                className="card-rojghar card-glass"
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                ></div>
-                <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
-                <div style={{ margin: "10px" }}>
-                  <table width="100%" className="find-job-card">
-                    <tr>
-                      <th className="find-job-card-text headFindJob ">
-                        Company
-                      </th>
-                      <td className="find-job-card-textD ">:TCS</td>
-                    </tr>
-                    <tr>
-                      <th className="find-job-card-text headFindJob">salary</th>
-                      <td className="find-job-card-textD">:25000/-</td>
-                    </tr>
-                    <tr>
-                      <th className="find-job-card-text headFindJob">Job</th>
-                      <td className="find-job-card-textD">:worker</td>
-                    </tr>
-                    <tr>
-                      <th className="find-job-card-text headFindJob">
-                        Qualification
-                      </th>
-                      <td className="find-job-card-textD">:Graduate </td>
-                    </tr>
-                  </table>
-                  <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
-
-                  <div
-                    className=""
-                    style={{ display: "flex", justifyContent: "center" }}
-                  >
-                    <Button className="buttonOK">view More</Button>
-                  </div>
-                </div>
-              </div>
-            </Grid>
+            </Grid> */}
 
             <Grid
               item
@@ -554,8 +678,8 @@ const FindJob = () => {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <Pagination
-                count={5}
-                onChange={(e, value) => console.log(value)}
+                count={Math.floor(job.getAllJobs.count / limit + 1)}
+                onChange={(e, value) => setPage(value)}
                 shape="rounded"
               />
             </Grid>

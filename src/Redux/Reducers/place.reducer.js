@@ -78,6 +78,17 @@ export default (state = initState, action) => {
       };
 
       break;
+
+    case placeConstants.CLEAN_ALL_STATE:
+      state = {
+        error: null,
+        city: {},
+        state: {},
+        district: {},
+        loading: false,
+      };
+
+      break;
   }
 
   return state;

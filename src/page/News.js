@@ -1,23 +1,22 @@
-import React, { useEffect } from "react";
-import PostCard from "../components/News/PostCard";
 import "../style/aboutUsMtextView.css";
-import { useDispatch, useSelector } from "react-redux";
+import "../style/News.css";
+
+import React, { useEffect } from "react";
 import {
   getPostListAction,
   resetPostStateAction,
 } from "../Redux/Actions/index";
+import { useDispatch, useSelector } from "react-redux";
+
 import Pagination from "@material-ui/lab/Pagination";
-import "../style/News.css";
+import PostCard from "../components/News/PostCard";
 
 const News = () => {
   const post = useSelector((state) => state.post);
   const dispatch = useDispatch();
   const [page, setPage] = React.useState(1);
-
   const [rowsPerPage, setRowsPerPage] = React.useState(3);
-
   const [open, setOpen] = React.useState(false);
-
   const [count, setCount] = React.useState();
   const [reloadAgain, setReloadAgain] = React.useState(new Date());
   const [userRows, setUserRows] = React.useState();
@@ -37,8 +36,7 @@ const News = () => {
         <div className="container ">
           <div className="row session-title">
             <h2 style={{ fontFamily: "Samarkan", color: "rgb(172, 24, 24)" }}>
-              {" "}
-              Post{" "}
+              Post
             </h2>
           </div>
           <div className="blog-row row">
