@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from "react";
+import "./profile.css";
 
+import React, { useEffect, useState } from "react";
+import { getJobAction, jobApplyAction } from "../../Redux/Actions/index";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "react-bootstrap";
-
+import { useNavigate } from "react-router";
 import { userProfileAPI } from "../../api/index";
-import { getJobAction } from "../../Redux/Actions/index";
-
-import "./profile.css";
 
 const ProfilePage = () => {
   const job = useSelector((state) => state.job);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const userDataStorag = JSON.parse(localStorage.getItem("user"));
   const [userData, setUserData] = useState();
-
+  const applyForJobFunc = () => {
+    const obj = {
+      job_id: job.getJob.id,
+      user_id: userDataStorag.id,
+    };
+    dispatch(jobApplyAction(obj));
+    navigate(`/Rojgharmain/FindJob`);
+  };
   useEffect(() => {
     dispatch(getJobAction(localStorage.getItem("jobId")));
   }, []);
@@ -201,7 +208,7 @@ const ProfilePage = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-12">
-                      <Button>Apply</Button>
+                      <Button onClick={applyForJobFunc}>Apply</Button>
                     </div>
                   </div>
                 </div>
