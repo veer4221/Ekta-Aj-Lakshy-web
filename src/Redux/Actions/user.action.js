@@ -5,6 +5,7 @@ import {
   userIsPresentOrNotAPI,
   userProfileAPI,
   checkUserStatusAPI,
+  updatePaymentStatusAPI,
 } from "../../api/index";
 import { authConstants, postContants, userContants } from "../constants";
 
@@ -22,6 +23,25 @@ export const cheakUserStatusAction = (body) => {
 
   };
 };
+export const resetUserStatusAction = () => {
+  return async (dispatch) => {
+    dispatch({ type: userContants.RESET_USER_STATUS})
+  }
+}
+export const updatePaymentStatusAction = (body) => {
+  return async (dispatch) => {
+    dispatch({ type: userContants.UPDATE_PAYMENT_STATUS_REQUEST})
+    const res = await updatePaymentStatusAPI(body);
+    
+    if (res.status === 200 && res.data.success == true) {
+      
+      dispatch({
+        type: userContants.UPDATE_PAYMENT_STATUS_SUCCESS,
+        payload: "payment done",
+      });
+    }
+  }
+}
 export const getUserProfileAction = (id) => {
   return async (dispatch) => {
     dispatch({ type: userContants.GET_USER_PROFILE_REQUEST });

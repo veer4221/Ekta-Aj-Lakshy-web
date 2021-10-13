@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   stateUpdateAction,
   updateUserAction,
+  updatePaymentStatusAction,
   addUserAction,
 } from "../../../Redux/Actions/index";
 import axios from "axios";
@@ -43,20 +44,20 @@ const PaymentForm = () => {
           response.razorpay_signature
         ) {
           const obj = {
-            ...user.getUserInfo,
+            email:localStorage.getItem("joinUsEmail"),
             payment: "1",
             orderId: response.razorpay_order_id,
             paymentID: response.razorpay_payment_id,
             paymentSignature: response.razorpay_signature,
           };
 
-          dispatch(addUserAction(obj));
+          dispatch(updatePaymentStatusAction(obj));
         }
       },
-      prefill: {
-        contact: user.getUserInfo.mobileNumber,
-        email: user.getUserInfo.email,
-      },
+      // prefill: {
+      //   contact: user.getUserInfo.mobileNumber,
+      //   email: user.getUserInfo.email,
+      // },
       notes: {
         address: "Razorpay Corporate Office",
       },

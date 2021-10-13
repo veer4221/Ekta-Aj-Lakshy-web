@@ -20,6 +20,13 @@ export default (state = initState, action) => {
         getUserInfo: {},
       };
       break;
+      case userContants.RESET_USER_STATUS:
+        state = {
+          ...state,
+      
+          userState: {},
+        };
+        break;
     case userContants.EMAIL_CHECKER_SUCCESS:
       console.log(action);
       state = {
@@ -28,6 +35,21 @@ export default (state = initState, action) => {
         getUserInfo: action.payload.adminUser,
       };
       break;
+      case userContants.UPDATE_PAYMENT_STATUS_REQUEST:
+        state = {
+          ...state,
+          loading: true,
+          
+        };
+        break;
+      case userContants.UPDATE_PAYMENT_STATUS_SUCCESS:
+        console.log(action);
+        state = {
+          ...state,
+          loading: false,
+          message: action.payload,
+        };
+        break;
       
       case userContants.CHECK_USER_STATUS_REQUEST:
         state = {
