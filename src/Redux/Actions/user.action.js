@@ -4,24 +4,36 @@ import {
   updateUserAPI,
   userIsPresentOrNotAPI,
   userProfileAPI,
+  checkUserStatusAPI,
 } from "../../api/index";
 import { authConstants, postContants, userContants } from "../constants";
 
 import { DialerSipSharp } from "@material-ui/icons";
 import axios from "../../helper/axios";
+export const cheakUserStatusAction = (body) => {
+  return async (dispatch) => {
+    dispatch({ type: userContants.CHECK_USER_STATUS_REQUEST });
+    const res = await checkUserStatusAPI(body);
+    
+      dispatch({
+        type: userContants.CHECK_USER_STATUS_SUCCESS,
+        payload: res.data,
+      });
 
+  };
+};
 export const getUserProfileAction = (id) => {
   return async (dispatch) => {
     dispatch({ type: userContants.GET_USER_PROFILE_REQUEST });
     const res = await userProfileAPI(id);
     console.log(res.data.adminUser);
-  
+
     console.log(res.status);
-    if (res.status === 200 && res.data.success==true) {
-      const {adminUser}=res.data;
+    if (res.status === 200 && res.data.success == true) {
+      const { adminUser } = res.data;
       dispatch({
         type: userContants.GET_USER_PROFILE_SUCCESS,
-        payload:adminUser ,
+        payload: adminUser,
       });
     }
   };

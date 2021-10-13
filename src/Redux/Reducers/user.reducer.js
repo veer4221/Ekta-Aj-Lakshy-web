@@ -7,6 +7,7 @@ const initState = {
   message: "",
   getUserInfo: {},
   loading: false,
+  userState: {},
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -28,7 +29,22 @@ export default (state = initState, action) => {
       };
       break;
       
-    
+      case userContants.CHECK_USER_STATUS_REQUEST:
+        state = {
+          ...state,
+          loading: true,
+          
+        };
+        break;
+      case userContants.CHECK_USER_STATUS_SUCCESS:
+        console.log(action);
+        state = {
+          ...state,
+          loading: false,
+          userState: action.payload,
+        };
+        break;
+
     case userContants.UPDATE_STATE_REQUEST:
       state = {
         ...state,

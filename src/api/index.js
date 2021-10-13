@@ -42,3 +42,5 @@ export const applyForJobAPI = (obj) => axios.post(`/v1/jobApply/apply`, obj);
 
 export const getMyJobAPI=()=>axios.get(`/v1/job/getmyjob`)
 export const getApplyedUserAPI=(job_id,limit,page)=>axios.get(`/v1/jobApply/applyedUser?job_id=${job_id}&limit=${limit}&page=${page}`)
+
+export const checkUserStatusAPI =(body) => axios.post(`/v1/user/checkUserStatus`,body)

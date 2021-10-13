@@ -34,7 +34,7 @@ const Navbhar = () => {
             navigate(`/auth/login`);
           }}
         >
-          {" "}
+          
           <ExitToAppIcon />
         </IconButton>
         <ul className="desktop-list">
@@ -42,26 +42,26 @@ const Navbhar = () => {
             <Link className="linknav" to={`/Rojgharmain/FindJob`}>
               <WorkIcon />
               Business
-            </Link>{" "}
+            </Link>
           </li>
           <li>
             <Link className="linknav" to={`/Rojgharmain/hire`}>
               <AddCircleOutlineIcon />
               Hire
-            </Link>{" "}
+            </Link>
           </li>
 
           <li>
             <Link className="linknav" to={`/Rojgharmain/FindJob`}>
               <SearchIcon />
               FindJob
-            </Link>{" "}
+            </Link>
           </li>
           <li>
             <Link className="linknav" to={`/Rojgharmain/profilePage`}>
               <AccountBoxIcon />
               Profile
-            </Link>{" "}
+            </Link>
           </li>
           <li
               style={{cursor: "pointer"}}
@@ -74,7 +74,7 @@ const Navbhar = () => {
             >
               <ExitToAppIcon />
               LogOut
-            {/* </Link>{" "} */}
+            {/* </Link> */}
           </li>
         </ul>
         <ul className="mobile-list" style={{ background: "black" }}>
@@ -84,7 +84,7 @@ const Navbhar = () => {
                 navigate(`/Rojgharmain/FindJob`);
               }}
             >
-              {" "}
+              
               <WorkIcon style={{ color: "white" }} />
             </IconButton>
           </li>

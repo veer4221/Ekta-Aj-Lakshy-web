@@ -21,11 +21,11 @@ const AboutUsPage = () => {
             Join With Us
           </h3>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}> */}
           <Suspense fallback={<div>Loading...</div>}>
             <JoinWithUs />
           </Suspense>
-        </Grid>
+        {/* </Grid> */}
       </Grid>
     </>
   );
