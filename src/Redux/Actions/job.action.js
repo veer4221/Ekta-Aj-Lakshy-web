@@ -1,5 +1,5 @@
 import { jobConstruct } from "../constants";
-import { addJobAPI, getAllJobsAPI, getJobAPI } from "../../api/index";
+import { addJobAPI, getAllJobsAPI, getJobAPI ,getMyJobAPI} from "../../api/index";
 import axios from "../../helper/axios";
 
 export const addJobAction = (record) => {
@@ -37,6 +37,24 @@ export const getAllJobsAction = (state, district, city, page, limit) => {
   };
 };
 
+export const getMyJobsAction = () => {
+  return async (dispatch) => {
+    dispatch({ type: jobConstruct.GET_MY_JOB_REQUEST });
+    const res = await getMyJobAPI()
+    console.log(res.data.Job)
+    if (res.status === 200 && res.data.success) {
+      const { count, rows } = res.data.Job;
+      dispatch({
+        type: jobConstruct.GET_MY_JOB_SUCCESS,
+
+        payload: {
+          count,
+          rows,
+        },
+      });
+    }
+  };
+};
 export const getJobAction = (id) => {
   return async (dispatch) => {
     dispatch({ type: jobConstruct.GET_JOB_REQUEST });

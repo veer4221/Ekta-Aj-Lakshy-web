@@ -27,7 +27,8 @@ export default (state = initState, action) => {
         getUserInfo: action.payload.adminUser,
       };
       break;
-
+      
+    
     case userContants.UPDATE_STATE_REQUEST:
       state = {
         ...state,
@@ -97,7 +98,7 @@ export default (state = initState, action) => {
     case userContants.GET_USER_PROFILE_SUCCESS:
       state = {
         ...state,
-        getUserInfo: action.payload.data,
+        getUserInfo: action.payload,
       };
       break;
 

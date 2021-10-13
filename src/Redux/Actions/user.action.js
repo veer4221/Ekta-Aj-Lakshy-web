@@ -14,7 +14,16 @@ export const getUserProfileAction = (id) => {
   return async (dispatch) => {
     dispatch({ type: userContants.GET_USER_PROFILE_REQUEST });
     const res = await userProfileAPI(id);
-    console.log(res);
+    console.log(res.data.adminUser);
+  
+    console.log(res.status);
+    if (res.status === 200 && res.data.success==true) {
+      const {adminUser}=res.data;
+      dispatch({
+        type: userContants.GET_USER_PROFILE_SUCCESS,
+        payload:adminUser ,
+      });
+    }
   };
 };
 export const emailCheckAction = (email) => {

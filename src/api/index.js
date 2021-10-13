@@ -19,7 +19,7 @@ export const rojgharLoginAPI = (payload) =>
   axios.post(`/v1/auth/login`, payload);
 
 export const userProfileAPI = (id) =>
-  axios.apply(`/v1/user/userProfile?id=${id}`);
+  axios.get(`/v1/user/getuserProfile?id=${id}`);
 
 export const getStateAPI = () => axios.get(`/v1/job/getState`);
 export const getDistrictAPI = (state_id) =>
@@ -39,3 +39,6 @@ export const getAllJobsAPI = (state, district, city, page, limit) =>
 export const getJobAPI = (id) => axios.get(`/v1/job/getjob?id=${id}`);
 
 export const applyForJobAPI = (obj) => axios.post(`/v1/jobApply/apply`, obj);
+
+export const getMyJobAPI=()=>axios.get(`/v1/job/getmyjob`)
+export const getApplyedUserAPI=(job_id,limit,page)=>axios.get(`/v1/jobApply/applyedUser?job_id=${job_id}&limit=${limit}&page=${page}`)

@@ -8,6 +8,10 @@ const initState = {
   message: "",
   getJob: {},
   loading: false,
+  getMyJob:{
+    count: null,
+    rows: [],
+  },
   getAllJobs: {
     count: null,
     rows: [],
@@ -43,6 +47,21 @@ export default (state = initState, action) => {
         ...state,
         loading: true,
         getAllJobs: action.payload,
+      };
+      break;
+      case jobConstruct.GET_MY_JOB_REQUEST:
+      console.log(action);
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case jobConstruct.GET_MY_JOB_SUCCESS:
+      console.log(action);
+      state = {
+        ...state,
+        loading: true,
+        getMyJob: action.payload,
       };
       break;
     case jobConstruct.GET_JOB_REQUEST:

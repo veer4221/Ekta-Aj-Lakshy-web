@@ -30,6 +30,20 @@ export default (state = initState, action) => {
         message: action.payload.message,
       };
       break;
+      case jobApplyConstants.GET_APPLYED_USERS_REQUEST:
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case jobApplyConstants.GET_APPLYED_USERS_SUCCESS:
+      console.log(action);
+      state = {
+        ...state,
+        loading: false,
+        applyedUser: action.payload
+      };
+      break;
   }
 
   return state;

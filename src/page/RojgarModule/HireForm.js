@@ -22,7 +22,7 @@ import {
   getStateAction,
 } from "../../Redux/Actions";
 import { addJobAction } from "../../Redux/Actions/job.action";
-
+import "./findJob.css";
 // import TimePicker from "react-time-picker";
 
 const HireForm = () => {
@@ -117,13 +117,14 @@ const HireForm = () => {
               Company Name
             </label>
             <input
+              // className="formBg"
               type="text"
               id="form6Example1"
               value={company_name}
               onChange={(e) => {
                 setCompany_name(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg formBg"
             />
           </Grid>
           <Grid item xs={12} sm={4} className="p-2">
@@ -131,13 +132,14 @@ const HireForm = () => {
               Salary min
             </label>
             <input
+              // className="formBg"
               type="number"
               id="form6Example1"
               value={salary_min}
               onChange={(e) => {
                 setsalary_min(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg formBg"
             />
           </Grid>
           <Grid item xs={12} sm={4} className="p-2">
@@ -145,13 +147,14 @@ const HireForm = () => {
               Salary max
             </label>
             <input
+              // className="formBg"
               type="number"
               id="form6Example1"
               value={salary_max}
               onChange={(e) => {
                 setsalary_max(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg formBg"
             />
           </Grid>
           <Grid item xs={12} sm={4} className="p-2">
@@ -159,13 +162,14 @@ const HireForm = () => {
               Company Email
             </label>
             <input
+              // className="formBg"
               type="email"
               id="form6Example1"
               value={company_email}
               onChange={(e) => {
                 setCompany_email(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
             />
           </Grid>
           <Grid item xs={12} sm={4} className="p-2">
@@ -173,13 +177,14 @@ const HireForm = () => {
               Contect Number
             </label>
             <input
+              className="formBg"
               type="text"
               id="form6Example1"
               value={company_contect_number}
               onChange={(e) => {
                 setCompany_contect_number(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg formBg"
             />
           </Grid>
           <Grid item xs={12} sm={4} className="p-2">
@@ -188,12 +193,13 @@ const HireForm = () => {
             </label>
             <select
               name="cars"
+              className="formBg"
               id="cars"
               value={job_category}
               onChange={(e) => {
                 setJob_category(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
             >
               <option value="volvo">Volvo</option>
               <option value="saab">Saab</option>
@@ -207,6 +213,7 @@ const HireForm = () => {
             </label>
             <select
               name="cars"
+              className="formBg"
               id="cars"
               value={company_state}
               onChange={(e) => {
@@ -216,7 +223,7 @@ const HireForm = () => {
                 dispatch(cleanDistrictAction());
                 setCompany_state(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
             >
               <option value={-1}>please Select</option>
 
@@ -240,6 +247,7 @@ const HireForm = () => {
             </label>
             <select
               name="cars"
+              className="formBg"
               id="cars"
               value={company_distict}
               onChange={(e) => {
@@ -247,7 +255,7 @@ const HireForm = () => {
                 setCompany_city(-1);
                 setCompany_distict(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
             >
               <option value={-1}>please Select</option>
 
@@ -268,12 +276,13 @@ const HireForm = () => {
             </label>
             <select
               name="city"
+              className="formBg"
               id="city"
               value={company_city}
               onChange={(e) => {
                 setCompany_city(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
             >
               <option value={-1}>please Select</option>
 
@@ -294,13 +303,14 @@ const HireForm = () => {
               Job Role
             </label>
             <input
+              className="formBg"
               type="text"
               id="form6Example1"
               value={job_role}
               onChange={(e) => {
                 setJob_role(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
             />
           </Grid>
           <Grid item xs={12} sm={4} className="p-2">
@@ -309,12 +319,13 @@ const HireForm = () => {
             </label>
             <select
               name="cars"
+              className="formBg"
               id="cars"
               value={Qualification}
               onChange={(e) => {
                 setQualification(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
             >
               <option value="volvo">12 Pass</option>
               <option value="saab">All</option>
@@ -328,12 +339,13 @@ const HireForm = () => {
             </label>
             <select
               name="cars"
+              className="formBg"
               id="cars"
               value={working_days}
               onChange={(e) => {
                 setWorking_days(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
             >
               <option value="volvo">Mon To Saturday</option>
               <option value="saab">Mon To Friday</option>
@@ -347,13 +359,13 @@ const HireForm = () => {
             </label>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <TimePicker
-                className="form-control"
+                className="form-control formBg"
                 value={start_Time}
                 onChange={(newstart_Time) => {
                   setStart_Time(newstart_Time);
                 }}
                 renderInput={(params) => (
-                  <TextField className="form-control" {...params} />
+                  <TextField className="form-control formBg" {...params} />
                 )}
               />
             </LocalizationProvider>
@@ -364,13 +376,14 @@ const HireForm = () => {
             </label>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <TimePicker
-                className="form-control"
+                className="formBg"
+                className="form-control formBg"
                 value={end_Time}
                 onChange={(newend_Time) => {
                   setEnd_Time(newend_Time);
                 }}
                 renderInput={(params) => (
-                  <TextField className="form-control" {...params} />
+                  <TextField className="form-control formBg" {...params} />
                 )}
               />
             </LocalizationProvider>
@@ -378,11 +391,12 @@ const HireForm = () => {
           <Grid item xs={12} sm={6} className="p-2">
             <label for="exampleFormControlTextarea1">Address</label>
             <textarea
+              className="formBg"
               value={address}
               onChange={(e) => {
                 setAddress(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
               id="exampleFormControlTextarea1"
               rows="5"
             ></textarea>
@@ -390,11 +404,12 @@ const HireForm = () => {
           <Grid item xs={12} sm={6} className="p-2">
             <label for="exampleFormControlTextarea1">Job Description</label>
             <textarea
+              className="formBg"
               value={job_description}
               onChange={(e) => {
                 setJob_description(e.target.value);
               }}
-              class="form-control"
+              class="form-control formBg"
               id="exampleFormControlTextarea1"
               rows="5"
             ></textarea>
@@ -414,9 +429,10 @@ const HireForm = () => {
                 <div class="col">
                   <div class="form-outline">
                     <input
+                    className="formBg"
                       type="text"
                       id="form6Example1"
-                      class="form-control"
+                      class="form-control formBg"
                     />
                     <label class="form-label" for="form6Example1">
                       First name
@@ -426,9 +442,10 @@ const HireForm = () => {
                 <div class="col">
                   <div class="form-outline">
                   <input
+                  className="formBg"
                       type="text"
                       id="form6Example2"
-                      class="form-control"
+                      class="form-control formBg"
                       />
                     <label class="form-label" for="form6Example2">
                       Last name
@@ -438,28 +455,32 @@ const HireForm = () => {
               </div>
               
               <div class="form-outline mb-4">
-              <input type="text" id="form6Example3" class="form-control" />
+              <input
+              className="formBg" type="text" id="form6Example3" class="form-control formBg" />
               <label class="form-label" for="form6Example3">
               Company name
               </label>
               </div>
               
               <div class="form-outline mb-4">
-              <input type="text" id="form6Example4" class="form-control" />
+              <input
+              className="formBg" type="text" id="form6Example4" class="form-control formBg" />
               <label class="form-label" for="form6Example4">
               Address
               </label>
               </div>
               
               <div class="form-outline mb-4">
-              <input type="email" id="form6Example5" class="form-control" />
+              <input
+              className="formBg" type="email" id="form6Example5" class="form-control formBg" />
               <label class="form-label" for="form6Example5">
               Email
               </label>
               </div>
               
               <div class="form-outline mb-4">
-              <input type="number" id="form6Example6" class="form-control" />
+              <input
+              className="formBg" type="number" id="form6Example6" class="form-control formBg" />
               <label class="form-label" for="form6Example6">
               Phone
               </label>
@@ -467,7 +488,7 @@ const HireForm = () => {
               
               <div class="form-outline mb-4">
               <textarea
-              class="form-control"
+              class="form-control formBg"
               id="form6Example7"
               rows="4"
               ></textarea>
@@ -478,6 +499,7 @@ const HireForm = () => {
               
               <div class="form-check d-flex justify-content-center mb-4">
               <input
+              className="formBg"
               class="form-check-input me-2"
               type="checkbox"
               value=""
