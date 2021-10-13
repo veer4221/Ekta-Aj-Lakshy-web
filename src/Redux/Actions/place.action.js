@@ -8,9 +8,9 @@ export const getStateAction = () => {
     dispatch({ type: placeConstants.GET_STATE_REQUEST });
     const res = await getStateAPI();
     console.log(res.data);
-    const { success } = res.data;
+    // const { success } = res.data;
 
-    if (res.status === 200 && success == true) {
+    if (res.status === 200 && res.data.success == true) {
       const { count, rows, success } = res.data;
       dispatch({
         type: placeConstants.GET_STATE_SUCCESS,
@@ -24,9 +24,9 @@ export const getCityAction = (districtid) => {
     dispatch({ type: placeConstants.GET_CITY_REQUEST });
     const res = await getCityAPI(districtid);
     console.log(res.data);
-    const { success } = res.data;
+    // const { success } = res.data;
 
-    if (res.status === 200 && success == true) {
+    if (res.status === 200 &&res.data.success== true) {
       const { count, rows, success } = res.data;
       dispatch({
         type: placeConstants.GET_CITY_SUCCESS,
@@ -40,9 +40,9 @@ export const getDistrictAction = (state_id) => {
     dispatch({ type: placeConstants.GET_DIST_REQUEST });
     const res = await getDistrictAPI(state_id);
     console.log(res.data);
-    const { success } = res.data;
+    // const { success } = res.data;
 
-    if (res.status === 200 && success == true) {
+    if (res.status === 200 && res.data.success == true) {
       const { count, rows, success } = res.data;
       dispatch({
         type: placeConstants.GET_DIST_SUCCESS,

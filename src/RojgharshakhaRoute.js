@@ -12,8 +12,11 @@ import {
     isBrowser,
     isMobile,
 } from "react-device-detect";
+import {Navigate}from "react-router"
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { Suspense, lazy, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 //   import { Route, Routes } from "react-router";
 
 const Loadable = (Component) => (props) =>
@@ -28,12 +31,15 @@ const Navbar = Loadable(
 );
 
 
-const RojgharshakhaRoute = () => {
+const RojgharshakhaRoute = () =>{
+    const auth = localStorage.getItem("token");
+//   const auth = useSelector((state) => state.auth);
+
     return (
         <div>
            <Navbar/>
 
-            <Outlet />
+          {auth?  <Outlet />:<Navigate to="/auth/login" />}
         
         </div>
     )

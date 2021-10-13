@@ -22,6 +22,8 @@ import "./RojgarModule/findJob.css";
 const FindJob = () => {
   const place = useSelector((state) => state.place);
   const job = useSelector((state) => state.job);
+  const auth = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [filter, setFilter] = useState(false);
@@ -31,13 +33,21 @@ const FindJob = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(8);
   useEffect(() => {
+    if(auth.authenticate&& localStorage.getItem('token')){
+    
     dispatch(getAllJobsAction(state, district, city, page, limit));
+    }
   }, [filter, page]);
   useEffect(() => {
-    dispatch(cleanAllStateAction());
+    if(auth.authenticate&& localStorage.getItem('token')){
+
+    dispatch(cleanAllStateAction());}
   }, []);
   useEffect(async () => {
+    if(auth.authenticate&& localStorage.getItem('token')){
+
     await dispatch(getStateAction());
+    }
   }, []);
   useEffect(() => {
     // alert(company_state);

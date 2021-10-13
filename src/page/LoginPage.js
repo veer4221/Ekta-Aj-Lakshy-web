@@ -22,7 +22,7 @@ const LoginPage = () => {
     dispatch(login(data));
     console.log(data);
   };
-  if (auth.authenticate) {
+  if (auth.authenticate&& localStorage.getItem('token')) {
     navigate(`/Rojgharmain/FindJob`);
   }
   return (

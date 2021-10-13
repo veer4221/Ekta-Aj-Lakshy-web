@@ -11,8 +11,9 @@ export const login = (user) => {
     console.log(res);
     if (res.status === 200) {
       const { token, profile } = res.data.data;
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(profile));
+     await  localStorage.setItem("token", token);
+     await  localStorage.setItem("user", JSON.stringify(profile));
+     
       dispatch({
         type: authConstants.LOGIN_SUCCESS,
         payload: {
@@ -57,7 +58,10 @@ export const signout = () => {
     dispatch({ type: authConstants.LOGOUT_REQUEST });
 
     localStorage.clear();
+    window.location.href = '/#/auth/login'
 
     dispatch({ type: authConstants.LOGOUT_SUCCESS });
+    // window.location.href="/#/auth/login"
+
   };
 };

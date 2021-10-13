@@ -9,15 +9,20 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import HomeIcon from "@material-ui/icons/Home";
 import { IconButton } from "@material-ui/core";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import SearchIcon from "@material-ui/icons/Search";
 import WorkIcon from "@material-ui/icons/Work";
-
+import {signout} from "../../../Redux/Actions"
 // import WorkIcon from "@material-ui/icons/Work";
 
 // import AddBusinessIcon from '@material-ui/icons/AddBusiness';
 // import Business from './../../RojgharTab/Business';
 
 const Navbhar = () => {
+  // const place = useSelector((state) => state.place);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   return (
     <div className="allEle">
@@ -58,11 +63,18 @@ const Navbhar = () => {
               Profile
             </Link>{" "}
           </li>
-          <li>
-            <Link className="linknav" to={`/auth/login`}>
+          <li
+              style={{cursor: "pointer"}}
+              className="linknav"
+             
+              onClick={() => {
+                dispatch(signout());
+                navigate(`/auth/login`);
+              }}
+            >
               <ExitToAppIcon />
               LogOut
-            </Link>{" "}
+            {/* </Link>{" "} */}
           </li>
         </ul>
         <ul className="mobile-list" style={{ background: "black" }}>
