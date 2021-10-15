@@ -18,7 +18,7 @@ const PaymentForm = () => {
   const pay = async (e) => {
     e.preventDefault();
 
-    const res = await axios.get(` http://localhost:5000/admin/api/v1/user/pay`);
+    const res = await axios.get(` http://3.145.10.120:3000/admin/api/v1/user/pay`);
     console.log(res);
     if (res.status != 200) {
       return;

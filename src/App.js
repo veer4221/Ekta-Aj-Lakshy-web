@@ -46,6 +46,9 @@ const ViewJob = Loadable(
 const ViewUser = Loadable(
   React.lazy(() => import("./page/RojgarModule/ViewUser"))
 );
+const BusinessPage = Loadable(
+  React.lazy(() => import("./page/RojgarModule/business"))
+);
 const DoneteUs = Loadable(React.lazy(() => import("./page/DoneteUs")));
 const HomePage = Loadable(React.lazy(() => import("./page/HomePage")));
 const ProfilePage = Loadable(React.lazy(() => import("./page/ProfilePage")));
@@ -77,9 +80,9 @@ const Gallery = Loadable(React.lazy(() => import("./page/Gallery")));
 const FloatingMenu2 = Loadable(
   React.lazy(() => import("./components/layout/FloatingBTN/FloatingMenu2"))
 );
-const BusinessPage = Loadable(
-  React.lazy(() => import("./components/RojgharTab/Business"))
-);
+// const BusinessPage = Loadable(
+//   React.lazy(() => import("./components/RojgharTab/Business"))
+// );
 const AboutUsSangathan = Loadable(
   React.lazy(() =>
     import("./components/HomePage/AboutUsSangathan/AboutUsSangathan")
@@ -122,6 +125,7 @@ const App = (props) => {
             <Route path="/ProfilePage" element={<ProfilePage />} />
             <Route path="/Hire" element={<HireMain />} />
             <Route path="/HireForm" element={<HireForm />} />
+            <Route path="/BusinessPage" element={<BusinessPage />} />
             <Route path="/viewJob" element={<ViewJob />} />
             <Route path="/viewUser" element={<ViewUser />} />
           </Route>

@@ -87,7 +87,7 @@ const HireMain = () => {
                 justifyContent: "center",
               }}
             >
-              <img src={`https://health-image-maruti.s3.us-east-2.amazonaws.com/${user.adminUser && user.adminUser.image}`} style={{ borderRadius:"5%"}}height="150px" width="150px"/>
+              <img src={`https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${user.adminUser && user.adminUser.image}`} style={{ borderRadius:"5%"}}height="150px" width="150px"/>
             </div>
             <hr style={{ color: "rgb(172, 24, 24)" }}></hr>
             <div style={{ margin: "10px" }}>

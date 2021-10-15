@@ -5,7 +5,7 @@ const karykartaInformation = [
   {
     imageUrl: `assets/images/team/team-memb1.jpg`,
     name: `હિન્દુ ભગીરથ સિંહ રાઠોડ `,
-    position: `સંસ્થાપક `,
+    position: ` એકતા એજ લક્ષ્ય સંગઠન સંસ્થાપક`,
   },
   {
     imageUrl: `assets/images/team/team-memb6.jpg`,
@@ -15,23 +15,14 @@ const karykartaInformation = [
   {
     imageUrl: `assets/images/team/team-memb2.jpg`,
     name: `હિન્દુ નીતિનભાઈ પટેલ `,
-    position: `ગુજરાત મહામંત્રી`,
+    position: `રોજગાર શાખા પ્રમુખ ગુજરાત પ્રદેશ`,
   },
   {
     imageUrl: `assets/images/team/team-memb3.jpg`,
     name: `હિન્દુ જ્વાલાસિંહ રાઠોડ `,
-    position: `આઇટી સેલ પ્રમુખ `,
+    position: `આઈ ટી સેલ શાખા ગુજરાત પ્રદેશ પ્રમુખ `,
   },
-  {
-    imageUrl: `assets/images/team/team-memb4.jpg`,
-    name: `હિન્દુ અશોકસિંહ વાઘેલા`,
-    position: `એકલવ્ય સમિતિ `,
-  },
-  {
-    imageUrl: `assets/images/team/team-memb5.jpg`,
-    name: `હિન્દુ સંજયભાઈ ગજ્જર`,
-    position: `એકલવ્ય સમિતિ `,
-  },
+  
   
 ];
 const KaryKarta = () => {
@@ -50,6 +41,20 @@ const KaryKarta = () => {
               <KaryKartaCard data={data} />
             ))}
           </div>
+          <div className="container">
+          <div className="col-md-3 col-sm-6">
+            <p>સમર્પણ સમિતિ</p>
+            </div>
+            <div className="col-md-3 col-sm-6">
+            <p>ગુપ્ત સમિતિ</p>
+              
+            </div>
+            <div className="col-md-3 col-sm-6">
+            <p>કામધેનુ સમિતિ</p>
+              
+            </div>
+            </div>
+
         </div>
       </section>
     </>

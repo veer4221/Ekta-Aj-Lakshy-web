@@ -135,7 +135,7 @@ const BottomHeader = () => {
                   <a
                     className="nav-link"
                     onClick={() => {
-                      navigate("/RojgharResult");
+                      navigate("/auth/login");
                     }}
                   >
                     <span

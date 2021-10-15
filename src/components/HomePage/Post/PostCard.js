@@ -20,10 +20,10 @@ const PostCard = ({ data }) => {
               effect="blur"
               src={
                 data && data.image
-                  ? `https://health-image-maruti.s3.us-east-2.amazonaws.com/${
+                  ? `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${
                       data && data.image
                     }`
-                  : `https://health-image-maruti.s3.us-east-2.amazonaws.com/ektaej_laksh/Post/2021/8/7/fmHA6zZkipwfhaQ.png`
+                  : `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/ektaej_laksh/Post/2021/8/7/fmHA6zZkipwfhaQ.png`
               }
               alt="img"
               height="300px"

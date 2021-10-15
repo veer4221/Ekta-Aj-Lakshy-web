@@ -34,7 +34,7 @@ const ProfilePage = () => {
                     <img
                       src={
                         user.getUserInfo &&
-                        `https://health-image-maruti.s3.us-east-2.amazonaws.com/${user.getUserInfo.image}`
+                        `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${user.getUserInfo.image}`
                       }
                       alt="Admin"
                       className="rounded-circle"

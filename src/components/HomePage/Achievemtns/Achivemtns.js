@@ -16,10 +16,28 @@ const AxhivemtnsCaseData = [
     number: 12,
     lebel: `ટોટલ મેમ્બર`,
   },
+  
+  {
+    number: 12,
+    lebel: `સેવાકીય કાર્ય `,
+  },
+  {
+    number: 12,
+    lebel: `લવ જેહાદ`,
+  },
   {
     number: 12,
     lebel: `ગૌ સેવા`,
   },
+  {
+    number: 12,
+    lebel: `ગૌ સેવા`,
+  },
+  {
+    number: 12,
+    lebel: `ઘરવાપસી `,
+  },
+ 
 ];
 var temp = 0;
 const Achivemtns = () => {

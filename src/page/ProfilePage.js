@@ -34,7 +34,7 @@ const ProfilePage = () => {
                     <img
                       src={
                         userData &&
-                        `https://health-image-maruti.s3.us-east-2.amazonaws.com/${userData.image}`
+                        `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${userData.image}`
                       }
                       alt="Admin"
                       className="rounded-circle"
@@ -236,7 +236,7 @@ const ProfilePage = () => {
                     </div>
                   </div>
                   <hr />
-                  <div className="row">
+                  <div className="row" style={{marginBottom:"100px"}}>
                     <div className="col-sm-12">
                       <Button>Upload Resume</Button>
                       <Button className="ml-3">View Resume</Button>

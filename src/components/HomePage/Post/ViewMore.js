@@ -99,7 +99,7 @@ export default function ViewMore({ Image, title, content }) {
           <Grid item xs={12}>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <img
-                src={`https://health-image-maruti.s3.us-east-2.amazonaws.com/${Image}`}
+                src={`https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${Image}`}
                 Width="400px"
                 height="300px"
                 style={{ border: "5px solid rgb(172, 24, 24)" }}

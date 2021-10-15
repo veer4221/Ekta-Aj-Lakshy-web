@@ -111,12 +111,18 @@ const LoginPage = () => {
               <table width="100%" style={{ textAlign: "center" }}>
                 <tr>
                   <td width="33%" className="ourBtn">
-                    <Button style={{ width: "90%" }}>Back</Button>
+                    <Button style={{ width: "90%" }} onClick={()=>{
+                      navigate(`/`)
+                    }}>Back</Button>
                   </td>
                   <td width="33%" className="ourBtn">
-                    <Button style={{ width: "90%" }}>JoinUs</Button>
+                    <Button style={{ width: "90%" }}  onClick={()=>{
+                      navigate(`/aboutus`)
+                    }}>JoinUs</Button>
                   </td>
-                  <td width="33%" className="ourBtn">
+                  <td width="33%" className="ourBtn"  onClick={()=>{
+                      navigate(`/DonateUs`)
+                    }}>
                     <Button style={{ width: "90%" }}>DoneteUs</Button>
                   </td>
                 </tr>

@@ -21,10 +21,10 @@ const PostCard = ({ data }) => {
               effect="blur"
               src={
                 data && data.image
-                  ? `https://health-image-maruti.s3.us-east-2.amazonaws.com/${
+                  ? `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${
                       data && data.image
                     }`
-                  : `https://health-image-maruti.s3.us-east-2.amazonaws.com/ektaej_laksh/Post/2021/9/28/fhBRuKAmK0lCbFB.jpeg`
+                  : `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/ektaej_laksh/Post/2021/9/28/fhBRuKAmK0lCbFB.jpeg`
               }
               alt="img"
               height="300px"
@@ -47,7 +47,7 @@ const PostCard = ({ data }) => {
             <div className="link">
               <Suspense fallback={<div>Loading...</div>}>
                 <ViewMore
-                  Image={`https://health-image-maruti.s3.us-east-2.amazonaws.com/ektaej_laksh/Post/2021/9/28/fhBRuKAmK0lCbFB.jpeg`}
+                  Image={`https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/ektaej_laksh/Post/2021/9/28/fhBRuKAmK0lCbFB.jpeg`}
                   title={data.title}
                   content={data.content}
                   address={data.address}

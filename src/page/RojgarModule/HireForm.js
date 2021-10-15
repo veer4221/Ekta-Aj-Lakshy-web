@@ -414,12 +414,12 @@ const HireForm = () => {
               rows="5"
             ></textarea>
           </Grid>
-          <Grid item xs={12} sm={6} className="p-2">
+          <Grid item xs={6} sm={6} className="p-2"  style={{marginBottom:"100px"}}>
             <div>
               <Button>Back</Button>
             </div>
           </Grid>
-          <Grid item xs={12} sm={6} className="p-2">
+          <Grid item xs={6} sm={6} className="p-2" style={{marginBottom:"100px"}}>
             <div>
               <Button type="submit">Submit</Button>
             </div>

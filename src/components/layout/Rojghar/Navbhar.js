@@ -31,15 +31,16 @@ const Navbhar = () => {
         <IconButton
           className="logoutDeskTop"
           onClick={() => {
+            dispatch(signout());
             navigate(`/auth/login`);
           }}
         >
           
-          <ExitToAppIcon />
+          <ExitToAppIcon  style={{color:"white"}}/>
         </IconButton>
         <ul className="desktop-list">
           <li>
-            <Link className="linknav" to={`/Rojgharmain/FindJob`}>
+            <Link className="linknav" to={`/Rojgharmain/BusinessPage`}>
               <WorkIcon />
               Business
             </Link>
@@ -81,7 +82,7 @@ const Navbhar = () => {
           <li>
             <IconButton
               onClick={() => {
-                navigate(`/Rojgharmain/FindJob`);
+                navigate(`/Rojgharmain/BusinessPage`);
               }}
             >
               

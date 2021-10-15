@@ -1,11 +1,12 @@
 import React from "react";
-
+import "./imageStayle.css"
 const MissionsAndVisionImg = ({ imgLink }) => {
   return (
     <>
       <div className="col-md-6 ">
         <img
-          src={`https://health-image-maruti.s3.us-east-2.amazonaws.com/${imgLink}`}
+        className="missionImg"
+          src={`${imgLink}`}
           alt="s"
         />
       </div>

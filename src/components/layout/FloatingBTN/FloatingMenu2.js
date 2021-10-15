@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const actions = [
   { icon: <CollectionsIcon />, name: "News", route: "/News" },
   { icon: <GroupIcon />, name: "AboutUs", route: "/aboutUs" },
-  { icon: <WorkIcon />, name: "Rojghar", route: "/RojgharResult" },
+  { icon: <WorkIcon />, name: "Rojghar", route: "/auth/login" },
   { icon: <MonetizationOnIcon />, name: "DonateUs", route: "/DonateUs" },
   { icon: <ContactPhoneIcon />, name: "ContectUs", route: "/ContectUs" },
   { icon: <HomeIcon />, name: "Home", route: "/" },

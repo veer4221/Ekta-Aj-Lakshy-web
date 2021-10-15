@@ -2,13 +2,13 @@ import React from "react";
 import MissionsAndVisionImg from "./MissionsAndVisionImg";
 const MissionImg = [
   {
-    imgLink: "ektaej_laksh/Post/2021/9/30/bgJhVebxM1ZESPr.png",
+    imgLink: "assets/images/mission/mission1.png",
   },
 ];
 
 const VisionImg = [
   {
-    imgLink: "ektaej_laksh/Post/2021/8/24/9pspojfNiJtbbPi.png",
+    imgLink: "assets/images/mission/mission2.png",
   },
 ];
 
@@ -20,7 +20,7 @@ const MissionAndVision = () => {
           <div className="row mission">
             <div className="col-md-6 mv-det">
               <h1 style={{ color: "rgb(172, 24, 24)" }}>|| श्री१। ||</h1>
-              <h1>Our Mission</h1>
+              <h1>Our Mission (મિશન)</h1>
               <p style={{ color: "rgb(172, 24, 24)", fontSize: "13px" }}>
                 એકતા એ જ લક્ષ્ય સંગઠનનું લક્ષ્ય અખંડ હિન્દુ રાષ્ટ્ર ભાવના ભારતની
                 હિંદુ રાષ્ટ્ર બનાવવા માટેના પ્રયાસો જાતિવાદ માં ફસાયેલા
@@ -45,7 +45,7 @@ const MissionAndVision = () => {
           <div className="row vision">
             <MissionsAndVisionImg imgLink={VisionImg[0].imgLink} />
             <div className="col-md-6 mv-det">
-              <h1>Our Vision</h1>
+              <h1>Our Vision(દ્રષ્ટિ)</h1>
               <p style={{ color: "rgb(172, 24, 24)", fontSize: "13px" }}>
                 કૃષિ પ્રધાન દેશ છે ભારત પરંતુ વિદેશી દવાઓ તથા ખાતર ના કારણે
                 ભારતની કસવાળી જમીન નષ્ટ થઇ રહી છે તો તેને તથા ગો આધારિત ખેતી તરફ
