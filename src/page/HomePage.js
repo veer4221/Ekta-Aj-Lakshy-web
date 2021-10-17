@@ -17,6 +17,9 @@ import Loader from "./loader/Loader";
 const Carouselslider = lazy(() =>
   import("../components/HomePage/Carouselslider/Carouselslider")
 );
+const RojgharHome = lazy(() =>
+  import("../components/HomePage/Rojghar/RojgharHome")
+);
 const AboutUsSangathan = lazy(() =>
   import("../components/HomePage/AboutUsSangathan/AboutUsSangathan")
 );
@@ -42,7 +45,7 @@ const HomePage = () => {
           <Carouselslider />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
-          <AboutUsSangathan />
+          <RojgharHome />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           <MissionAndVision />

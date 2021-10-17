@@ -33,7 +33,7 @@ const FindJob = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(8);
   useEffect(() => {
-    if(auth.authenticate&& localStorage.getItem('token')){
+    if( localStorage.getItem('token')){
     
     dispatch(getAllJobsAction(state, district, city, page, limit));
     }

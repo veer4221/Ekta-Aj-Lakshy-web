@@ -2,8 +2,11 @@ import React from "react";
 import KaryKartaCard from "./KaryKartaCard";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import Grid from "@material-ui/core/Grid";
+
 import InstagramIcon from "@material-ui/icons/Instagram";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import JoinWithUs from "../AboutUs/JoinWithUs";
 
 const karykartaInformation = [
   {
@@ -82,6 +85,17 @@ const ContectUsMain = () => {
           </div>
         </div>
       </section>
+      <Grid container spacing={0} className="page">
+      <Grid item xs={12}>
+          <br></br>
+          <br></br>
+          <br></br>
+          <h3 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>
+            Join With Us
+          </h3>
+        </Grid>
+        <JoinWithUs/>
+      </Grid>
     </>
   );
 };

@@ -43,6 +43,9 @@ const KaryKarta = () => {
           </div>
           <div className="container">
           <div className="col-md-3 col-sm-6">
+            <p>એકલવ્ય સમિતિ</p>
+            </div>
+          <div className="col-md-3 col-sm-6">
             <p>સમર્પણ સમિતિ</p>
             </div>
             <div className="col-md-3 col-sm-6">

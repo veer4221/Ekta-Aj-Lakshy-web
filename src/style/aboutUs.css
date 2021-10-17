@@ -23,4 +23,16 @@
     background-size: 100% 100%;
     /* background-color: black!important; */
 }
-
+.bgIMG{
+    font-family: 'Samarkan', sans-serif;
+    color:rgb(172, 24, 24)!important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 50px;
+    background-image:url('./image/oldpaperh.png')!important;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 100%;
+    /* background-color: black!important; */
+}
