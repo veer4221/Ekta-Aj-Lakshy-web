@@ -27,6 +27,13 @@ export default (state = initState, action) => {
           userState: {},
         };
         break;
+        case userContants.RESET_USER_MESSAGE:
+        state = {
+          ...state,
+      
+          message: "",
+        };
+        break;
     case userContants.EMAIL_CHECKER_SUCCESS:
       console.log(action);
       state = {

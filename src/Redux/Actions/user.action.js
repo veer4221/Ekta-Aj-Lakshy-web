@@ -15,12 +15,13 @@ export const cheakUserStatusAction = (body) => {
   return async (dispatch) => {
     dispatch({ type: userContants.CHECK_USER_STATUS_REQUEST });
     const res = await checkUserStatusAPI(body);
-    
+    // console.log(res)
+    if(res.status === 200){
       dispatch({
         type: userContants.CHECK_USER_STATUS_SUCCESS,
         payload: res.data,
       });
-
+    }
   };
 };
 export const resetUserStatusAction = () => {
@@ -133,3 +134,8 @@ export const updateUserAction = (user) => {
     }
   };
 };
+export const resetMessageActon=()=>{
+  return async(dispatch)=>{
+    dispatch({type:userContants.RESET_USER_MESSAGE})
+  }
+}

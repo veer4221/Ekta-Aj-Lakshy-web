@@ -22,7 +22,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-
+import * as yup from "yup";
 // import MomentUtils from "@date-io/moment";
 // import { KeyboardDatePicker } from "@material-ui/pickers";
 
@@ -33,15 +33,22 @@ import {
   cleanDistrictAction,
   addUserAction,
   getAllJobsAction,
+  resetMessageActon,
   getCityAction,
   getDistrictAction,
   resetUserStatusAction,
   getStateAction,
 } from "../../Redux/Actions/index";
 import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
-import * as yup from "yup";
+// import * as yup from "yup";
 import KErrorMessage from "./KErrorMessage";
 import { convertBase64 } from "../../helper/base64Converter";
+import { string } from "yup/lib/locale";
+// import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,7 +73,68 @@ const useStyles = makeStyles((theme) => ({
     width: 1,
   },
 }));
+// firstName,
+//     sarname,
+//     fatherName,
+//     motherName,
+//     birthDate,
+//     bloodGroup,
+//     gender,
+//     marrage,
+//     password,
+//     image,
+//     email,
+//     totalFamilyMembers: parseInt(totalFamilyMembers),
+//     husbandName,
+//     study,
+//     user_state: parseInt(user_state),
+//     user_distict: parseInt(user_distict),
+//     user_city: parseInt(user_city),
+//     address,
+//     mobileNumber,
+//     whatsAppNumber,
+//     pinCode,
+const validationSchema = yup.object({
+  sarname: yup.string().required("sarname is Required!"),
+  fatherName: yup.string().required("fathername is Required!"),
+  bloodGroup: yup.string().required("bloodGroup is Required!"),
+  // email:  yup.string().required("emailis required"),
+  totalFamilyMembers: yup.number().required("mumber is require"),
+  address: yup.string().required("address is require"),
+  motherName:yup.string().required("Mothername is require"),
+  husbandName: yup.string(),
+  study: yup.string(),
+  firstName:yup.string().required(),
+  mobileNumber: yup
+    .number()
+    .min(1000000000, "Not Valid Phone Number!")
+    .max(9999999999, "Not Valid Phone Number!")
+    .required("Phone is Required!"),
+  image:yup.mixed().required("Phone is Required!"),
+  pinCode:yup.string().required("pincode is required"),
+  study:yup.string().required("study is required"),
+  whatsAppNumber: yup
+    .number()
+    .min(1000000000, "Not Valid Phone Number!")
+    .max(9999999999, "Not Valid Phone Number!")
+    .required("Phone is Required!"),
+    user_distict: yup.string().required("dist is Required!"),
+   user_state: yup.string().required("state is Required!"),
+  user_city: yup.string().required("city is Required!"),
+ 
+  password: yup
+    .string()
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    )
+    .required("Password is Required!"),
+  gender: yup.string().required("Gender is Required!"),
+  marrage: yup.string().required("mrg Status is Required!"),
+  birthDate: yup.date().required("Date of Birth is required"),
 
+
+});
 export default function JoinWithUs() {
   const user = useSelector((state) => state.user);
   const place = useSelector((state) => state.place);
@@ -118,34 +186,41 @@ export default function JoinWithUs() {
     setImage(base64)
 
   }
+  if(user.message == "User CREATED"){
+    Swal.fire("Good job!", "You clicked the button!", "success")
+    dispatch(resetUserStatusAction())
+    dispatch(resetMessageActon())
+    // localStorage.setItem("joinUsEmail", email)
+    dispatch(cheakUserStatusAction(localStorage.getItem('joinUsEmail')));
+  }
   // const onSubmitJoinFunc = (e) => {
   //   e.preventDefault();
-  //   const data = {
-  //     firstName,
-  //     sarname,
-  //     fatherName,
-  //     motherName,
-  //     birthDate,
-  //     bloodGroup,
-  //     gender,
-  //     marrage,
-  //     password,
-  //     image,
-  //     email,
-  //     totalFamilyMembers: parseInt(totalFamilyMembers),
-  //     husbandName,
-  //     study,
-  //     user_state: parseInt(user_state),
-  //     user_distict: parseInt(user_distict),
-  //     user_city: parseInt(user_city),
-  //     address,
-  //     mobileNumber,
-  //     whatsAppNumber,
-  //     pinCode,
-  //   };
-  //   console.log(data)
-  //   dispatch(addUserAction(data))
-  //   dispatch(cheakUserStatusAction({ email: localStorage.getItem('joinUsEmail') }));
+    // const data = {
+    //   firstName,
+    //   sarname,
+    //   fatherName,
+    //   motherName,
+    //   birthDate,
+    //   bloodGroup,
+    //   gender,
+    //   marrage,
+    //   password,
+    //   image,
+    //   email,
+    //   totalFamilyMembers: parseInt(totalFamilyMembers),
+    //   husbandName,
+    //   study,
+    //   user_state: parseInt(user_state),
+    //   user_distict: parseInt(user_distict),
+    //   user_city: parseInt(user_city),
+    //   address,
+    //   mobileNumber,
+    //   whatsAppNumber,
+    //   pinCode,
+    // };
+    // console.log(data)
+    // dispatch(addUserAction(data))
+    // dispatch(cheakUserStatusAction({ email: localStorage.getItem('joinUsEmail') }));
   // };
   useEffect(() => {
     dispatch(cleanAllStateAction());
@@ -203,7 +278,7 @@ export default function JoinWithUs() {
         !user.userState.payment &&
         !user.userState.record && (<Grid className="px-3" item xs={12} sm={12}>
           <Formik
-
+            validationSchema={validationSchema}
             initialValues={{
               firstName: "",
               sarname: "",
@@ -219,25 +294,53 @@ export default function JoinWithUs() {
               totalFamilyMembers: "",
               husbandName: "",
               study: "",
-              user_state: "",
-              user_distict: "",
-              user_city: "",
+              user_distict:"",
+              user_state:"",
+              user_city:"",
               address: "",
               mobileNumber: "",
               whatsAppNumber: "",
               pinCode: "",
             }}
             onSubmit={(values) => {
-              console.log(values);
+             
+              const data = {
+                firstName:values.firstName,
+                sarname:values.sarname,
+                fatherName:values.fatherName,
+                motherName:values.motherName,
+                birthDate:values.birthDate,
+                bloodGroup:values.bloodGroup,
+                gender:values.gender,
+                marrage:values.marrage,
+                password:values.password,
+                image:image,
+                email:email,
+                totalFamilyMembers: parseInt(values.totalFamilyMembers),
+                husbandName:values.husbandName,
+                study:values.study,
+                user_state: parseInt(values.user_state),
+                user_distict: parseInt(values.user_distict),
+                user_city: parseInt(values.user_city),
+                address:values.address,
+                mobileNumber:values.mobileNumber,
+                whatsAppNumber:values.whatsAppNumber,
+                pinCode:values.pinCode,
+              };
+              console.log(data)
+              dispatch(addUserAction(data))
+              dispatch(cheakUserStatusAction({ email: localStorage.getItem('joinUsEmail') }));
             }}
           >
-            {({ values }) => (
+            {({ values,setFieldValue  }) => (
 
               <Form >
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <lebel>Sarname</lebel>
                     <Field className="form-control" name="sarname" className="form-control" placeholder="sarname" type="text" />
+                    <KErrorMessage name="sarname" />
+
                     {/* <input
                   value={sarname}
                   onChange={(e) => setSarname(e.target.value)}
@@ -250,6 +353,7 @@ export default function JoinWithUs() {
                   <div class="form-group col-md-4">
                     <lebel>First name</lebel>
                     <Field className="form-control" name="firstName" className="form-control" placeholder="firstName" type="text" />
+                    <KErrorMessage name="firstName" />
 
                     {/* <input
                   value={firstName}
@@ -263,6 +367,7 @@ export default function JoinWithUs() {
                   <div class="form-group col-md-4">
                     <lebel>Father name</lebel>
                     <Field className="form-control" name="fatherName" className="form-control" placeholder="fatherName" type="text" />
+                    <KErrorMessage name="fatherName" />
 
                     {/* <input
                   value={fatherName}
@@ -275,9 +380,10 @@ export default function JoinWithUs() {
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                     <lebel>Mother name</lebel>
                     <Field className="form-control" name="motherName" className="form-control" placeholder="motherName" type="text" />
+                    <KErrorMessage name="motherName" />
 
                     {/* <input
                   value={motherName}
@@ -288,9 +394,10 @@ export default function JoinWithUs() {
                   className="form-control"
                 /> */}
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                     <lebel>Password</lebel>
                     <Field className="form-control" name="password" className="form-control" placeholder="password" type="password" />
+                    <KErrorMessage name="password" />
 
                     {/* <input
                   value={password}
@@ -301,24 +408,13 @@ export default function JoinWithUs() {
                   className="form-control"
                 /> */}
                   </div>
-                  <div class="form-group col-md-4">
-                    <lebel>Confirm Password</lebel>
-                    <Field className="form-control" name="Cpassword" className="form-control" placeholder="cpassword" type="password" />
-
-                    {/* <input
-                  value={cpassword}
-                  onChange={(e) => setCpassword(e.target.value)}
-                  type="password"
-                  name="password"
-                  placeholder="confirm password"
-                  className="form-control"
-                /> */}
-                  </div>
+               
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="bloodGroup">Choose bloodGroup:</label>
-                    <Field className="form-control" name="motherName" className="form-control" placeholder="motherName" type="text" />
+                    {/* <Field className="form-control" name="motherName" className="form-control" placeholder="motherName" type="text" />
+                    <KErrorMessage name="motherName" /> */}
 
                     {/* <select
                   className="form-control"
@@ -338,6 +434,8 @@ export default function JoinWithUs() {
                       <option value="AB+">AB+</option>
                       <option value="AB-">AB-</option>
                     </Field>
+                    <KErrorMessage name="bloodGroup" />
+
                     {/* </select> */}
                   </div>
                   <div class="form-group col-md-4">
@@ -350,18 +448,18 @@ export default function JoinWithUs() {
                     <KErrorMessage name="gender" />
                   </div>
                   <div class="form-group col-md-4">
-                  <label>Marrage Status:</label>
+                    <label>Marrage Status:</label>
                     <br /> <br />
                     <label>marrid:</label>
-                    <Field name="marrage" value="marrid" type="radio" />
+                    <Field name="marrage" value="1" type="radio" />
                     <label>unMarrid:</label>
-                    <Field name="marrage" value="unmarrid" type="radio" />
-                    <KErrorMessage name="gender" />
+                    <Field name="marrage" value="0" type="radio" />
+                    <KErrorMessage name="marrage" />
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="bloodGroup">BirthDate</label>
+                    <label for="bloodGroup" >BirthDate</label>
 
                     {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <DatePicker
@@ -371,12 +469,17 @@ export default function JoinWithUs() {
                         onChange={setBirthDate}
                       />
                     </MuiPickersUtilsProvider> */}
-                     <Field name="birthDate" type="date" />
-            <KErrorMessage name="birthDate" />
+
+                    <Field name="birthDate"  className="form-control" type="date" />
+                    <KErrorMessage name="birthDate" />
                   </div>
+               {values.gender=="female" && values.marrage=="marrid"?
+               
+               
                   <div class="form-group col-md-4">
                     <lebel>Husband Name</lebel>
                     <Field className="form-control" name="husbandName" className="form-control" placeholder="husbandName" type="text" />
+                    <KErrorMessage name="husbandName" />
 
                     {/* <input
                       value={husbandName}
@@ -386,10 +489,11 @@ export default function JoinWithUs() {
                       placeholder="husband Name "
                       className="form-control"
                     /> */}
-                  </div>
+                  </div>:``}
                   <div class="form-group col-md-4">
                     <lebel> Total Family Members </lebel>
                     <Field className="form-control" name="totalFamilyMembers" className="form-control" placeholder="husbandName" type="text" />
+                    <KErrorMessage name="totalFamilyMembers" />
 
                     {/* <input
                       value={totalFamilyMembers}
@@ -405,6 +509,7 @@ export default function JoinWithUs() {
                   <div class="form-group col-md-4">
                     <lebel> Study </lebel>
                     <Field className="form-control" name="study" className="form-control" placeholder="study" type="text" />
+                    <KErrorMessage name="study" />
 
                     {/* <input
                       value={study}
@@ -418,6 +523,7 @@ export default function JoinWithUs() {
                   <div class="form-group col-md-4">
                     <lebel> Mobile Number </lebel>
                     <Field className="form-control" name="mobileNumber" className="form-control" placeholder="mobileNumber" type="text" />
+                    <KErrorMessage name="mobileNumber" />
 
                     {/* <input
                       value={mobileNumber}
@@ -431,6 +537,7 @@ export default function JoinWithUs() {
                   <div class="form-group col-md-4">
                     <lebel> whatsapp Number </lebel>
                     <Field className="form-control" name="whatsAppNumber" className="form-control" placeholder="whatsAppNumber" type="text" />
+                    <KErrorMessage name="whatsAppNumber" />
 
                     {/* <input
                       value={whatsAppNumber}
@@ -447,17 +554,20 @@ export default function JoinWithUs() {
                     <label class="form-label" for="form6Example1">
                       State
                     </label>
-                    <select
-                      name="cars"
+                    <Field
+                      name="user_state"
+                      as="select"
                       className="formBg"
-                      id="cars"
+                      id="user_state"
                       value={user_state}
                       onChange={(e) => {
                         setUser_city(-1);
                         setUser_distict(-1);
                         dispatch(cleanCityAction());
                         dispatch(cleanDistrictAction());
+                      
                         setUser_state(e.target.value);
+                        values.user_state=e.target.value
                       }}
                       class="form-control "
                     >
@@ -475,26 +585,32 @@ export default function JoinWithUs() {
                 <option value="saab">Saab</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option> */}
-                    </select>
+                    </Field>
+                    <KErrorMessage name="user_state" />
+
                   </div>
                   <div class="form-group col-md-4">
                     <label class="form-label" for="form6Example1">
                       Dist
                     </label>
-                    <select
-                      name="cars"
+                    <Field
+                      name="user_distict"
+                      as="select"
                       className="formBg"
-                      id="cars"
+                      id="user_distict"
+                 
                       value={user_distict}
                       // value={company_distict}
                       onChange={(e) => {
                         dispatch(cleanCityAction());
                         setUser_city(-1);
                         setUser_distict(e.target.value);
+                        values.user_distict=e.target.value
+
                       }}
                       class="form-control"
                     >
-                      <option value={-1}>please Select</option>
+                      <option value={-1}>please select</option>
 
                       {place.district.rows &&
                         place.district.rows.map((data) => (
@@ -504,22 +620,30 @@ export default function JoinWithUs() {
                             </option>
                           </>
                         ))}
-                    </select>
+                    </Field>
+                    <KErrorMessage name="user_distict" />
+                   
+
                   </div>
+                  
                   <div class="form-group col-md-4">
                     <label class="form-label" for="form6Example1">
                       city
                     </label>
-                    <select
-                      name="city"
+                    <Field
+                      name="user_city"
                       className="formBg"
-                      id="city"
+                     
+                      as="select"
+                      id="user_city"
                       value={user_city}
                       onChange={(e) => {
                         setUser_city(e.target.value);
+                        values.user_city=e.target.value
+
                       }}
                       class="form-control formBg"
-                    >
+                    > 
                       <option value={-1}>please Select</option>
 
                       {place.city.rows &&
@@ -532,13 +656,16 @@ export default function JoinWithUs() {
                 <option value="saab">Saab</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option> */}
-                    </select>
-                  </div>
+                    </Field>
+                    <KErrorMessage name="user_city" />
+
+                                    </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label> Pin Code:</label>
-                    <Field className="form-control" name="pincode" className="form-control" placeholder="pincode" type="text" />
+                    <Field className="form-control" name="pinCode" className="form-control" placeholder="pincode" type="text" />
+                    <KErrorMessage name="pinCode" />
 
                     {/* <input
                       value={pinCode}
@@ -552,6 +679,7 @@ export default function JoinWithUs() {
                   <div class="form-group col-md-4">
                     <label> Address:</label>
                     <Field className="form-control" name="address" className="form-control" placeholder="address" type="text" />
+                    <KErrorMessage name="address" />
 
                     {/* <textarea
                       value={address}
@@ -568,6 +696,8 @@ export default function JoinWithUs() {
                     <div class="custom-file">
                       <input
                         onChange={(e) => {
+                      setFieldValue("image", e.target.files[0])
+
                           uploadImage(e)
                         }}
                         type="file"
@@ -577,6 +707,8 @@ export default function JoinWithUs() {
                       <label class="custom-file-label" for="customFile">
                         Choose file
                       </label>
+                    <KErrorMessage name="image" />
+
                     </div>
                   </div>
                 </div>

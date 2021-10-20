@@ -18,6 +18,7 @@ export const addJobAction = (record) => {
   };
 };
 
+
 export const getAllJobsAction = (state, district, city, page, limit) => {
   return async (dispatch) => {
     dispatch({ type: jobConstruct.GET_ALL_JOBS_REQUEST });

@@ -6,7 +6,11 @@ import {
   updatePaymentStatusAction,
   addUserAction,
 } from "../../../Redux/Actions/index";
+import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content'
+
 import axios from "axios";
+const MySwal = withReactContent(Swal)
 const PaymentForm = () => {
   const dispatch = useDispatch();
 
@@ -50,6 +54,7 @@ const PaymentForm = () => {
             paymentID: response.razorpay_payment_id,
             paymentSignature: response.razorpay_signature,
           };
+          Swal.fire("Welcome to Our Sngathan", "You clicked the button!", "success")
 
           dispatch(updatePaymentStatusAction(obj));
         }
