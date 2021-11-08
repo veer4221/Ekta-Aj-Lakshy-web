@@ -40,7 +40,7 @@ const Navbhar = () => {
         </IconButton>
         <ul className="desktop-list">
           <li>
-            <Link className="linknav" to={`/Rojgharmain/BusinessPage`}>
+            <Link className="linknav" to={`/Rojgharmain/Business`}>
               <WorkIcon />
               Business
             </Link>
@@ -82,7 +82,7 @@ const Navbhar = () => {
           <li>
             <IconButton
               onClick={() => {
-                navigate(`/Rojgharmain/BusinessPage`);
+                navigate(`/Rojgharmain/Business`);
               }}
             >
               

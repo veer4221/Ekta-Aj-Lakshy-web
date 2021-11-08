@@ -14,6 +14,8 @@ const imgLink = [
   { Link: "assets/images/slider/slider-3.png" },
   { Link: "assets/images/slider/slider-4.png" },
   { Link: "assets/images/slider/slider-5.png" },
+  { Link: "assets/images/slider/slider-6.png" },
+  { Link: "assets/images/slider/slider-7.png" },
 ];
 const Carouselslider = () => {
   console.log(imgLink);

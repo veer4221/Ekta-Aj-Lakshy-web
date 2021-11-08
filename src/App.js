@@ -20,6 +20,7 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import HomeRoutes from "./HomeRoutes";
 import LoginFileRoute from "./LoginFileRoute";
+import Business from './page/Business';
 import RojgharshakhaRoute from "./RojgharshakhaRoute";
 import "./main.css";
 
@@ -28,7 +29,7 @@ import "./style/aboutUsMtextView.css";
 import "./style/buttoncss.css";
 import "./style/buttoncss.css";
 import Loader from "./page/loader/Loader";
-
+import BusinessInformation from './page/BusinessInformation';
 // import HomePage from "./page/HomePage";
 
 const Loadable = (Component) => (props) =>
@@ -87,6 +88,8 @@ const AboutUsSangathan = Loadable(
   React.lazy(() =>
     import("./components/HomePage/AboutUsSangathan/AboutUsSangathan")
   )
+
+
 );
 const App = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -126,8 +129,10 @@ const App = (props) => {
             <Route path="/Hire" element={<HireMain />} />
             <Route path="/HireForm" element={<HireForm />} />
             <Route path="/BusinessPage" element={<BusinessPage />} />
+            <Route path="/BusinessInfo" element={<BusinessInformation />} />
             <Route path="/viewJob" element={<ViewJob />} />
             <Route path="/viewUser" element={<ViewUser />} />
+            <Route path="/Business" element={<Business/>} />
           </Route>
           <Route path="/auth" element={<LoginFileRoute />}>
             <Route path="/Login" element={<LoginPage />} />
