@@ -1,6 +1,6 @@
 import React from "react";
 
-const AchivemtnsData = ({data}) => {
+const AchivemtnsData = ({ data }) => {
   return (
     <>
       <div className="col-sm-3 numb">

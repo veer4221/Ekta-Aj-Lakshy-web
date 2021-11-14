@@ -1,20 +1,25 @@
-import "./RojgarModule/profile.css";
-
 import React, { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "react-bootstrap";
-import { getUserProfileAction } from "../Redux/Actions/index";
+
 import { userProfileAPI } from "../api/index";
+import { getBusinessAction } from "../Redux/Actions/business.action";
+import { getUserProfileAction } from "../Redux/Actions/index";
+
+import "./RojgarModule/profile.css";
+
 // import BusinessInformation from './BusinessInformation';
 
 const BusinessInformation = () => {
-  const user = useSelector((state) => state.user);
+  const Business = useSelector((state) => state.business);
   const dispatch = useDispatch();
 
   const [userData, setUserData] = useState();
-
- 
+  useEffect(() => {
+    dispatch(getBusinessAction(parseInt(localStorage.getItem(`businessId`))));
+  }, []);
   return (
     <div className="Rg-bg">
       <div className="container">
@@ -22,7 +27,7 @@ const BusinessInformation = () => {
           className="Header-ekta "
           style={{ textAlign: "center", color: "white" }}
         >
-          My Profile
+          Business Profile
         </h1>
         <div className="main-bodyP" style={{ padding: "2c0px" }}>
           <div className="row gutters-smP">
@@ -31,17 +36,19 @@ const BusinessInformation = () => {
                 <div className="card-bodyP">
                   <div className="d-flex flex-column align-items-center text-center">
                     <img
-                    //   src={
-                    //     userData &&
-                    //     `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${userData.image}`
-                    //   }
-                    src="https://i.pravatar.cc/300"
+                      src={
+                        Business &&
+                        `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${Business?.getBusiness?.Business?.image}`
+                      }
+                      // src="https://i.pravatar.cc/300"
                       alt="Admin"
                       className="rounded-circle"
                       width="150"
                     />
                     <div className="mt-3">
-                      <h4 className="headerProfile">veer patel</h4>
+                      <h4 className="headerProfile">
+                        {Business?.getBusiness?.Business?.business_Name}
+                      </h4>
                       {/* <p className="text-secondary mb-1">
                         Full Stack Developer
                       </p>
@@ -176,7 +183,7 @@ const BusinessInformation = () => {
                       <h6 className="mb-0 headerProfile">StoreName</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile ">
-                    veer Kirana Store
+                      {Business?.getBusiness?.Business?.business_title}
                     </div>
                   </div>
                   <hr></hr>
@@ -185,7 +192,7 @@ const BusinessInformation = () => {
                       <h6 className="mb-0 headerProfile">OwnerName</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                     Patel Veer ManishBhai
+                      {Business?.getBusiness?.Business?.business_Name}
                     </div>
                   </div>
                   <hr />
@@ -194,75 +201,32 @@ const BusinessInformation = () => {
                       <h6 className="mb-0 headerProfile">Phone</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                      9875456532
+                      {Business?.getBusiness?.Business?.business_contect_number}
                     </div>
                   </div>
                   <hr />
 
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">State</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary dataProfile">
-                      Gujrat
-                    </div>
-                  </div>
-                  <hr />
-                  {/* <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Mobile</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary dataProfile">
-                      (320) 380-4539
-                    </div>
-                  </div>
-                  <hr /> */}
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">District</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary dataProfile">
-                      SabarKantha
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">City</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary dataProfile">
-                     Idar
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Pin-Code</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary dataProfile">
-                     383141
-                    </div>
-                  </div>
-                  <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
                       <h6 className="mb-0 headerProfile">Address</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                     idar,sabarkantha,Gujrat,383112
+                      {Business?.getBusiness?.Business?.address}
                     </div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">BusinessInformation</h6>
+                      <h6 className="mb-0 headerProfile">
+                        BusinessInformation
+                      </h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
-                   
+                      {Business?.getBusiness?.Business?.business_description}
                     </div>
                   </div>
                   <hr />
-                  <div className="row" style={{marginBottom:"100px"}}>
+                  <div className="row" style={{ marginBottom: "100px" }}>
                     <div className="col-sm-12">
                       {/* <Button>Upload Resume</Button>
                       <Button className="ml-3">View Resume</Button> */}

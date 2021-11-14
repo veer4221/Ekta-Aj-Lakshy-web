@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 
 import achiveReducer from "./achievemnts.reducer";
 import authReducer from "./auth.reducer.js";
+import businessReducer from "./business.reducer";
 import jobApplyReducer from "./job.apply.reducer";
 import jobReducer from "./job.reducer";
 import placeReducer from "./place.reducer";
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   place: placeReducer,
   job: jobReducer,
   job_apply: jobApplyReducer,
+  business: businessReducer,
 });
 
 export default rootReducer;

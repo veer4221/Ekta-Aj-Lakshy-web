@@ -16,71 +16,72 @@ import {
   getDistrictAction,
   getStateAction,
 } from "../Redux/Actions";
+import { getAllBusinessAction } from "../Redux/Actions/business.action";
 
 import "./RojgarModule/findJob.css";
 // import FindJob from './FindJob';
-const BusinessData=[ 
-{
-    id:1,
-    StoreName:"xyz",
-    OwnerName:"veer",
-    Address:"Karnavati",
-    Phone:"97235457851"
-},
-{
-    id:2,
-    StoreName:"xyz",
-    OwnerName:"veer",
-    Address:"Karnavati",
-    Phone:"97235457851"
-},
-{
-    id:3,
-    StoreName:"xyz",
-    OwnerName:"veer",
-    Address:"Karnavati",
-    Phone:"97235457851"
-},
-{
-    id:4,
-    StoreName:"xyz",
-    OwnerName:"veer",
-    Address:"Karnavati",
-    Phone:"97235457851"
-},
-{
-    id:5,
-    StoreName:"xyz",
-    OwnerName:"veer",
-    Address:"Karnavati",
-    Phone:"97235457851"
-},
-{
-    id:6,
-    StoreName:"xyz",
-    OwnerName:"veer",
-    Address:"Karnavati",
-    Phone:"97235457851"
-},
-{
-    id:7,
-    StoreName:"xyz",
-    OwnerName:"veer",
-    Address:"Karnavati",
-    Phone:"97235457851"
-},
-{
-    id:8,
-    StoreName:"xyz",
-    OwnerName:"veer",
-    Address:"Karnavati",
-    Phone:"97235457851"
-},
-
-]
+const BusinessData = [
+  {
+    id: 1,
+    StoreName: "xyz",
+    OwnerName: "veer",
+    Address: "Karnavati",
+    Phone: "97235457851",
+  },
+  {
+    id: 2,
+    StoreName: "xyz",
+    OwnerName: "veer",
+    Address: "Karnavati",
+    Phone: "97235457851",
+  },
+  {
+    id: 3,
+    StoreName: "xyz",
+    OwnerName: "veer",
+    Address: "Karnavati",
+    Phone: "97235457851",
+  },
+  {
+    id: 4,
+    StoreName: "xyz",
+    OwnerName: "veer",
+    Address: "Karnavati",
+    Phone: "97235457851",
+  },
+  {
+    id: 5,
+    StoreName: "xyz",
+    OwnerName: "veer",
+    Address: "Karnavati",
+    Phone: "97235457851",
+  },
+  {
+    id: 6,
+    StoreName: "xyz",
+    OwnerName: "veer",
+    Address: "Karnavati",
+    Phone: "97235457851",
+  },
+  {
+    id: 7,
+    StoreName: "xyz",
+    OwnerName: "veer",
+    Address: "Karnavati",
+    Phone: "97235457851",
+  },
+  {
+    id: 8,
+    StoreName: "xyz",
+    OwnerName: "veer3333",
+    Address: "Karnavati",
+    Phone: "97235457851",
+  },
+];
 const Business = () => {
   const place = useSelector((state) => state.place);
   const job = useSelector((state) => state.job);
+  const business = useSelector((state) => state.business);
   const auth = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
@@ -91,7 +92,11 @@ const Business = () => {
   const [district, setDistrict] = useState(0);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(8);
- 
+
+  useEffect(() => {
+    dispatch(getAllBusinessAction(page, 8));
+    // alert("done");
+  }, [page]);
   return (
     <>
       <Grid
@@ -100,16 +105,12 @@ const Business = () => {
         className="Rg-bg"
         style={{ paddingBottom: "100px" }}
       >
-       
-     
-          <>
-            <Grid item className="ourBtn m-4" xs={12} sm={12} md={12}>
-              <h2 style={{ color: "white", textAlign: "center" }}>
-            Business
-              </h2>
-              <br></br>
+        <>
+          <Grid item className="ourBtn m-4" xs={12} sm={12} md={12}>
+            <h2 style={{ color: "white", textAlign: "center" }}>Business</h2>
+            <br></br>
 
-              {/* <Button
+            {/* <Button
                 className=""
                 onClick={() => {
                   setFilter(true);
@@ -117,8 +118,9 @@ const Business = () => {
               >
                 Filter
               </Button> */}
-            </Grid>
-            {BusinessData.map((data) => (
+          </Grid>
+          {business.getAllBusiness &&
+            business.getAllBusiness?.rows?.map((data) => (
               <Grid
                 item
                 xs={12}
@@ -136,7 +138,11 @@ const Business = () => {
                       justifyContent: "center",
                     }}
                   ></div>
-                  <img src="https://picsum.photos/200/300" width="100%" height="200px"/>
+                  <img
+                    src={`https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${data.image}`}
+                    width="100%"
+                    height="200px"
+                  />
                   {/* <hr style={{ color: "rgb(255, 255, 255)" }}></hr> */}
                   <div style={{ margin: "10px" }}>
                     <table width="100%" className="find-job-card">
@@ -145,7 +151,7 @@ const Business = () => {
                           Store Name
                         </th>
                         <td className="find-job-card-textD ">
-                          :{data.StoreName}
+                          :{data.business_title}
                         </td>
                       </tr>
                       <tr>
@@ -153,32 +159,30 @@ const Business = () => {
                           Owner Name
                         </th>
                         <td className="find-job-card-textD">
-                          :{data.OwnerName}
+                          :{data.business_Name}
                         </td>
                       </tr>
                       <tr>
                         <th className="find-job-card-text headFindJob">
-                        Phone
+                          Phone
                         </th>
                         <td className="find-job-card-textD">
-                          :{data.Phone}
+                          :{data.business_contect_number}
                         </td>
                       </tr>
                       <tr>
                         <th className="find-job-card-text headFindJob">
-                      Location
+                          Location
                         </th>
-                        <td className="find-job-card-textD">
-                          :{data.Address}
-                        </td>
+                        <td className="find-job-card-textD">:{data.address}</td>
                       </tr>
                       {/* <tr>
                         <th className="find-job-card-text headFindJob">
                           Qualification
                         </th> */}
-                        {/* <td className="find-job-card-textD"> */}
-                          {/* :{data.Qualification}{" "} */}
-                        {/* </td> */}
+                      {/* <td className="find-job-card-textD"> */}
+                      {/* :{data.Qualification}{" "} */}
+                      {/* </td> */}
                       {/* </tr> */}
                     </table>
                     <hr style={{ color: "rgb(255, 255, 255)" }}></hr>
@@ -190,7 +194,7 @@ const Business = () => {
                       <Button
                         className="buttonOK"
                         onClick={() => {
-                          localStorage.setItem("jobId", data.id);
+                          localStorage.setItem("businessId", data.id);
                           navigate(`/Rojgharmain/BusinessInfo`);
                         }}
                       >
@@ -201,7 +205,7 @@ const Business = () => {
                 </div>
               </Grid>
             ))}
-            {/* <Grid
+          {/* <Grid
               item
               xs={12}
               sm={3}
@@ -566,21 +570,20 @@ const Business = () => {
               </div>
             </Grid> */}
 
-            <Grid
-              item
-              xs={12}
-              sm={3}
-              md={3}
-              style={{ display: "flex", justifyContent: "center" }}
-            >
-              <Pagination
-                count={10}
-                onChange={(e, value) => setPage(value)}
-                shape="rounded"
-              />
-            </Grid>
-          </>
-
+          <Grid
+            item
+            xs={12}
+            sm={3}
+            md={3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Pagination
+              count={Math.floor(business.getAllBusiness.count / 8 + 1)}
+              onChange={(e, value) => setPage(value)}
+              shape="rounded"
+            />
+          </Grid>
+        </>
       </Grid>
     </>
   );
