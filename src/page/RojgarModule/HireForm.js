@@ -22,7 +22,9 @@ import {
   getStateAction,
 } from "../../Redux/Actions";
 import { addJobAction } from "../../Redux/Actions/job.action";
+
 import "./findJob.css";
+
 // import TimePicker from "react-time-picker";
 
 const HireForm = () => {
@@ -65,6 +67,7 @@ const HireForm = () => {
       company_Taluka,
       company_city,
       company_contect_number,
+
       Qualification,
       working_days,
       start_Time,
@@ -414,12 +417,24 @@ const HireForm = () => {
               rows="5"
             ></textarea>
           </Grid>
-          <Grid item xs={6} sm={6} className="p-2"  style={{marginBottom:"100px"}}>
+          <Grid
+            item
+            xs={6}
+            sm={6}
+            className="p-2"
+            style={{ marginBottom: "100px" }}
+          >
             <div>
               <Button>Back</Button>
             </div>
           </Grid>
-          <Grid item xs={6} sm={6} className="p-2" style={{marginBottom:"100px"}}>
+          <Grid
+            item
+            xs={6}
+            sm={6}
+            className="p-2"
+            style={{ marginBottom: "100px" }}
+          >
             <div>
               <Button type="submit">Submit</Button>
             </div>
