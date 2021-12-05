@@ -1,54 +1,68 @@
-import React, { useEffect } from "react";
-
-import { Divider, Grid, TextField, IconButton } from "@material-ui/core";
-import { lighten, makeStyles } from "@material-ui/core/styles";
-
-import Paper from "@material-ui/core/Paper";
-import { useDispatch, useSelector } from "react-redux";
-
-import { Button, Row, Col } from "react-bootstrap";
-
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { useState } from "react";
-import PersonalForm from "./Form/PersonalForm";
-import EmailForm from "./Form/EmailForm";
-import OtherForm from "./Form/OtherForm";
-import PaymentForm from "./Form/PaymentForm";
-import { DatePicker, KeyboardDatePicker } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
+
+import { Card, Divider, Grid, IconButton, TextField } from "@material-ui/core";
+import { DatePicker, KeyboardDatePicker } from "@material-ui/pickers";
+import { lighten, makeStyles } from "@material-ui/core/styles";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
+
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import Paper from "@material-ui/core/Paper";
+
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import * as yup from "yup";
-// import MomentUtils from "@date-io/moment";
-// import { KeyboardDatePicker } from "@material-ui/pickers";
 
+import * as yup from "yup";
+
+import { Button, Col, Row } from "react-bootstrap";
+
+import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
+
+import React, { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import Swal from "sweetalert2";
+
+import { string } from "yup/lib/locale";
+
+import { useState } from "react";
+
+import withReactContent from "sweetalert2-react-content";
+
+import { convertBase64 } from "../../helper/base64Converter";
 import {
+  addUserAction,
   cheakUserStatusAction,
   cleanAllStateAction,
   cleanCityAction,
   cleanDistrictAction,
-  addUserAction,
   getAllJobsAction,
-  resetMessageActon,
   getCityAction,
   getDistrictAction,
-  resetUserStatusAction,
   getStateAction,
+  resetMessageActon,
+  resetUserStatusAction,
 } from "../../Redux/Actions/index";
-import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
-// import * as yup from "yup";
-import KErrorMessage from "./KErrorMessage";
-import { convertBase64 } from "../../helper/base64Converter";
-import { string } from "yup/lib/locale";
-// import Swal from 'sweetalert2'
-import Swal from "sweetalert2";
-import withReactContent from 'sweetalert2-react-content'
 
-const MySwal = withReactContent(Swal)
+import KErrorMessage from "./KErrorMessage";
+
+import EmailForm from "./Form/EmailForm";
+import OtherForm from "./Form/OtherForm";
+import PaymentForm from "./Form/PaymentForm";
+import PersonalForm from "./Form/PersonalForm";
+
+// import MomentUtils from "@date-io/moment";
+// import { KeyboardDatePicker } from "@material-ui/pickers";
+
+// import * as yup from "yup";
+
+// import Swal from 'sweetalert2'
+
+const MySwal = withReactContent(Swal);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -101,27 +115,27 @@ const validationSchema = yup.object({
   // email:  yup.string().required("emailis required"),
   totalFamilyMembers: yup.number().required("mumber is require"),
   address: yup.string().required("address is require"),
-  motherName:yup.string().required("Mothername is require"),
+  motherName: yup.string().required("Mothername is require"),
   husbandName: yup.string(),
   study: yup.string(),
-  firstName:yup.string().required(),
+  firstName: yup.string().required(),
   mobileNumber: yup
     .number()
     .min(1000000000, "Not Valid Phone Number!")
     .max(9999999999, "Not Valid Phone Number!")
     .required("Phone is Required!"),
-  image:yup.mixed().required("Phone is Required!"),
-  pinCode:yup.string().required("pincode is required"),
-  study:yup.string().required("study is required"),
+  image: yup.mixed().required("Phone is Required!"),
+  pinCode: yup.string().required("pincode is required"),
+  study: yup.string().required("study is required"),
   whatsAppNumber: yup
     .number()
     .min(1000000000, "Not Valid Phone Number!")
     .max(9999999999, "Not Valid Phone Number!")
     .required("Phone is Required!"),
-    user_distict: yup.string().required("dist is Required!"),
-   user_state: yup.string().required("state is Required!"),
+  user_distict: yup.string().required("dist is Required!"),
+  user_state: yup.string().required("state is Required!"),
   user_city: yup.string().required("city is Required!"),
- 
+
   password: yup
     .string()
     .matches(
@@ -132,8 +146,8 @@ const validationSchema = yup.object({
   gender: yup.string().required("Gender is Required!"),
   marrage: yup.string().required("mrg Status is Required!"),
   birthDate: yup.date().required("Date of Birth is required"),
-
-
+  businessAddress: yup.string(),
+  docImage: yup.string(),
 });
 export default function JoinWithUs() {
   const user = useSelector((state) => state.user);
@@ -153,6 +167,7 @@ export default function JoinWithUs() {
   const [password, setPassword] = useState();
   const [cpassword, setCpassword] = useState();
   const [image, setImage] = useState();
+  const [docImage, setDocImage] = useState();
   const [totalFamilyMembers, setTotalFamilyMembers] = useState();
   const [husbandName, setHusbandName] = useState();
   const [study, setStudy] = useState();
@@ -173,54 +188,61 @@ export default function JoinWithUs() {
   const [selectedDate, handleDateChange] = useState(new Date());
   const verifyMeFunc = (e) => {
     e.preventDefault();
-    dispatch(resetUserStatusAction())
-    localStorage.setItem("joinUsEmail", email)
+    dispatch(resetUserStatusAction());
+    localStorage.setItem("joinUsEmail", email);
     dispatch(cheakUserStatusAction({ email }));
   };
   const uploadImage = async (e) => {
-    console.log(e.target.files)
-    const file = e.target.files[0]
-    console.log(file)
-    const base64 = await convertBase64(file)
-    console.log(base64, 'bsae')
-    setImage(base64)
-
-  }
-  if(user.message == "User CREATED"){
-    Swal.fire("Good job!", "You clicked the button!", "success")
-    dispatch(resetUserStatusAction())
-    dispatch(resetMessageActon())
+    console.log(e.target.files);
+    const file = e.target.files[0];
+    console.log(file);
+    const base64 = await convertBase64(file);
+    console.log(base64, "bsae");
+    setImage(base64);
+  };
+  const uploadDocImage = async (e) => {
+    console.log(e.target.files);
+    const file = e.target.files[0];
+    console.log(file);
+    const base64 = await convertBase64(file);
+    console.log(base64, "bsae");
+    setDocImage(base64);
+  };
+  if (user.message == "User CREATED") {
+    Swal.fire("Good job!", "You clicked the button!", "success");
+    dispatch(resetUserStatusAction());
+    dispatch(resetMessageActon());
     // localStorage.setItem("joinUsEmail", email)
-    dispatch(cheakUserStatusAction(localStorage.getItem('joinUsEmail')));
+    dispatch(cheakUserStatusAction(localStorage.getItem("joinUsEmail")));
   }
   // const onSubmitJoinFunc = (e) => {
   //   e.preventDefault();
-    // const data = {
-    //   firstName,
-    //   sarname,
-    //   fatherName,
-    //   motherName,
-    //   birthDate,
-    //   bloodGroup,
-    //   gender,
-    //   marrage,
-    //   password,
-    //   image,
-    //   email,
-    //   totalFamilyMembers: parseInt(totalFamilyMembers),
-    //   husbandName,
-    //   study,
-    //   user_state: parseInt(user_state),
-    //   user_distict: parseInt(user_distict),
-    //   user_city: parseInt(user_city),
-    //   address,
-    //   mobileNumber,
-    //   whatsAppNumber,
-    //   pinCode,
-    // };
-    // console.log(data)
-    // dispatch(addUserAction(data))
-    // dispatch(cheakUserStatusAction({ email: localStorage.getItem('joinUsEmail') }));
+  // const data = {
+  //   firstName,
+  //   sarname,
+  //   fatherName,
+  //   motherName,
+  //   birthDate,
+  //   bloodGroup,
+  //   gender,
+  //   marrage,
+  //   password,
+  //   image,
+  //   email,
+  //   totalFamilyMembers: parseInt(totalFamilyMembers),
+  //   husbandName,
+  //   study,
+  //   user_state: parseInt(user_state),
+  //   user_distict: parseInt(user_distict),
+  //   user_city: parseInt(user_city),
+  //   address,
+  //   mobileNumber,
+  //   whatsAppNumber,
+  //   pinCode,
+  // };
+  // console.log(data)
+  // dispatch(addUserAction(data))
+  // dispatch(cheakUserStatusAction({ email: localStorage.getItem('joinUsEmail') }));
   // };
   useEffect(() => {
     dispatch(cleanAllStateAction());
@@ -243,25 +265,31 @@ export default function JoinWithUs() {
   return (
     <>
       <Grid className="px-3" item xs={12} sm={12}>
-
-
-        <form onSubmit={verifyMeFunc}>
-          <lebel>Email</lebel>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            required
-            className="form-control"
-          />
-          <button type="submit">Verify</button>
-        </form>
-
-
-
-
-
-
+        <Card
+          style={{
+            padding: "20px",
+            boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
+            margin: "10px",
+            marginBottom: "40px",
+          }}
+        >
+          <form onSubmit={verifyMeFunc}>
+            <lebel>Email</lebel>
+            <input
+              style={{ background: "#e4ebea" }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              required
+              className="form-control"
+            />
+            <div>
+              <button className="btn btn-primary" type="submit">
+                Verify
+              </button>
+            </div>
+          </form>
+        </Card>
       </Grid>
       {user.userState &&
         user.userState.exist &&
@@ -276,72 +304,98 @@ export default function JoinWithUs() {
       {user.userState.exist != null &&
         !user.userState.exist &&
         !user.userState.payment &&
-        !user.userState.record && (<Grid className="px-3" item xs={12} sm={12}>
-          <Formik
-            validationSchema={validationSchema}
-            initialValues={{
-              firstName: "",
-              sarname: "",
-              fatherName: "",
-              motherName: "",
-              birthDate: "",
-              bloodGroup: "",
-              gender: "",
-              marrage: "",
-              password: "",
-              image: "",
-              email: "",
-              totalFamilyMembers: "",
-              husbandName: "",
-              study: "",
-              user_distict:"",
-              user_state:"",
-              user_city:"",
-              address: "",
-              mobileNumber: "",
-              whatsAppNumber: "",
-              pinCode: "",
-            }}
-            onSubmit={(values) => {
-             
-              const data = {
-                firstName:values.firstName,
-                sarname:values.sarname,
-                fatherName:values.fatherName,
-                motherName:values.motherName,
-                birthDate:values.birthDate,
-                bloodGroup:values.bloodGroup,
-                gender:values.gender,
-                marrage:values.marrage,
-                password:values.password,
-                image:image,
-                email:email,
-                totalFamilyMembers: parseInt(values.totalFamilyMembers),
-                husbandName:values.husbandName,
-                study:values.study,
-                user_state: parseInt(values.user_state),
-                user_distict: parseInt(values.user_distict),
-                user_city: parseInt(values.user_city),
-                address:values.address,
-                mobileNumber:values.mobileNumber,
-                whatsAppNumber:values.whatsAppNumber,
-                pinCode:values.pinCode,
-              };
-              console.log(data)
-              dispatch(addUserAction(data))
-              dispatch(cheakUserStatusAction({ email: localStorage.getItem('joinUsEmail') }));
-            }}
-          >
-            {({ values,setFieldValue  }) => (
+        !user.userState.record && (
+          <Grid className="px-3" item xs={12} sm={12}>
+            <Formik
+              validationSchema={validationSchema}
+              initialValues={{
+                firstName: "",
+                sarname: "",
+                fatherName: "",
+                motherName: "",
+                birthDate: "",
+                bloodGroup: "",
+                gender: "",
+                marrage: "",
+                password: "",
+                image: "",
+                email: "",
+                totalFamilyMembers: "",
+                husbandName: "",
+                study: "",
+                user_distict: "",
+                user_state: "",
+                user_city: "",
+                address: "",
+                mobileNumber: "",
+                whatsAppNumber: "",
+                pinCode: "",
+                business: "",
+                businessAddress: "",
+                docImage: "",
+              }}
+              onSubmit={(values) => {
+                const data = {
+                  firstName: values.firstName,
+                  sarname: values.sarname,
+                  fatherName: values.fatherName,
+                  motherName: values.motherName,
+                  birthDate: values.birthDate,
+                  bloodGroup: values.bloodGroup,
+                  gender: values.gender,
+                  marrage: values.marrage,
+                  password: values.password,
+                  image: image,
+                  email: email,
+                  docImage: docImage,
+                  totalFamilyMembers: parseInt(values.totalFamilyMembers),
+                  husbandName: values.husbandName,
+                  study: values.study,
+                  user_state: parseInt(values.user_state),
+                  user_distict: parseInt(values.user_distict),
+                  user_city: parseInt(values.user_city),
+                  address: values.address,
+                  mobileNumber: values.mobileNumber,
+                  whatsAppNumber: values.whatsAppNumber,
+                  pinCode: values.pinCode,
+                  business: values.business,
+                  businessAddress: values.businessAddress,
+                };
+                console.log(data);
+                dispatch(addUserAction(data));
 
-              <Form >
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <lebel>Sarname</lebel>
-                    <Field className="form-control" name="sarname" className="form-control" placeholder="sarname" type="text" />
-                    <KErrorMessage name="sarname" />
+                dispatch(
+                  cheakUserStatusAction({
+                    email: localStorage.getItem("joinUsEmail"),
+                  })
+                );
+              }}
+            >
+              {({ values, setFieldValue }) => (
+                <Card
+                  style={{
+                    padding: "20px",
+                    boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
+                    margin: "10px",
 
-                    {/* <input
+                    marginBottom: "40px",
+                  }}
+                >
+                  <Form>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <lebel>Sarname</lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="sarname"
+                          className="form-control"
+                          placeholder="sarname"
+                          type="text"
+                        />
+                        <KErrorMessage name="sarname" />
+
+                        {/* <input
                   value={sarname}
                   onChange={(e) => setSarname(e.target.value)}
                   type="text"
@@ -349,13 +403,20 @@ export default function JoinWithUs() {
                   placeholder="sarname"
                   className="form-control"
                 /> */}
-                  </div>
-                  <div class="form-group col-md-4">
-                    <lebel>First name</lebel>
-                    <Field className="form-control" name="firstName" className="form-control" placeholder="firstName" type="text" />
-                    <KErrorMessage name="firstName" />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <lebel>First name</lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="firstName"
+                          className="form-control"
+                          placeholder="firstName"
+                          type="text"
+                        />
+                        <KErrorMessage name="firstName" />
 
-                    {/* <input
+                        {/* <input
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   type="text"
@@ -363,13 +424,20 @@ export default function JoinWithUs() {
                   placeholder="First Name"
                   className="form-control"
                 /> */}
-                  </div>
-                  <div class="form-group col-md-4">
-                    <lebel>Father name</lebel>
-                    <Field className="form-control" name="fatherName" className="form-control" placeholder="fatherName" type="text" />
-                    <KErrorMessage name="fatherName" />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <lebel>Father name</lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="fatherName"
+                          className="form-control"
+                          placeholder="fatherName"
+                          type="text"
+                        />
+                        <KErrorMessage name="fatherName" />
 
-                    {/* <input
+                        {/* <input
                   value={fatherName}
                   onChange={(e) => setFatherName(e.target.value)}
                   type="text"
@@ -377,15 +445,22 @@ export default function JoinWithUs() {
                   placeholder="Father Name"
                   className="form-control"
                 /> */}
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <lebel>Mother name</lebel>
-                    <Field className="form-control" name="motherName" className="form-control" placeholder="motherName" type="text" />
-                    <KErrorMessage name="motherName" />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <lebel>Mother name</lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="motherName"
+                          className="form-control"
+                          placeholder="motherName"
+                          type="text"
+                        />
+                        <KErrorMessage name="motherName" />
 
-                    {/* <input
+                        {/* <input
                   value={motherName}
                   onChange={(e) => setMotherName(e.target.value)}
                   type="text"
@@ -393,13 +468,62 @@ export default function JoinWithUs() {
                   placeholder="Mother Name"
                   className="form-control"
                 /> */}
-                  </div>
-                  <div class="form-group col-md-6">
-                    <lebel>Password</lebel>
-                    <Field className="form-control" name="password" className="form-control" placeholder="password" type="password" />
-                    <KErrorMessage name="password" />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <lebel> Business</lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="business"
+                          className="form-control"
+                          placeholder="business"
+                          type="text"
+                        />
+                        <KErrorMessage name="business" />
 
-                    {/* <input
+                        {/* <input
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  type="text"
+                  name="first"
+                  placeholder="First Name"
+                  className="form-control"
+                /> */}
+                      </div>
+                      <div class="form-group col-md-4">
+                        <lebel>BusinessAddress</lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="businessAddress"
+                          className="form-control"
+                          placeholder="businessAddress"
+                          type="text"
+                        />
+                        <KErrorMessage name="businessAddress" />
+
+                        {/* <input
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  type="text"
+                  name="first"
+                  placeholder="First Name"
+                  className="form-control"
+                /> */}
+                      </div>
+                      <div class="form-group col-md-4">
+                        <lebel>Password</lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="password"
+                          className="form-control"
+                          placeholder="password"
+                          type="password"
+                        />
+                        <KErrorMessage name="password" />
+
+                        {/* <input
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   type="password"
@@ -407,61 +531,113 @@ export default function JoinWithUs() {
                   placeholder="password "
                   className="form-control"
                 /> */}
-                  </div>
-               
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="bloodGroup">Choose bloodGroup:</label>
-                    {/* <Field className="form-control" name="motherName" className="form-control" placeholder="motherName" type="text" />
+                      </div>
+
+                      <div class="form-group col-md-4">
+                        <label for="bloodGroup">Choose bloodGroup:</label>
+                        {/* <Field
+                        style={{background:"#e4ebea"}} className="form-control" name="motherName" className="form-control" placeholder="motherName" type="text" />
                     <KErrorMessage name="motherName" /> */}
 
-                    {/* <select
+                        {/* <select
                   className="form-control"
                   name="Blood Group"
                   value={bloodGroup}
                   onChange={(e) => setBloodGroup(e.target.value)}
                   id="cars"
                 > */}
-                    <Field className="form-control" name="bloodGroup" as="select">
-                      <option value="None">None</option>
-                      <option value="O+">O+</option>
-                      <option value="O-">O-</option>
-                      <option value="A+">A+</option>
-                      <option value="A-">A-</option>
-                      <option value="B+">B+</option>
-                      <option value="B-">B-</option>
-                      <option value="AB+">AB+</option>
-                      <option value="AB-">AB-</option>
-                    </Field>
-                    <KErrorMessage name="bloodGroup" />
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="bloodGroup"
+                          as="select"
+                        >
+                          <option value="None">None</option>
+                          <option value="O+">O+</option>
+                          <option value="O-">O-</option>
+                          <option value="A+">A+</option>
+                          <option value="A-">A-</option>
+                          <option value="B+">B+</option>
+                          <option value="B-">B-</option>
+                          <option value="AB+">AB+</option>
+                          <option value="AB-">AB-</option>
+                        </Field>
+                        <KErrorMessage name="bloodGroup" />
 
-                    {/* </select> */}
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label>Gender:</label>
-                    <br /> <br />
-                    <label>Male:</label>
-                    <Field name="gender" value="male" type="radio" />
-                    <label>Female:</label>
-                    <Field name="gender" value="female" type="radio" />
-                    <KErrorMessage name="gender" />
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label>Marrage Status:</label>
-                    <br /> <br />
-                    <label>marrid:</label>
-                    <Field name="marrage" value="1" type="radio" />
-                    <label>unMarrid:</label>
-                    <Field name="marrage" value="0" type="radio" />
-                    <KErrorMessage name="marrage" />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="bloodGroup" >BirthDate</label>
+                        {/* </select> */}
+                      </div>
+                      <div class="form-group col-md-2">
+                        {/* <br /> <br /> */}
+                        <table width="100%">
+                          <tr>
+                            <th colspan="2">
+                              <label for="bloodGroup">BirthDate</label>
+                              <lable>Gender:</lable>
+                            </th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label>Male:</label>
+                              <Field
+                                style={{ background: "#e4ebea" }}
+                                name="gender"
+                                value="male"
+                                type="radio"
+                              />
+                            </td>
+                            <td>
+                              <label>Female:</label>
+                              <Field
+                                style={{ background: "#e4ebea" }}
+                                name="gender"
+                                value="female"
+                                type="radio"
+                              />
+                            </td>
+                          </tr>
+                        </table>
+                        <KErrorMessage name="gender" />
+                      </div>
+                      <div class="form-group col-md-2">
+                        {/* <label>Marrage Status:</label> */}
+                        {/* <br /> <br /> */}
+                        <table width="100%">
+                          <tr>
+                            <th colspan="2">
+                              <lable>Marrage Status</lable>
+                            </th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label>marrid:</label>
 
-                    {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                              <Field
+                                style={{ background: "#e4ebea" }}
+                                name="marrage"
+                                value="1"
+                                type="radio"
+                              />
+                            </td>
+                            <td>
+                              <label>unMarrid:</label>
+                              <Field
+                                style={{ background: "#e4ebea" }}
+                                name="marrage"
+                                value="0"
+                                type="radio"
+                              />
+                            </td>
+                          </tr>
+                        </table>
+
+                        <KErrorMessage name="marrage" />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="bloodGroup">BirthDate</label>
+
+                        {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <DatePicker
                         variant="inline"
                         className="form-control"
@@ -470,18 +646,28 @@ export default function JoinWithUs() {
                       />
                     </MuiPickersUtilsProvider> */}
 
-                    <Field name="birthDate"  className="form-control" type="date" />
-                    <KErrorMessage name="birthDate" />
-                  </div>
-               {values.gender=="female" && values.marrage=="marrid"?
-               
-               
-                  <div class="form-group col-md-4">
-                    <lebel>Husband Name</lebel>
-                    <Field className="form-control" name="husbandName" className="form-control" placeholder="husbandName" type="text" />
-                    <KErrorMessage name="husbandName" />
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          name="birthDate"
+                          className="form-control"
+                          type="date"
+                        />
+                        <KErrorMessage name="birthDate" />
+                      </div>
+                      {values.gender == "female" && values.marrage == "1" ? (
+                        <div class="form-group col-md-4">
+                          <lebel>Husband Name</lebel>
+                          <Field
+                            style={{ background: "#e4ebea" }}
+                            className="form-control"
+                            name="husbandName"
+                            className="form-control"
+                            placeholder="husbandName"
+                            type="text"
+                          />
+                          <KErrorMessage name="husbandName" />
 
-                    {/* <input
+                          {/* <input
                       value={husbandName}
                       onChange={(e) => setHusbandName(e.target.value)}
                       type="text"
@@ -489,13 +675,23 @@ export default function JoinWithUs() {
                       placeholder="husband Name "
                       className="form-control"
                     /> */}
-                  </div>:``}
-                  <div class="form-group col-md-4">
-                    <lebel> Total Family Members </lebel>
-                    <Field className="form-control" name="totalFamilyMembers" className="form-control" placeholder="husbandName" type="text" />
-                    <KErrorMessage name="totalFamilyMembers" />
+                        </div>
+                      ) : (
+                        ``
+                      )}
+                      <div class="form-group col-md-4">
+                        <lebel> Total Family Members </lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="totalFamilyMembers"
+                          className="form-control"
+                          placeholder="husbandName"
+                          type="text"
+                        />
+                        <KErrorMessage name="totalFamilyMembers" />
 
-                    {/* <input
+                        {/* <input
                       value={totalFamilyMembers}
                       onChange={(e) => setTotalFamilyMembers(e.target.value)}
                       type="number"
@@ -503,15 +699,22 @@ export default function JoinWithUs() {
                       placeholder="Total Family Members"
                       className="form-control"
                     /> */}
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <lebel> Study </lebel>
-                    <Field className="form-control" name="study" className="form-control" placeholder="study" type="text" />
-                    <KErrorMessage name="study" />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <lebel> Study </lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="study"
+                          className="form-control"
+                          placeholder="study"
+                          type="text"
+                        />
+                        <KErrorMessage name="study" />
 
-                    {/* <input
+                        {/* <input
                       value={study}
                       onChange={(e) => setStudy(e.target.value)}
                       type="text"
@@ -519,13 +722,20 @@ export default function JoinWithUs() {
                       placeholder="Study"
                       className="form-control"
                     /> */}
-                  </div>
-                  <div class="form-group col-md-4">
-                    <lebel> Mobile Number </lebel>
-                    <Field className="form-control" name="mobileNumber" className="form-control" placeholder="mobileNumber" type="text" />
-                    <KErrorMessage name="mobileNumber" />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <lebel> Mobile Number </lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="mobileNumber"
+                          className="form-control"
+                          placeholder="mobileNumber"
+                          type="text"
+                        />
+                        <KErrorMessage name="mobileNumber" />
 
-                    {/* <input
+                        {/* <input
                       value={mobileNumber}
                       onChange={(e) => setMobileNumber(e.target.value)}
                       type="text"
@@ -533,13 +743,20 @@ export default function JoinWithUs() {
                       placeholder="mobile Number"
                       className="form-control"
                     /> */}
-                  </div>
-                  <div class="form-group col-md-4">
-                    <lebel> whatsapp Number </lebel>
-                    <Field className="form-control" name="whatsAppNumber" className="form-control" placeholder="whatsAppNumber" type="text" />
-                    <KErrorMessage name="whatsAppNumber" />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <lebel> whatsapp Number </lebel>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="whatsAppNumber"
+                          className="form-control"
+                          placeholder="whatsAppNumber"
+                          type="text"
+                        />
+                        <KErrorMessage name="whatsAppNumber" />
 
-                    {/* <input
+                        {/* <input
                       value={whatsAppNumber}
                       onChange={(e) => setWhatsAppNumber(e.target.value)}
                       type="text"
@@ -547,127 +764,131 @@ export default function JoinWithUs() {
                       placeholder="Whats App Number"
                       className="form-control"
                     /> */}
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label class="form-label" for="form6Example1">
-                      State
-                    </label>
-                    <Field
-                      name="user_state"
-                      as="select"
-                      className="formBg"
-                      id="user_state"
-                      value={user_state}
-                      onChange={(e) => {
-                        setUser_city(-1);
-                        setUser_distict(-1);
-                        dispatch(cleanCityAction());
-                        dispatch(cleanDistrictAction());
-                      
-                        setUser_state(e.target.value);
-                        values.user_state=e.target.value
-                      }}
-                      class="form-control "
-                    >
-                      <option value={-1}>please Select</option>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label class="form-label" for="form6Example1">
+                          State
+                        </label>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          name="user_state"
+                          as="select"
+                          className="formBg"
+                          id="user_state"
+                          value={user_state}
+                          onChange={(e) => {
+                            setUser_city(-1);
+                            setUser_distict(-1);
+                            dispatch(cleanCityAction());
+                            dispatch(cleanDistrictAction());
 
-                      {place.state.rows &&
-                        place.state.rows.map((data) => (
-                          <>
-                            <option value={`${data.state_id}`}>
-                              {data.state_title}
-                            </option>
-                          </>
-                        ))}
-                      {/* <option value="volvo">Volvo</option>
+                            setUser_state(e.target.value);
+                            values.user_state = e.target.value;
+                          }}
+                          class="form-control "
+                        >
+                          <option value={-1}>please Select</option>
+
+                          {place.state.rows &&
+                            place.state.rows.map((data) => (
+                              <>
+                                <option value={`${data.state_id}`}>
+                                  {data.state_title}
+                                </option>
+                              </>
+                            ))}
+                          {/* <option value="volvo">Volvo</option>
                 <option value="saab">Saab</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option> */}
-                    </Field>
-                    <KErrorMessage name="user_state" />
+                        </Field>
+                        <KErrorMessage name="user_state" />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label class="form-label" for="form6Example1">
+                          Dist
+                        </label>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          name="user_distict"
+                          as="select"
+                          className="formBg"
+                          id="user_distict"
+                          value={user_distict}
+                          // value={company_distict}
+                          onChange={(e) => {
+                            dispatch(cleanCityAction());
+                            setUser_city(-1);
+                            setUser_distict(e.target.value);
+                            values.user_distict = e.target.value;
+                          }}
+                          class="form-control"
+                        >
+                          <option value={-1}>please select</option>
 
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label class="form-label" for="form6Example1">
-                      Dist
-                    </label>
-                    <Field
-                      name="user_distict"
-                      as="select"
-                      className="formBg"
-                      id="user_distict"
-                 
-                      value={user_distict}
-                      // value={company_distict}
-                      onChange={(e) => {
-                        dispatch(cleanCityAction());
-                        setUser_city(-1);
-                        setUser_distict(e.target.value);
-                        values.user_distict=e.target.value
+                          {place.district.rows &&
+                            place.district.rows.map((data) => (
+                              <>
+                                <option value={`${data.districtid}`}>
+                                  {data.district_title}
+                                </option>
+                              </>
+                            ))}
+                        </Field>
+                        <KErrorMessage name="user_distict" />
+                      </div>
 
-                      }}
-                      class="form-control"
-                    >
-                      <option value={-1}>please select</option>
+                      <div class="form-group col-md-4">
+                        <label class="form-label" for="form6Example1">
+                          city
+                        </label>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          name="user_city"
+                          className="formBg"
+                          as="select"
+                          id="user_city"
+                          value={user_city}
+                          onChange={(e) => {
+                            setUser_city(e.target.value);
+                            values.user_city = e.target.value;
+                          }}
+                          class="form-control "
+                        >
+                          <option value={-1}>please Select</option>
 
-                      {place.district.rows &&
-                        place.district.rows.map((data) => (
-                          <>
-                            <option value={`${data.districtid}`}>
-                              {data.district_title}
-                            </option>
-                          </>
-                        ))}
-                    </Field>
-                    <KErrorMessage name="user_distict" />
-                   
-
-                  </div>
-                  
-                  <div class="form-group col-md-4">
-                    <label class="form-label" for="form6Example1">
-                      city
-                    </label>
-                    <Field
-                      name="user_city"
-                      className="formBg"
-                     
-                      as="select"
-                      id="user_city"
-                      value={user_city}
-                      onChange={(e) => {
-                        setUser_city(e.target.value);
-                        values.user_city=e.target.value
-
-                      }}
-                      class="form-control formBg"
-                    > 
-                      <option value={-1}>please Select</option>
-
-                      {place.city.rows &&
-                        place.city.rows.map((data) => (
-                          <>
-                            <option value={`${data.id}`}>{data.name}</option>
-                          </>
-                        ))}
-                      {/* <option value="volvo">Volvo</option>
+                          {place.city.rows &&
+                            place.city.rows.map((data) => (
+                              <>
+                                <option value={`${data.id}`}>
+                                  {data.name}
+                                </option>
+                              </>
+                            ))}
+                          {/* <option value="volvo">Volvo</option>
                 <option value="saab">Saab</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option> */}
-                    </Field>
-                    <KErrorMessage name="user_city" />
+                        </Field>
+                        <KErrorMessage name="user_city" />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label> Pin Code:</label>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="pinCode"
+                          className="form-control"
+                          placeholder="pincode"
+                          type="text"
+                        />
+                        <KErrorMessage name="pinCode" />
 
-                                    </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label> Pin Code:</label>
-                    <Field className="form-control" name="pinCode" className="form-control" placeholder="pincode" type="text" />
-                    <KErrorMessage name="pinCode" />
-
-                    {/* <input
+                        {/* <input
                       value={pinCode}
                       onChange={(e) => setPinCode(e.target.value)}
                       type="text"
@@ -675,13 +896,20 @@ export default function JoinWithUs() {
                       placeholder="Pin code"
                       className="form-control"
                     /> */}
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label> Address:</label>
-                    <Field className="form-control" name="address" className="form-control" placeholder="address" type="text" />
-                    <KErrorMessage name="address" />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label> Address:</label>
+                        <Field
+                          style={{ background: "#e4ebea" }}
+                          className="form-control"
+                          name="address"
+                          className="form-control"
+                          placeholder="address"
+                          type="text"
+                        />
+                        <KErrorMessage name="address" />
 
-                    {/* <textarea
+                        {/* <textarea
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
                       type="text"
@@ -690,50 +918,81 @@ export default function JoinWithUs() {
                       placeholder="Pin code"
                       className="form-control"
                     /> */}
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label> Profile Image:</label>
-                    <div class="custom-file">
-                      <input
-                        onChange={(e) => {
-                      setFieldValue("image", e.target.files[0])
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label> Profile Image:</label>
+                        <div class="custom-file">
+                          <input
+                            onChange={(e) => {
+                              setFieldValue("image", e.target.files[0]);
 
-                          uploadImage(e)
-                        }}
-                        type="file"
-                        class="custom-file-input"
-                        id="customFile"
-                      />
-                      <label class="custom-file-label" for="customFile">
-                        Choose file
-                      </label>
-                    <KErrorMessage name="image" />
+                              uploadImage(e);
+                            }}
+                            type="file"
+                            class="custom-file-input"
+                            id="customFile"
+                          />
+                          <label class="custom-file-label" for="customFile">
+                            Choose file
+                          </label>
+                          <KErrorMessage name="image" />
+                        </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label> Profile Document:</label>
+                        <div class="custom-file">
+                          <input
+                            onChange={(e) => {
+                              setFieldValue("docImage", e.target.files[0]);
 
+                              uploadDocImage(e);
+                            }}
+                            type="file"
+                            class="custom-file-input"
+                            id="customFile"
+                          />
+                          <label class="custom-file-label" for="customFile">
+                            Choose file
+                          </label>
+                          <KErrorMessage name="image" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-12 ourBtn">
-                    <img src={image} width="150px" height="150px" />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-12 ourBtn">
-                    <button type="submit">Join</button>
-                  </div>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </Grid>)}
+                    <div class="form-row">
+                      <div
+                        class="form-group col-md-6 ourBtn d-flex "
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <img src={image} width="150px" height="150px" />
+                      </div>
+                      <div
+                        class="form-group col-md-6 ourBtn"
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <img src={docImage} width="150px" height="150px" />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-12 ">
+                        <button type="submit" class="btn btn-primary">
+                          Join
+                        </button>
+                      </div>
+                    </div>
+                  </Form>
+                </Card>
+              )}
+            </Formik>
+          </Grid>
+        )}
       {user.userState.exist != null &&
         user.userState.exist &&
         !user.userState.payment &&
-        user.userState.record && (<Grid className="px-3" item xs={12} sm={12}>
-
-          <PaymentForm />
-
-        </Grid>)}
+        user.userState.record && (
+          <Grid className="px-3" item xs={12} sm={12}>
+            <PaymentForm />
+          </Grid>
+        )}
 
       {/* </form> */}
       {/* <div style={{ margin: "20px", padding: "20px" }} className="ourBtn">

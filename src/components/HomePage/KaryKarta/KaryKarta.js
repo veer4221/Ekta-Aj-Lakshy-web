@@ -1,5 +1,6 @@
-import KaryKartaCard from "./KaryKartaCard";
 import React from "react";
+
+import KaryKartaCard from "./KaryKartaCard";
 
 const karykartaInformation = [
   {
@@ -22,8 +23,6 @@ const karykartaInformation = [
     name: `હિન્દુ જ્વાલાસિંહ રાઠોડ `,
     position: `આઈ ટી સેલ શાખા ગુજરાત પ્રદેશ પ્રમુખ `,
   },
-  
-  
 ];
 const KaryKarta = () => {
   return (
@@ -41,23 +40,48 @@ const KaryKarta = () => {
               <KaryKartaCard data={data} />
             ))}
           </div>
-          <div className="container">
-          <div className="col-md-3 col-sm-6">
-            <p>એકલવ્ય સમિતિ</p>
-            </div>
-          <div className="col-md-3 col-sm-6">
-            <p>સમર્પણ સમિતિ</p>
-            </div>
-            <div className="col-md-3 col-sm-6">
-            <p>ગુપ્ત સમિતિ</p>
-              
-            </div>
-            <div className="col-md-3 col-sm-6">
-            <p>કામધેનુ સમિતિ</p>
-              
-            </div>
-            </div>
 
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h2
+                  style={{
+                    color: "brown",
+                    textAlign: "center",
+                    marginTop: "30px",
+                  }}
+                >
+                  સમિતિઓ
+                </h2>
+              </div>
+            </div>
+            <div className="row">
+              <div
+                className="col-6"
+                style={{ color: "brown", textAlign: "center" }}
+              >
+                <h4>એકલવ્ય સમિતિ</h4>
+              </div>
+              <div
+                className="col-6"
+                style={{ color: "brown", textAlign: "center" }}
+              >
+                <h4>સમર્પણ સમિતિ</h4>
+              </div>
+              <div
+                className="col-6"
+                style={{ color: "brown", textAlign: "center" }}
+              >
+                <h4>ગુપ્ત સમિતિ</h4>
+              </div>
+              <div
+                className="col-6"
+                style={{ color: "brown", textAlign: "center" }}
+              >
+                <h4>કામધેનુ સમિતિ</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

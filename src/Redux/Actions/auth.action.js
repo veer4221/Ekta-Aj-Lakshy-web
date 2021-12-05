@@ -1,6 +1,7 @@
 import { authConstants } from "../constants";
-import axios from "../../helper/axios";
 import { rojgharLoginAPI } from "../../api/index";
+import axios from "../../helper/axios";
+import { popupSucessAndConformationAlert } from "../../helper/sweetAlerts";
 
 export const login = (user) => {
   console.log(user);
@@ -9,11 +10,11 @@ export const login = (user) => {
     dispatch({ type: authConstants.LOGIN_REQUEST });
     const res = await rojgharLoginAPI(user);
     console.log(res);
-    if (res.status === 200) {
-      const { token, profile } = res.data.data;
-     await  localStorage.setItem("token", token);
-     await  localStorage.setItem("user", JSON.stringify(profile));
-     
+    if (res.status === 200 && res.data.success == true) {
+      const { token, profile } = res?.data?.data;
+      await localStorage.setItem("token", token);
+      await localStorage.setItem("user", JSON.stringify(profile));
+      popupSucessAndConformationAlert(true, "Welcome to RojgharShakha");
       dispatch({
         type: authConstants.LOGIN_SUCCESS,
         payload: {
@@ -21,6 +22,8 @@ export const login = (user) => {
           profile,
         },
       });
+    } else if (res.status === 200 && res.data.success == false) {
+      popupSucessAndConformationAlert(false, res.data.error);
     } else {
       if (res.status === 400) {
         dispatch({
@@ -58,10 +61,9 @@ export const signout = () => {
     dispatch({ type: authConstants.LOGOUT_REQUEST });
 
     localStorage.clear();
-    window.location.href = '/#/auth/login'
+    window.location.href = "/#/auth/login";
 
     dispatch({ type: authConstants.LOGOUT_SUCCESS });
     // window.location.href="/#/auth/login"
-
   };
 };

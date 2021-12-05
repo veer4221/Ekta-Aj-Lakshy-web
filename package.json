@@ -21,6 +21,7 @@
     "bootstrap": "^5.0.2",
     "date-fns": "^2.24.0",
     "formik": "^2.2.9",
+    "formik-material-ui-pickers": "^1.0.0-alpha.1",
     "history": "^5.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
