@@ -20,16 +20,23 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import HomeRoutes from "./HomeRoutes";
 import LoginFileRoute from "./LoginFileRoute";
-import Business from './page/Business';
 import RojgharshakhaRoute from "./RojgharshakhaRoute";
 import "./main.css";
 
+import Business from "./page/Business";
+import BusinessInformation from "./page/BusinessInformation";
 import LoginPage from "./page/LoginPage";
 import "./style/aboutUsMtextView.css";
 import "./style/buttoncss.css";
 import "./style/buttoncss.css";
+import ChalchitramRoute from "./page/Chalchitram/ChalchitramRoute";
+import ChalchitramWalcomeRoute from "./page/Chalchitram/ChalchitramWalcomeRoute";
 import Loader from "./page/loader/Loader";
-import BusinessInformation from './page/BusinessInformation';
+import HomeScreen from "./page/Chalchitram/screen/homeScreen/HomeScreen";
+import LoginScreen from "./page/Chalchitram/screen/loginscreen/LoginScreen";
+import ShakhaScreen from "./page/Chalchitram/screen/shakhaScreen/ShakhaScreen";
+import WatchScreen from "./page/Chalchitram/screen/watchScreen/watchScreen";
+
 // import HomePage from "./page/HomePage";
 
 const Loadable = (Component) => (props) =>
@@ -88,8 +95,6 @@ const AboutUsSangathan = Loadable(
   React.lazy(() =>
     import("./components/HomePage/AboutUsSangathan/AboutUsSangathan")
   )
-
-
 );
 const App = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -132,10 +137,21 @@ const App = (props) => {
             <Route path="/BusinessInfo" element={<BusinessInformation />} />
             <Route path="/viewJob" element={<ViewJob />} />
             <Route path="/viewUser" element={<ViewUser />} />
-            <Route path="/Business" element={<Business/>} />
+            <Route path="/Business" element={<Business />} />
           </Route>
           <Route path="/auth" element={<LoginFileRoute />}>
             <Route path="/Login" element={<LoginPage />} />
+          </Route>
+          <Route path="/Chalchitram" element={<ChalchitramWalcomeRoute />}>
+            <Route path="/" element={<LoginScreen />} />
+          </Route>
+          <Route path="/ChalChitram" element={<ChalchitramRoute />}>
+            <Route path="/Home" element={<HomeScreen />} />
+            <Route path="/Shakha" element={<ShakhaScreen />} />
+            <Route path="/Syllabus" element={<HomeScreen />} />
+            <Route path="/importantVideo" element={<HomeScreen />} />
+            <Route path="/NewVideo" element={<HomeScreen />} />
+            <Route path="/viewScreen" element={<WatchScreen />} />
           </Route>
         </Routes>
         {/* <Footer/> */}

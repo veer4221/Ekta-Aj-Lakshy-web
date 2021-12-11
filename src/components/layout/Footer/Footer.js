@@ -80,6 +80,14 @@ const Footer = () => {
                 </li>
                 <li>
                   <Button
+                    onClick={() => navigate("/chalchitram/")}
+                    style={{ color: "white" }}
+                  >
+                    ચલચિત
+                  </Button>
+                </li>
+                <li>
+                  <Button
                     onClick={() => navigate("/DonateUs")}
                     style={{
                       color: "white",
