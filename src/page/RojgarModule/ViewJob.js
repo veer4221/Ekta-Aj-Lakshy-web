@@ -1,12 +1,16 @@
-import "./profile.css";
-
 import React, { useEffect, useState } from "react";
-import { getJobAction, jobApplyAction } from "../../Redux/Actions/index";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "react-bootstrap";
+
 import { useNavigate } from "react-router";
+
+import Loader from "../loader/Loader";
 import { userProfileAPI } from "../../api/index";
+import { getJobAction, jobApplyAction } from "../../Redux/Actions/index";
+
+import "./profile.css";
 
 const ProfilePage = () => {
   const job = useSelector((state) => state.job);
@@ -27,6 +31,7 @@ const ProfilePage = () => {
   }, []);
   return (
     <div className="Rg-bg">
+      <Loader loading={job.loading} />
       <div className="container">
         <h1
           className="Header-ekta "
@@ -34,10 +39,10 @@ const ProfilePage = () => {
         >
           Job Details
         </h1>
-        <div className="main-bodyP" style={{ padding: "2c0px" }}>
+        <div className="main-bodyP">
           <div className="row gutters-smP">
             <div className="col-md-4 mb-3P">
-              <div className="card-glass card-glass">
+              <div className="   card-glass">
                 <div className="card-bodyP">
                   <div className="d-flex flex-column align-items-center text-center">
                     <img
@@ -67,7 +72,7 @@ const ProfilePage = () => {
             </div>
             <div className="col-md-8">
               <div className="card-glass mb-3P">
-                <div className="card-bodyP">
+                <div className="card-bodyP" style={{ marginBottom: "200px" }}>
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0 headerProfile">Company Name</h6>

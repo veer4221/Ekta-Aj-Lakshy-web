@@ -19,6 +19,7 @@ import {
 import { getAllBusinessAction } from "../Redux/Actions/business.action";
 
 import "./RojgarModule/findJob.css";
+import Loader from "./loader/Loader";
 // import FindJob from './FindJob';
 const BusinessData = [
   {
@@ -99,6 +100,7 @@ const Business = () => {
   }, [page]);
   return (
     <>
+      <Loader loading={business.loading} />
       <Grid
         container
         spacing={3}
@@ -107,7 +109,7 @@ const Business = () => {
       >
         <>
           <Grid item className="ourBtn m-4" xs={12} sm={12} md={12}>
-            <h2 style={{ color: "white", textAlign: "center" }}>Business</h2>
+            <h2 style={{ color: "white", textAlign: "center" }}>Business1</h2>
             <br></br>
 
             {/* <Button
@@ -198,7 +200,7 @@ const Business = () => {
                           navigate(`/Rojgharmain/BusinessInfo`);
                         }}
                       >
-                        view More
+                        વધુ જોવો
                       </Button>
                     </div>
                   </div>
@@ -252,7 +254,7 @@ const Business = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -304,7 +306,7 @@ const Business = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -356,7 +358,7 @@ const Business = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -408,7 +410,7 @@ const Business = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -460,7 +462,7 @@ const Business = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -512,7 +514,7 @@ const Business = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -564,7 +566,7 @@ const Business = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -573,8 +575,8 @@ const Business = () => {
           <Grid
             item
             xs={12}
-            sm={3}
-            md={3}
+            sm={12}
+            md={12}
             style={{ display: "flex", justifyContent: "center" }}
           >
             <Pagination

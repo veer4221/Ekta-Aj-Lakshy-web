@@ -41,7 +41,7 @@ const BottomHeader = () => {
                         fontSize: "20px",
                       }}
                     >
-                      Home
+                      હોમ
                     </span>
                   </a>
                 </li>
@@ -58,7 +58,7 @@ const BottomHeader = () => {
                         fontSize: "20px",
                       }}
                     >
-                      About Us
+                      અમારા વિશે
                     </span>
                   </a>
                 </li>
@@ -108,7 +108,7 @@ const BottomHeader = () => {
                         fontSize: "20px",
                       }}
                     >
-                      News
+                      પોસ્ટ
                     </span>
                   </a>
                 </li>
@@ -126,7 +126,7 @@ const BottomHeader = () => {
                         fontSize: "20px",
                       }}
                     >
-                      Contect Us
+                      સંપર્ક
                     </span>
                   </a>
                 </li>
@@ -144,7 +144,7 @@ const BottomHeader = () => {
                         fontSize: "20px",
                       }}
                     >
-                      Rojgar
+                      રોજગાર
                     </span>
                   </a>
                 </li>

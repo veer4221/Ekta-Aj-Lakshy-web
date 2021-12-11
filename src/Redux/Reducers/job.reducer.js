@@ -8,7 +8,7 @@ const initState = {
   message: "",
   getJob: {},
   loading: false,
-  getMyJob:{
+  getMyJob: {
     count: null,
     rows: [],
   },
@@ -45,11 +45,11 @@ export default (state = initState, action) => {
       console.log(action);
       state = {
         ...state,
-        loading: true,
+        loading: false,
         getAllJobs: action.payload,
       };
       break;
-      case jobConstruct.GET_MY_JOB_REQUEST:
+    case jobConstruct.GET_MY_JOB_REQUEST:
       console.log(action);
       state = {
         ...state,
@@ -60,7 +60,7 @@ export default (state = initState, action) => {
       console.log(action);
       state = {
         ...state,
-        loading: true,
+        loading: false,
         getMyJob: action.payload,
       };
       break;

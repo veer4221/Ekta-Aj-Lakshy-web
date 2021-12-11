@@ -1,13 +1,15 @@
-import React, { useEffect, lazy, Suspense } from "react";
-import { withStyles } from "@material-ui/core/styles";
+import React, { Suspense, lazy, useEffect } from "react";
+
 import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
-import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import Dialog from "@material-ui/core/Dialog";
+import IconButton from "@material-ui/core/IconButton";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import Typography from "@material-ui/core/Typography";
+import { withStyles } from "@material-ui/core/styles";
+
 const TabsComp = lazy(() => import("./Tabs/TabsComp"));
 
 const styles = (theme) => ({
@@ -81,7 +83,7 @@ export default function ViewUs({ info }) {
               "radial-gradient(circle, #c26603, #ba5d06, #b15508, #a84d0a, #9f450b)",
           }}
         >
-          || View More ||
+          || વધુ જુઓ ||
         </Button>
       </div>
       {/* <Button variant="outlined" color="primary">

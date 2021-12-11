@@ -1,6 +1,8 @@
 import React from "react";
+
 import ShakhaCard from "./ShakhaCard";
 import "./shakha.css";
+
 const shakhaCardInfo = [
   {
     name: "મુખ્ય શાખા",
@@ -116,7 +118,7 @@ const Shakha = () => {
       <section className="events page">
         <div className="container ">
           <div className="session-title row">
-            <h2>Our Branch</h2>
+            <h2>અમારી શાખાઓ</h2>
           </div>
           <div className="event-ro row">
             {shakhaCardInfo &&

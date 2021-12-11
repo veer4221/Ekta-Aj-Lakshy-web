@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
-import PostCard from "./PostCard";
 import Pagination from "@material-ui/lab/Pagination";
+
+import React, { useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
+
 import TextTruncate from "react-text-truncate";
+
 import {
   getPostListAction,
   resetPostStateAction,
 } from "../../../Redux/Actions";
-
 import "../../../style/aboutUsMtextView.css";
+import Loader from "../../../page/loader/Loader";
+
+import PostCard from "./PostCard";
 
 const postInfo = [
   {
@@ -64,6 +69,7 @@ const Post = () => {
   }, [page, rowsPerPage, keyword, reloadAgain]);
   return (
     <>
+      <Loader loading={post.loading} />
       <section className="our-blog page">
         <div className="container ">
           <div className="row session-title">

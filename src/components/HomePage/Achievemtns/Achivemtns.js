@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { addAchiveAPI } from "../../../api";
 import { getAchiveAction } from "../../../Redux/Actions/index";
+import Loader from "./../../../page/loader/Loader";
 
 import AchivemtnsData from "./AchivemtnsData";
 
@@ -77,11 +78,12 @@ const Achivemtns = () => {
 
   return (
     <>
+      <Loader loading={achieve.loading} />
       <div className="doctor-message">
         <div className="inner-lay">
           <div className="container">
             <div className="row session-title">
-              <h2>Our Achievemtns in Numbers</h2>
+              <h2>સંખ્યામાં અમારી સિદ્ધિઓ</h2>
             </div>
             <div className="row">
               <div className="col-sm-3 numb">

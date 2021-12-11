@@ -1,21 +1,22 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import CloseIcon from "@material-ui/icons/Close";
-import Slide from "@material-ui/core/Slide";
-import { Grid } from "@material-ui/core";
 import "../../../style/aboutUsMtextView.css";
 import "../../../style/buttoncss.css";
+
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import CloseIcon from "@material-ui/icons/Close";
+import Dialog from "@material-ui/core/Dialog";
+import Divider from "@material-ui/core/Divider";
+import { Grid } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import React from "react";
+import Slide from "@material-ui/core/Slide";
 import TabsShakha from "./TabsShakha";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -53,7 +54,7 @@ export default function ViewMore({
   return (
     <div className="ourBtn">
       <Button color="primary" onClick={handleClickOpen}>
-        || View More ||
+        || વધુ જુઓ ||
       </Button>
       <Dialog
         fullScreen

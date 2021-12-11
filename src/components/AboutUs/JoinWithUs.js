@@ -47,6 +47,7 @@ import {
   resetMessageActon,
   resetUserStatusAction,
 } from "../../Redux/Actions/index";
+import Loader from "../../page/loader/Loader";
 
 import KErrorMessage from "./KErrorMessage";
 
@@ -54,13 +55,6 @@ import EmailForm from "./Form/EmailForm";
 import OtherForm from "./Form/OtherForm";
 import PaymentForm from "./Form/PaymentForm";
 import PersonalForm from "./Form/PersonalForm";
-
-// import MomentUtils from "@date-io/moment";
-// import { KeyboardDatePicker } from "@material-ui/pickers";
-
-// import * as yup from "yup";
-
-// import Swal from 'sweetalert2'
 
 const MySwal = withReactContent(Swal);
 
@@ -264,7 +258,9 @@ export default function JoinWithUs() {
   }, [user_distict]);
   return (
     <>
+      <Loader loading={user.loading} />
       <Grid className="px-3" item xs={12} sm={12}>
+        {/* <Loader loading={true} /> */}
         <Card
           style={{
             padding: "20px",

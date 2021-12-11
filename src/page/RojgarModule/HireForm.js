@@ -1,5 +1,6 @@
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Grid from "@material-ui/core/Grid";
 
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -18,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate } from "react-router";
 
+import Loader from "../loader/Loader";
 import {
   cleanCityAction,
   cleanDistrictAction,
@@ -211,13 +213,33 @@ const HireForm = () => {
             setTouched,
           }) => {
             return (
-              <Card style={{ background: "black", margin: "20px" }}>
+              <Card
+                className="card-glass"
+                style={{
+                  // background: "black",
+                  margin: "20px",
+                  marginBottom: "200px",
+                  paddingTop: "50px",
+                  paddingBottom: "50px",
+                }}
+              >
+                <Loader loading={job.loading} />
                 <Form>
                   <div className="container-fluid">
+                    <div className="row">
+                      <h3 style={{ color: "red", textAlign: "center" }}>
+                        Hire Form
+                      </h3>
+                      {/* <hr style={{ color: "white" }} /> */}
+                    </div>
                     <div className="row">
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Company Name</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="company_name"
                           type="text"
                           className={
@@ -242,6 +264,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Company Email</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="company_email"
                           type="email"
                           className={
@@ -265,6 +291,10 @@ const HireForm = () => {
                       <div className="col-md-4" col-sm-12>
                         <label className="mt-4">Job Role</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="job_role"
                           type="text"
                           className={
@@ -288,6 +318,10 @@ const HireForm = () => {
                       {/* <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Job Category</label>
                         <FastField
+                        style={{
+                          background:"#3c3a3a",
+                          color:"white"
+                        }}
                           name="job_category"
                           type="text"
                           className={
@@ -312,6 +346,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Company Contect Number</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="company_contect_number"
                           type="text"
                           className={
@@ -339,6 +377,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Address</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="address"
                           type="text"
                           className={
@@ -362,6 +404,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Job Description</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="job_description"
                           type="text"
                           className={
@@ -385,6 +431,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Salary Min</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="salary_min"
                           type="number"
                           className={
@@ -408,6 +458,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Salary Max</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="salary_max"
                           type="number"
                           className={
@@ -431,6 +485,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Start Time</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="start_Time"
                           type="time"
                           className={
@@ -454,6 +512,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">End time</label>
                         <FastField
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="end_Time"
                           type="time"
                           className={
@@ -478,6 +540,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Job Category</label>
                         <Field
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="job_category"
                           as="select"
                           className={`${
@@ -570,6 +636,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Qualification</label>
                         <Field
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="Qualification"
                           as="select"
                           className={`${
@@ -595,6 +665,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Week Working Days</label>
                         <Field
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="working_days"
                           as="select"
                           className={`${
@@ -622,6 +696,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">State</label>
                         <Field
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="company_state"
                           as="select"
                           className={`${
@@ -662,6 +740,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">Distict</label>
                         <Field
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="company_distict"
                           as="select"
                           // value={company_distict}
@@ -699,6 +781,10 @@ const HireForm = () => {
                       <div className="col-md-4 col-sm-12">
                         <label className="mt-4">City</label>
                         <Field
+                          style={{
+                            background: "#3c3a3a",
+                            color: "white",
+                          }}
                           name="company_city"
                           as="select"
                           className={`${

@@ -13,6 +13,8 @@ import { useNavigate } from "react-router";
 
 import { login } from "../Redux/Actions/index";
 
+import Loader from "./loader/Loader";
+
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Must be a valid email")
@@ -79,6 +81,7 @@ const LoginPage = () => {
                       />{" "}
                     </div>
                   </div>
+                  <Loader loading={auth.loading} />
                   <div class="d-flex justify-content-center form_containerL">
                     <Form style={{ width: "320px" }}>
                       <div
@@ -170,17 +173,17 @@ const LoginPage = () => {
                               navigate(`/`);
                             }}
                           >
-                            Back
+                            પાછા જાઓ
                           </Button>
                         </td>
                         <td width="33%" className="ourBtn">
                           <Button
                             style={{ width: "90%" }}
                             onClick={() => {
-                              navigate(`/aboutus`);
+                              navigate(`/ContectUs`);
                             }}
                           >
-                            JoinUs
+                            જોડાઓ
                           </Button>
                         </td>
                         <td
@@ -190,7 +193,7 @@ const LoginPage = () => {
                             navigate(`/DonateUs`);
                           }}
                         >
-                          <Button style={{ width: "90%" }}>DoneteUs</Button>
+                          <Button style={{ width: "90%" }}> દાન કરો</Button>
                         </td>
                       </tr>
                     </table>

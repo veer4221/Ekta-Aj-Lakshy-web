@@ -1,5 +1,5 @@
-import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import React from "react";
 
 const KaryKartaCard = ({ data }) => {
   return (
@@ -32,11 +32,16 @@ const KaryKartaCard = ({ data }) => {
             <h4 style={{ color: "rgb(172, 24, 24)", fontWeight: "bolder" }}>
               {data.idName}
             </h4>
-            <button style={{ backgroundColor: "darkgray" }}>
+            <button className="btn btn-primary">
               <a
                 href={data.url}
                 target="_blank"
-                style={{ color: "white", padding: "15px", boxShadow: "1px" }}
+                style={{
+                  color: "white",
+                  padding: "15px",
+                  boxShadow: "1px",
+                  textDecoration: "none",
+                }}
               >
                 || ક્લિક કરો ||
               </a>

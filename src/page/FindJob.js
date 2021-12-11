@@ -18,6 +18,7 @@ import {
 } from "../Redux/Actions";
 
 import "./RojgarModule/findJob.css";
+import Loader from "./loader/Loader";
 
 const FindJob = () => {
   const place = useSelector((state) => state.place);
@@ -33,20 +34,18 @@ const FindJob = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(8);
   useEffect(() => {
-    if( localStorage.getItem('token')){
-    
-    dispatch(getAllJobsAction(state, district, city, page, limit));
+    if (localStorage.getItem("token")) {
+      dispatch(getAllJobsAction(state, district, city, page, limit));
     }
   }, [filter, page]);
   useEffect(() => {
-    if(auth.authenticate&& localStorage.getItem('token')){
-
-    dispatch(cleanAllStateAction());}
+    if (auth.authenticate && localStorage.getItem("token")) {
+      dispatch(cleanAllStateAction());
+    }
   }, []);
   useEffect(async () => {
-    if(auth.authenticate&& localStorage.getItem('token')){
-
-    await dispatch(getStateAction());
+    if (auth.authenticate && localStorage.getItem("token")) {
+      await dispatch(getStateAction());
     }
   }, []);
   useEffect(() => {
@@ -63,6 +62,7 @@ const FindJob = () => {
   }, [district]);
   return (
     <>
+      <Loader loading={job.loading} />
       <Grid
         container
         spacing={3}
@@ -308,7 +308,7 @@ const FindJob = () => {
                           navigate(`/Rojgharmain/viewJob`);
                         }}
                       >
-                        view More
+                        વધુ જોવો
                       </Button>
                     </div>
                   </div>
@@ -362,7 +362,7 @@ const FindJob = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -414,7 +414,7 @@ const FindJob = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -466,7 +466,7 @@ const FindJob = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -518,7 +518,7 @@ const FindJob = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -570,7 +570,7 @@ const FindJob = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -622,7 +622,7 @@ const FindJob = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>
@@ -674,7 +674,7 @@ const FindJob = () => {
                     className=""
                     style={{ display: "flex", justifyContent: "center" }}
                   >
-                    <Button className="buttonOK">view More</Button>
+                    <Button className="buttonOK">વધુ જોવો</Button>
                   </div>
                 </div>
               </div>

@@ -1,25 +1,28 @@
-import "../../../style/FlotingBTN.css";
-import "./flotingbtn.css";
-
 import AppsIcon from "@material-ui/icons/Apps";
 import CollectionsIcon from "@material-ui/icons/Collections";
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import DeckIcon from "@material-ui/icons/Deck";
-import Drowerview from "./Drowerview";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import GroupIcon from "@material-ui/icons/Group";
 import HomeIcon from "@material-ui/icons/Home";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import PhoneInTalkIcon from "@material-ui/icons/PhoneInTalk";
 import PhotoIcon from "@material-ui/icons/Photo";
-import React from "react";
 import ShareIcon from "@material-ui/icons/Share";
 import SpeedDial from "@material-ui/lab/SpeedDial";
 import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import SpeedDialIcon from "@material-ui/lab/SpeedDialIcon";
 import WorkIcon from "@material-ui/icons/Work";
 import { makeStyles } from "@material-ui/core/styles";
+
+import React from "react";
+
 import { useNavigate } from "react-router";
+
+import "../../../style/FlotingBTN.css";
+
+import Drowerview from "./Drowerview";
+import "./flotingbtn.css";
 
 // import WorkIcon from "@mui/icons-material/Work";
 
@@ -42,12 +45,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const actions = [
-  { icon: <CollectionsIcon />, name: "News", route: "/News" },
-  { icon: <GroupIcon />, name: "AboutUs", route: "/aboutUs" },
-  { icon: <WorkIcon />, name: "Rojghar", route: "/auth/login" },
-  { icon: <MonetizationOnIcon />, name: "DonateUs", route: "/DonateUs" },
-  { icon: <ContactPhoneIcon />, name: "ContectUs", route: "/ContectUs" },
-  { icon: <HomeIcon />, name: "Home", route: "/" },
+  { icon: <CollectionsIcon />, name: "પોસ્ટ", route: "/News" },
+  { icon: <GroupIcon />, name: "અમારા વિશે", route: "/aboutUs" },
+  { icon: <WorkIcon />, name: "રોજગાર", route: "/auth/login" },
+  { icon: <MonetizationOnIcon />, name: "દાન કરો", route: "/DonateUs" },
+  { icon: <ContactPhoneIcon />, name: "સંપર્ક", route: "/ContectUs" },
+  { icon: <HomeIcon />, name: "હોમ", route: "/" },
 ];
 
 export default function FloatingMenu2() {

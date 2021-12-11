@@ -1,4 +1,4 @@
-#preloader {
+.loaderclass {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -7,6 +7,6 @@
     width: 100% !important;
     height: 100% !important;
     overflow: visible;
-    background:url('./loader1.gif') no-repeat center center;
-    background-color: white;
-    }
+    background: url('./loader1.svg') no-repeat center center;
+
+}

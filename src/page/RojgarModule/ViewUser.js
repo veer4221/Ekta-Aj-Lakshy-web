@@ -1,11 +1,14 @@
-import "./profile.css";
-
 import React, { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "react-bootstrap";
-import { getUserProfileAction } from "../../Redux/Actions/index";
+
+import Loader from "../loader/Loader";
 import { userProfileAPI } from "../../api/index";
+import { getUserProfileAction } from "../../Redux/Actions/index";
+
+import "./profile.css";
 
 const ProfilePage = () => {
   const user = useSelector((state) => state.user);
@@ -14,7 +17,7 @@ const ProfilePage = () => {
   const [userData, setUserData] = useState();
 
   useEffect(() => {
-    dispatch(getUserProfileAction(localStorage.getItem('viewProfileUserId')))
+    dispatch(getUserProfileAction(localStorage.getItem("viewProfileUserId")));
   }, []);
   return (
     <div className="Rg-bg">
@@ -25,6 +28,7 @@ const ProfilePage = () => {
         >
           {user.getUserInfo && user.getUserInfo.firstName}'s Profile
         </h1>
+        <Loader loading={user.loading} />
         <div className="main-bodyP" style={{ padding: "2c0px" }}>
           <div className="row gutters-smP">
             <div className="col-md-4 mb-3P">

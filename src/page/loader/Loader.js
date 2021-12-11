@@ -1,7 +1,9 @@
-import React from "react";
-import "./loader.css";
-const Loader = () => {
-  return <div id="preloader"></div>;
-};
+import { css } from "@emotion/react";
 
-export default Loader;
+import React, { useState } from "react";
+
+import "./loader.css";
+
+export default function Loader({ loading }) {
+  return <>{loading == true ? <div className="loaderclass"></div> : ``} </>;
+}

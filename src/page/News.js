@@ -1,15 +1,18 @@
-import "../style/aboutUsMtextView.css";
-import "../style/News.css";
+import Pagination from "@material-ui/lab/Pagination";
 
 import React, { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import "../style/News.css";
+import "../style/aboutUsMtextView.css";
 import {
   getPostListAction,
   resetPostStateAction,
 } from "../Redux/Actions/index";
-import { useDispatch, useSelector } from "react-redux";
-
-import Pagination from "@material-ui/lab/Pagination";
 import PostCard from "../components/News/PostCard";
+
+import Loader from "./loader/Loader";
 
 const News = () => {
   const post = useSelector((state) => state.post);
@@ -32,6 +35,7 @@ const News = () => {
   }, [page, rowsPerPage, keyword, reloadAgain]);
   return (
     <>
+      <Loader loading={post.loading} />
       <section className="our-blog page ">
         <div className="container ">
           <div className="row session-title">

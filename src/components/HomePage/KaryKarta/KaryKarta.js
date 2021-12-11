@@ -30,7 +30,7 @@ const KaryKarta = () => {
       <section className="our-team team-11 page">
         <div className="container">
           <div className="session-title row ">
-            <h2>Meet our Team</h2>
+            <h2>મુખ્ય સભ્યો </h2>
           </div>
           <div
             className="row team-row"

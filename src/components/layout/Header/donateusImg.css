@@ -1,13 +1,18 @@
-.donateusimgMobile{
-    position:fixed;
-    z-index:1;
-    bottom:1px;
-    left:1
-
+.donateusimgMobile {
+    position: fixed;
+    z-index: 1;
+    bottom: 1px;
+    left: 1
 }
-.donateusimgPC{
-    position:fixed;
-    z-index:1;
-    bottom:0px;
-    right:1px;
+
+.donateusimgPC {
+    position: fixed;
+    z-index: 1;
+    bottom: 7px;
+    right: 1px;
+}
+
+.imgTagForPC:hover {
+    height: 190px;
+    width: 190px;
 }

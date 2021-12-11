@@ -1,5 +1,7 @@
+import { Box, Button, Card, Divider, Grid } from "@material-ui/core";
+
 import React from "react";
-import { Grid, Card, Box, Divider, Button } from "@material-ui/core";
+
 import ViewUs from "../../dilogbox/ViewMore";
 
 const AboutUsBox = ({ icon, titel }) => {
@@ -17,7 +19,7 @@ const AboutUsBox = ({ icon, titel }) => {
           <br></br>
           <br></br>
           <br></br>
-          <ViewUs info={`pc`} />
+          {/* <ViewUs info={`pc`} /> */}
         </Grid>
       </Grid>
     </div>

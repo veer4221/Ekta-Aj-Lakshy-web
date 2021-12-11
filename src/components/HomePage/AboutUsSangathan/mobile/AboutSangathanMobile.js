@@ -1,5 +1,7 @@
-import React, { lazy, Suspense } from "react";
-import { Grid, Card, Box, Divider, Button } from "@material-ui/core";
+import { Box, Button, Card, Divider, Grid } from "@material-ui/core";
+
+import React, { Suspense, lazy } from "react";
+
 // import ramji from "../../../../style/image/logoBig.gif";
 const ViewUs = lazy(() => import("../dilogbox/ViewMore"));
 
@@ -27,7 +29,7 @@ const AboutSangathanMobile = () => {
           <Divider />
           <hr></hr>
           <Suspense fallback={<div>Loading...</div>}>
-            <ViewUs info={`mobile`} />
+            {/* <ViewUs info={`mobile`} /> */}
           </Suspense>
         </Grid>
       </Grid>

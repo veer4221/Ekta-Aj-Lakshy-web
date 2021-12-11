@@ -9,6 +9,7 @@ import { getBusinessAction } from "../Redux/Actions/business.action";
 import { getUserProfileAction } from "../Redux/Actions/index";
 
 import "./RojgarModule/profile.css";
+import Loader from "./loader/Loader";
 
 // import BusinessInformation from './BusinessInformation';
 
@@ -29,6 +30,7 @@ const BusinessInformation = () => {
         >
           Business Profile
         </h1>
+        <Loader loading={Business.loading} />
         <div className="main-bodyP" style={{ padding: "2c0px" }}>
           <div className="row gutters-smP">
             <div className="col-md-4 mb-3P">

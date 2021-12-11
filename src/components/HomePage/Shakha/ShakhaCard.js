@@ -1,6 +1,9 @@
-import React, { lazy, Suspense } from "react";
 import "../../../style/buttoncss.css";
+
+import React, { Suspense, lazy } from "react";
+
 import TextTruncate from "react-text-truncate";
+
 // const ViewMore = React.lazy(() => import('"./ViewMore"'));
 const ViewMore = lazy(() => import(`./ViewMore`));
 
@@ -39,7 +42,7 @@ const ShakhaCard = ({ data }) => {
               CONST_SHAKHA={data.CONST_SHAKHA}
             />
           </Suspense>
-          {/* <button style={{ padding: "7px" }}>&nbsp; ||View More||&nbsp;</button> */}
+          {/* <button style={{ padding: "7px" }}>&nbsp; ||વધુ જોવો||&nbsp;</button> */}
         </div>
       </div>
     </>

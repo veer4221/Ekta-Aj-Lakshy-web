@@ -14,7 +14,7 @@ const RojgharHome = () => {
             style={{ textAlign: "center", color: "rgb(172, 24, 24)" }}
           >
             <h1 style={{ color: "rgb(172, 24, 24)", padding: "10px" }}>
-              Rojghar shakha
+              રોજગાર શાખા
             </h1>
           </div>
           <div

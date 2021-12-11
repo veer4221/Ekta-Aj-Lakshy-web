@@ -1,11 +1,13 @@
-import "./RojgarModule/profile.css";
-
 import React, { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "react-bootstrap";
-import { getUserProfileAction } from "../Redux/Actions/index";
+
 import { userProfileAPI } from "../api/index";
+import { getUserProfileAction } from "../Redux/Actions/index";
+
+import "./RojgarModule/profile.css";
 
 const ProfilePage = () => {
   const user = useSelector((state) => state.user);
@@ -170,7 +172,7 @@ const ProfilePage = () => {
             </div>
             <div className="col-md-8">
               <div className="card-glass mb-3P">
-                <div className="card-bodyP">
+                <div className="card-bodyP" style={{ marginBottom: "200px" }}>
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0 headerProfile">Full Name</h6>
@@ -236,12 +238,32 @@ const ProfilePage = () => {
                     </div>
                   </div>
                   <hr />
-                  <div className="row" style={{marginBottom:"100px"}}>
-                    <div className="col-sm-12">
-                      <Button>Upload Resume</Button>
-                      <Button className="ml-3">View Resume</Button>
+
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0 headerProfile">I-card ID</h6>
+                    </div>
+                    <div className="col-sm-9 text-secondary dataProfile">
+                      {userData && `${userData.icard_id} `}
                     </div>
                   </div>
+                  <hr />
+                  {userData?.iCardImage && (
+                    <div className="row" style={{ marginBottom: "100px" }}>
+                      <div className="col-sm-12">
+                        <Button>
+                          <a
+                            style={{ textDecoration: "none", color: "white" }}
+                            href={`https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${userData?.iCardImage}`}
+                            download="myIcard.png"
+                          >
+                            Download Icard
+                          </a>
+                        </Button>
+                        {/* <Button className="ml-3">View Resume</Button> */}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
