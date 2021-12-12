@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
-
 import achiveReducer from "./achievemnts.reducer";
 import authReducer from "./auth.reducer.js";
 import businessReducer from "./business.reducer";
+import chalchitramReducer from "./chalchitram.reducer";
+import { combineReducers } from "redux";
 import jobApplyReducer from "./job.apply.reducer";
 import jobReducer from "./job.reducer";
 import placeReducer from "./place.reducer";
@@ -18,6 +18,7 @@ const rootReducer = combineReducers({
   job: jobReducer,
   job_apply: jobApplyReducer,
   business: businessReducer,
+  chalchitram: chalchitramReducer,
 });
 
 export default rootReducer;

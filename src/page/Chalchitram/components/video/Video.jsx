@@ -1,21 +1,27 @@
 import "./_video.scss";
 
+// import { LazyLoadImage } from "react-lazy-load-image-component";
 import { AiFillEye } from "react-icons/ai";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Video = () => {
+const Video = ({ videoData }) => {
+  const navigate = useNavigate();
   return (
-    <div className="video">
+    <div
+      className="video"
+      onClick={() => navigate(`/ChalChitram/WatchScreen/${videoData.video_id}`)}
+    >
       <div className="video__top">
-        <img
-          src="https://img.youtube.com/vi/rL7V7bA_wvA/sddefault.jpg"
-          alt=""
-        />
-        <span>05:43</span>
+        <LazyLoadImage src={videoData.video_image} effect="blur" />
+        {/* <img src={videoData.video_image} alt="" /> */}
+        <span className="video__top__duration">{videoData.video_length}</span>
       </div>
       <div className="video__title video__channel">
-        <img src={`assets/images/logo512.png`} alt="" />
-        Create app in 5 minutes #made by Chintu
+        <LazyLoadImage src={`assets/images/logo512.png`} effect="blur" />
+        {/* <img src={`assets/images/logo512.png`} alt={videoData.video_title} /> */}
+        {videoData.video_title}
       </div>
       {/* <div className="video__details">
         <span>

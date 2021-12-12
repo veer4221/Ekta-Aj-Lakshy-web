@@ -1,12 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 import { HashRouter } from "react-router-dom";
+
 import { Provider } from "react-redux";
-import store from "./Redux/store";
+
+import React from "react";
+
+import ReactDOM from "react-dom";
+
+import App from "./App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
+import store from "./Redux/store";
 
 ReactDOM.render(
   <React.StrictMode>

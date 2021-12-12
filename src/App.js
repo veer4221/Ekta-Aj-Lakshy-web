@@ -1,6 +1,11 @@
 // import './App.css';
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import "./main.css";
+import "./style/aboutUsMtextView.css";
+import "./style/buttoncss.css";
+import "./style/buttoncss.css";
 
 import {
   BrowserView,
@@ -8,32 +13,22 @@ import {
   isBrowser,
   isMobile,
 } from "react-device-detect";
-
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-
 import React, { Suspense, lazy, useEffect, useState } from "react";
-
 import { Route, Routes } from "react-router";
-
-import { Outlet } from "react-router-dom";
-
-import "./App.css";
-import HomeRoutes from "./HomeRoutes";
-import LoginFileRoute from "./LoginFileRoute";
-import RojgharshakhaRoute from "./RojgharshakhaRoute";
-import "./main.css";
 
 import Business from "./page/Business";
 import BusinessInformation from "./page/BusinessInformation";
-import LoginPage from "./page/LoginPage";
-import "./style/aboutUsMtextView.css";
-import "./style/buttoncss.css";
-import "./style/buttoncss.css";
 import ChalchitramRoute from "./page/Chalchitram/ChalchitramRoute";
 import ChalchitramWalcomeRoute from "./page/Chalchitram/ChalchitramWalcomeRoute";
-import Loader from "./page/loader/Loader";
+import HomeRoutes from "./HomeRoutes";
 import HomeScreen from "./page/Chalchitram/screen/homeScreen/HomeScreen";
+import Loader from "./page/loader/Loader";
+import LoginFileRoute from "./LoginFileRoute";
+import LoginPage from "./page/LoginPage";
 import LoginScreen from "./page/Chalchitram/screen/loginscreen/LoginScreen";
+import { Outlet } from "react-router-dom";
+import RojgharshakhaRoute from "./RojgharshakhaRoute";
 import ShakhaScreen from "./page/Chalchitram/screen/shakhaScreen/ShakhaScreen";
 import WatchScreen from "./page/Chalchitram/screen/watchScreen/watchScreen";
 
@@ -151,7 +146,7 @@ const App = (props) => {
             <Route path="/Syllabus" element={<HomeScreen />} />
             <Route path="/importantVideo" element={<HomeScreen />} />
             <Route path="/NewVideo" element={<HomeScreen />} />
-            <Route path="/viewScreen" element={<WatchScreen />} />
+            <Route path="/WatchScreen/:id" element={<WatchScreen />} />
           </Route>
         </Routes>
         {/* <Footer/> */}

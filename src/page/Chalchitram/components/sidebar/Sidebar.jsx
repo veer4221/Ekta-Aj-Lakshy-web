@@ -51,7 +51,7 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
 
       <hr />
 
-      <li onClick={() => navigate(`/ChalChitram/ViewScreen`)}>
+      <li onClick={() => navigate(`/ChalChitram/WatchScreen`)}>
         <MdExitToApp size={23} />
         <span>Log Out</span>
       </li>

@@ -56,3 +56,9 @@ export const getAllBusinessAPI = (page, limit) =>
 export const addAchiveAPI = () => axios.get(`/v1/Achievemnts/setvisitor`);
 export const getBusinessAPI = (id) =>
   axios.get(`/v1/business/getBusiness?id=${id}`);
+
+export const getAllRandomeVideoAPI = (page, limit) =>
+  axios.get(`/v1/ektaVideo/getAllVideoes?page=${page}&limit=${limit}`);
+
+export const getVideoByIdAPI = (id) =>
+  axios.get(`/v1/ektaVideo/getVideoById?id=${id}`);
