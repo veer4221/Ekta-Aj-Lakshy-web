@@ -1,7 +1,12 @@
 import Grid from "@material-ui/core/Grid";
 
 import React, { Suspense, lazy } from "react";
-
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 import { useDispatch, useSelector } from "react-redux";
 
 const AboutUsSangathan = lazy(() =>
@@ -13,8 +18,8 @@ const AboutUsPage = () => {
   return (
     <>
       <Grid container spacing={0} className="page">
-        <Grid item xs={12}>
-          <AboutUsSangathan />
+        <Grid item xs={12} sm={6}>
+          {/* <AboutUsSangathan /> */}
           {/* </Grid>
         <Grid item xs={12}>
           <Grid container spacing={3} className="page">
@@ -29,18 +34,6 @@ const AboutUsPage = () => {
           {/* </div> */}
           {/* </Grid>
             <Grid item xs={12}> */}
-          <br></br>
-          <br></br>
-          <h3
-            style={{
-              textAlign: "center",
-              color: "rgb(172, 24, 24)",
-              fontFamily: "Samarkan",
-              paddingTop: "5px",
-            }}
-          >
-            || {`એક્તાએજલક્ષસંગઠન`} ||
-          </h3>
 
           <p
             style={{
@@ -49,14 +42,84 @@ const AboutUsPage = () => {
               wordWrap: "break-word",
             }}
           >
-            <br></br>
-            <br></br>
+           
             <h4>એકતાએજલક્ષ્યસંગઠનનુંલક્ષ્ય </h4>
             {`                       એકતા એજ લક્ષ્ય સંગઠન ની શરૂઆત ગુજરાત થી થઈ છે એકતા એજ લક્ષ્ય સંગઠન છ પુખ્ત શાખા તથા પાચ પેટા શાખા અને એક આ દરેક નું નિયંત્રણ કરતી મુખ્ય શાખા સાથે સનાતન સંસ્કૃતિની તમામ બાબતોને આવરી ને હિંદુત્વ ના તમામ મુદ્દા પર કામ કરે છે. 
   "આ સંગઠનનો ઉદ્દેશ્ય અલગ અલગ થઈને જાતિઓમાં વહેંચાયેલા દરેક હિંદુ પરિવારો ને એક કરવાનો છે."
                           800થી વધારે મુગલોના આક્રમણ થયા ૨૦૦ વર્ષથી વધારે અંગ્રેજોના અત્યાચાર સહન કર્યા બાદ આ વિદેશી આક્રમણકારીઓ એ જે ભારતની અંદર ફૂટ પાડી છે, હિંદુઓની અંદર જ્ઞાતિવાદના વાળા ઉભા કર્યા છે અને કહેવાતા રીતિ-રિવાજો કે મૂલ્યો જેમાંના ઘણાં ખરા મૂલ્યો કે રિવાજો ભારતના હતા જ નહીં સંસ્કૃતિની પરંપરા નો હિસ્સો છે જ નહીં પણ આ ષડયંત્ર કર્યા.એ ભાગલા પાડવા અને આગળ જઈ સનાતન સંસ્કૃતિ તૂટી જાય સંપૂર્ણ નષ્ટ થઈ જાય વિનિપાત થઈ જાય એના માટે અનેકો રીતિ રિવાજોનુ ગઠન કર્યું જે ક્યારે ભારત ના હતાજ નહિ, એકતા એજ લક્ષ્ય સંગઠન આવા પાયાવિહોણા રિવાજો તથા સમાજની અંદર વ્યાપેલા દુષણો તથા જ્ઞાતિવાદના વાડા દૂર કરી એકતા સ્થાપવાના પ્રયાસ કરતુ સંગઠન જે સંપૂર્ણપણે ભારતને હિંદુરાષ્ટ્ર બનાવવા ના ઉદ્દેશથી કાર્ય કરે છે. વસુદેવ કુટુંબકમ ની ભાવના એટલા માટે આવે છે કે સમગ્રહ વિશે સનાતન છે પરંતુ જ્યાં સનાતન નું અપમાન થતું હોય ત્યાં વસુદેવ કુટુંબકમ ની ભાવના ના હોય ત્યાં શ્રીકૃષ્ણ નીતિ તથા ચાણક્ય નીતિ થી કામ લેવું જ પડે છે.
                         સંગઠન સમાજ ને સાચી દિશા આપી લોક સેવા, સમાજ સેવા સાથે સાથે સામાજિક મૂલ્યો નીતિઓ નું સનાતની ગઠન ગૌસેવા, પશુ સેવા, રાજનૈતિક દબાવો (જે સનાતન સંસ્કૃતિના હિતમાં કાયદા કાનુન ફેરફાર માટે) રાજનીતિક, કૂટનીતિક અને રણનીતિક આમ ત્રણ બાબત પર ની પૂર્ણતા થી કાર્ય કરે છે.
-  એકતા એજ લક્ષ્ય સંગઠનનું લક્ષ્યો :-
+ `}
+          </p>
+          {/* </Grid>
+          </Grid>
+        </Grid> */}
+          {/* <h3 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}> */}
+          {/* Join With Us */}
+          {/* </h3> */}
+          {/* </Grid> */}
+          {/* <Grid item xs={12}> */}
+          {/* <Suspense fallback={<div>Loading...</div>}> */}
+          {/* <JoinWithUs /> */}
+          {/* </Suspense> */}
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          style={{
+            paddingTop: "50px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <br></br>
+          <br></br>
+          <img
+            src="assets/images/about/about1.png"
+            height={isBrowser ? `300px` : `200px`}
+            width={isBrowser ? `500px` : `300px`}
+            style={{
+              border: "2px solid #cfa7a7",
+              margin: "10px",
+              boxShadow: "10px 10px 5px #ccc",
+              borderRadius: "25px",
+            }}
+          />
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          style={{
+            paddingTop: "50px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <br></br>
+          <br></br>
+          <img
+            src="assets/images/about/about2.png"
+            height={isBrowser ? `300px` : `200px`}
+            width={isBrowser ? `500px` : `300px`}
+            style={{
+              border: "2px solid #cfa7a7",
+              margin: "10px",
+
+              boxShadow: "10px 10px 5px #ccc",
+              borderRadius: "25px",
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <p
+            style={{
+              padding: "10%",
+              color: "rgb(199, 38, 38)",
+              wordWrap: "break-word",
+            }}
+          >{` એકતા એજ લક્ષ્ય સંગઠનનું લક્ષ્યો :-
   અખંડ હિંદુરાષ્ટ્ર ની ભાવના અને ભારતને હિંદુરાષ્ટ્ર બનાવવા માટેના પ્રયાસો.
   જાતિવાદ માં ફસાયેલા હિંદુઓને સાચી માહિતી તથા દિશા બતાવી એકતાના તાંતણે બાંધવા.
   સનાતન સંસ્કૃતિ પર થતા ષડયંત્ર ને અર્જુનનું તીર  (એન્ટિક મિસાઈલ) બની રોકવા. 
@@ -89,19 +152,7 @@ const AboutUsPage = () => {
   6) પ્રચાર-પ્રસાર શાખા:- 
   7) નારી શક્તિ શાખા:-
     પેટા શાખા 1) ગૃહિણી ઘડતર:-
-                        2)ગૃહિણી વિકાસ:`}
-          </p>
-          {/* </Grid>
-          </Grid>
-        </Grid> */}
-          {/* <h3 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}> */}
-          {/* Join With Us */}
-          {/* </h3> */}
-          {/* </Grid> */}
-          {/* <Grid item xs={12}> */}
-          {/* <Suspense fallback={<div>Loading...</div>}> */}
-          {/* <JoinWithUs /> */}
-          {/* </Suspense> */}
+                        2)ગૃહિણી વિકાસ:`}</p>
         </Grid>
       </Grid>
     </>

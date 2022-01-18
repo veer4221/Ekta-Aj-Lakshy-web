@@ -8,6 +8,14 @@ const initState = {
   message: "",
   getVideoByID: {},
   loading: false,
+  getCourseVideo: {
+    count: null,
+    rows: [],
+  },
+  getHistoryVideo: {
+    count: null,
+    rows: [],
+  },
   getRandomVideoes: {
     count: null,
     rows: [],
@@ -21,6 +29,36 @@ export default (state = initState, action) => {
       state = {
         ...state,
         loading: true,
+      };
+      break;
+    case chalchitramConstants.GET_COURSE_VIDEOES_REQUEST:
+      console.log(action);
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case chalchitramConstants.GET_HISTORY_VIDEOES_SUCCESS:
+      console.log(action);
+      state = {
+        ...state,
+        loading: false,
+        getHistoryVideo: action.payload,
+      };
+      break;
+    case chalchitramConstants.GET_HISTORY_VIDEOES_REQUEST:
+      console.log(action);
+      state = {
+        ...state,
+        loading: true,
+      };
+      break;
+    case chalchitramConstants.GET_HISTORY_VIDEOES_SUCCESS:
+      console.log(action);
+      state = {
+        ...state,
+        loading: false,
+        getHistoryVideo: action.payload,
       };
       break;
     case chalchitramConstants.GET_ALL_RANDOM_VIDEO_SUCCESS:

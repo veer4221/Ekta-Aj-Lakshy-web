@@ -42,7 +42,7 @@ const Footer = () => {
                     onClick={() => navigate(`/`)}
                     style={{ color: "white" }}
                   >
-                    હોમ
+                    <span className="footerManu">હોમ</span>
                   </Button>
                 </li>
                 <li>
@@ -50,7 +50,7 @@ const Footer = () => {
                     onClick={() => navigate(`/aboutUs`)}
                     style={{ color: "white" }}
                   >
-                    અમારા વિશે
+                   <span className="footerManu"> અમારા વિશે</span>
                   </Button>
                 </li>
                 <li>
@@ -58,7 +58,7 @@ const Footer = () => {
                     onClick={() => navigate(`/News`)}
                     style={{ color: "white" }}
                   >
-                    પોસ્ટ
+                     <span className="footerManu">પોસ્ટ</span>
                   </Button>
                 </li>
                 <li>
@@ -66,7 +66,7 @@ const Footer = () => {
                     onClick={() => navigate(`/ContectUs`)}
                     style={{ color: "white" }}
                   >
-                    સંપર્ક
+                    <span className="footerManu">સંપર્ક</span>
                   </Button>
                 </li>
 
@@ -75,7 +75,7 @@ const Footer = () => {
                     onClick={() => navigate("/auth/login")}
                     style={{ color: "white" }}
                   >
-                    રોજગાર
+                    <span className="footerManu">રોજગાર</span>
                   </Button>
                 </li>
                 <li>
@@ -83,7 +83,7 @@ const Footer = () => {
                     onClick={() => navigate("/chalchitram/")}
                     style={{ color: "white" }}
                   >
-                    ચલચિત
+                    <span className="footerManu">ચલચિત</span>
                   </Button>
                 </li>
                 <li>
@@ -95,18 +95,18 @@ const Footer = () => {
                       borderRadius: "10%",
                     }}
                   >
-                    દાન કરો
+                    <span className="footerManu">દાન કરો</span>
                   </Button>
                 </li>
               </ul>
             </div>
           </div>
           <hr></hr>
-          <div className="inner col-md-12 clearfix">
+          <div className="inner col-md-12 clearfix" >
             <h4 style={{ color: "white" }}>
               developed by : AARY_CODERS Developers Team
-              <ViewMore />
             </h4>
+              <ViewMore />
             &nbsp;&nbsp;&nbsp;
           </div>
         </div>

@@ -14,6 +14,7 @@ import {
   isMobile,
 } from "react-device-detect";
 import Loader from "./loader/Loader";
+import Splash from "./loader/Splash";
 const Carouselslider = lazy(() =>
   import("../components/HomePage/Carouselslider/Carouselslider")
 );
@@ -35,28 +36,35 @@ const KaryKarta = lazy(() =>
 );
 const Post = lazy(() => import("../components/HomePage/Post/Post"));
 const HomePage = () => {
+  const [loaging,setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000);
+  },[])
   return (
     <>
       <div>
         {/* <Header /> */}
         {/* <Drowerview/> */}
+        <Splash loading={loaging}/>
 
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Splash loading={true}/>}>
           <Carouselslider />
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Splash loading={true}/>}>
           <RojgharHome />
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Splash loading={true}/>}>
           <MissionAndVision />
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Splash loading={true}/>}>
           <Achivemtns />
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Splash loading={true}/>}>
           <Shakha />
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Splash loading={true}/>}>
           <KaryKarta />
         </Suspense>
         {/* <Footer/> */}

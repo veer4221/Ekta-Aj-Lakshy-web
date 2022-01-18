@@ -31,6 +31,15 @@ import { Outlet } from "react-router-dom";
 import RojgharshakhaRoute from "./RojgharshakhaRoute";
 import ShakhaScreen from "./page/Chalchitram/screen/shakhaScreen/ShakhaScreen";
 import WatchScreen from "./page/Chalchitram/screen/watchScreen/watchScreen";
+import AbhyasScreen from "./page/Chalchitram/screen/AbhyasScreen/AbhyasScreen";
+import CourseListScreen from "./page/Chalchitram/screen/CourseListScreen/CourseListScreen";
+import HistoryScreen from "./page/Chalchitram/screen/HistoryScreen/HistoryScreen";
+import CourseInfoScreen from "./page/Chalchitram/screen/CourseInfoScreen/CourseInfoScreen";
+import CourseHomeScreen from "./page/Chalchitram/screen/CourseHomeScreen/CourseHomeScreen";
+import WatchScreenForCourse from "./page/Chalchitram/screen/watchScreenForCourse/watchScreenForCourse";
+import HistoryListScreen from "./page/Chalchitram/screen/HistoryListScreen/CourseListScreen";
+import HistoryHomeScreen from "./page/Chalchitram/screen/HistoryHomeScreen/HistoryHomeScreen";
+import WatchScreenForHistory from "./page/Chalchitram/screen/watchScreenForHistory/watchScreenForHistory";
 
 // import HomePage from "./page/HomePage";
 
@@ -103,7 +112,7 @@ const App = (props) => {
   return (
     <>
       {isLoading ? <Loader /> : ``}
-      <div className="App">
+      <div className="App" >
         <Routes>
           <Route path="/" element={<HomeRoutes />}>
             <Route path="/" element={<HomePage />} />
@@ -142,11 +151,19 @@ const App = (props) => {
           </Route>
           <Route path="/ChalChitram" element={<ChalchitramRoute />}>
             <Route path="/Home" element={<HomeScreen />} />
+            <Route path="/CourseHomeScreen/:id" element={<CourseHomeScreen />} />
+            <Route path="/HistoryHomeScreen/:id" element={<HistoryHomeScreen />} />
             <Route path="/Shakha" element={<ShakhaScreen />} />
-            <Route path="/Syllabus" element={<HomeScreen />} />
+            <Route path="/Syllabus" element={<AbhyasScreen />} />
             <Route path="/importantVideo" element={<HomeScreen />} />
             <Route path="/NewVideo" element={<HomeScreen />} />
+            <Route path="/History" element={<HistoryScreen />} />
             <Route path="/WatchScreen/:id" element={<WatchScreen />} />
+            <Route path="/WatchCourseScreen/:id/:course_id" element={<WatchScreenForCourse />} />
+            <Route path="/WatchHistoryScreen/:id/:history_id" element={<WatchScreenForHistory />} />
+            <Route path="/CourseList" element={<CourseListScreen />} />
+            <Route path="/HistoryList" element={<HistoryListScreen />} />
+            <Route path="/CourseInfoScreen/" element={<CourseInfoScreen />} />
           </Route>
         </Routes>
         {/* <Footer/> */}

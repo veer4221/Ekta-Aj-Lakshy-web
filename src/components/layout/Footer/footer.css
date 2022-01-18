@@ -70,7 +70,9 @@
     50%,100%{right :100%}
   }
 
-
+.footerManu:hover {
+  color:burlywood;
+}
   .a span:nth-child(4) {
     left : 0;
     bottom : -100%;

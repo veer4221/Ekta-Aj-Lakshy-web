@@ -24,9 +24,9 @@ const KaryKartaCard = ({ data }) => {
           ></hr>
           <div
             className=""
-            style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}
+            style={{ color: "rgb(172, 24, 24)", textAlign: "center" ,fontSize:"11px"}}
           >
-            <h4 style={{ color: "rgb(172, 24, 24)", fontWeight: "bolder" }}>
+            <h4 style={{ color: "rgb(172, 24, 24)", fontWeight: "bolder",fontSize:"20px" }}>
               {data.name}
             </h4>
             <i>{data.position}</i>

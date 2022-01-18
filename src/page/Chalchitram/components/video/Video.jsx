@@ -7,11 +7,27 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Video = ({ videoData }) => {
+  console.log("videoData", videoData);
   const navigate = useNavigate();
   return (
     <div
       className="video"
-      onClick={() => navigate(`/ChalChitram/WatchScreen/${videoData.video_id}`)}
+      onClick={() => {
+        switch (videoData?.video_type) {
+          case "course":
+            return navigate(
+              `/ChalChitram/WatchCourseScreen/${videoData.video_id}/${videoData.course_id}`
+            );
+
+          case "history":
+            return navigate(
+              `/ChalChitram/WatchHistoryScreen/${videoData.video_id}/${videoData.history_id}`
+            );
+          default:
+           return navigate(`/ChalChitram/WatchScreen/${videoData.video_id}`);
+        }
+       
+      }}
     >
       <div className="video__top">
         <LazyLoadImage src={videoData.video_image} effect="blur" />

@@ -259,7 +259,7 @@ export default function JoinWithUs() {
   return (
     <>
       <Loader loading={user.loading} />
-      <Grid className="px-3" item xs={12} sm={12}>
+      <Grid className="px-3" item xs={12} sm={12} >
         {/* <Loader loading={true} /> */}
         <Card
           style={{

@@ -11,8 +11,10 @@ import {
   resetPostStateAction,
 } from "../Redux/Actions/index";
 import PostCard from "../components/News/PostCard";
-
+import Gallery from "react-photo-gallery";
+import { photos } from "./photos.js";
 import Loader from "./loader/Loader";
+import Category from "./Category";
 
 const News = () => {
   const post = useSelector((state) => state.post);
@@ -55,6 +57,16 @@ const News = () => {
           </div>
         </div>
       </section>
+
+      <div className="page">
+        <div>
+          <h2 style={{ textAlign: "center" }}> Gallery</h2>
+        </div>
+        <div>
+        <Category/>
+        </div>
+        <Gallery photos={photos} />
+      </div>
     </>
   );
 };

@@ -3,6 +3,7 @@ import "./_videoHorizontal.scss";
 import { Col, Row } from "react-bootstrap";
 
 import { AiFillEye } from "react-icons/ai";
+import { RiBook2Fill } from "react-icons//ri";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import React from "react";
 import moment from "moment";
@@ -11,7 +12,8 @@ import { useNavigate } from "react-router-dom";
 
 // import request from '../../api'
 
-const VideoHorizontal = ({ videoData, setIsChange }) => {
+const VideoHorizontal = ({ videoData, setIsChange, course, courseId,history }) => {
+  console.log("videoDataHR", videoData);
   const navigate = useNavigate();
 
   const seconds = moment.duration("100").asSeconds();
@@ -20,7 +22,15 @@ const VideoHorizontal = ({ videoData, setIsChange }) => {
     <Row
       className="videoHorizontal m-1 py-2 align-align-items-center"
       onClick={() => {
-        navigate(`/ChalChitram/WatchScreen/${videoData.video_id}`);
+        !!history
+          ? navigate(
+              `/ChalChitram/WatchHistoryScreen/${videoData.video_id}/${courseId}`
+            )
+          : !course
+          ? navigate(`/ChalChitram/WatchScreen/${videoData.video_id}`)
+          : navigate(
+              `/ChalChitram/WatchCourseScreen/${videoData.video_id}/${courseId}`
+            );
         setIsChange(new Date());
       }}
     >
@@ -35,11 +45,11 @@ const VideoHorizontal = ({ videoData, setIsChange }) => {
       </Col>
       <Col xs={6} md={8} className="videoHorizontal__right p-0">
         <p className="videoHorizontal__title mb-1">
-          Be a full stack developer in 1 month
+          {videoData?.video_title}
+          {/* Be a full stack developer in 1 month */}
         </p>
         <div className="videoHorizontal__details">
-          <AiFillEye /> {numeral(1000000).format("0.a")} Views •
-          {moment("2020-06-09").fromNow()}
+          <RiBook2Fill /> {videoData?.video_category}
         </div>
 
         <div className="videoHorizontal__channel d-flex align-items-center my-1">
@@ -48,7 +58,7 @@ const VideoHorizontal = ({ videoData, setIsChange }) => {
                effect='blur'
              
             /> */}
-          <p>Backbench Coder</p>
+          <p>એકતા એજ લક્ષ્ય</p>
         </div>
       </Col>
     </Row>

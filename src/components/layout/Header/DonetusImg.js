@@ -21,6 +21,7 @@ const DonetusImg = () => {
         <div className="donateusimgPC" onClick={() => navigate("/DonateUs")}>
           <img
             src={image1}
+            style={{cursor:"pointer"}}
             alt="donetus"
             className="imgTagForPC"
             height="170px"

@@ -17,8 +17,12 @@ const BottomHeader = () => {
           <div className="row nav-row sticky-thc">
             <div className="col-lg-3 col-md-12 logo">
               <a href="index.html">
-                <img src="assets/images/logo.png" alt="" />
+                  
+
+                <img src="assets/images/logo.png" height="60px" alt="" />
                 <a data-toggle="collapse" data-target="#menu" href="#menu">
+                   
+
                   <i className="fas d-block d-lg-none  small-menu fa-bars"></i>
                 </a>
               </a>
@@ -30,7 +34,10 @@ const BottomHeader = () => {
               <ul className="navbad">
                 <li className="nav-item active">
                   <a
+                    stype={{padding:"8px"}}
+
                     className="nav-link"
+                    stype={{padding:"8px"}}
                     onClick={() => {
                       navigate("/");
                     }}
@@ -38,7 +45,7 @@ const BottomHeader = () => {
                     <span
                       style={{
                         color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
+                        fontSize: "12px",
                       }}
                     >
                       હોમ
@@ -47,6 +54,8 @@ const BottomHeader = () => {
                 </li>
                 <li className="nav-item">
                   <a
+                    stype={{padding:"8px"}}
+
                     className="nav-link"
                     onClick={() => {
                       navigate("/aboutus");
@@ -55,7 +64,7 @@ const BottomHeader = () => {
                     <span
                       style={{
                         color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
+                        fontSize: "12px",
                       }}
                     >
                       અમારા વિશે
@@ -64,11 +73,13 @@ const BottomHeader = () => {
                 </li>
                 {/* <li className="nav-item">
                   <a className="nav-link" href="services.html">
+                    stype={{padding:"8px"}}
+
                     <span
                       style={{
 
                         color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
+                        fontSize: "12px",
                       }}
                     >
 
@@ -79,6 +90,8 @@ const BottomHeader = () => {
 
                 {/* <li className="nav-item">
                   <a
+                    stype={{padding:"8px"}}
+
                     className="nav-link"
                     onClick={() => {
                       navigate("/Gallery");
@@ -87,7 +100,7 @@ const BottomHeader = () => {
                     <span
                       style={{
                         color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
+                        fontSize: "12px",
                       }}
                     >
                       Gallery
@@ -97,6 +110,8 @@ const BottomHeader = () => {
 
                 <li className="nav-item">
                   <a
+                    stype={{padding:"8px"}}
+
                     className="nav-link"
                     onClick={() => {
                       navigate("/news");
@@ -105,7 +120,7 @@ const BottomHeader = () => {
                     <span
                       style={{
                         color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
+                        fontSize: "12px",
                       }}
                     >
                       પોસ્ટ
@@ -115,6 +130,8 @@ const BottomHeader = () => {
 
                 <li className="nav-item">
                   <a
+                    stype={{padding:"8px"}}
+
                     className="nav-link"
                     onClick={() => {
                       navigate("/ContectUs");
@@ -123,7 +140,7 @@ const BottomHeader = () => {
                     <span
                       style={{
                         color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
+                        fontSize: "12px",
                       }}
                     >
                       સંપર્ક
@@ -133,6 +150,8 @@ const BottomHeader = () => {
 
                 <li className="nav-item">
                   <a
+                    stype={{padding:"8px"}}
+
                     className="nav-link"
                     onClick={() => {
                       navigate("/auth/login");
@@ -141,7 +160,7 @@ const BottomHeader = () => {
                     <span
                       style={{
                         color: "rgb(172, 24, 24)",
-                        fontSize: "20px",
+                        fontSize: "12px",
                       }}
                     >
                       રોજગાર

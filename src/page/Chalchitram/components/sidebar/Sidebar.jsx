@@ -14,6 +14,7 @@ import { AiTwotoneFire } from "react-icons/ai";
 import { FaCodeBranch } from "react-icons/fa";
 import { GiBookmarklet } from "react-icons/gi";
 import { GoAlert } from "react-icons/go";
+import {MdHistoryEdu} from "react-icons/md"
 import React from "react";
 import { useNavigate } from "react-router";
 
@@ -38,7 +39,10 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
         <GiBookmarklet size={23} />
         <span>અભ્યાસક્રમ</span>
       </li>
-
+      <li onClick={() => navigate(`/ChalChitram/History`)}>
+        <MdHistoryEdu size={23} />
+        <span>ઇતિહાસ</span>
+      </li>
       <li onClick={() => navigate(`/ChalChitram/Shakha`)}>
         <FaCodeBranch size={23} />
         <span>શાખા</span>
@@ -51,9 +55,9 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
 
       <hr />
 
-      <li onClick={() => navigate(`/ChalChitram/WatchScreen`)}>
+      <li onClick={() => navigate(`/`)}>
         <MdExitToApp size={23} />
-        <span>Log Out</span>
+        <span> બહાર </span>
       </li>
 
       <hr />

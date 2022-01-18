@@ -62,3 +62,13 @@ export const getAllRandomeVideoAPI = (page, limit) =>
 
 export const getVideoByIdAPI = (id) =>
   axios.get(`/v1/ektaVideo/getVideoById?id=${id}`);
+
+export const getallCoures =()=> axios.get(`/v1/ektaVideo/getAllCourse`)
+export const getallHistory =()=> axios.get(`/v1/ektaVideo/getAllHistory`)
+
+export const getCourseVideoesAPI = (id,page,limit) => axios.get(`/v1/ektaVideo/getCourseVideo?page=${page}&limit=${limit}&id=${id}`);
+export const getHistoryVideoesAPI = (id,page,limit) => axios.get(`/v1/ektaVideo/getHistoryVideo?page=${page}&limit=${limit}&id=${id}`);
+export const getCourseVideoByIdAPI = (id,course_id) =>
+  axios.get(`/v1/ektaVideo/getCourseVideoById?id=${id}&course_id=${course_id}`);
+  export const getHistoryVideoByIdAPI = (id,course_id) =>
+  axios.get(`/v1/ektaVideo/getHistoryVideoById?id=${id}&course_id=${course_id}`);

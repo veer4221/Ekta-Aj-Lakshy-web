@@ -13,17 +13,17 @@ const RojgharHome = () => {
             class="col-12 "
             style={{ textAlign: "center", color: "rgb(172, 24, 24)" }}
           >
-            <h1 style={{ color: "rgb(172, 24, 24)", padding: "10px" }}>
+            <h1 style={{ color: "rgb(172, 24, 24)", padding: "10px" ,marginTop: "25px" }}>
               રોજગાર શાખા
             </h1>
           </div>
           <div
             class="col-sm bgIMG"
-            style={{ textAlign: "center", padding: "70px 0" }}
+            style={{ padding: "70px " }}
           >
             <div class="container">
               <div
-                class="col-12"
+                class="col-12 "
                 style={{
                   textAlign: "center",
                   color: "color: rgb(172, 24, 24)",
@@ -70,8 +70,11 @@ const RojgharHome = () => {
               </div>
             </div>
           </div>
-
-          <div class="col-sm bgIMG">
+          <div
+            class="col-sm bgIMG"
+            style={{ padding: "70px " }}
+            // style={{ textAlign: "center", padding: "70px 0" }}
+          >
             <div class="container">
               <div
                 class="col-12"
@@ -84,7 +87,7 @@ const RojgharHome = () => {
                   style={{ textAlign: "center" }}
                   style={{ color: "rgb(172, 24, 24)", padding: "10px" }}
                 >
-                  ||ઉપલબ્ધ નોકરીઓ||
+                   ||ઉપલબ્ધ નોકરીઓ||
                 </h4>
                 {/* <hr style={{ background: "red" }} /> */}
               </div>
@@ -96,16 +99,12 @@ const RojgharHome = () => {
                   color: "color: rgb(172, 24, 24)",
                 }}
               >
-                <h4
+                <p
                   style={{ textAlign: "center" }}
-                  style={{
-                    color: "rgb(172, 24, 24)",
-                    padding: "10px",
-                    fontFamily: "vardana",
-                  }}
+                  style={{ color: "rgb(172, 24, 24)", padding: "10px" }}
                 >
-                  130
-                </h4>
+                  તમારા વિસ્તાર માં આપણા <br /> હિંદુ ભાઈઓ માટે નોકરીયો  
+                </p>
               </div>
               <div
                 class="col-12 ourBtn "
@@ -114,12 +113,19 @@ const RojgharHome = () => {
                   color: "color: rgb(172, 24, 24)",
                 }}
               >
-                <button onClick={() => navigate("/Rojgharmain/FindJob")}>
+                <button
+                  onClick={() => {
+                    navigate("/Rojgharmain/Business");
+                  }}
+                >
+                  {" "}
                   || નોકરી શોધો ||
                 </button>
               </div>
             </div>
           </div>
+
+         
         </div>
       </div>
     </>
@@ -127,3 +133,53 @@ const RojgharHome = () => {
 };
 
 export default RojgharHome;
+
+// <div class="col-sm bgIMG">
+// <div class="container">
+//   <div
+//     class="col-12"
+//     style={{
+//       textAlign: "center",
+//       color: "color: rgb(172, 24, 24)",
+//     }}
+//   >
+//     <h4
+//       style={{ textAlign: "center" }}
+//       style={{ color: "rgb(172, 24, 24)", padding: "10px" }}
+//     >
+//       ||ઉપલબ્ધ નોકરીઓ||
+//     </h4>
+//     {/* <hr style={{ background: "red" }} /> */}
+//   </div>
+
+//   <div
+//     class="col-12 "
+//     style={{
+//       textAlign: "center",
+//       color: "color: rgb(172, 24, 24)",
+//     }}
+//   >
+//     <h4
+//       style={{ textAlign: "center" }}
+//       style={{
+//         color: "rgb(172, 24, 24)",
+//         padding: "10px",
+//         fontFamily: "vardana",
+//       }}
+//     >
+//       130
+//     </h4>
+//   </div>
+//   <div
+//     class="col-12 ourBtn "
+//     style={{
+//       textAlign: "center",
+//       color: "color: rgb(172, 24, 24)",
+//     }}
+//   >
+//     <button onClick={() => navigate("/Rojgharmain/FindJob")}>
+//       || નોકરી શોધો ||
+//     </button>
+//   </div>
+// </div>
+// </div>

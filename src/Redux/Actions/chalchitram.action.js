@@ -3,6 +3,8 @@ import {
   addJobAPI,
   getAllJobsAPI,
   getAllRandomeVideoAPI,
+  getCourseVideoesAPI,
+  getHistoryVideoesAPI,
   getJobAPI,
   getMyJobAPI,
 } from "../../api/index";
@@ -23,7 +25,30 @@ export const addJobAction = (record) => {
     }
   };
 };
-
+export const getCourseVideoesAction = (id, page, limit) => {
+  return async (dispatch) => {
+    dispatch({ type: chalchitramConstants.GET_COURSE_VIDEOES_REQUEST });
+    const res = await getCourseVideoesAPI(id, page, limit);
+    if (res.status === 200) {
+      dispatch({
+        type: chalchitramConstants.GET_COURSE_VIDEOES_SUCCESS,
+        payload: res.data,
+      });
+    }
+  };
+};
+export const getHistoryVideoesAction = (id, page, limit) => {
+  return async (dispatch) => {
+    dispatch({ type: chalchitramConstants.GET_HISTORY_VIDEOES_REQUEST });
+    const res = await getHistoryVideoesAPI(id, page, limit);
+    if (res.status === 200) {
+      dispatch({
+        type: chalchitramConstants.GET_HISTORY_VIDEOES_SUCCESS,
+        payload: res.data,
+      });
+    }
+  };
+};
 export const getAllVideoesAction = (page, limit) => {
   return async (dispatch) => {
     dispatch({ type: chalchitramConstants.GET_ALL_RANDOM_VIDEO_REQUEST });

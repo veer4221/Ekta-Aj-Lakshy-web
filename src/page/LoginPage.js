@@ -48,7 +48,7 @@ const LoginPage = () => {
       >
         <div class="login_name_wrapperL">
           <div class="d-flex justify-content-center rojghar-text ">
-            Login Page
+            પ્રવેશ કરો
           </div>
         </div>
         <Formik
@@ -105,6 +105,7 @@ const LoginPage = () => {
                         <FastField
                           name="email"
                           type="email"
+                          placeholder="ઈ-મેલ"
                           className={
                             "form-control" +
                             (errors.email && touched.email ? " is-invalid" : "")
@@ -131,6 +132,7 @@ const LoginPage = () => {
                         <FastField
                           name="password"
                           type="password"
+                          placeholder="પાસવર્ડ"
                           className={
                             "form-control" +
                             (errors.password && touched.password
@@ -156,7 +158,7 @@ const LoginPage = () => {
                           name="button"
                           class="btn login_btnL"
                         >
-                          Login
+                          પ્રવેશ કરો
                         </button>
                       </div>
                     </Form>

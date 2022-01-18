@@ -43,7 +43,7 @@ const KaryKartaCard = ({ data }) => {
                   textDecoration: "none",
                 }}
               >
-                || ક્લિક કરો ||
+                ||<span style={{ fontSize:"13px"}}> ક્લિક કરો</span> ||
               </a>
             </button>
           </div>

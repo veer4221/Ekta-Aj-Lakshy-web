@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 
 import Comments from "../../components/comment/Comments";
 import VideoHorizontal from "../../components/videoHorizontal/VideoHorizontal";
+import VideoHorizontalSc from "../../components/videoHorizontal/VideoHorizontalSc";
 import VideoMetaData from "../../components/videoMetaData/VideoMetaData.js ";
 import { getVideoByIdAPI } from "./../../../../api/index";
 
@@ -12,12 +13,16 @@ const WatchScreen = () => {
   const [videoData, setVideoData] = React.useState({});
   const [url, setUrl] = React.useState();
   const [isChange, setIsChange] = React.useState(new Date());
+  const [isLoading, setIsLoading] = React.useState(false);
   const getLastItem = (thePath) =>
     thePath.substring(thePath.lastIndexOf("/") + 1);
   const videoID = getLastItem(window.location.href);
   const fatchVideo = async () => {
     try {
+      setIsLoading(true);
       const res = await getVideoByIdAPI(getLastItem(window.location.href));
+      setIsLoading(false);
+
       console.log("url", res.data.video_url);
       setUrl(res.data.video_url);
       if (!!res && res.status == 200 && res.data.success == true)
@@ -50,13 +55,20 @@ const WatchScreen = () => {
           </div>
           {/* )} */}
 
-          <VideoMetaData videoData={videoData} />
+          <VideoMetaData videoData={videoData} isLoading={isLoading} />
           {/* <Comments /> */}
         </Col>
         <Col lg={4}>
           {!!videoData &&
             videoData?.randomVideo?.rows.map((videoData) => (
               <VideoHorizontal
+                setIsChange={setIsChange}
+                videoData={videoData}
+              />
+            ))}
+          {isLoading &&
+            [...Array(20)].map(() => (
+              <VideoHorizontalSc
                 setIsChange={setIsChange}
                 videoData={videoData}
               />

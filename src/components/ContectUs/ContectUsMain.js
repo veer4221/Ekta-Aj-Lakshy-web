@@ -40,16 +40,36 @@ const karykartaInformation = [
 const ContectUsMain = () => {
   return (
     <>
+      
+      <Grid container spacing={0} className="page">
+        <Grid item xs={12}>
+        <div className="container">
+        <div className="session-title row ">
+          <h2>અમારો સંપર્ક </h2>
+          {/* <br></br>
+          <br></br> */}
+          <h3 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>
+            એકતા એજ લક્ષ્ય સંગઠન<br></br> અઢારેવરણ એક સાથે હિન્દુત્વમાટે
+          </h3>
+        </div>
+      </div>
+          <h3 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>
+            સંગઠન સાથે જોડાઓ
+          </h3>
+        </Grid>
+        <JoinWithUs />
+      </Grid>
       <section className="our-team team-11 page">
         <div className="container">
-          <div className="session-title row ">
+          {/* <div className="session-title row ">
             <h2>અમારો સંપર્ક </h2>
             <br></br>
             <br></br>
             <h3 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>
               એકતા એજ લક્ષ્ય સંગઠન<br></br> અઢારેવરણ એક સાથે હિન્દુત્વમાટે
             </h3>
-          </div>
+          </div> */}
+
           <div
             className="row team-row"
             style={{ display: "flex", justifyContent: "center" }}
@@ -84,17 +104,6 @@ const ContectUsMain = () => {
           </div>
         </div>
       </section>
-      <Grid container spacing={0} className="page">
-        <Grid item xs={12}>
-          <br></br>
-          <br></br>
-          <br></br>
-          <h3 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>
-            સંગઠન સાથે જોડાઓ
-          </h3>
-        </Grid>
-        <JoinWithUs />
-      </Grid>
     </>
   );
 };

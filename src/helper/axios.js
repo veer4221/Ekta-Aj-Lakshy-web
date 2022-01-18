@@ -27,8 +27,8 @@ axiosIntance.interceptors.response.use(
   (error) => {
 
     
-    console.log(typeof error.response.status,"status");
-  if(error.response.status==401){
+    console.log(typeof error?.response?.status,"status");
+  if(error?.response?.status==401){
     // alert("ok")
     localStorage.clear();
     window.location.href = '/#/auth/login'
@@ -36,7 +36,7 @@ axiosIntance.interceptors.response.use(
     // navigate('/auth/login');
 
   }
-    const status = error.response ? error.response.status : 500;
+    const status = error?.response ? error?.response?.status : 500;
     if (status && status === 500) {
       localStorage.clear();
     }

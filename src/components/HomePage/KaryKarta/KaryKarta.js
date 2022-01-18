@@ -10,7 +10,7 @@ const karykartaInformation = [
   },
   {
     imageUrl: `assets/images/team/team-memb6.jpg`,
-    name: `હિન્દુ જયભાઈ  પટેલ `,
+    name: `હિન્દુ જયભાઈ    પટેલ `,
     position: `ગુજરાત ઉપાધ્યક્ષ `,
   },
   {
@@ -57,25 +57,25 @@ const KaryKarta = () => {
             </div>
             <div className="row">
               <div
-                className="col-6"
+                className="col-md-3 col-lg-3 col-sm-6 col-xs-6"
                 style={{ color: "brown", textAlign: "center" }}
               >
                 <h4>એકલવ્ય સમિતિ</h4>
               </div>
               <div
-                className="col-6"
+                className="col-md-3 col-lg-3 col-sm-6 col-xs-6"
                 style={{ color: "brown", textAlign: "center" }}
               >
                 <h4>સમર્પણ સમિતિ</h4>
               </div>
               <div
-                className="col-6"
+                className="col-md-3 col-lg-3 col-sm-6 col-xs-6"
                 style={{ color: "brown", textAlign: "center" }}
               >
                 <h4>ગુપ્ત સમિતિ</h4>
               </div>
               <div
-                className="col-6"
+                className="col-md-3 col-lg-3 col-sm-6 col-xs-6"
                 style={{ color: "brown", textAlign: "center" }}
               >
                 <h4>કામધેનુ સમિતિ</h4>
