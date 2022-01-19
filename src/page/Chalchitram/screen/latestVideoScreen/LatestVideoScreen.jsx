@@ -9,21 +9,20 @@ import Category from "../../components/category/Category";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Video from "../../components/video/Video";
 import VideoSkeleton from "../../components/video/VideoSkeleton";
-import { getAllVideoesAction, getCourseVideoesAction } from "../../../../Redux/Actions";
+import { getAllLatestVideoesAction, getAllVideoesAction } from "../../../../Redux/Actions";
+import { useParams } from "react-router";
 
-const CourseHomeScreen = () => {
+const LatestVideoScreen = () => {
   const chalchitram = useSelector((state) => state.chalchitram);
   const [pagenumber, setPageNumber] = React.useState(1);
   const dispatch = useDispatch();
-  const getLastItem = (thePath) =>
-  thePath.substring(thePath.lastIndexOf("/") + 1);
-  const courseId=getLastItem(window.location.href)
+
   useEffect(() => {
-    dispatch(getCourseVideoesAction(courseId,pagenumber, 10));
+    dispatch(getAllLatestVideoesAction(pagenumber, 10));
   }, []);
 
   const fetchData = () => {
-    dispatch(getCourseVideoesAction(courseId,pagenumber + 1, 10));
+    dispatch(getAllLatestVideoesAction(pagenumber + 1, 10));
     setPageNumber(pagenumber + 1);
 
     // setPageNumber(pagenumber + 1);
@@ -32,21 +31,20 @@ const CourseHomeScreen = () => {
   return (
     <Container>
       {/* <Category /> */}
-      <Row>
-      {/* course */}
-      {/* <InfiniteScroll
-        dataLength={chalchitram?.getCourseVideo?.rows.length}
+      {/* <Row> */}
+      <InfiniteScroll
+        dataLength={chalchitram?.getLatestVideoes?.rows.length}
         next={fetchData}
         hasMore={true}
         loader={
           <>
             {/* <div className="spinner-border text-danger d-block mx-auto"></div> */}
-          {/* </> */}
-        {/* } */}
-        {/* className="row" */}
-      {/* > */} 
-        {chalchitram&&chalchitram?.getCourseVideo?.rows &&
-          chalchitram?.getCourseVideo?.rows[0]?.ektaVideos.map((videoData) => (
+          </>
+        }
+        className="row"
+      >
+        {chalchitram &&
+          chalchitram?.getLatestVideoes?.rows.map((videoData) => (
             <Col lg={3} md={4}>
               <Video videoData={videoData} key={videoData.id} />
             </Col>
@@ -57,14 +55,7 @@ const CourseHomeScreen = () => {
               <VideoSkeleton />
             </Col>
           ))}
-           { [...Array(12)].map(() => (
-            <Col lg={3} md={4}>
-              <VideoSkeleton />
-            
-            </Col>
-          ))}
-          </Row>
-      {/* </InfiniteScroll> */}
+      </InfiniteScroll>
       {/* {[...Array(10)].map(() => (
           <Col lg={3} md={4}>
             <VideoSkeleton />sssssss
@@ -76,4 +67,4 @@ const CourseHomeScreen = () => {
   );
 };
 
-export default CourseHomeScreen;
+export default LatestVideoScreen;

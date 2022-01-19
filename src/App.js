@@ -40,6 +40,8 @@ import WatchScreenForCourse from "./page/Chalchitram/screen/watchScreenForCourse
 import HistoryListScreen from "./page/Chalchitram/screen/HistoryListScreen/CourseListScreen";
 import HistoryHomeScreen from "./page/Chalchitram/screen/HistoryHomeScreen/HistoryHomeScreen";
 import WatchScreenForHistory from "./page/Chalchitram/screen/watchScreenForHistory/watchScreenForHistory";
+import LatestVideoScreen from "./page/Chalchitram/screen/latestVideoScreen/LatestVideoScreen";
+import CategoryVideoScreen from "./page/Chalchitram/screen/CategoryVideoScreen/CategoryVideoScreen";
 
 // import HomePage from "./page/HomePage";
 
@@ -156,7 +158,8 @@ const App = (props) => {
             <Route path="/Shakha" element={<ShakhaScreen />} />
             <Route path="/Syllabus" element={<AbhyasScreen />} />
             <Route path="/importantVideo" element={<HomeScreen />} />
-            <Route path="/NewVideo" element={<HomeScreen />} />
+            <Route path="/LatestVideo" element={<LatestVideoScreen />} />
+            <Route path="/category/:category" element={<CategoryVideoScreen />} />
             <Route path="/History" element={<HistoryScreen />} />
             <Route path="/WatchScreen/:id" element={<WatchScreen />} />
             <Route path="/WatchCourseScreen/:id/:course_id" element={<WatchScreenForCourse />} />

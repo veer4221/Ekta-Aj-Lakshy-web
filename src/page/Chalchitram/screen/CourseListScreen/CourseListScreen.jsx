@@ -12,7 +12,7 @@ import VideoSkeleton from "../../components/video/VideoSkeleton";
 import { getAllVideoesAction } from "../../../../Redux/Actions";
 import CourseBox from "../../components/courseBox/CourseBox";
 import { getallCoures } from "../../../../api";
-
+import "./style.css"
 const CourseListScreen = () => {
   const chalchitram = useSelector((state) => state.chalchitram);
   const [pagenumber, setPageNumber] = React.useState(1);
@@ -29,7 +29,7 @@ const CourseListScreen = () => {
   };
  
   return (
-    <Container>
+    <Container style={{height: 'auto'}}>
       {/* <Category /> */}
       <div
         className="row"
@@ -43,8 +43,21 @@ const CourseListScreen = () => {
           ))}
         {chalchitram.loading == true &&
           [...Array(5)].map(() => (
-            <Col lg={3} md={4}>
+            <Col lg={4} md={4}>
               <VideoSkeleton />
+            </Col>
+          ))}
+            {[...Array(0)].map(() => (
+            <Col lg={4} md={4}>
+              {/* <VideoSkeleton /> */}
+              <div style={{height: '100%',width: '100%'}}>
+              {[...Array(0)].map(()=><br/>)}
+                {/* <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>c */}
+              </div>
             </Col>
           ))}
       </div>

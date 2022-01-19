@@ -14,12 +14,16 @@ import { AiTwotoneFire } from "react-icons/ai";
 import { FaCodeBranch } from "react-icons/fa";
 import { GiBookmarklet } from "react-icons/gi";
 import { GoAlert } from "react-icons/go";
-import {MdHistoryEdu} from "react-icons/md"
+import { MdHistoryEdu } from "react-icons/md";
 import React from "react";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { selectCategoryAction } from "../../../../Redux/Actions";
 
 // import {} from"import { IconName } from "react-icons/ai";
 const Sidebar = ({ sidebar, handleToggleSidebar }) => {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   return (
     <nav
@@ -30,7 +34,7 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
         <MdHome size={23} />
         <span>હોમ</span>
       </li>
-      <li onClick={() => navigate(`/ChalChitram/NewVideo`)}>
+      <li onClick={() => navigate(`/ChalChitram/LatestVideo`)}>
         <AiTwotoneFire size={23} />
         <span>નવીનતમ વિડિઓ</span>
       </li>
@@ -48,7 +52,12 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
         <span>શાખા</span>
       </li>
 
-      <li onClick={() => navigate(`/ChalChitram/ImportantVideo`)}>
+      <li
+        onClick={() => {
+          navigate(`/ChalChitram/category/important`);
+          dispatch(selectCategoryAction("important"));
+        }}
+      >
         <GoAlert size={23} />
         <span>ચૂકશો નહીં</span>
       </li>

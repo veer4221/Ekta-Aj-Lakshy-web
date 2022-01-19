@@ -60,15 +60,31 @@ export const getBusinessAPI = (id) =>
 export const getAllRandomeVideoAPI = (page, limit) =>
   axios.get(`/v1/ektaVideo/getAllVideoes?page=${page}&limit=${limit}`);
 
+export const getAllEktaLatestVideoAPI = (page, limit) =>
+  axios.get(`/v1/ektaVideo/getAllEktaLatestVideo?page=${page}&limit=${limit}`);
+
+export const getAllEktaVideoByCategoryAPI = (page, limit, category) =>
+  axios.get(
+    `/v1/ektaVideo/getAllEktaVideoByCategory?page=${page}&limit=${limit}&category=${category}`
+  );
+
 export const getVideoByIdAPI = (id) =>
   axios.get(`/v1/ektaVideo/getVideoById?id=${id}`);
 
-export const getallCoures =()=> axios.get(`/v1/ektaVideo/getAllCourse`)
-export const getallHistory =()=> axios.get(`/v1/ektaVideo/getAllHistory`)
+export const getallCoures = () => axios.get(`/v1/ektaVideo/getAllCourse`);
+export const getallHistory = () => axios.get(`/v1/ektaVideo/getAllHistory`);
 
-export const getCourseVideoesAPI = (id,page,limit) => axios.get(`/v1/ektaVideo/getCourseVideo?page=${page}&limit=${limit}&id=${id}`);
-export const getHistoryVideoesAPI = (id,page,limit) => axios.get(`/v1/ektaVideo/getHistoryVideo?page=${page}&limit=${limit}&id=${id}`);
-export const getCourseVideoByIdAPI = (id,course_id) =>
+export const getCourseVideoesAPI = (id, page, limit) =>
+  axios.get(
+    `/v1/ektaVideo/getCourseVideo?page=${page}&limit=${limit}&id=${id}`
+  );
+export const getHistoryVideoesAPI = (id, page, limit) =>
+  axios.get(
+    `/v1/ektaVideo/getHistoryVideo?page=${page}&limit=${limit}&id=${id}`
+  );
+export const getCourseVideoByIdAPI = (id, course_id) =>
   axios.get(`/v1/ektaVideo/getCourseVideoById?id=${id}&course_id=${course_id}`);
-  export const getHistoryVideoByIdAPI = (id,course_id) =>
-  axios.get(`/v1/ektaVideo/getHistoryVideoById?id=${id}&course_id=${course_id}`);
+export const getHistoryVideoByIdAPI = (id, course_id) =>
+  axios.get(
+    `/v1/ektaVideo/getHistoryVideoById?id=${id}&course_id=${course_id}`
+  );

@@ -4,8 +4,13 @@ import { Col, Container, Row } from "react-bootstrap";
 
 import React from "react";
 import logo from "./logo.png";
+import { useNavigate } from "react-router";
+import { selectCategoryAction } from "../../../../Redux/Actions";
+import { useDispatch } from "react-redux";
 
 const ShakhaScreen = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <Container>
       <Row>
@@ -21,6 +26,10 @@ const ShakhaScreen = () => {
         >
           <div
             class="card shakhaCard"
+            onClick={() => {
+              navigate(`/ChalChitram/category/mukhyaShakha`);
+              dispatch(selectCategoryAction("mukhyaShakha"));
+            }}
             style={{
               width: "18rem",
               background: "#363636",
@@ -54,6 +63,11 @@ const ShakhaScreen = () => {
         >
           <div
             class="card shakhaCard"
+            onClick={() => {
+              navigate(`/ChalChitram/category/itcell`);
+
+              dispatch(selectCategoryAction("itcell"));
+            }}
             style={{
               width: "18rem",
               background: "#363636",
@@ -89,6 +103,10 @@ const ShakhaScreen = () => {
         >
           <div
             class="card shakhaCard"
+            onClick={() => {
+              navigate(`/ChalChitram/category/rojgharShakha`);
+              dispatch(selectCategoryAction("rojgharShakha"));
+            }}
             style={{
               width: "18rem",
               background: "#363636",
@@ -122,6 +140,10 @@ const ShakhaScreen = () => {
         >
           <div
             class="card shakhaCard"
+            onClick={() => {
+              navigate(`/ChalChitram/category/nariShakha`);
+              dispatch(selectCategoryAction("nariShakha"));
+            }}
             style={{
               width: "18rem",
               background: "#363636",
@@ -138,7 +160,7 @@ const ShakhaScreen = () => {
             />
             <div class="card-body">
               <h5 class="card-title " style={{ color: "white" }}>
-                નારી શક્તિ શાખા{" "}
+                નારી શક્તિ શાખા
               </h5>
             </div>
           </div>
@@ -157,6 +179,10 @@ const ShakhaScreen = () => {
         >
           <div
             class="card shakhaCard"
+            onClick={() => {
+              navigate(`/ChalChitram/category/yuvaShakha`);
+              dispatch(selectCategoryAction("yuvaShakha"));
+            }}
             style={{
               width: "18rem",
               background: "#363636",
@@ -190,6 +216,10 @@ const ShakhaScreen = () => {
         >
           <div
             class="card shakhaCard"
+            onClick={() => {
+              navigate(`/ChalChitram/category/kamdhenuShakha`);
+              dispatch(selectCategoryAction("kamdhenuShakha"));
+            }}
             style={{
               width: "18rem",
               background: "#363636",
@@ -225,6 +255,10 @@ const ShakhaScreen = () => {
         >
           <div
             class="card shakhaCard"
+            onClick={() => {
+              navigate(`/ChalChitram/category/pracharprasarShakha`);
+              dispatch(selectCategoryAction("pracharprasarShakha"));
+            }}
             style={{
               width: "18rem",
               background: "#363636",

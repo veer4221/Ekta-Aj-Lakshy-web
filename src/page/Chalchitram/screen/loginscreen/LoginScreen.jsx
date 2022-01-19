@@ -21,7 +21,7 @@ const LoginScreen = () => {
 
         <button
           className="brn btn-primary"
-          onClick={() => navigate(`/ChalChitram/NewVideo`)}
+          onClick={() => navigate(`/ChalChitram/Home`)}
         >
           મુખ્ય પેજ{" "}
         </button>

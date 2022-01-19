@@ -1,6 +1,8 @@
 import { chalchitramConstants, jobConstruct } from "../constants";
 import {
   addJobAPI,
+  getAllEktaLatestVideoAPI,
+  getAllEktaVideoByCategoryAPI,
   getAllJobsAPI,
   getAllRandomeVideoAPI,
   getCourseVideoesAPI,
@@ -45,6 +47,46 @@ export const getHistoryVideoesAction = (id, page, limit) => {
       dispatch({
         type: chalchitramConstants.GET_HISTORY_VIDEOES_SUCCESS,
         payload: res.data,
+      });
+    }
+  };
+};
+export const cleanCategoryVideoAction = () => async (dispatch) =>
+  dispatch({ type: chalchitramConstants.CLEAN_CATEGORY_DATA });
+
+export const selectCategoryAction = (category) => async (dispatch) =>
+  dispatch({ type: chalchitramConstants.SELECTED_CATEGORY, payload: category });
+
+export const getAllCategoryVideoesAction = (page, limit, category) => {
+  return async (dispatch) => {
+    dispatch({ type: chalchitramConstants.GET_ALL_CATEGORY_VIDEO_REQUEST });
+    const res = await getAllEktaVideoByCategoryAPI(page, limit, category);
+
+    if (res.status === 200) {
+      const { count, rows } = res.data;
+      dispatch({
+        type: chalchitramConstants.GET_ALL_CATEGORY_VIDEO_SUCCESS,
+        payload: {
+          count,
+          rows,
+        },
+      });
+    }
+  };
+};
+export const getAllLatestVideoesAction = (page, limit) => {
+  return async (dispatch) => {
+    dispatch({ type: chalchitramConstants.GET_ALL_LATEST_VIDEO_REQUEST });
+    const res = await getAllEktaLatestVideoAPI(page, limit);
+
+    if (res.status === 200) {
+      const { count, rows } = res.data;
+      dispatch({
+        type: chalchitramConstants.GET_ALL_LATEST_VIDEO_SUCCESS,
+        payload: {
+          count,
+          rows,
+        },
       });
     }
   };

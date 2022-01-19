@@ -8,6 +8,7 @@ const initState = {
   message: "",
   getVideoByID: {},
   loading: false,
+  selectedCategory:"all",
   getCourseVideo: {
     count: null,
     rows: [],
@@ -20,17 +21,56 @@ const initState = {
     count: null,
     rows: [],
   },
+  getLatestVideoes: {
+    count: null,
+    rows: [],
+  },
+  getCategoryVideoes: {
+    count: null,
+    rows: [],
+  },
 };
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case chalchitramConstants.GET_ALL_RANDOM_VIDEO_REQUEST:
+    case chalchitramConstants.SELECTED_CATEGORY:
+      console.log(action);
+      state = {
+        ...state,
+        selectedCategory:action.payload
+      };
+      break;
+      case chalchitramConstants.CLEAN_CATEGORY_DATA:
+        console.log(action);
+        state = {
+          ...state,
+          getCategoryVideoes: {
+            count: null,
+            rows: [],
+          },
+        };
+        break;
+      case chalchitramConstants.GET_ALL_RANDOM_VIDEO_REQUEST:
+        console.log(action);
+        state = {
+          ...state,
+          loading: true,
+        };
+        break;
+    case chalchitramConstants.GET_ALL_LATEST_VIDEO_REQUEST:
       console.log(action);
       state = {
         ...state,
         loading: true,
       };
       break;
+      case chalchitramConstants.GET_ALL_CATEGORY_VIDEO_REQUEST:
+        console.log(action);
+        state = {
+          ...state,
+          loading: true,
+        };
+        break;
     case chalchitramConstants.GET_COURSE_VIDEOES_REQUEST:
       console.log(action);
       state = {
@@ -69,6 +109,28 @@ export default (state = initState, action) => {
         getRandomVideoes: {
           count: action.payload.count,
           rows: [...state.getRandomVideoes.rows, ...action.payload.rows],
+        },
+      };
+      break;
+      case chalchitramConstants.GET_ALL_CATEGORY_VIDEO_SUCCESS:
+        console.log(action);
+        state = {
+          ...state,
+          loading: false,
+          getCategoryVideoes: {
+            count: action.payload.count,
+            rows: [...state.getCategoryVideoes.rows, ...action.payload.rows],
+          },
+        };
+        break;
+    case chalchitramConstants.GET_ALL_LATEST_VIDEO_SUCCESS:
+      console.log(action);
+      state = {
+        ...state,
+        loading: false,
+        getLatestVideoes: {
+          count: action.payload.count,
+          rows: [...state.getLatestVideoes.rows, ...action.payload.rows],
         },
       };
       break;

@@ -9,44 +9,55 @@ import Category from "../../components/category/Category";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Video from "../../components/video/Video";
 import VideoSkeleton from "../../components/video/VideoSkeleton";
-import { getAllVideoesAction, getCourseVideoesAction } from "../../../../Redux/Actions";
+import {
+  cleanCategoryVideoAction,
+  getAllCategoryVideoesAction,
+  getAllLatestVideoesAction,
+  getAllVideoesAction,
+} from "../../../../Redux/Actions";
+import { useParams } from "react-router";
 
-const CourseHomeScreen = () => {
+const CategoryVideoScreen = () => {
   const chalchitram = useSelector((state) => state.chalchitram);
   const [pagenumber, setPageNumber] = React.useState(1);
+  // const [isChange,setIsChange] = React.useState(new Date());
+  const params = useParams();
   const dispatch = useDispatch();
-  const getLastItem = (thePath) =>
-  thePath.substring(thePath.lastIndexOf("/") + 1);
-  const courseId=getLastItem(window.location.href)
+  const lengthOFBox =
+    chalchitram?.getCategoryVideoes?.rows.length > 10
+      ? 0
+      : 10 - chalchitram?.getCategoryVideoes?.rows.length;
   useEffect(() => {
-    dispatch(getCourseVideoesAction(courseId,pagenumber, 10));
-  }, []);
-
+    window.scrollTo(0, 0);
+    setPageNumber(1);
+    dispatch(cleanCategoryVideoAction());
+    dispatch(getAllCategoryVideoesAction(pagenumber, 10, params?.category));
+  }, [chalchitram?.selectedCategory]);
+useEffect(() => {},[pagenumber])
   const fetchData = () => {
-    dispatch(getCourseVideoesAction(courseId,pagenumber + 1, 10));
+    dispatch(getAllCategoryVideoesAction(pagenumber + 1, 10, params?.category));
     setPageNumber(pagenumber + 1);
 
     // setPageNumber(pagenumber + 1);
   };
-
+  // console.log("catagory",data.category)
   return (
     <Container>
-      {/* <Category /> */}
-      <Row>
-      {/* course */}
-      {/* <InfiniteScroll
-        dataLength={chalchitram?.getCourseVideo?.rows.length}
+      <Category />
+      {/* <Row> */}
+      <InfiniteScroll
+        dataLength={chalchitram?.getCategoryVideoes?.rows.length}
         next={fetchData}
         hasMore={true}
         loader={
           <>
             {/* <div className="spinner-border text-danger d-block mx-auto"></div> */}
-          {/* </> */}
-        {/* } */}
-        {/* className="row" */}
-      {/* > */} 
-        {chalchitram&&chalchitram?.getCourseVideo?.rows &&
-          chalchitram?.getCourseVideo?.rows[0]?.ektaVideos.map((videoData) => (
+          </>
+        }
+        className="row"
+      >
+        {chalchitram &&
+          chalchitram?.getCategoryVideoes?.rows.map((videoData) => (
             <Col lg={3} md={4}>
               <Video videoData={videoData} key={videoData.id} />
             </Col>
@@ -57,14 +68,16 @@ const CourseHomeScreen = () => {
               <VideoSkeleton />
             </Col>
           ))}
-           { [...Array(12)].map(() => (
-            <Col lg={3} md={4}>
-              <VideoSkeleton />
-            
-            </Col>
-          ))}
-          </Row>
-      {/* </InfiniteScroll> */}
+      {[...Array(12)].map(() => (
+        <Col lg={3} md={4}>
+         <br></br>
+         <br></br>
+         <br></br>
+         <br></br>
+        </Col>
+      ))}
+      </InfiniteScroll>
+
       {/* {[...Array(10)].map(() => (
           <Col lg={3} md={4}>
             <VideoSkeleton />sssssss
@@ -76,4 +89,4 @@ const CourseHomeScreen = () => {
   );
 };
 
-export default CourseHomeScreen;
+export default CategoryVideoScreen;
