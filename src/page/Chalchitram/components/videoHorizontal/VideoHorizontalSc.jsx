@@ -53,7 +53,7 @@ const VideoHorizontalSc = ({ videoData, setIsChange }) => {
             <Skeleton style={{ width: "100%" }}/>
           <div className="videoHorizontal__channel d-flex align-items-center my-1">
             {/* <LazyLoadImage
-               src='https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'
+               src='assets/images/logo512.png'
                effect='blur'
              
             /> */}

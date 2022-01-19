@@ -8,7 +8,7 @@ const Comments = () => {
          <p>1234 Comments</p>
          <div className='comments__form d-flex w-100 my-2'>
             <img
-               src='https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'
+               src='assets/images/logo512.png'
                alt=''
                className='rounded-circle mr-3'
             />

@@ -7,8 +7,10 @@ import ShowMoreText from "react-show-more-text";
 import moment from "moment";
 import numeral from "numeral";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { useNavigate } from "react-router";
 
 const VideoMetaData = ({ videoData, isLoading }) => {
+ const navigate =  useNavigate()
   return (
     <SkeletonTheme baseColor="#202020" highlightColor="#444">
       <div className="videoMetaData py-2">
@@ -36,7 +38,7 @@ const VideoMetaData = ({ videoData, isLoading }) => {
         <div className="videoMetaData__channel d-flex justify-content-between align-items-center my-2 py-3">
           <div className="d-flex">
             <img
-              src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
+              src="assets/images/logo512.png"
               alt=""
               className="rounder-circle mr-3"
             />
@@ -46,7 +48,7 @@ const VideoMetaData = ({ videoData, isLoading }) => {
             </div>
           </div>
 
-          <button className="btn border-0 p-2 m-2">અમારી સાથે જોડાઓ </button>
+          <button className="btn border-0 p-2 m-2" onClick={()=>navigate(`/ContectUs`)}>અમારી સાથે જોડાઓ </button>
         </div>
         <div className="videoMetaData__description">
         {isLoading && <Skeleton count={3} style={{ width: "100%" }} />}

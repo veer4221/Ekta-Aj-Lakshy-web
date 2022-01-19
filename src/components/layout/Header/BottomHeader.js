@@ -167,12 +167,31 @@ const BottomHeader = () => {
                     </span>
                   </a>
                 </li>
+                <li className="nav-item">
+                  <a
+                    stype={{padding:"8px"}}
+
+                    className="nav-link"
+                    onClick={() => {
+                      navigate("/chalchitram/");
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "rgb(172, 24, 24)",
+                        fontSize: "12px",
+                      }}
+                    >
+                     ચલચિત્રમ
+                    </span>
+                  </a>
+                </li>
                 <li
                   className="nav-item"
                   style={{
                     color: "rgb(172, 24, 24)!important",
                   }}
-                ></li>
+                > </li>
               </ul>
             </div>
           </div>
