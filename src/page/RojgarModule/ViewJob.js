@@ -30,14 +30,17 @@ const ProfilePage = () => {
     dispatch(getJobAction(localStorage.getItem("jobId")));
   }, []);
   return (
-    <div className="Rg-bg">
+    <div  
+    style={{backgroundColor: "#16181b",paddingTop: "70px",minHeight: "100vh",}}
+    
+    >
       <Loader loading={job.loading} />
       <div className="container">
         <h1
           className="Header-ekta "
           style={{ textAlign: "center", color: "white" }}
         >
-          Job Details
+         રોજગાર માહિતી 
         </h1>
         <div className="main-bodyP">
           <div className="row gutters-smP">
@@ -50,9 +53,10 @@ const ProfilePage = () => {
                         job.getJob.adminUser &&
                         `https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/${job.getJob.adminUser.image}`
                       }
-                      alt="Admin"
+                      alt="image"
                       className="rounded-circle"
                       width="150"
+                      height="150"
                     />
                     <div className="mt-3">
                       <h4 className="headerProfile">
@@ -75,7 +79,7 @@ const ProfilePage = () => {
                 <div className="card-bodyP" style={{ marginBottom: "200px" }}>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Company Name</h6>
+                      <h6 className="mb-0 headerProfile">કંપની નું નામ </h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile ">
                       {job.getJob.company_name}
@@ -84,7 +88,7 @@ const ProfilePage = () => {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Job Role</h6>
+                      <h6 className="mb-0 headerProfile"> ભૂમિકા</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.job_role}
@@ -93,7 +97,7 @@ const ProfilePage = () => {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">category</h6>
+                      <h6 className="mb-0 headerProfile">રોજગાર શ્રેણી</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.job_category}
@@ -102,7 +106,7 @@ const ProfilePage = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Salary</h6>
+                      <h6 className="mb-0 headerProfile">પગાર</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {`₹${job.getJob.salary_min} -  ₹${job.getJob.salary_max}`}
@@ -111,7 +115,7 @@ const ProfilePage = () => {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Qualification</h6>
+                      <h6 className="mb-0 headerProfile">લાયકાત</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.Qualification}
@@ -120,7 +124,7 @@ const ProfilePage = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Time</h6>
+                      <h6 className="mb-0 headerProfile">સમય </h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {`${job.getJob.start_Time} to ${job.getJob.end_Time} `}
@@ -129,7 +133,7 @@ const ProfilePage = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Working Days</h6>
+                      <h6 className="mb-0 headerProfile">કામના દિવસો</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.working_days}
@@ -138,7 +142,7 @@ const ProfilePage = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Email</h6>
+                      <h6 className="mb-0 headerProfile">ઇમેઇલ</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.company_email}
@@ -147,7 +151,7 @@ const ProfilePage = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Phone</h6>
+                      <h6 className="mb-0 headerProfile">ફોન નંબર</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.company_contect_number}
@@ -165,7 +169,7 @@ const ProfilePage = () => {
                   <hr /> */}
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Job Description</h6>
+                      <h6 className="mb-0 headerProfile">રોજગાર વર્ણન</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.job_description}
@@ -174,7 +178,7 @@ const ProfilePage = () => {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">State</h6>
+                      <h6 className="mb-0 headerProfile">રાજ્ય</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.state && job.getJob.state.state_title}
@@ -183,7 +187,7 @@ const ProfilePage = () => {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Districtid</h6>
+                      <h6 className="mb-0 headerProfile">જિલ્લો </h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.district &&
@@ -193,7 +197,7 @@ const ProfilePage = () => {
                   <hr></hr>
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">City</h6>
+                      <h6 className="mb-0 headerProfile">શહેર </h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.city && job.getJob.city.name}
@@ -203,7 +207,7 @@ const ProfilePage = () => {
 
                   <div className="row">
                     <div className="col-sm-3">
-                      <h6 className="mb-0 headerProfile">Address</h6>
+                      <h6 className="mb-0 headerProfile">સ્થળ</h6>
                     </div>
                     <div className="col-sm-9 text-secondary dataProfile">
                       {job.getJob.address}
@@ -213,7 +217,7 @@ const ProfilePage = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-12">
-                      <Button onClick={applyForJobFunc}>Apply</Button>
+                      <Button onClick={applyForJobFunc}>અરજી કરો</Button>
                     </div>
                   </div>
                 </div>

@@ -14,6 +14,8 @@ import { useNavigate } from "react-router";
 import { login } from "../Redux/Actions/index";
 
 import Loader from "./loader/Loader";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -38,13 +40,14 @@ const LoginPage = () => {
     console.log(e);
   };
   if (auth.authenticate && localStorage.getItem("token")) {
+  
     navigate(`/Rojgharmain/FindJob`);
   }
   return (
     <>
       <div
-        class="container-fluid Rg-bg"
-        style={{ height: "100vh", width: "100%" }}
+        class="container-fluid"
+        style={{ height: "100vh", width: "100%",backgroundColor: "#16181b" }}
       >
         <div class="login_name_wrapperL">
           <div class="d-flex justify-content-center rojghar-text ">
@@ -73,12 +76,12 @@ const LoginPage = () => {
                 <div class="user_cardL">
                   <div class="d-flex justify-content-center">
                     <div class="login_logo_containerL">
-                      {" "}
+                     
                       <img
                         src={`assets/images/logo512.png`}
                         class="login_logo"
                         alt="Logo"
-                      />{" "}
+                      />
                     </div>
                   </div>
                   <Loader loading={auth.loading} />

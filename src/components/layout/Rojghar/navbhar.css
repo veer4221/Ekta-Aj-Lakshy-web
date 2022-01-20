@@ -1,74 +1,102 @@
 .allEle {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: black;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #121417;
 }
 
 .linknav {
-    text-decoration: none;
-    font-size: 20px;
-    color: rgb(234 171 93);
+  text-decoration: none;
+  font-size: 12px;
+  color: rgb(234 171 93);
+  cursor: pointer;
+}
+.linknav:hover {
+    /* font-size: 14px !important; */
+    color: rgb(182, 178, 173);
 }
 
+.icon-rojghar{
+    color: rgb(211, 205, 197) !important;
+}
+.icon-rojghar:hover{
+    color: rgb(218, 173, 116) !important;
+
+}
+.desktop-icon{
+    font-size: 16px;
+}
 .navbar {
-    padding: 10px 20px;
-    display: flex;
-    width: 100%;
-    align-items: center;
+  padding: 10px 20px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  /* position: sticky; */
+  /* top: 0; */
+  /* width: 100%; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
+  background-color: #121417;
 }
 
 .navbar ul {
-    flex: 1;
-    text-align: right;
+  flex: 1;
+  text-align: right;
 }
 
 .navbar ul li {
-    display: inline-block;
-    margin: 0 30px;
+  display: inline-block;
+  margin: 0 30px;
 }
-
+.desktop-list {
+  font-size: 3px!important;
+  }
 .Logo {
-    font-size: 35px;
-    color: rgb(234 171 93);
-
+  font-size: 20px;
+  color: rgb(234 171 93);
 }
 
 .logoutDeskTop {
-    display: none;
+  display: none;
 }
 
 .mobile-list {
-    display: none;
+  display: none;
 }
+.MuiGrid-spacing-xs-3 {
+  width: auto !important;
+  margin: auto !important;
+}
+@media only screen and (max-width: 800px) {
+  .navbar .desktop-list {
+    display: none;
+  
+  }
 
-@media only screen and (max-width:800px) {
-    .navbar .desktop-list {
-        display: none;
-    }
+  .logoutDeskTop {
+    display: block;
+  }
 
-    .logoutDeskTop {
-        display: block
-    }
+  .mobile-list {
+    z-index: 999;
+    display: block;
+    color: tomato;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 0;
+  }
 
-    .mobile-list {
-        z-index: 999;
-        display: block;
-        color: tomato;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
-        padding: 10px;
-        background-color: white;
-    }
-
-    .mobile-list svg {
-        font-size: 7vmin;
-        cursor: pointer;
-    }
+  .mobile-list svg {
+    font-size: 7vmin;
+    cursor: pointer;
+  }
 }

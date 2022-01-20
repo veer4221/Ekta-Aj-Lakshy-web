@@ -143,6 +143,8 @@ export default (state = initState, action) => {
     case userContants.GET_USER_PROFILE_SUCCESS:
       state = {
         ...state,
+        loading: false,
+
         getUserInfo: action.payload,
       };
       break;

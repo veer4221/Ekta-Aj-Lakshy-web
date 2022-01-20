@@ -104,12 +104,19 @@ const Business = () => {
       <Grid
         container
         spacing={3}
-        className="Rg-bg"
-        style={{ paddingBottom: "100px" }}
+        // className="Rg-bg"
+        style={{
+          backgroundColor: "#16181b",
+          paddingTop: "50px",
+          paddingBottom: "80px",
+          minHeight: "100vh",
+         
+        }}
+        // style={{ paddingBottom: "100px" }}
       >
         <>
           <Grid item className="ourBtn m-4" xs={12} sm={12} md={12}>
-            <h2 style={{ color: "white", textAlign: "center" }}>Business1</h2>
+            <h2 style={{ color: "white", textAlign: "center" }}>વ્યવસાય</h2>
             <br></br>
 
             {/* <Button
@@ -126,12 +133,12 @@ const Business = () => {
               <Grid
                 item
                 xs={12}
-                sm={3}
-                md={3}
+                sm={4}
+                md={4}
                 style={{ display: "flex", justifyContent: "center" }}
               >
                 <div
-                  style={{ width: "80%", marginTop: "50px" }}
+                  style={{ width: "93%", marginTop: "50px" }}
                   className="card-rojghar card-glass"
                 >
                   <div
@@ -150,7 +157,7 @@ const Business = () => {
                     <table width="100%" className="find-job-card">
                       <tr>
                         <th className="find-job-card-text headFindJob ">
-                          Store Name
+                          પેઢી નું નામ
                         </th>
                         <td className="find-job-card-textD ">
                           :{data.business_title}
@@ -158,7 +165,7 @@ const Business = () => {
                       </tr>
                       <tr>
                         <th className="find-job-card-text headFindJob">
-                          Owner Name
+                          માલિક નું નામ
                         </th>
                         <td className="find-job-card-textD">
                           :{data.business_Name}
@@ -166,16 +173,14 @@ const Business = () => {
                       </tr>
                       <tr>
                         <th className="find-job-card-text headFindJob">
-                          Phone
+                          ફોન નંબર
                         </th>
                         <td className="find-job-card-textD">
                           :{data.business_contect_number}
                         </td>
                       </tr>
                       <tr>
-                        <th className="find-job-card-text headFindJob">
-                          Location
-                        </th>
+                        <th className="find-job-card-text headFindJob">સ્થળ</th>
                         <td className="find-job-card-textD">:{data.address}</td>
                       </tr>
                       {/* <tr>
@@ -194,13 +199,15 @@ const Business = () => {
                       style={{ display: "flex", justifyContent: "center" }}
                     >
                       <Button
-                        className="buttonOK"
+                        // className="buttonOK"
+                        className="btn btn-primary"
+                        style={{ backgroundColor: "#555658" }}
                         onClick={() => {
                           localStorage.setItem("businessId", data.id);
                           navigate(`/Rojgharmain/BusinessInfo`);
                         }}
                       >
-                        વધુ જોવો
+                        <span style={{ color: "white" }}> વધુ જોવો</span>
                       </Button>
                     </div>
                   </div>
@@ -580,6 +587,7 @@ const Business = () => {
             style={{ display: "flex", justifyContent: "center" }}
           >
             <Pagination
+            color="primary"
               count={Math.floor(business.getAllBusiness.count / 8 + 1)}
               onChange={(e, value) => setPage(value)}
               shape="rounded"

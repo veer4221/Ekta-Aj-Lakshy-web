@@ -39,7 +39,7 @@ const RojgharshakhaRoute = () =>{
         <div>
            <Navbar/>
 
-          {auth?  <Outlet />:<Navigate to="/auth/login" />}
+          {auth?  <Outlet  />:<Navigate to="/auth/login" />}
         
         </div>
     )

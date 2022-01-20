@@ -86,6 +86,14 @@ export default (state = initState, action) => {
         getHistoryVideo: action.payload,
       };
       break;
+      case chalchitramConstants.GET_COURSE_VIDEOES_SUCCESS:
+        console.log(action);
+        state = {
+          ...state,
+          loading: false,
+          getCourseVideo: action.payload,
+        };
+        break;
     case chalchitramConstants.GET_HISTORY_VIDEOES_REQUEST:
       console.log(action);
       state = {

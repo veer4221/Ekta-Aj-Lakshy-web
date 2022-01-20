@@ -14,7 +14,7 @@ export const login = (user) => {
       const { token, profile } = res?.data?.data;
       await localStorage.setItem("token", token);
       await localStorage.setItem("user", JSON.stringify(profile));
-      popupSucessAndConformationAlert(true, "Welcome to RojgharShakha");
+      // popupSucessAndConformationAlert(true, "Welcome to RojgharShakha");
       dispatch({
         type: authConstants.LOGIN_SUCCESS,
         payload: {
