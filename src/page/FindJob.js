@@ -66,8 +66,13 @@ const FindJob = () => {
       <Grid
         container
         spacing={3}
-        className="Rg-bg"
-        style={{ paddingBottom: "100px" }}
+        // className="Rg-bg"
+        style={{
+          paddingBottom: "100px",
+          backgroundColor: "#16181b",
+          paddingTop: "40px",
+          minHeight: "100vh",
+        }}
       >
         {filter && (
           <>
@@ -220,29 +225,29 @@ const FindJob = () => {
           <>
             <Grid item className="ourBtn m-4" xs={12} sm={12} md={12}>
               <h2 style={{ color: "white", textAlign: "center" }}>
-                Available Job
+                ઉપલબ્ધ રોજગાર
               </h2>
               <br></br>
 
-              <Button
+              {/* <Button
                 className=""
                 onClick={() => {
                   setFilter(true);
                 }}
               >
                 Filter
-              </Button>
+              </Button> */}
             </Grid>
             {job.getAllJobs.rows.map((data) => (
               <Grid
                 item
                 xs={12}
-                sm={3}
-                md={3}
+                sm={4}
+                md={4}
                 style={{ display: "flex", justifyContent: "center" }}
               >
                 <div
-                  style={{ width: "80%", marginTop: "50px" }}
+                  style={{ width: "93%", marginTop: "50px" }}
                   className="card-rojghar card-glass"
                 >
                   <div
@@ -256,7 +261,7 @@ const FindJob = () => {
                     <table width="100%" className="find-job-card">
                       <tr>
                         <th className="find-job-card-text headFindJob ">
-                          Company
+                          કંપની
                         </th>
                         <td className="find-job-card-textD ">
                           :{data.company_name}
@@ -264,7 +269,7 @@ const FindJob = () => {
                       </tr>
                       <tr>
                         <th className="find-job-card-text headFindJob">
-                          min salary
+                          ન્યૂનતમ પગાર
                         </th>
                         <td className="find-job-card-textD">
                           :{data.salary_min}/-
@@ -272,7 +277,7 @@ const FindJob = () => {
                       </tr>
                       <tr>
                         <th className="find-job-card-text headFindJob">
-                          max salary
+                          મહત્તમ પગાર
                         </th>
                         <td className="find-job-card-textD">
                           :{data.salary_max}/-
@@ -280,7 +285,7 @@ const FindJob = () => {
                       </tr>
                       <tr>
                         <th className="find-job-card-text headFindJob">
-                          Job Role
+                          ભૂમિકા
                         </th>
                         <td className="find-job-card-textD">
                           :{data.job_role}
@@ -288,7 +293,7 @@ const FindJob = () => {
                       </tr>
                       <tr>
                         <th className="find-job-card-text headFindJob">
-                          Qualification
+                          લાયકાત
                         </th>
                         <td className="find-job-card-textD">
                           :{data.Qualification}{" "}
@@ -302,13 +307,14 @@ const FindJob = () => {
                       style={{ display: "flex", justifyContent: "center" }}
                     >
                       <Button
-                        className="buttonOK"
+                        className="btn btn-primary"
+                        style={{ backgroundColor: "#555658" }}
                         onClick={() => {
                           localStorage.setItem("jobId", data.id);
                           navigate(`/Rojgharmain/viewJob`);
                         }}
                       >
-                        વધુ જોવો
+                        <span style={{ color: "white" }}>વધુ જોવો</span>
                       </Button>
                     </div>
                   </div>
@@ -683,13 +689,17 @@ const FindJob = () => {
             <Grid
               item
               xs={12}
-              sm={3}
-              md={3}
+              sm={12}
+              md={12}
               style={{ display: "flex", justifyContent: "center" }}
             >
               <Pagination
+                color="primary"
                 count={Math.floor(job.getAllJobs.count / limit + 1)}
-                onChange={(e, value) => setPage(value)}
+                onChange={(e, value) => {
+                  setPage(value);
+                  window.scrollTo(0, 0);
+                }}
                 shape="rounded"
               />
             </Grid>

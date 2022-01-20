@@ -41,7 +41,9 @@ import HistoryListScreen from "./page/Chalchitram/screen/HistoryListScreen/Cours
 import HistoryHomeScreen from "./page/Chalchitram/screen/HistoryHomeScreen/HistoryHomeScreen";
 import WatchScreenForHistory from "./page/Chalchitram/screen/watchScreenForHistory/watchScreenForHistory";
 import LatestVideoScreen from "./page/Chalchitram/screen/latestVideoScreen/LatestVideoScreen";
-import CategoryVideoScreen from "./page/Chalchitram/screen/CategoryVideoScreen/CategoryVideoScreen";
+import CategoryVideoScreen from "./page/Chalchitram/screen/categoryVideoScreen/CategoryVideoScreen";
+import HireSelectionPage from "./page/RojgarModule/HireSelectionPage";
+
 
 // import HomePage from "./page/HomePage";
 
@@ -138,6 +140,7 @@ const App = (props) => {
             <Route path="/findJob" element={<FindJob />} />
             <Route path="/ProfilePage" element={<ProfilePage />} />
             <Route path="/Hire" element={<HireMain />} />
+            <Route path="/HireOption" element={<HireSelectionPage />} />
             <Route path="/HireForm" element={<HireForm />} />
             <Route path="/BusinessPage" element={<BusinessPage />} />
             <Route path="/BusinessInfo" element={<BusinessInformation />} />

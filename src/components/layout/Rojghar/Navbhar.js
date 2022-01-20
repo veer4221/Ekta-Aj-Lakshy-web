@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import SearchIcon from "@material-ui/icons/Search";
 import WorkIcon from "@material-ui/icons/Work";
-import {signout} from "../../../Redux/Actions"
+import { signout } from "../../../Redux/Actions";
 // import WorkIcon from "@material-ui/icons/Work";
 
 // import AddBusinessIcon from '@material-ui/icons/AddBusiness';
@@ -22,99 +22,107 @@ import {signout} from "../../../Redux/Actions"
 const Navbhar = () => {
   // const place = useSelector((state) => state.place);
   const dispatch = useDispatch();
+  const navigat = useNavigate();
 
   const navigate = useNavigate();
   return (
     <div className="allEle">
       <nav className="navbar">
-        <h1 className="Logo">Rojghar</h1>
+        <h3 className="Logo">હિન્દૂ રોજગાર શાખા </h3>
         <IconButton
-          className="logoutDeskTop"
+          className="logoutDeskTop "
           onClick={() => {
             dispatch(signout());
             navigate(`/auth/login`);
           }}
         >
-          
-          <ExitToAppIcon  style={{color:"white"}}/>
+          <ExitToAppIcon style={{ color: "white" }} />
         </IconButton>
         <ul className="desktop-list">
-          <li>
-            <Link className="linknav" to={`/Rojgharmain/Business`}>
-              <WorkIcon />
-              Business
-            </Link>
+          <li onClick={()=>navigate(`/Rojgharmain/Business`)}>
+            <div className="linknav" >
+              <WorkIcon className="icon-rojghar desktop-icon" />
+              ધંધો
+            </div>
           </li>
-          <li>
-            <Link className="linknav" to={`/Rojgharmain/hire`}>
-              <AddCircleOutlineIcon />
-              Hire
-            </Link>
+          <li onClick={()=>navigate(`/Rojgharmain/hireoption`)}>
+            <div className="linknav" >
+              <AddCircleOutlineIcon className="icon-rojghar desktop-icon" />
+              કામઆપો
+            </div>
           </li>
 
-          <li>
-            <Link className="linknav" to={`/Rojgharmain/FindJob`}>
-              <SearchIcon />
-              FindJob
-            </Link>
+          <li onClick={()=>navigate(`/Rojgharmain/FindJob`)}>
+            <div className="linknav" >
+              <SearchIcon className="icon-rojghar desktop-icon" />
+              રોજગાર શોધો
+            </div>
           </li>
-          <li>
-            <Link className="linknav" to={`/Rojgharmain/profilePage`}>
-              <AccountBoxIcon />
-              Profile
-            </Link>
+          <li onClick={() => navigate("/Rojgharmain/profilePage")}>
+            <div className="linknav">
+              <AccountBoxIcon className="icon-rojghar desktop-icon" />
+              પ્રોફાઇલ
+            </div>
           </li>
           <li
-              style={{cursor: "pointer"}}
-              className="linknav"
-             
-              onClick={() => {
-                dispatch(signout());
-                navigate(`/auth/login`);
-              }}
-            >
-              <ExitToAppIcon />
-              LogOut
-            {/* </Link> */}
+            style={{ cursor: "pointer" }}
+            className="linknav"
+            onClick={() => {
+              dispatch(signout());
+              navigate(`/auth/login`);
+            }}
+          >
+            <ExitToAppIcon className="icon-rojghar desktop-icon" />
+            પાછા જાઓ
+            {/* </div> */}
           </li>
         </ul>
-        <ul className="mobile-list" style={{ background: "black" }}>
+        <ul className="mobile-list" style={{ background: "#121417" }}>
           <li>
             <IconButton
+              className="icon-rojghar "
               onClick={() => {
                 navigate(`/Rojgharmain/Business`);
               }}
             >
-              
-              <WorkIcon style={{ color: "white" }} />
+              <WorkIcon style={{ color: "white" }} className="icon-rojghar" />
             </IconButton>
           </li>
           <li>
             <IconButton
+              className="icon-rojghar"
               onClick={() => {
-                navigate(`/Rojgharmain/hire`);
+                navigate(`/Rojgharmain/hireoption`);
               }}
             >
-              <AddCircleOutlineIcon style={{ color: "white" }} />
+              <AddCircleOutlineIcon
+                style={{ color: "white" }}
+                className="icon-rojghar"
+              />
             </IconButton>
           </li>
 
           <li
+            className="icon-rojghar"
             onClick={() => {
               navigate(`/Rojgharmain/FindJob`);
             }}
           >
-            <IconButton>
-              <SearchIcon style={{ color: "white" }} />
+            <IconButton className="icon-rojghar">
+              <SearchIcon style={{ color: "white" }} className="icon-rojghar" />
             </IconButton>
           </li>
           <li
+            className="icon-rojghar"
             onClick={() => {
               navigate(`/Rojgharmain/profilePage`);
             }}
           >
-            <IconButton>
-              <AccountBoxIcon style={{ color: "white" }} />
+            <IconButton className="icon-rojghar">
+              <AccountBoxIcon
+                style={{ color: "white" }}
+                className="icon-rojghar"
+              />
             </IconButton>
           </li>
         </ul>

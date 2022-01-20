@@ -194,7 +194,14 @@ const HireForm = () => {
   return (
     <div>
       {/* <form onSubmit={onSubmitFunc}> */}
-      <Grid container className="Rg-bg" style={{ color: "white" }}>
+      <Grid
+        container
+        style={{
+          backgroundColor: "#16181b",
+          paddingTop: "70px",
+          color: "white",
+        }}
+      >
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -218,6 +225,7 @@ const HireForm = () => {
                 style={{
                   // background: "black",
                   margin: "20px",
+                  minHeight: "100vh",
                   marginBottom: "200px",
                   paddingTop: "50px",
                   paddingBottom: "50px",
@@ -227,14 +235,14 @@ const HireForm = () => {
                 <Form>
                   <div className="container-fluid">
                     <div className="row">
-                      <h3 style={{ color: "red", textAlign: "center" }}>
-                        Hire Form
+                      <h3 style={{ color:"white", textAlign: "center" }}>
+                      રોજગાર બનાવો 
                       </h3>
                       {/* <hr style={{ color: "white" }} /> */}
                     </div>
                     <div className="row">
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Company Name</label>
+                        <label className="mt-4">કંપની નું નામ</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -262,7 +270,7 @@ const HireForm = () => {
                       </div>
 
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Company Email</label>
+                        <label className="mt-4">કંપની ઈમેઈલ</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -289,7 +297,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4" col-sm-12>
-                        <label className="mt-4">Job Role</label>
+                        <label className="mt-4">ભૂમિકા</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -344,7 +352,7 @@ const HireForm = () => {
                       </div> */}
 
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Company Contect Number</label>
+                        <label className="mt-4">કંપનીનો ફોન નંબર</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -375,7 +383,7 @@ const HireForm = () => {
                       </div>
 
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Address</label>
+                        <label className="mt-4">સ્થળ </label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -402,7 +410,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Job Description</label>
+                        <label className="mt-4">રોજગાર  વર્ણન</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -429,7 +437,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Salary Min</label>
+                        <label className="mt-4">ન્યૂનતમ પગાર</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -456,7 +464,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Salary Max</label>
+                        <label className="mt-4">મહત્તમ પગાર</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -483,7 +491,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Start Time</label>
+                        <label className="mt-4">પ્રારંભ સમય</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -510,7 +518,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">End time</label>
+                        <label className="mt-4">સમાપ્તિ સમય</label>
                         <FastField
                           style={{
                             background: "#3c3a3a",
@@ -538,7 +546,7 @@ const HireForm = () => {
                       </div>
 
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Job Category</label>
+                        <label className="mt-4">રોજગાર શ્રેણી</label>
                         <Field
                           style={{
                             background: "#3c3a3a",
@@ -634,7 +642,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Qualification</label>
+                        <label className="mt-4">લાયકાત</label>
                         <Field
                           style={{
                             background: "#3c3a3a",
@@ -650,11 +658,11 @@ const HireForm = () => {
                           // className="form-control"
                         >
                           <option value=""></option>
-                          <option value="Non Education">Non education</option>
-                          <option value="10Pass">10Pass</option>
-                          <option value="12 pass">12 pass</option>
-                          <option value="Graduate">Graduate</option>
-                          <option value="Post Graduate">Post Graduate</option>
+                          <option value="Non Education">બિન શિક્ષણ</option>
+                          <option value="10Pass">10 પાસ</option>
+                          <option value="12 pass">12 પાસ</option>
+                          <option value="Graduate">સ્નાતક(Graduate)</option>
+                          <option value="Post Graduate">અનુસ્નાતક(PostGraduate)</option>
                         </Field>
                         <ErrorMessage
                           name="Qualification"
@@ -663,7 +671,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Week Working Days</label>
+                        <label className="mt-4">અઠવાડિક કામના દિવસો</label>
                         <Field
                           style={{
                             background: "#3c3a3a",
@@ -679,13 +687,13 @@ const HireForm = () => {
                           // className="form-control"
                         >
                           <option value=""></option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
+                          <option value="1">1 દિવસ </option>
+                          <option value="2">2 દિવસ </option>
+                          <option value="3">3 દિવસ </option>
+                          <option value="4">4 દિવસ </option>
+                          <option value="5">5 દિવસ </option>
+                          <option value="6">6 દિવસ </option>
+                          <option value="7">7 દિવસ </option>
                         </Field>
                         <ErrorMessage
                           name="working_days"
@@ -694,7 +702,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">State</label>
+                        <label className="mt-4">રાજ્ય</label>
                         <Field
                           style={{
                             background: "#3c3a3a",
@@ -738,7 +746,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">Distict</label>
+                        <label className="mt-4">જિલ્લો</label>
                         <Field
                           style={{
                             background: "#3c3a3a",
@@ -779,7 +787,7 @@ const HireForm = () => {
                         />
                       </div>
                       <div className="col-md-4 col-sm-12">
-                        <label className="mt-4">City</label>
+                        <label className="mt-4">શહેર</label>
                         <Field
                           style={{
                             background: "#3c3a3a",

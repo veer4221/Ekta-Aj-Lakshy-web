@@ -28,30 +28,28 @@ const HireMain = () => {
   return (
     <div>
       <Loader loading={job.loading || jobApply.loading} />
-      <Grid container className="Rg-bg" style={{ color: "white" }}>
-        <Grid item xs={12}>
-          <h2 style={{ color: "rgb(172, 24, 24)", textAlign: "center" }}>
-            Hire Page
+      <Grid
+        container
+        style={{ backgroundColor: "#16181b", paddingTop: "70px",minHeight: "100vh", }}
+      >
+        {/* <Grid item xs={12}>
+          <h2 style={{ color: "white", textAlign: "center" }}>
+          મારા બનાવેલા રોજગાર 
           </h2>
-        </Grid>
-        <Grid item xs={6} sm={6} className="p-2 ourBtn">
-          <Button
-            onClick={() => {
-              navigate(`/Rojgharmain/hireform`);
-            }}
-          >
-            Hire Now
-          </Button>
-        </Grid>
+        </Grid> */}
+       
         <Grid
           item
-          xs={6}
-          sm={6}
+          xs={12}
+          sm={12}
           className="p-2 ourBtn "
           style={{ paddingX: "15px" }}
         >
+           <h2 style={{ color: "white", textAlign: "center" }}>
+          મારા બનાવેલા રોજગાર 
+          </h2>
           <label class="form-label" for="form6Example1">
-            Select Job
+          રોજગાર પસંદ કરો 
           </label>
           <select
             name="cars"

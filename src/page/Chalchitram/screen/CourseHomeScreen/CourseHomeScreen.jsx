@@ -57,12 +57,12 @@ const CourseHomeScreen = () => {
               <VideoSkeleton />
             </Col>
           ))}
-           { [...Array(12)].map(() => (
+           {/* { [...Array(12)].map(() => (
             <Col lg={3} md={4}>
               <VideoSkeleton />
             
             </Col>
-          ))}
+          ))} */}
           </Row>
       {/* </InfiniteScroll> */}
       {/* {[...Array(10)].map(() => (
