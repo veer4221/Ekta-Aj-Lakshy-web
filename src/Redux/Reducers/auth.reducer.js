@@ -2,11 +2,20 @@ import { authConstants } from "../constants";
 
 const initState = {
   token: null,
+  adminToken: null,
   user: {
     firstName: "",
     lastName: "",
     email: "",
   },
+  adminUser: {
+    firstName: "",
+    lastName: "",
+    email: "",
+  },
+  adminAuthenticate: false,
+  adminAuthenticating: false,
+  adminMessage:"",
   authenticate: false,
   authenticating: false,
   loading: false,
@@ -26,6 +35,12 @@ export default (state = initState, action) => {
         authenticating: true,
       };
       break;
+      case authConstants.ADMIN_LOGIN_REQUEST:
+        state = {
+          ...state,
+          AdminAuthenticating: true,
+        };
+        break;
     case authConstants.LOGIN_SUCCESS:
       state = {
         ...state,
@@ -35,6 +50,15 @@ export default (state = initState, action) => {
         authenticating: false,
       };
       break;
+      case authConstants.ADMIN_LOGIN_SUCCESS:
+        state = {
+          ...state,
+          adminUser: action.payload.profile,
+          adminToken: action.payload.token,
+          adminAuthenticate: true,
+          adminAuthenticating: false,
+        };
+        break;
     case authConstants.LOGOUT_REQUEST:
       state = {
         ...state,

@@ -88,3 +88,24 @@ export const getHistoryVideoByIdAPI = (id, course_id) =>
   axios.get(
     `/v1/ektaVideo/getHistoryVideoById?id=${id}&course_id=${course_id}`
   );
+export const setAchieveAPI = (object) =>
+  axios.post("/v1/Achievemnts/setAchive?id=1", object);
+export const getAchieveAPI = () => axios.get("/v1/Achievemnts/getAchive");
+export const getAllUserAPI = (page, limit, keyword) =>
+  axios.get(
+    `/v1/user/getAllUsers?page=${page}&limit=${limit}&keyword=${keyword}`
+  );
+export const removePostAPI = (id) =>
+  axios.get(`/v1/post/removePost?status=0&id=${id}`);
+export const createPostAPI = (post) => axios.post(`/v1/post/addPost`, post);
+export const createVideoAPI = (video) =>
+  axios.post(`/v1/ektaVideo/addektaVideo`, video);
+export const removeVideoAPI = (id) =>
+  axios.get(`/v1/ektaVideo/removeektaVideo?id=${id}&status=0`);
+export const getAllCourseAPI = () => axios.get(`/v1/ektaVideo/getAllCourse`);
+export const createHistoryAPI = (video) =>
+  axios.post(`/v1/ektaVideo/createHistory`, video);
+export const createCourseAPI = (video) =>
+  axios.post(`/v1/ektaVideo/createCourse`, video);
+  export const removeCourseAPI = (id) =>
+  axios.get(`/v1/ektaVideo/removeCourseById?id=${id}&status=0`);
