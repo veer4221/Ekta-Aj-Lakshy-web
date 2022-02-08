@@ -66,6 +66,7 @@ const FindJob = () => {
       <Grid
         container
         spacing={3}
+        className="RGBG"
         // className="Rg-bg"
         style={{
           paddingBottom: "100px",

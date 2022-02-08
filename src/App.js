@@ -43,7 +43,29 @@ import WatchScreenForHistory from "./page/Chalchitram/screen/watchScreenForHisto
 import LatestVideoScreen from "./page/Chalchitram/screen/latestVideoScreen/LatestVideoScreen";
 import CategoryVideoScreen from "./page/Chalchitram/screen/categoryVideoScreen/CategoryVideoScreen";
 import HireSelectionPage from "./page/RojgarModule/HireSelectionPage";
-
+import AdminLoginFileRoute from "./page/EktaAdmin/AdminAuth/AdminLoginFileRoute";
+import AdminLoginPage from "./page/EktaAdmin/AdminAuth/AdminLoginPage";
+// import HomeScreenAdmin from "./page/EktaAdmin/screen/homeScreen/HomeScreenAdmin";
+import AchiveScreen from "./page/EktaAdmin/screen/AchiveScreen";
+import EktaAdminRoute from "./page/EktaAdmin/EktaAdminRoute";
+import UserList from "./page/EktaAdmin/screen/User/UserList";
+import CreateUser from "./page/EktaAdmin/screen/User/CreateUser";
+import UpdateUser from "./page/EktaAdmin/screen/User/UpdateUser";
+import PostList from "./page/EktaAdmin/screen/POST/PostList";
+import CreatePost from "./page/EktaAdmin/screen/POST/CreatePost";
+import Selection from "./page/EktaAdmin/screen/ChalChitram/Selection";
+import VideoList from "./page/EktaAdmin/screen/ChalChitram/Video/VideoList";
+import CreateVideo from "./page/EktaAdmin/screen/ChalChitram/Video/CreateVideo";
+import CourseList from "./page/EktaAdmin/screen/ChalChitram/Course/CourseList";
+import CreateCourse from "./page/EktaAdmin/screen/ChalChitram/Course/CreateCourse";
+import EpisodList from "./page/EktaAdmin/screen/ChalChitram/Course/EpisodList";
+import CreateEpisod from "./page/EktaAdmin/screen/ChalChitram/Course/CreateEpisod";
+import HistoryList from "./page/EktaAdmin/screen/ChalChitram/History/HistoryList";
+import CreateHistory from "./page/EktaAdmin/screen/ChalChitram/History/CreateHistory";
+import HEpisodList from "./page/EktaAdmin/screen/ChalChitram/History/HEpisodList";
+import CreateHEpisod from "./page/EktaAdmin/screen/ChalChitram/History/CreateHEpisod";
+import GallaeryList from "./page/EktaAdmin/screen/Gallery/GallaeryList";
+import UploadImages from "./page/EktaAdmin/screen/Gallery/UploadImages";
 
 // import HomePage from "./page/HomePage";
 
@@ -116,7 +138,7 @@ const App = (props) => {
   return (
     <>
       {isLoading ? <Loader /> : ``}
-      <div className="App" >
+      <div className="App">
         <Routes>
           <Route path="/" element={<HomeRoutes />}>
             <Route path="/" element={<HomePage />} />
@@ -156,20 +178,60 @@ const App = (props) => {
           </Route>
           <Route path="/ChalChitram" element={<ChalchitramRoute />}>
             <Route path="/Home" element={<HomeScreen />} />
-            <Route path="/CourseHomeScreen/:id" element={<CourseHomeScreen />} />
-            <Route path="/HistoryHomeScreen/:id" element={<HistoryHomeScreen />} />
+            <Route
+              path="/CourseHomeScreen/:id"
+              element={<CourseHomeScreen />}
+            />
+            <Route
+              path="/HistoryHomeScreen/:id"
+              element={<HistoryHomeScreen />}
+            />
             <Route path="/Shakha" element={<ShakhaScreen />} />
             <Route path="/Syllabus" element={<AbhyasScreen />} />
             <Route path="/importantVideo" element={<HomeScreen />} />
             <Route path="/LatestVideo" element={<LatestVideoScreen />} />
-            <Route path="/category/:category" element={<CategoryVideoScreen />} />
+            <Route
+              path="/category/:category"
+              element={<CategoryVideoScreen />}
+            />
             <Route path="/History" element={<HistoryScreen />} />
             <Route path="/WatchScreen/:id" element={<WatchScreen />} />
-            <Route path="/WatchCourseScreen/:id/:course_id" element={<WatchScreenForCourse />} />
-            <Route path="/WatchHistoryScreen/:id/:history_id" element={<WatchScreenForHistory />} />
+            <Route
+              path="/WatchCourseScreen/:id/:course_id"
+              element={<WatchScreenForCourse />}
+            />
+            <Route
+              path="/WatchHistoryScreen/:id/:history_id"
+              element={<WatchScreenForHistory />}
+            />
             <Route path="/CourseList" element={<CourseListScreen />} />
             <Route path="/HistoryList" element={<HistoryListScreen />} />
             <Route path="/CourseInfoScreen/" element={<CourseInfoScreen />} />
+          </Route>
+          <Route path="/AdminAuth" element={<AdminLoginFileRoute />}>
+            <Route path="/Login" element={<AdminLoginPage />} />
+          </Route>
+          <Route path="/EktaAdmin" element={<EktaAdminRoute />}>
+            <Route path="/Achieve" element={<AchiveScreen />} />
+            <Route path="/UserList" element={<UserList />} />
+            <Route path="/CreateUser" element={<CreateUser />} />
+            <Route path="/UpdateUser" element={<UpdateUser />} />
+            <Route path="/PostList" element={<PostList />} />
+            <Route path="/CreatePost" element={<CreatePost />} />
+            <Route path="/Chalchitram" element={<Selection />} />
+            <Route path="/VideoList" element={<VideoList />} />
+            <Route path="/CreateVideo" element={<CreateVideo />} />
+            <Route path="/CourseList" element={<CourseList />} />
+            <Route path="/HistoryList" element={<HistoryList />} />
+            <Route path="/CreateCourse" element={<CreateCourse />} />
+            <Route path="/CreateHistory" element={<CreateHistory />} />
+            <Route path="/EpisodList/:id" element={<EpisodList />} />
+            <Route path="/HEpisodList/:id" element={<HEpisodList/>} />
+            <Route path="/CreateEpisod/:id/:episod" element={<CreateEpisod />} />
+            <Route path="/CreateHEpisod/:id/:episod" element={<CreateHEpisod />} />
+            <Route path="/GallaeryList" element={<GallaeryList />} />
+            <Route path="/UploadImages" element={<UploadImages />} />
+            
           </Route>
         </Routes>
         {/* <Footer/> */}

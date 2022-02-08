@@ -10,6 +10,7 @@ export const login = (user) => {
     dispatch({ type: authConstants.LOGIN_REQUEST });
     const res = await rojgharLoginAPI(user);
     console.log(res);
+    
     if (res.status === 200 && res.data.success == true) {
       const { token, profile } = res?.data?.data;
       await localStorage.setItem("token", token);
@@ -34,7 +35,40 @@ export const login = (user) => {
     }
   };
 };
+export const AdminLogin = (user) => {
+  console.log(user);
 
+  return async (dispatch) => {
+    dispatch({ type: authConstants.ADMIN_LOGIN_REQUEST });
+    const res = await rojgharLoginAPI(user);
+    console.log(res);
+    
+    if (res.status === 200 && res.data.success == true && res?.data?.data?.profile?.role=="SUPERADMIN") {
+      const { token, profile } = res?.data?.data;
+      localStorage.clear();
+      await localStorage.setItem("adminToken", token);
+      await localStorage.setItem("token", token);
+      await localStorage.setItem("adminUser", JSON.stringify(profile));
+      // popupSucessAndConformationAlert(true, "Welcome to RojgharShakha");
+      dispatch({
+        type: authConstants.ADMIN_LOGIN_SUCCESS,
+        payload: {
+          token,
+          profile,
+        },
+      });
+    } else if (res.status === 200 && res.data.success == false) {
+      popupSucessAndConformationAlert(false, res.data.error);
+    } else {
+      if (res.status === 400) {
+        dispatch({
+          type: authConstants.LOGIN_FAILURE,
+          payload: { error: res.data.data.error },
+        });
+      }
+    }
+  };
+};
 export const isUserLoggedIn = () => {
   return async (dispatch) => {
     const token = localStorage.getItem("token");

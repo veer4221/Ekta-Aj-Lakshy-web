@@ -11,9 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate } from "react-router";
 
-import { login } from "../Redux/Actions/index";
+import { AdminLogin } from "../../../Redux/Actions/auth.action";
 
-import Loader from "./loader/Loader";
+// import Loader from "./loader/Loader";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -28,7 +28,7 @@ const initialValues = {
   email: "",
   password: "",
 };
-const LoginPage = () => {
+const AdminLoginPage = () => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
@@ -36,12 +36,12 @@ const LoginPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const handalSubmit = (e) => {
-    dispatch(login(e));
+    dispatch(AdminLogin(e));
     console.log(e);
   };
-  if (auth.authenticate && localStorage.getItem("token")) {
-    alert(window.location.href)
-    navigate(`/Rojgharmain/FindJob`);
+  if (auth.adminAuthenticate && localStorage.getItem("adminToken")) {
+   
+    navigate(`/ektaAdmin/Achieve`);
   }
   return (
     <>
@@ -51,7 +51,7 @@ const LoginPage = () => {
       >
         <div class="login_name_wrapperL">
           <div class="d-flex justify-content-center rojghar-text ">
-            પ્રવેશ કરો
+           Admin Login
           </div>
         </div>
         <Formik
@@ -84,7 +84,7 @@ const LoginPage = () => {
                       />
                     </div>
                   </div>
-                  <Loader loading={auth.loading} />
+                  {/* <Loader loading={auth.loading} /> */}
                   <div class="d-flex justify-content-center form_containerL">
                     <Form style={{ width: "320px" }}>
                       <div
@@ -167,7 +167,7 @@ const LoginPage = () => {
                     </Form>
                   </div>
 
-                  <div class=" m-3 ourBtn">
+                  {/* <div class=" m-3 ourBtn">
                     <hr style={{ color: "red" }}></hr>
                     <table width="100%" style={{ textAlign: "center" }}>
                       <tr>
@@ -202,7 +202,7 @@ const LoginPage = () => {
                         </td>
                       </tr>
                     </table>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             );
@@ -227,4 +227,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default AdminLoginPage;

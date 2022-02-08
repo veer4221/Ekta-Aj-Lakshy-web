@@ -1,6 +1,6 @@
 import Pagination from "@material-ui/lab/Pagination";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -15,8 +15,10 @@ import Gallery from "react-photo-gallery";
 import { photos } from "./photos.js";
 import Loader from "./loader/Loader";
 import Category from "./Category";
-
+import { getAllImagesAPI } from "../api";
+// https://ekta-ej-laksh-image.s3.us-east-2.amazonaws.com/
 const News = () => {
+  let myRef = useRef()
   const post = useSelector((state) => state.post);
   const dispatch = useDispatch();
   const [page, setPage] = React.useState(1);
@@ -27,6 +29,24 @@ const News = () => {
   const [userRows, setUserRows] = React.useState();
   const [keyword, setKeyword] = React.useState("");
   const [postRows, setPostRows] = React.useState();
+  const [pagenumber, setPageNumber] = React.useState(1);
+  const [galleryData, setgalleryData] = React.useState([]);
+  const [pageG, setPageG] = React.useState(1);
+  const [countG, setCountG] = React.useState();
+  const [limitG, setLimitG] = React.useState(9);
+  const [categoryG, setCategoryG] = React.useState("all");
+  const [onFindBtnClick, setonFindBtnClick] = React.useState(new Date());
+
+  const fatchgalleryData = async () => {
+    const resData = await getAllImagesAPI(categoryG, pageG, limitG, "");
+    console.log("resData", resData.data);
+    setCountG(Math.floor(resData?.data?.count / limitG + 1));
+    setgalleryData(resData?.data?.rows);
+  };
+  useEffect(
+    () => fatchgalleryData(),
+    [pageG, limitG, categoryG, onFindBtnClick]
+  );
   useEffect(() => {
     console.log(post.getAllProduct);
     setCount(Math.floor(post.getAllProduct.count / rowsPerPage + 1));
@@ -42,7 +62,7 @@ const News = () => {
         <div className="container ">
           <div className="row session-title">
             <h2 style={{ fontFamily: "Samarkan", color: "rgb(172, 24, 24)" }}>
-              Post
+              અહેવાલ
             </h2>
           </div>
           <div className="blog-row row">
@@ -59,13 +79,31 @@ const News = () => {
       </section>
 
       <div className="page">
-        <div>
-          <h2 style={{ textAlign: "center" }}> Gallery</h2>
+        <div ref={myRef}>
+          <h2
+            style={{
+              fontFamily: "Samarkan",
+              color: "rgb(172, 24, 24)",
+              textAlign: "center",
+              paddingTop: "30px",
+            }}
+          >
+            ફોટો ગેલેરી
+          </h2>
         </div>
         <div>
-        <Category/>
+          <Category setCategoryG={setCategoryG} />
         </div>
-        <Gallery photos={photos} />
+        <Gallery photos={galleryData} />
+        <br></br>
+        <Pagination
+          count={countG}
+          onChange={(e, value) => {setPageG(value)
+            window.scrollTo({ behavior: 'smooth', top: myRef.current.offsetTop })
+          }}
+          shape="rounded"
+        />
+        <br></br>
       </div>
     </>
   );
