@@ -100,7 +100,7 @@ const Selection = () => {
           <div
             class="card shakhaCard"
             onClick={() => {
-              navigat(`/Rojgharmain/hireform`);
+              navigat(`/EktaAdmin/HistoryList`);
             }}
             style={{
               width: "18rem",

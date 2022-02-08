@@ -107,5 +107,19 @@ export const createHistoryAPI = (video) =>
   axios.post(`/v1/ektaVideo/createHistory`, video);
 export const createCourseAPI = (video) =>
   axios.post(`/v1/ektaVideo/createCourse`, video);
-  export const removeCourseAPI = (id) =>
+export const removeCourseAPI = (id) =>
   axios.get(`/v1/ektaVideo/removeCourseById?id=${id}&status=0`);
+export const removeHistoryAPI = (id) =>
+  axios.get(`/v1/ektaVideo/removeHistoryById?id=${id}&status=0`);
+
+export const getAllImagesAPI = (
+  category = "all",
+  page = 1,
+  limit = 30,
+  keyword
+) =>
+  axios.get(
+    `/v1/gallery/getAllGalleryImages?category=${category}&page=${page}&limit=${limit}&keyword=${keyword}`
+  );
+  export const UploadImagesAPI=(payload) => axios.post(`/v1/gallery/addImages`,payload)
+  export const removeImageAPI=(id)=>axios.get(`/v1/gallery/removeImage?status=0&id=${id}`)

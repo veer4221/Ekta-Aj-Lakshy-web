@@ -60,6 +60,12 @@ import CourseList from "./page/EktaAdmin/screen/ChalChitram/Course/CourseList";
 import CreateCourse from "./page/EktaAdmin/screen/ChalChitram/Course/CreateCourse";
 import EpisodList from "./page/EktaAdmin/screen/ChalChitram/Course/EpisodList";
 import CreateEpisod from "./page/EktaAdmin/screen/ChalChitram/Course/CreateEpisod";
+import HistoryList from "./page/EktaAdmin/screen/ChalChitram/History/HistoryList";
+import CreateHistory from "./page/EktaAdmin/screen/ChalChitram/History/CreateHistory";
+import HEpisodList from "./page/EktaAdmin/screen/ChalChitram/History/HEpisodList";
+import CreateHEpisod from "./page/EktaAdmin/screen/ChalChitram/History/CreateHEpisod";
+import GallaeryList from "./page/EktaAdmin/screen/Gallery/GallaeryList";
+import UploadImages from "./page/EktaAdmin/screen/Gallery/UploadImages";
 
 // import HomePage from "./page/HomePage";
 
@@ -216,9 +222,16 @@ const App = (props) => {
             <Route path="/VideoList" element={<VideoList />} />
             <Route path="/CreateVideo" element={<CreateVideo />} />
             <Route path="/CourseList" element={<CourseList />} />
+            <Route path="/HistoryList" element={<HistoryList />} />
             <Route path="/CreateCourse" element={<CreateCourse />} />
+            <Route path="/CreateHistory" element={<CreateHistory />} />
             <Route path="/EpisodList/:id" element={<EpisodList />} />
+            <Route path="/HEpisodList/:id" element={<HEpisodList/>} />
             <Route path="/CreateEpisod/:id/:episod" element={<CreateEpisod />} />
+            <Route path="/CreateHEpisod/:id/:episod" element={<CreateHEpisod />} />
+            <Route path="/GallaeryList" element={<GallaeryList />} />
+            <Route path="/UploadImages" element={<UploadImages />} />
+            
           </Route>
         </Routes>
         {/* <Footer/> */}

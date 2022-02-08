@@ -16,3 +16,13 @@
     color:white !important;
     opacity: 0.7 !important;
 }
+.RGBG{
+    background-image: url("./rgbg5.png");
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+     background-color: "#16181b";
+
+    background-attachment: fixed;
+    background-position: center;
+
+}

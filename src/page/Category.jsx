@@ -2,28 +2,31 @@ import "./_category.scss";
 
 import React, { useState } from "react";
 const keywords = [
-  "સમગ્ર",
-  "આવેદનપત્ર",
-  "ગૌસેવા",
-  "ગૌરક્ષા",
-  "અબોલ પશુઓની સેવા"
+  {value:"સમગ્ર",enum:"all"},
+  {value:"આવેદનપત્ર",enum:"avedan"},
+  {value:"ગૌસેવા",enum:"gauseva"},
+  {value:"ગૌરક્ષા",enum:"gauraksh"},
+  {value:"અબોલ પશુઓની સેવા",enum:"abolapashu"},
+  {value:"હિન્દુ જાગૃત અભિયાન",enum:"hindujagruti"},
  
 ];
-const Category = () => {
-  const [activeElement, setActiveElement] = useState("All");
+const Category = ({setCategoryG}) => {
+  const [activeElement, setActiveElement] = useState("all");
 
   const handleClick = (value) => {
     setActiveElement(value);
+    setCategoryG(value)
+
   };
   return (
     <div className="categoriesBar">
       {keywords.map((value, i) => (
         <span
-          onClick={() => handleClick(value)}
+          onClick={() => handleClick(value.enum)}
           key={i}
-          className={activeElement === value ? "active" : ""}
+          className={activeElement === value.enum ? "active" : ""}
         >
-          {value}
+          {value?.value}
         </span>
       ))}
     </div>

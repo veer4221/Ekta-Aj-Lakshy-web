@@ -25,9 +25,20 @@ import TablePagination from "@material-ui/core/TablePagination";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
+import { RiVideoFill } from "react-icons/ri";
+
 import withReactContent from "sweetalert2-react-content";
 import "./_table.scss";
-import { getAllPostAPI, getAllUserAPI, removePostAPI, removeVideoAPI } from "../../../../../api";
+import {
+  getAllCourseAPI,
+  getallHistory,
+  getAllPostAPI,
+  getAllUserAPI,
+  removeCourseAPI,
+  removeHistoryAPI,
+  removePostAPI,
+  removeVideoAPI,
+} from "../../../../../api";
 import TextTruncate from "react-text-truncate";
 import { getAllEktaLatestVideoAPI } from "../../../../../api";
 const useStyles = makeStyles((theme) => ({
@@ -53,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     width: 1,
   },
 }));
-const VideoList = () => {
+const HistoryList = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -65,7 +76,6 @@ const VideoList = () => {
   const [viewMore, setViewMore] = React.useState(false);
   const [isChange, setIsChange] = React.useState(new Date());
   const [keyword, setKeyword] = React.useState("");
-  
 
   const handleChange = (event) => {
     setRowsPerPage(event.target.value);
@@ -78,14 +88,16 @@ const VideoList = () => {
   const handleOpen = () => {
     setOpen(true);
   };
+  // getAllCourseAPI
   useEffect(async () => {
-    const data = await getAllEktaLatestVideoAPI(page, rowsPerPage);
+    const data = await getallHistory();
     setUserData(data.data.rows);
     console.log("data", data.data);
     setCount(Math.floor(data.data.count / rowsPerPage + 1));
   }, [page, rowsPerPage, find, isChange]);
+  
   const removeUserFunc = async (id) => {
-    const res = await removeVideoAPI(id);
+    const res = await removeHistoryAPI(id);
     if (res.data.success == true && res.status === 200) setIsChange(new Date());
   };
   return (
@@ -95,7 +107,7 @@ const VideoList = () => {
         <Grid item xs={12}>
           <div style={{ display: "flex" }}>
             <h4 style={{ color: "grey", paddingLeft: "10px", width: "50%" }}>
-            વિડિઓ  લિસ્ટ 
+              ઇતિહાસ લિસ્ટ
             </h4>
             <div
               style={{ textAlign: "right", width: "50%", paddingRight: "10px" }}
@@ -104,17 +116,15 @@ const VideoList = () => {
                 variant="contained"
                 color="primary"
                 onClick={() => {
-                  navigate("/ektaAdmin/createvideo")
-                  
+                  navigate("/ektaAdmin/CreateHistory");
                 }}
               >
-               વિડિઓ ઉમેરો  
+                ઇતિહાસ ઉમેરો
               </Button>
             </div>
           </div>
           <br></br>
           <Divider />
-         
         </Grid>
         <Grid item xs={12} m={1} p={2}>
           <div style={{ padding: "15px" }}>
@@ -126,9 +136,6 @@ const VideoList = () => {
                   </th>
                   <th style={{ textAlign: "center" }} width="30%">
                     Title
-                  </th>
-                  <th style={{ textAlign: "center" }} width="20%">
-                    category
                   </th>
 
                   <th style={{ textAlign: "center" }} width="20%">
@@ -143,13 +150,7 @@ const VideoList = () => {
                       <>
                         <tr>
                           <td style={{ textAlign: "center" }}>{index + 1}</td>
-                          <td>
-                            {data?.video_title}
-                            </td>
-                          <td>
-                            {data?.video_category}
-                           
-                          </td>
+                          <td>{data?.history_title}</td>
 
                           <td>
                             <div
@@ -158,8 +159,9 @@ const VideoList = () => {
                                 justifyContent: "space-around",
                               }}
                             >
-                            
-
+                              <IconButton onClick={() => navigate(`/ektaAdmin/HEpisodList/${data.id}`)}>
+                                <RiVideoFill size={23} color="red"/>
+                              </IconButton>
                               <IconButton
                                 onClick={(e) => removeUserFunc(data.id)}
                               >
@@ -175,7 +177,7 @@ const VideoList = () => {
             </table>
           </div>
         </Grid>
-        <Grid item xs={6} m={1} p={2} style={{ margin: "10px" }}>
+        {/* <Grid item xs={6} m={1} p={2} style={{ margin: "10px" }}>
           <FormControl
             style={{
               minWidth: 250,
@@ -212,11 +214,11 @@ const VideoList = () => {
             shape="rounded"
             onChange={(e, value) => setPage(value)}
           />
-        </Grid>
+        </Grid> */}
       </Grid>
       {/* </Paper> */}
     </div>
   );
 };
 
-export default VideoList;
+export default HistoryList;

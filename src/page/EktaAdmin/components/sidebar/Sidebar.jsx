@@ -50,7 +50,7 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
         <HiDocumentReport size={23} />
         <span>અહેવાલ</span>
       </li>
-      <li onClick={() => navigate(`/ektaAdmin/PostList`)}>
+      <li onClick={() => navigate(`/ektaAdmin/GallaeryList`)}>
         <BsImages size={23} />
         <span>ગેલેરી </span>
       </li>
