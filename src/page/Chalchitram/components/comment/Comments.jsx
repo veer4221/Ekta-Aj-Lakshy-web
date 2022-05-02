@@ -22,9 +22,7 @@ const Comments = () => {
             </form>
          </div>
          <div className='comments__list'>
-            {/* {[...Array(15)].map(() => (
-               <Comment />
-            ))} */}
+          
          </div>
       </div>
    )

@@ -66,6 +66,9 @@ import HEpisodList from "./page/EktaAdmin/screen/ChalChitram/History/HEpisodList
 import CreateHEpisod from "./page/EktaAdmin/screen/ChalChitram/History/CreateHEpisod";
 import GallaeryList from "./page/EktaAdmin/screen/Gallery/GallaeryList";
 import UploadImages from "./page/EktaAdmin/screen/Gallery/UploadImages";
+import AddUser from "./page/EktaAdmin/screen/User/USER/AddUser";
+import UploadIcard from "./page/EktaAdmin/screen/User/USER/UploadIcard";
+import AddRojgarInfo from "./page/EktaAdmin/screen/User/USER/AddRojgarInfo";
 
 // import HomePage from "./page/HomePage";
 
@@ -231,6 +234,9 @@ const App = (props) => {
             <Route path="/CreateHEpisod/:id/:episod" element={<CreateHEpisod />} />
             <Route path="/GallaeryList" element={<GallaeryList />} />
             <Route path="/UploadImages" element={<UploadImages />} />
+            <Route path="/AddUser" element={<AddUser/>} />
+            <Route path="/UploadIcard/:id" element={<UploadIcard/>} />
+            <Route path="/UploadBusiness/:id" element={<AddRojgarInfo/>} />
             
           </Route>
         </Routes>

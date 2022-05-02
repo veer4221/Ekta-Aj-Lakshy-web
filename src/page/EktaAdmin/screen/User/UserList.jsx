@@ -18,7 +18,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Pagination from "@material-ui/lab/Pagination";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
-import { Redirect } from "react-router";
+import { Redirect, useNavigate } from "react-router";
 import Select from "@material-ui/core/Select";
 import Swal from "sweetalert2";
 import TablePagination from "@material-ui/core/TablePagination";
@@ -28,6 +28,8 @@ import { useHistory } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 import "./_table.scss";
 import { getAllUserAPI } from "../../../../api";
+import { MdWork } from "react-icons/md";
+import { IoLogoWhatsapp } from "react-icons/io";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -53,6 +55,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 const UserList = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [page, setPage] = React.useState(1);
   const [open, setOpen] = React.useState(false);
@@ -96,7 +100,7 @@ const UserList = () => {
                 variant="contained"
                 color="primary"
                 onClick={() => {
-                  console.log(`clicked`);
+                  navigate(`/ektaAdmin/AddUser`);
                 }}
               >
                 Create User
@@ -112,7 +116,12 @@ const UserList = () => {
               label="Search"
               onChange={(e) => setKeyword(e.target.value)}
             />
-            <button className="btn btn-primary"onClick={(e) => setfind(new Date())}>Find</button>
+            <button
+              className="btn btn-primary"
+              onClick={(e) => setfind(new Date())}
+            >
+              Find
+            </button>
           </div>
         </Grid>
         <Grid item xs={12} m={1} p={2}>
@@ -170,26 +179,37 @@ const UserList = () => {
                               >
                                 <VisibilityIcon style={{ color: "black" }} />
                               </IconButton>
-                              <IconButton
-                              // onClick={() => {
-                              //   localStorage.setItem('UserEditId', data.id)
-                              //   history.push('/User/EditUser')
-                              // }}
-                              >
-                                <CreateIcon style={{ color: "blue" }} />
-                              </IconButton>
+
                               <IconButton
                               //    onClick={(e) => removeUserFunc(data.id)}
                               >
                                 <DeleteForeverIcon style={{ color: "red" }} />
                               </IconButton>
                               <IconButton
-                              // onClick={() => {
-                              //   localStorage.setItem('userIdForIcard', data.id)
-                              //   history.push('/User/uploadIcard')
-                              // }}
+                                onClick={() => {
+                                  navigate(`/ektaAdmin/uploadicard/${data.id}`);
+                                }}
                               >
                                 <DraftsIcon style={{ color: "blue" }} />
+                              </IconButton>
+                              {data?.isRojgharAdd=="0" && (
+                                <IconButton
+                                  onClick={() => {
+                                    navigate(
+                                      `/ektaAdmin/UploadBusiness/${data.id}`
+                                    );
+                                  }}
+                                >
+                                  <MdWork style={{ color: "blue" }} />
+                                </IconButton>
+                              )}
+                              <IconButton
+                              // onClick={() => {
+                              //   localStorage.setItem('UserEditId', data.id)
+                              //   history.push('/User/EditUser')
+                              // }}
+                              >
+                                <IoLogoWhatsapp style={{ color: "#00a884" }} />
                               </IconButton>
                             </div>
                           </td>

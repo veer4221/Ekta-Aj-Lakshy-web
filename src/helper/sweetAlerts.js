@@ -45,3 +45,4 @@ export async function popupDeleteConformationAlert(message) {
     return permission.isConfirmed;
   }
 }
+export const fileDownloader = (url) => window.open(url, "_blank");

@@ -74,7 +74,7 @@ export const getVideoByIdAPI = (id) =>
 export const getallCoures = () => axios.get(`/v1/ektaVideo/getAllCourse`);
 export const getallHistory = () => axios.get(`/v1/ektaVideo/getAllHistory`);
 
-export const getCourseVideoesAPI = (id, page, limit) =>
+export const getCourseVideoesAPI = (id, page="", limit="") =>
   axios.get(
     `/v1/ektaVideo/getCourseVideo?page=${page}&limit=${limit}&id=${id}`
   );
@@ -123,3 +123,6 @@ export const getAllImagesAPI = (
   );
   export const UploadImagesAPI=(payload) => axios.post(`/v1/gallery/addImages`,payload)
   export const removeImageAPI=(id)=>axios.get(`/v1/gallery/removeImage?status=0&id=${id}`)
+export const uploadIcardAPI = (obj) => axios.post(`/v1/user/icardUpload`, obj);
+export const addbusinessAPI = (obj) => axios.post(`/v1/business/addbusiness`, obj);
+

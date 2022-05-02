@@ -61,7 +61,7 @@ export default (state = initState, action) => {
       case userContants.CHECK_USER_STATUS_REQUEST:
         state = {
           ...state,
-          loading: true,
+         
           
         };
         break;

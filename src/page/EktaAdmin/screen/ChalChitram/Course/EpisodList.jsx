@@ -94,7 +94,7 @@ const EpisodList = () => {
   // getAllCourseAPI
   useEffect(async () => {
     console.log("params",params)
-    const data = await getCourseVideoesAPI(params.id);
+    const data = await getCourseVideoesAPI(params.id,"","");
     setUserData(data.data?.rows[0]?.ektaVideos);
     setCourseName(data.data?.rows[0]?.course_title)
     console.log("data", data.data);
@@ -159,7 +159,7 @@ const EpisodList = () => {
               </thead>
               <tbody>
                 {userData &&
-                  userData.slice(0, rowsPerPage).map((data, index) => {
+                  userData.map((data, index) => {
                     return (
                       <>
                         <tr>

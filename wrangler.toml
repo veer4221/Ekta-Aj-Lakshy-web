@@ -1,0 +1,14 @@
+
+name = "ektaejlakshw"
+type = "webpack"
+account_id = "c44ed9cfa0243de09e9fc19d2168447f"
+workers_dev = true
+route = "ektaejlaksh.com/"
+zone_id = "027c0d3190cffbf8c1472521f61d39df"
+compatibility_flags = []
+
+site = {bucket = "./build",entry-point = "workers-site"}
+compatibility_date = "2022-03-19"
+vars = { ENVIRONMENT = "production" }
+
+

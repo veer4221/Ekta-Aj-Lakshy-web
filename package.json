@@ -29,6 +29,7 @@
     "numeral": "^2.0.6",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
+    "react-datepicker": "^4.6.0",
     "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.2",
     "react-floating-button": "^1.1.1",

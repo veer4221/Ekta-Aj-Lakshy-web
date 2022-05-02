@@ -160,7 +160,7 @@ const HEpisodList = () => {
               </thead>
               <tbody>
                 {userData &&
-                  userData.slice(0, rowsPerPage).map((data, index) => {
+                  userData.map((data, index) => {
                     return (
                       <>
                         <tr>

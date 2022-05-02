@@ -18,27 +18,8 @@ const imageData = [
   {
     imageUrl: `assets/images/events/image_01.jpg`,
   },
-  {
-    imageUrl: `assets/images/events/image_02.jpg`,
-  },
-  {
-    imageUrl: `assets/images/events/image_03.jpg`,
-  },
-  {
-    imageUrl: `assets/images/events/image_04.jpg`,
-  },
-  {
-    imageUrl: `assets/images/events/image_05.jpg`,
-  },
-  {
-    imageUrl: `assets/images/events/image_06.jpg`,
-  },
-  {
-    imageUrl: `assets/images/events/image_07.jpg`,
-  },
-  {
-    imageUrl: `assets/images/events/image_08.jpg`,
-  },
+
+  
 ];
 
 const GalleryImages = () => {

@@ -16,7 +16,9 @@ import { login } from "../Redux/Actions/index";
 import Loader from "./loader/Loader";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import "./loginStyle.scss"
+import Suchna from "../components/layout/Header/Suchna";
+import PopUpRojghar from "../components/RojgharTab/PopUpRojghar";
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Must be a valid email")
@@ -35,6 +37,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [open, setOpen] = React.useState(true);
+
   const handalSubmit = (e) => {
     dispatch(login(e));
     console.log(e);
@@ -45,9 +49,11 @@ const LoginPage = () => {
   }
   return (
     <>
+    <Suchna setOpen={setOpen} />
+    <PopUpRojghar setOpen={setOpen} open={open}/>
       <div
-        class="container-fluid"
-        style={{ height: "100vh", width: "100%",backgroundColor: "#16181b" }}
+        class="container-fluid loginBg"
+        style={{ height: "100vh", width: "100%", backgroundColor: "#16181b" }}
       >
         <div class="login_name_wrapperL">
           <div class="d-flex justify-content-center rojghar-text ">
@@ -58,7 +64,7 @@ const LoginPage = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={handalSubmit}
-          onValidationError={(errorValues) => {}}
+          onValidationError={(errorValues) => { }}
           enableReinitialize
         >
           {({
@@ -72,11 +78,13 @@ const LoginPage = () => {
             setTouched,
           }) => {
             return (
+            
+          
               <div class="d-flex justify-content-center h-50">
                 <div class="user_cardL">
                   <div class="d-flex justify-content-center">
                     <div class="login_logo_containerL">
-                     
+
                       <img
                         src={`assets/images/logo512.png`}
                         class="login_logo"
@@ -155,11 +163,12 @@ const LoginPage = () => {
                         />
                       </div>
 
-                      <div class="d-flex justify-content-center mt-3 login_containerL ourBtn">
+                      <div class="d-flex justify-content-center mt-3 login_containerL ">
                         <button
                           type="submit"
                           name="button"
-                          class="btn login_btnL"
+                          style={{ backgroundColor: "#0f2649" }}
+                          class="btn btn-primary"
                         >
                           પ્રવેશ કરો
                         </button>
@@ -168,10 +177,30 @@ const LoginPage = () => {
                   </div>
 
                   <div class=" m-3 ourBtn">
-                    <hr style={{ color: "red" }}></hr>
-                    <table width="100%" style={{ textAlign: "center" }}>
+                    <hr style={{ color: "white" }}></hr>
+                    <div class="d-flex justify-content-around">
+                      <Button className="btn btn-primary m-2"
+                        // style={{ }}
+                        style={{ color: "white", width: "50%", backgroundColor: "#0f2649" }}
+                        onClick={() => {
+                          navigate(`/`);
+                        }}
+                      >
+                        પાછા જાઓ
+                      </Button>
+                      <Button className="btn btn-primary m-2"
+                        style={{ color: "white", width: "50%", backgroundColor: "#0f2649" }}
+                        onClick={() => {
+                          navigate(`/ContectUs`);
+                        }}
+                      >
+                        જોડાઓ
+                      </Button>
+                      <Button className="btn btn-primary m-2" style={{ color: "white", width: "50%", backgroundColor: "#0f2649" }}> દાન કરો</Button>
+                    </div>
+                    {/* <table width="100%" style={{ textAlign: "center" }}>
                       <tr>
-                        <td width="33%" className="ourBtn">
+                        <td width="33%" className="btn text-white">
                           <Button
                             style={{ width: "90%" }}
                             onClick={() => {
@@ -181,7 +210,7 @@ const LoginPage = () => {
                             પાછા જાઓ
                           </Button>
                         </td>
-                        <td width="33%" className="ourBtn">
+                        <td width="33%" className="btn text-white">
                           <Button
                             style={{ width: "90%" }}
                             onClick={() => {
@@ -193,7 +222,7 @@ const LoginPage = () => {
                         </td>
                         <td
                           width="33%"
-                          className="ourBtn"
+                          className="btn text-white"
                           onClick={() => {
                             navigate(`/DonateUs`);
                           }}
@@ -201,7 +230,7 @@ const LoginPage = () => {
                           <Button style={{ width: "90%" }}> દાન કરો</Button>
                         </td>
                       </tr>
-                    </table>
+                    </table> */}
                   </div>
                 </div>
               </div>

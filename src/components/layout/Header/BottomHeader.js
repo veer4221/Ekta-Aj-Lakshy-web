@@ -37,7 +37,7 @@ const BottomHeader = () => {
                     stype={{padding:"8px"}}
 
                     className="nav-link"
-                    stype={{padding:"8px"}}
+                    // stype={{padding:"8px"}}
                     onClick={() => {
                       navigate("/");
                     }}
