@@ -32,7 +32,8 @@ import { string } from "yup/lib/locale";
 import { useState } from "react";
 
 import withReactContent from "sweetalert2-react-content";
-
+import gpayQR from "./image/gogglepay.PNG"
+import PpayQR from "./image/phonepay.PNG"
 import { convertBase64 } from "../../helper/base64Converter";
 import {
   addUserAction,
@@ -103,6 +104,7 @@ const useStyles = makeStyles((theme) => ({
 //     whatsAppNumber,
 //     pinCode,
 const validationSchema = yup.object({
+  // pimg: yup.string.required(),
   sarname: yup.string().required("sarname is Required!"),
   fatherName: yup.string().required("fathername is Required!"),
   bloodGroup: yup.string().required("bloodGroup is Required!"),
@@ -132,10 +134,7 @@ const validationSchema = yup.object({
 
   password: yup
     .string()
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-    )
+    .min(8, "enter 8 digit password")
     .required("Password is Required!"),
   gender: yup.string().required("Gender is Required!"),
   marrage: yup.string().required("mrg Status is Required!"),
@@ -162,6 +161,7 @@ export default function JoinWithUs() {
   const [cpassword, setCpassword] = useState();
   const [image, setImage] = useState();
   const [docImage, setDocImage] = useState();
+  const [Pimg, setPimg] = useState();
   const [totalFamilyMembers, setTotalFamilyMembers] = useState();
   const [husbandName, setHusbandName] = useState();
   const [study, setStudy] = useState();
@@ -201,6 +201,14 @@ export default function JoinWithUs() {
     const base64 = await convertBase64(file);
     console.log(base64, "bsae");
     setDocImage(base64);
+  };
+  const uploadPimg = async (e) => {
+    console.log(e.target.files);
+    const file = e.target.files[0];
+    console.log(file);
+    const base64 = await convertBase64(file);
+    console.log(base64, "bsae");
+    setPimg(base64);
   };
   if (user.message == "User CREATED") {
     Swal.fire("Good job!", "You clicked the button!", "success");
@@ -270,7 +278,7 @@ export default function JoinWithUs() {
           }}
         >
           <form onSubmit={verifyMeFunc}>
-            <lebel>Email</lebel>
+            <lebel>ઇ-મેલ</lebel>
             <input
               style={{ background: "#e4ebea" }}
               value={email}
@@ -281,7 +289,7 @@ export default function JoinWithUs() {
             />
             <div>
               <button className="btn btn-primary" type="submit">
-                Verify
+                ચકાસો
               </button>
             </div>
           </form>
@@ -329,6 +337,7 @@ export default function JoinWithUs() {
                 business: "",
                 businessAddress: "",
                 docImage: "",
+                pimg: ""
               }}
               onSubmit={(values) => {
                 const data = {
@@ -344,6 +353,7 @@ export default function JoinWithUs() {
                   image: image,
                   email: email,
                   docImage: docImage,
+                  pimg: Pimg,
                   totalFamilyMembers: parseInt(values.totalFamilyMembers),
                   husbandName: values.husbandName,
                   study: values.study,
@@ -380,7 +390,7 @@ export default function JoinWithUs() {
                   <Form>
                     <div class="form-row">
                       <div class="form-group col-md-4">
-                        <lebel>Sarname</lebel>
+                        <lebel>અટક </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -401,7 +411,7 @@ export default function JoinWithUs() {
                 /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <lebel>First name</lebel>
+                        <lebel>નામ </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -422,7 +432,7 @@ export default function JoinWithUs() {
                 /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <lebel>Father name</lebel>
+                        <lebel>પિતાનું નામ </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -445,7 +455,7 @@ export default function JoinWithUs() {
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-4">
-                        <lebel>Mother name</lebel>
+                        <lebel>માતા નું નામ </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -466,7 +476,7 @@ export default function JoinWithUs() {
                 /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <lebel> Business</lebel>
+                        <lebel> વ્યવસાય </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -487,7 +497,7 @@ export default function JoinWithUs() {
                 /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <lebel>BusinessAddress</lebel>
+                        <lebel>વ્યવસાય નું સરનામું </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -508,7 +518,7 @@ export default function JoinWithUs() {
                 /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <lebel>Password</lebel>
+                        <lebel>પાસવર્ડ </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -530,7 +540,7 @@ export default function JoinWithUs() {
                       </div>
 
                       <div class="form-group col-md-4">
-                        <label for="bloodGroup">Choose bloodGroup:</label>
+                        <label for="bloodGroup"> રુધિર જૂથ :</label>
                         {/* <Field
                         style={{background:"#e4ebea"}} className="form-control" name="motherName" className="form-control" placeholder="motherName" type="text" />
                     <KErrorMessage name="motherName" /> */}
@@ -568,12 +578,12 @@ export default function JoinWithUs() {
                           <tr>
                             <th colspan="2">
                               <label for="bloodGroup">BirthDate</label>
-                              <lable>Gender:</lable>
+                              <lable>જાતિ :</lable>
                             </th>
                           </tr>
                           <tr>
                             <td>
-                              <label>Male:</label>
+                              <label>પુરુષ :</label>
                               <Field
                                 style={{ background: "#e4ebea" }}
                                 name="gender"
@@ -582,7 +592,7 @@ export default function JoinWithUs() {
                               />
                             </td>
                             <td>
-                              <label>Female:</label>
+                              <label>મહિલા :</label>
                               <Field
                                 style={{ background: "#e4ebea" }}
                                 name="gender"
@@ -600,12 +610,12 @@ export default function JoinWithUs() {
                         <table width="100%">
                           <tr>
                             <th colspan="2">
-                              <lable>Marrage Status</lable>
+                              <lable>લગ્નની અંગે ની માહિતી </lable>
                             </th>
                           </tr>
                           <tr>
                             <td>
-                              <label>marrid:</label>
+                              <label>પરણિત :</label>
 
                               <Field
                                 style={{ background: "#e4ebea" }}
@@ -615,7 +625,7 @@ export default function JoinWithUs() {
                               />
                             </td>
                             <td>
-                              <label>unMarrid:</label>
+                              <label>અપરણિત :</label>
                               <Field
                                 style={{ background: "#e4ebea" }}
                                 name="marrage"
@@ -631,7 +641,7 @@ export default function JoinWithUs() {
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-4">
-                        <label for="bloodGroup">BirthDate</label>
+                        <label for="bloodGroup"> જન્મતારીખ </label>
 
                         {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <DatePicker
@@ -652,7 +662,7 @@ export default function JoinWithUs() {
                       </div>
                       {values.gender == "female" && values.marrage == "1" ? (
                         <div class="form-group col-md-4">
-                          <lebel>Husband Name</lebel>
+                          <lebel>પતિ નું નામ </lebel>
                           <Field
                             style={{ background: "#e4ebea" }}
                             className="form-control"
@@ -676,7 +686,7 @@ export default function JoinWithUs() {
                         ``
                       )}
                       <div class="form-group col-md-4">
-                        <lebel> Total Family Members </lebel>
+                        <lebel>કુટુંબના કુલ સભ્યો </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -699,7 +709,7 @@ export default function JoinWithUs() {
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-4">
-                        <lebel> Study </lebel>
+                        <lebel> અભ્યાસ </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -720,7 +730,7 @@ export default function JoinWithUs() {
                     /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <lebel> Mobile Number </lebel>
+                        <lebel> મોબાઇલ નંબર </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -741,7 +751,7 @@ export default function JoinWithUs() {
                     /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <lebel> whatsapp Number </lebel>
+                        <lebel> વોટ્સએપ નંબર </lebel>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -765,7 +775,7 @@ export default function JoinWithUs() {
                     <div class="form-row">
                       <div class="form-group col-md-4">
                         <label class="form-label" for="form6Example1">
-                          State
+                          રાજ્ય
                         </label>
                         <Field
                           style={{ background: "#e4ebea" }}
@@ -804,7 +814,7 @@ export default function JoinWithUs() {
                       </div>
                       <div class="form-group col-md-4">
                         <label class="form-label" for="form6Example1">
-                          Dist
+                          જિલ્લો
                         </label>
                         <Field
                           style={{ background: "#e4ebea" }}
@@ -838,7 +848,7 @@ export default function JoinWithUs() {
 
                       <div class="form-group col-md-4">
                         <label class="form-label" for="form6Example1">
-                          city
+                          શહેર
                         </label>
                         <Field
                           style={{ background: "#e4ebea" }}
@@ -873,7 +883,7 @@ export default function JoinWithUs() {
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-4">
-                        <label> Pin Code:</label>
+                        <label>પીન કોડ:</label>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -894,7 +904,7 @@ export default function JoinWithUs() {
                     /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <label> Address:</label>
+                        <label> સરનામું:</label>
                         <Field
                           style={{ background: "#e4ebea" }}
                           className="form-control"
@@ -916,7 +926,7 @@ export default function JoinWithUs() {
                     /> */}
                       </div>
                       <div class="form-group col-md-4">
-                        <label> Profile Image:</label>
+                        <label> પ્રોફાઇલ છબી:</label>
                         <div class="custom-file">
                           <input
                             onChange={(e) => {
@@ -935,7 +945,7 @@ export default function JoinWithUs() {
                         </div>
                       </div>
                       <div class="form-group col-md-4">
-                        <label> Profile Document:</label>
+                        <label> પ્રોફાઇલ દસ્તાવેજ(Document):</label>
                         <div class="custom-file">
                           <input
                             onChange={(e) => {
@@ -953,7 +963,62 @@ export default function JoinWithUs() {
                           <KErrorMessage name="image" />
                         </div>
                       </div>
+                      <div class="form-group col-md-4">
+                        <label>ચુકવણી સ્ક્રીનશૉટ:</label>
+                        <div class="custom-file">
+                          <input
+                            onChange={(e) => {
+                              setFieldValue("pimg", e.target.files[0]);
+
+                              uploadPimg(e);
+                            }}
+                            type="file"
+                            class="custom-file-input"
+                            id="customFile"
+                          />
+                          <label class="custom-file-label" for="customFile">
+                            Choose file
+                          </label>
+                          <KErrorMessage name="image" />
+                        </div>
+                      </div>
                     </div>
+                    <div className="container-fluid">
+                      <div className="row">
+                        <div className="col-12" >
+                          <hr />
+                          <h5>જય શ્રીરામ આઈ કાર્ડ અને અન્ય ડોક્યુમેન્ટ ની પ્રક્રિયા માટે રૂપિયા  200 ની રાશિ નીચેના QR  code  દ્વારા જમા કરાવી ને સ્ક્રીન શોર્ટ અપલોડ કરવો </h5>
+                          <hr />
+
+                        </div>
+
+                      </div>
+
+                      <div className="row">
+                        <div className="col-md-4 col-sm-12 col-xs-12 col-xl-4" >
+                          <img src={gpayQR} width="300px" height="350px" />
+                        </div>
+                        <div className="col-md-4 col-sm-12 col-xs-12 col-xl-4" >
+                          <img src={PpayQR} width="300px" height="350px" />
+                        </div>
+                        <div className="col-md-4 col-sm-12 col-xs-12 col-xl-4" >
+
+
+                          <img src={Pimg} width="300px" height="300px" />
+
+                        </div>
+
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-12" >
+                        <hr />
+
+
+                      </div>
+
+                    </div>
+
                     <div class="form-row">
                       <div
                         class="form-group col-md-6 ourBtn d-flex "
@@ -967,6 +1032,7 @@ export default function JoinWithUs() {
                       >
                         <img src={docImage} width="150px" height="150px" />
                       </div>
+
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-12 ">
@@ -986,7 +1052,7 @@ export default function JoinWithUs() {
         !user.userState.payment &&
         user.userState.record && (
           <Grid className="px-3" item xs={12} sm={12}>
-            <PaymentForm />
+           ધન્યવાદ અમે જલ્દી થી જલ્દી તમારો કોન્ટેક્ટ કરીશું 
           </Grid>
         )}
 

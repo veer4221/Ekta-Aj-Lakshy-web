@@ -69,7 +69,8 @@ import UploadImages from "./page/EktaAdmin/screen/Gallery/UploadImages";
 import AddUser from "./page/EktaAdmin/screen/User/USER/AddUser";
 import UploadIcard from "./page/EktaAdmin/screen/User/USER/UploadIcard";
 import AddRojgarInfo from "./page/EktaAdmin/screen/User/USER/AddRojgarInfo";
-
+import KhidkiRoute from "./page/textEdit/AdminAuth/KhidkiRoute";
+import khidkiPage from "./page/textEdit/AdminAuth/khidkiPage"
 // import HomePage from "./page/HomePage";
 
 const Loadable = (Component) => (props) =>
@@ -238,6 +239,9 @@ const App = (props) => {
             <Route path="/UploadIcard/:id" element={<UploadIcard/>} />
             <Route path="/UploadBusiness/:id" element={<AddRojgarInfo/>} />
             
+          </Route>
+          <Route path="/khidki" element={<KhidkiRoute />}>
+
           </Route>
         </Routes>
         {/* <Footer/> */}
