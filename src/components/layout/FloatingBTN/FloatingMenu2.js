@@ -23,6 +23,9 @@ import "../../../style/FlotingBTN.css";
 
 import Drowerview from "./Drowerview";
 import "./flotingbtn.css";
+import NavigateMenu from "./NavigateMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { navigatePopUpOnOff } from "../../../Redux/Actions/auth.action";
 
 // import WorkIcon from "@mui/icons-material/Work";
 
@@ -56,28 +59,33 @@ const actions = [
 export default function FloatingMenu2() {
   const navigate = useNavigate();
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const navigatePopUp = useSelector((state) => state?.auth?.navigatePopUp);
+  const dispatch = useDispatch();
+  const [open, setOpen] = React.useState(true);
 
   const handleClose = () => {
     setOpen(false);
   };
 
   const handleOpen = () => {
-    setOpen(true);
+    console.log("open")
+    dispatch(navigatePopUpOnOff(true))
   };
 
-  return (
-    <div className="floatIcons">
+  return (<>
+    {navigatePopUp && <NavigateMenu />}
+    <div className="floatIcons" onClick={handleOpen}>
+
       <SpeedDial
         ariaLabel="SpeedDial example"
-        className={classes.button}
+        // className={classes.button}
         icon={<AppsIcon />}
-        onClose={handleClose}
-        onOpen={handleOpen}
-        open={open}
-        direction="up"
+      // onClose={handleClose}
+      // onOpen={handleOpen}
+      // open={open}
+      // direction="up"
       >
-        {actions.map((action) => (
+        {/* {actions.map((action) => (
           <SpeedDialAction
             key={action.name}
             className={classes.button}
@@ -90,8 +98,8 @@ export default function FloatingMenu2() {
               navigate(action.route);
             }}
           />
-        ))}
+        ))} */}
       </SpeedDial>
-    </div>
+    </div ></>
   );
 }

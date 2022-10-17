@@ -57,8 +57,8 @@ const KhidkiRoute = () => {
                 <label class="form-label" for="label">Password : </label>
                 <input type="password" className="form-control" value={password} onChange={(e) => setpassword(e.target.value)} />
                 <button className="btn d-flex justify-content-end " style={{ backgroundColor: "#06561fb5", color: "white", border: "2px solid black" }} onClick={() => {
-                    if (password.trim() == "pv1003" && userId.trim() == "jiv") {
-                        popupSucessAndConformationAlert(true, "wolcome jiv 😃 ");
+                    if (password.trim() == "4221" && userId.trim() == "veeru") {
+                        popupSucessAndConformationAlert(true, "welcome veeru 😃 ");
                         return setpermission(true)
                     }
                     return popupSucessAndConformationAlert(false, "password ane userid sachanakho 😃 ");

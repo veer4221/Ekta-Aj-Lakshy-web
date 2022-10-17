@@ -8,21 +8,21 @@ const karykartaInformation = [
     name: `હિન્દુ ભગીરથ સિંહ રાઠોડ `,
     position: ` એકતા એજ લક્ષ્ય સંગઠન સંસ્થાપક`,
   },
-  {
-    imageUrl: `assets/images/team/team-memb6.jpg`,
-    name: `હિન્દુ જયભાઈ    પટેલ `,
-    position: `ગુજરાત ઉપાધ્યક્ષ `,
-  },
-  {
-    imageUrl: `assets/images/team/team-memb2.jpg`,
-    name: `હિન્દુ નીતિનભાઈ પટેલ `,
-    position: `રોજગાર શાખા પ્રમુખ ગુજરાત પ્રદેશ`,
-  },
-  {
-    imageUrl: `assets/images/team/team-memb3.jpg`,
-    name: `હિન્દુ જ્વાલાસિંહ રાઠોડ `,
-    position: `આઈ ટી સેલ શાખા ગુજરાત પ્રદેશ પ્રમુખ `,
-  },
+  // {
+  //   imageUrl: `assets/images/team/team-memb6.jpg`,
+  //   name: `હિન્દુ જયભાઈ    પટેલ `,
+  //   position: `ગુજરાત ઉપાધ્યક્ષ `,
+  // },
+  // {
+  //   imageUrl: `assets/images/team/team-memb2.jpg`,
+  //   name: `હિન્દુ નીતિનભાઈ પટેલ `,
+  //   position: `રોજગાર શાખા પ્રમુખ ગુજરાત પ્રદેશ`,
+  // },
+  // {
+  //   imageUrl: `assets/images/team/team-memb3.jpg`,
+  //   name: `હિન્દુ જ્વાલાસિંહ રાઠોડ `,
+  //   position: `આઈ ટી સેલ શાખા ગુજરાત પ્રદેશ પ્રમુખ `,
+  // },
 ];
 const KaryKarta = () => {
   return (

@@ -10,7 +10,7 @@ export const login = (user) => {
     dispatch({ type: authConstants.LOGIN_REQUEST });
     const res = await rojgharLoginAPI(user);
     console.log(res);
-    
+
     if (res.status === 200 && res.data.success == true) {
       const { token, profile } = res?.data?.data;
       await localStorage.setItem("token", token);
@@ -42,8 +42,8 @@ export const AdminLogin = (user) => {
     dispatch({ type: authConstants.ADMIN_LOGIN_REQUEST });
     const res = await rojgharLoginAPI(user);
     console.log(res);
-    
-    if (res.status === 200 && res.data.success == true && res?.data?.data?.profile?.role=="SUPERADMIN") {
+
+    if (res.status === 200 && res.data.success == true && res?.data?.data?.profile?.role == "SUPERADMIN") {
       const { token, profile } = res?.data?.data;
       localStorage.clear();
       await localStorage.setItem("adminToken", token);
@@ -99,5 +99,18 @@ export const signout = () => {
 
     dispatch({ type: authConstants.LOGOUT_SUCCESS });
     // window.location.href="/#/auth/login"
+  };
+};
+
+export const navigatePopUpOnOff = (reaction) => {
+  return async (dispatch) => {
+    try {
+
+      dispatch({ type: authConstants.NAVIGATE_POPUP_OPEN_CLOSE, payload: reaction });
+      console.log("reaction", reaction)
+    } catch (error) {
+      console.log("error", error)
+    }
+
   };
 };

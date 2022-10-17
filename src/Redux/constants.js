@@ -60,6 +60,9 @@ export const authConstants = {
   LOGOUT_REQUEST: "LOGOUT_REQUEST",
   LOGOUT_SUCCESS: "LOGOUT_SUCCESS",
   LOGOUT_FAILURE: "LOGOUT_FAILURE",
+
+  NAVIGATE_POPUP_OPEN_CLOSE: "NAVIGATE_POPUP_OPEN_CLOSE",
+
 };
 
 export const placeConstants = {
